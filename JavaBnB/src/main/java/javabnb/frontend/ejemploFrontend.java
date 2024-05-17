@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+// Version: 1.0
 package javabnb.frontend;
 
 /**
@@ -11,9 +8,6 @@ package javabnb.frontend;
 public class ejemploFrontend {
     //
     /**
-     * 
-     * 
-     * 
      * 
      */
     
