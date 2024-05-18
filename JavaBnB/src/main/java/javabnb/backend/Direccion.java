@@ -8,24 +8,27 @@ public class Direccion {
     
     private String calle;
     private int numero;
+    private String detallesDireccion;
     private int codigoPostal;
     private String ciudad;
     private String provincia;
     private String pais;
 
     /**
-     * Constructor de la clase direccion, se deben de introducir los datos de calle, numero, codigo postal, ciudad, provincia y pais
+     * Constructor de la clase direccion, se deben de introducir los datos de calle, numero, detalles de direccion, codigo postal, ciudad, provincia y pais
      *
-     * @param calle
-     * @param numero
-     * @param codigoPostal
-     * @param ciudad 
-     * @param provincia
-     * @param pais
+     * @param calle String
+     * @param numero int
+     * @param detallesDireccion String
+     * @param codigoPostal int
+     * @param ciudad String
+     * @param provincia String
+     * @param pais String
      */
-    public Direccion(String calle, int numero, int codigoPostal, String ciudad, String provincia, String pais) {
+    public Direccion(String calle, int numero, String detallesDireccion, int codigoPostal, String ciudad, String provincia, String pais) {
         this.calle = calle;
         this.numero = numero;
+        this.detallesDireccion = detallesDireccion;
         this.codigoPostal = codigoPostal;
         this.ciudad = ciudad;
         this.provincia = provincia;
@@ -33,116 +36,139 @@ public class Direccion {
     }
 
     /**
-     * Get the value of pais
+     * Devuelve el valor de pais
      *
-     * @return the value of pais
+     * @return valor de pais en tipo String
      */
     public String getPais() {
         return pais;
     }
 
     /**
-     * Set the value of pais
+     * Establece el valor de pais
      *
-     * @param pais new value of pais
+     * @param pais  nuevo valor de pais en tipo String
      */
     public void setPais(String pais) {
         this.pais = pais;
     }
 
     /**
-     * Get the value of provincia
+     *  Get the value of provincia
      *
-     * @return the value of provincia
+     * @return  the value of provincia en tipo String
      */
     public String getProvincia() {
         return provincia;
     }
 
     /**
-     * Set the value of provincia
+     * Establece el valor de provincia
      *
-     * @param provincia new value of provincia
+     * @param provincia nuevo valor de provincia en tipo String
      */
     public void setProvincia(String provincia) {
         this.provincia = provincia;
     }
 
     /**
-     * Get the value of ciudad
+     * Devuelve el valor de ciudad
      *
-     * @return the value of ciudad
+     * @return valor de ciudad en tipo String
      */
     public String getCiudad() {
         return ciudad;
     }
 
     /**
-     * Set the value of ciudad
+     * Establece el valor de ciudad
      *
-     * @param ciudad new value of ciudad
+     * @param ciudad nuevo valor de ciudad en tipo String
      */
     public void setCiudad(String ciudad) {
         this.ciudad = ciudad;
     }
 
     /**
-     * Get the value of codigoPostal
+     * Devuelve el valor de codigoPostal
      *
-     * @return the value of codigoPostal
+     * @return valor de codigoPostal en tipo int
      */
     public int getCodigoPostal() {
         return codigoPostal;
     }
 
     /**
-     * Set the value of codigoPostal
+     * Establece el valor de codigoPostal
      *
-     * @param codigoPostal new value of codigoPostal
+     * @param codigoPostal nuevo valor de codigoPostal en tipo int
      */
     public void setCodigoPostal(int codigoPostal) {
         this.codigoPostal = codigoPostal;
     }
 
     /**
-     * Get the value of numero
+     * Devuelve el valor de detalles de la direccion como piso, puerta, etc
      *
-     * @return the value of numero
+     * @return valor de detallesDireccion en tipo String
+     */
+    public String getDetallesDireccion() {
+        return detallesDireccion;
+    }
+
+    /**
+     * Establece el valor de detalles de la direccion como piso, puerta, etc
+     *
+     * @param detallesDireccion nuevo valor de detallesDireccion en tipo String
+     */
+    public void setDetallesDireccion(String detallesDireccion) {
+        this.detallesDireccion = detallesDireccion;
+    }
+
+    /**
+     * Devuelve el valor de numero de la casa
+     *
+     * @return valor de numero en tipo int
      */
     public int getNumero() {
         return numero;
     }
 
     /**
-     * Set the value of numero
+     * Establece el valor de numero de la casa
      *
-     * @param numero new value of numero
+     * @param numero nuevo valor de numero en tipo int
      */
     public void setNumero(int numero) {
         this.numero = numero;
     }
 
     /**
-     * Get the value of calle
+     * Devuelve el valor de calle
      *
-     * @return the value of calle
+     * @return valor de calle en tipo String
      */
     public String getCalle() {
         return calle;
     }
 
     /**
-     * Set the value of calle
+     * Establece el valor de calle
      *
-     * @param calle new value of calle
+     * @param calle nuevo valor de calle en tipo String
      */
     public void setCalle(String calle) {
         this.calle = calle;
     }
 
+    /**
+     * Devuelve la direccion completa
+     *
+     * @return direccion completa en tipo String
+     */
     @Override
     public String toString() {
-        return "Direccion{" + "calle=" + calle + ", numero=" + numero + ", codigoPostal=" + codigoPostal + ", ciudad=" + ciudad + ", provincia=" + provincia + ", pais=" + pais + '}';
+        return "Direccion{" + "calle=" + calle + ", numero=" + numero + ", detalles=" + detallesDireccion + ", codigoPostal=" + codigoPostal + ", ciudad=" + ciudad + ", provincia=" + provincia + ", pais=" + pais + '}';
     }
 
 }
