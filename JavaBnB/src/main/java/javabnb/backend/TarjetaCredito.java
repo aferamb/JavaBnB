@@ -11,7 +11,7 @@ public class TarjetaCredito {
     private LocalDate fechaCaducidad;
 
     /**
-     * Contructor de la clase TarjetaCredito
+     * Constructor de la clase TarjetaCredito
      * 
      * @param titular de tipo String
      * @param numeroTarjeta de tipo long
