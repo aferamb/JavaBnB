@@ -18,6 +18,7 @@ public class Inmueble {
     private BufferedImage imagen;
     
     private String titulo;
+    private Anfitrion anfitrion;
     private Direccion direccion;
     private int huespedesMax;
     private int habitaciones;
@@ -28,10 +29,11 @@ public class Inmueble {
     private ArrayList<String> servicios;
     private ArrayList<BufferedImage> fotos;
     private double calificacion;
+    private ArrayList<Reseña> reseñas = new ArrayList<Reseña>();
 
-    public Inmueble(BufferedImage imagen, String titulo, Direccion direccion, int huespedesMax, int habitaciones, int camas, String baños, TipoInmueble tipoPropiedad, double precioNoche, ArrayList<String> servicios, ArrayList<BufferedImage> fotos, double calificacion) {
-        this.imagen = imagen;
+    public Inmueble(String titulo, Anfitrion anfitrion, Direccion direccion, int huespedesMax, int habitaciones, int camas, String baños, TipoInmueble tipoPropiedad, double precioNoche, ArrayList<String> servicios, ArrayList<BufferedImage> fotos, double calificacion) {
         this.titulo = titulo;
+        this.anfitrion = anfitrion;
         this.direccion = direccion;
         this.huespedesMax = huespedesMax;
         this.habitaciones = habitaciones;

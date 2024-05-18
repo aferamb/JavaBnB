@@ -53,7 +53,7 @@ public class ClienteParticular extends Persona {
      *
      * @param nuevaReserva nueva reserva del cliente
      */
-    public void addReservas(Reserva nuevaReserva) {
+    public void addReserva(Reserva nuevaReserva) {
         reservas.add(nuevaReserva);
     }
     
