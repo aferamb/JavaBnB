@@ -88,4 +88,18 @@ public class TarjetaCredito {
         return "TarjetaCredito{" + "titular=" + titular + ", numeroTarjeta=" + numeroTarjeta + ", fechaCaducidad=" + fechaCaducidad + '}';
     }
 
+    /**
+     *
+     * @param numero
+     * @return
+     */
+    public static String ocultarTarjeta(long numero) {
+        int len = String.valueOf( numero).length();
+        if (len <= 4) {
+            return String.valueOf( numero);
+        }
+        String cover = "*".repeat(len - 4);
+        String lastFourDigits = String.valueOf( numero).substring(len - 4);
+        return cover + lastFourDigits;
+    }
 }

@@ -92,7 +92,7 @@ public class ClienteParticular extends Persona {
     public void setTarjetaCredito(TarjetaCredito tarjetaCredito) {
         this.tarjetaCredito = tarjetaCredito;
     }
-//MODIFICAR para que rtenga todos los parametros
+//MODIFICAR para que tenga todos los parametros
     @Override
     public String toString() {
         return "ClienteParticular{" + "tarjetaCredito=" + tarjetaCredito + ", vip=" + vip + ", reservas=" + reservas + '}';

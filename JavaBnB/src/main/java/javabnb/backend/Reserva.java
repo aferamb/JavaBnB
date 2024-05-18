@@ -3,8 +3,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package javabnb.backend;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 
 /**
@@ -27,7 +32,7 @@ public class Reserva {
      * @param inm
      * @param importe
      * @param tarjeta
-     * @param  fechaReserva
+     * @param fechaReserva
      * @param fechaEntrada
      * @param fechaSalida
      * @param cliente
@@ -189,8 +194,68 @@ public class Reserva {
          res = 0.9*res; }
      return res;
     }
+
+    /**
+     *
+     * @param reserva
+     * @throws IOException
+     */
     public static void generarFactura(Reserva reserva) throws IOException {
-    
+        double importefactura = reserva.calcularImporte();
+        long numeroTarjeta = reserva.getCliente().getTarjetaCredito().getNumeroTarjeta();
+        LocalDate fecha = reserva.getFechaReserva();
+        DateTimeFormatter formatoCorto = DateTimeFormatter.ofPattern("dd/MM/yy");        
+        String fn = fecha.format(formatoCorto);
+     String rutaFicheroFactura = "./Facturas/Factura--" + reserva.getInm().getTitulo().replace(' ','-')+ "__(" + fn.replace('/', '_') + ").txt";
+        try {
+            File dirFacturas = new File("./Facturas");
+
+            if (!dirFacturas.exists()) {
+                dirFacturas.mkdir();
+            }
+            
+            FileWriter fw = new FileWriter(rutaFicheroFactura);
+            try (PrintWriter salida = new PrintWriter(new BufferedWriter(fw))) {
+                salida.println("---------------------------- Factura de reserva ---------------------------");
+                salida.println("\n");
+                salida.println("-------------------------------- Fecha: " + fn + " -------------------------------");
+                salida.println("\n");
+                salida.println("Fecha de entrada: " + reserva.getFechaEntrada().format(formatoCorto));
+                salida.println("Fecha de salida: "+ reserva.getFechaSalida().format(formatoCorto));
+                salida.println("\n");
+                salida.println("-------------------------------- Inmueble -------------------------------");
+                salida.println("\n");
+                salida.println("Nombre: " + reserva.getInm().getTitulo());
+                salida.println("Dirección: " + reserva.getInm().getDireccion().toString());
+                salida.println("Tipo: " + reserva.getInm().getTipoPropiedad());
+                salida.println("Huéspedes máximos: " + reserva.getInm().getHuespedesMax());
+                salida.println("Habitaciones: " + reserva.getInm().getHabitaciones());
+                salida.println("Camas: " + reserva.getInm().getCamas());
+                salida.println("Baños: " + reserva.getInm().getBaños());
+                salida.println("Servicios adicionales: " + reserva.getInm().getServicios());
+                salida.println("\n");
+                salida.println("--------------------------DATOS DEL CLIENTE-----------------------------------");
+                salida.println("\n");
+                salida.println("Nombre: " + reserva.getCliente().getNombre());
+                salida.println("DNI: " + reserva.getCliente().getDni());
+                salida.println("Teléfono: " + reserva.getCliente().getTelefono());
+                salida.println("Correo: " + reserva.getCliente().getCorreo());
+                salida.println("Tarjeta: " + TarjetaCredito.ocultarTarjeta(numeroTarjeta));
+                salida.println("\n");
+                salida.println("-----------------------------IMPORTE--------------------------------------");
+                salida.println("\n");
+                salida.println("Precio por noche: " + reserva.getInm().getPrecioNoche() + "€");
+                if (reserva.getCliente().isVip()) { 
+                    salida.println("Descuento VIP: -" + importefactura  *0.1 );
+                    importefactura = 0.9*importefactura;}
+                salida.println("Precio final: " + importefactura);
+                salida.println("\n");
+                salida.println("-------------------------------------------------------------------------------");
+            }
+        } 
+        catch (IOException ioe) {
+            System.out.println("Error de IO: " + ioe.getMessage());
+        }
     }
     }
     
