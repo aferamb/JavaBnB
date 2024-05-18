@@ -12,8 +12,8 @@ public class Anfitrion extends Persona {
     private ArrayList<Inmueble> inmuebles;
 
     /**
-     * MODIFICAR hacer automatico superanfitrion
-     * Constructor de la clase anfitrion, se deben de introducir los datos del cliente de DNI, nombre, correo, clave y teléfono
+     * Constructor de la clase anfitrion, se deben de introducir los datos del anfitrion de DNI, nombre, correo, clave y teléfono
+     * El rango de superanfitrion se establece a false por defecto, y se cambia a true si la media de las calificaciones de los inmuebles del anfitrion es mayor que 4
      *
      * @param dni
      * @param nombre
@@ -45,6 +45,7 @@ public class Anfitrion extends Persona {
         for (Inmueble inmueble : inmuebles) {
             calificacionTotal += inmueble.getCalificacion();
         }
+        calificacionTotal = calificacionTotal / inmuebles.size();
         if (calificacionTotal > 4) {
             superanfitrion = true;
         } else if (calificacionTotal < 4) {
@@ -63,6 +64,7 @@ public class Anfitrion extends Persona {
 
     /**
      * Intercambia una lista de inmuebles que tiene el anfitrion por completo por otra lista
+     * REVISAR, modificacon se queda o no
      *
      * @param nuevaListaInmuebles nueva lista de inmuebles tipo ArrayList
      */
@@ -79,9 +81,14 @@ public class Anfitrion extends Persona {
         inmuebles.add(nuevoInmueble);
     }
 
+    /**
+     * toString para el anfitrion
+     *
+     * @return datos del anfitrion en String
+     */
     @Override
     public String toString() {
-        return "Anfitrion{" + "superanfitrion=" + superanfitrion + ", inmuebles=" + inmuebles + '}';
+        return super.toString() + "Anfitrion{" + "superanfitrion=" + superanfitrion + ", inmuebles=" + inmuebles + '}';
     }
 
 }

@@ -1,5 +1,7 @@
 package javabnb.backend;
+
 import java.util.ArrayList; 
+
 /**
  * @author Alejandro Fernández Ambrós
  * @author Sergio Caballero Ortego
@@ -28,10 +30,9 @@ public class ClienteParticular extends Persona {
     }
     
     /**
-     * Devuelve uan copia de la lista de reservas, para evitar modificar o alterar la original.
-     * REVISAR, modificacon se queda o no
+     * Devuelve una copia de la lista de reservas, para evitar modificar o alterar la original.
      *
-     * @return copia de la lista de reservas
+     * @return copia de la lista de reservas en forma de ArrayList
      */
     public ArrayList<Reserva> getReservas() {
         return new ArrayList<>(reservas); 
@@ -41,61 +42,65 @@ public class ClienteParticular extends Persona {
      * Intercambia una lista de reservas que ha hecho el cliente por completo por otra lista 
      * REVISAR, modificacon se queda o no
      *
-     * @param nuevaListaReservas nueva lista de reservas
+     * @param nuevaListaReservas nueva lista de reservas en forma de ArrayList
      */
     public void setReservas(ArrayList<Reserva> nuevaListaReservas) {
         this.reservas = nuevaListaReservas;
     }
     
     /**
-     * Agrega una reserv a la lista 
-     * REVISAR, modificacon se queda o no
+     * Agrega una reserva a la lista 
      *
-     * @param nuevaReserva nueva reserva del cliente
+     * @param nuevaReserva nueva reserva del cliente de tipo Reserva
      */
     public void addReserva(Reserva nuevaReserva) {
         reservas.add(nuevaReserva);
     }
     
     /**
-     * Get the value of vip
+     * Devuelve true si el cliente es VIP y false si no lo es
      *
-     * @return the value of vip
+     * @return true o false si es VIP o no
      */
     public boolean isVip() {
         return vip;
     }
 
     /**
-     * Set the value of vip
+     * Establece si el cliente tiene el rango de VIP o no
      *
-     * @param vip new value of vip
+     * @param vip true o false si es VIP o no
      */
     public void setVip(boolean vip) {
         this.vip = vip;
     }
 
     /**
-     * Get the value of tarjetaCredito
+     * Devuelve el valor de tarjetaCredito con solo los ultimos 4 digitos visibles
      *
-     * @return the value of tarjetaCredito
+     * @return datos de la targeta de credito(solo los ultimos 4 digitos visibles)
      */
     public TarjetaCredito getTarjetaCredito() {
         return tarjetaCredito;
     }
 
     /**
-     * Set the value of tarjetaCredito
+     * Establece el valor de la tarjeta de credito
      *
-     * @param tarjetaCredito new value of tarjetaCredito
+     * @param tarjetaCredito nuevo valor de tarjeta de credito de tipo TarjetaCredito
      */
     public void setTarjetaCredito(TarjetaCredito tarjetaCredito) {
         this.tarjetaCredito = tarjetaCredito;
     }
-//MODIFICAR para que tenga todos los parametros
+
+    /**
+     * toString para el cliente particular
+     *
+     * @return datos del cliente particular en String con el numero de la tarjeta de credito ocultos por seguridad, excepto los ultimos 4 digitos
+     */
     @Override
     public String toString() {
-        return "ClienteParticular{" + "tarjetaCredito=" + tarjetaCredito + ", vip=" + vip + ", reservas=" + reservas + '}';
+        return super.toString() + "ClienteParticular{" + "tarjetaCredito=" + tarjetaCredito + ", vip=" + vip + ", reservas=" + reservas + '}';
     }
 
 }

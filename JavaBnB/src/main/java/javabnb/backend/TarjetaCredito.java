@@ -81,11 +81,11 @@ public class TarjetaCredito {
     /**
      * toString para la tarjeta de credito
      * 
-     * @return datos de la targeta de credito
+     * @return datos de la targeta de credito en String, con el numero de la tarjeta oculto por seguridad, excepto los ultimos 4 digitos
      */
-    @Override   //Quizas necesite comentarios para javadoc
+    @Override   
     public String toString() {
-        return "TarjetaCredito{" + "titular=" + titular + ", numeroTarjeta=" + numeroTarjeta + ", fechaCaducidad=" + fechaCaducidad + '}';
+        return "TarjetaCredito{" + "titular=" + titular + ", numeroTarjeta=" + ocultarTarjeta(numeroTarjeta) + ", fechaCaducidad=" + fechaCaducidad + '}';
     }
 
     /**
