@@ -1,11 +1,14 @@
 package javabnb.backend;
-import java.util.ArrayList; 
 
 import java.awt.image.BufferedImage;    // ni idea de si funciona
-import javax.imageio.ImageIO;
+import javax.imageio.ImageIO;           // ni idea de si funciona
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+
 /**
- *
- * @author ALEJANDRO
+ * @author Alejandro Fernández Ambrós
+ * @author Sergio Caballero Ortego
  */
 
 enum TipoInmueble {CASA, APARTAMENTO}

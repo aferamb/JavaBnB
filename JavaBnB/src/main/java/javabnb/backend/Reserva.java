@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package javabnb.backend;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -13,8 +9,8 @@ import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 
 /**
- *
- * @author sco23
+ * @author Alejandro Fernández Ambrós
+ * @author Sergio Caballero Ortego
  */
 public class Reserva {
     

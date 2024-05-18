@@ -1,12 +1,15 @@
 package javabnb.backend;
 
+import java.util.ArrayList;
+
 /**
- *
- * @author ALEJANDRO
+ * @author Alejandro Fernández Ambrós
+ * @author Sergio Caballero Ortego
  */
 public class Anfitrion extends Persona {
     
     private boolean superanfitrion = false;
+    private ArrayList<Inmueble> inmuebles;
 
     /**
      * MODIFICAR hacer automatico superanfitrion
@@ -20,7 +23,7 @@ public class Anfitrion extends Persona {
      */
     public Anfitrion(String dni, String nombre, String correo, String clave, int telefono) {
         super(dni, nombre, correo, clave, telefono);
-        this.superanfitrion = superanfitrion;
+        this.superanfitrion = superanfitrion; 
     }
 
     /**
