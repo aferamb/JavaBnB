@@ -1,8 +1,8 @@
 package javabnb.backend;
 
 /**
- *
- * @author ALEJANDRO
+ * @author Alejandro Fernández Ambrós
+ * @author Sergio Caballero Ortego
  */
 public class Reseña {
     

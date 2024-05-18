@@ -1,34 +1,35 @@
 package javabnb.backend;
 
 /**
- *
- * @author ALEJANDRO
+ * @author Alejandro Fernández Ambrós
+ * @author Sergio Caballero Ortego
  */
 public class Administrador {
     
     private String correo = "admin@javabnb.com";
     private String clave = "admin";
 
+    
     /**
-     * Get the value of clave
+     * Devuelve el valor de la clave del adminitrador
      *
-     * @return the value of clave
+     * @return clave tipo String
      */
     public String getClave() {
         return clave;
     }
 
     /**
-     * Set the value of clave
+     * Establece el valor de la clave de administrador
      *
-     * @param clave new value of clave
+     * @param clave nuevo valor de la clave tipo String
      */
     public void setClave(String clave) {
         this.clave = clave;
     }
 
     /**
-     * Get the value of correo
+     * Devuelve el valor del correo del adminitrador
      *
      * @return the value of correo
      */
@@ -37,7 +38,7 @@ public class Administrador {
     }
 
     /**
-     * Set the value of correo
+     * Establece el valor del correo de administrador
      *
      * @param correo new value of correo
      */
@@ -45,6 +46,11 @@ public class Administrador {
         this.correo = correo;
     }
 
+    /**
+     * toString para Administrador
+     * 
+     * @return los datos del administrador
+     */
     @Override
     public String toString() {
         return "Administrador{" + "correo=" + correo + ", clave=" + clave + '}';
