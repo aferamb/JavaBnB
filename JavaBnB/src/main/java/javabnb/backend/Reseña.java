@@ -11,7 +11,7 @@ public class Reseña {
     private String comentario;
 
     /**
-     * Constructor de la clase resea, se deben de introducir los datos de usuario que la realiza, calificacion del 1 al 5 y comentario.
+     * Constructor de la clase reseña, se deben de introducir los datos de usuario que la realiza, calificacion del 1 al 5 y comentario.
      * @param usuario
      * @param calificacion
      * @param comentario
