@@ -1,8 +1,8 @@
 package javabnb.backend;
 import java.util.ArrayList; 
 /**
- *
- * @author ALEJANDRO
+ * @author Alejandro Fernández Ambrós
+ * @author Sergio Caballero Ortego
  */
 public class ClienteParticular extends Persona {
     

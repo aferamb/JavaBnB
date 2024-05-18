@@ -8,7 +8,7 @@ import java.time.LocalDate;
 public class TarjetaCredito {
     
     private String titular;
-    private long numeroTarjeta; // A la hora de escribir los datos tipo Long, es buena practica Poner al final una "L": ...342L
+    private long numeroTarjeta; // A la hora de escribir los datos tipo Long, es buena practica poner al final una "L": ...342L no afecta al valor
     private LocalDate fechaCaducidad;
 
     /**

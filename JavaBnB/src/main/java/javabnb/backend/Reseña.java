@@ -6,60 +6,79 @@ package javabnb.backend;
  */
 public class Reseña {
     
-    private Persona usuario; //QuizaS ES NECESARIA
+    private ClienteParticular usuario; //Igual es mejor hacerlo con un String, con el objeto cliente particular luego abria que extraer el nombre
     private int calificacion;
     private String comentario;
 
     /**
-     * Constructor de la clase resea, se deben de introducir los datos calificacion y comentario
-     *
+     * Constructor de la clase resea, se deben de introducir los datos de usuario que la realiza, calificacion del 1 al 5 y comentario.
+     * @param usuario
      * @param calificacion
      * @param comentario
      */
-    public Reseña(int calificacion, String comentario) {
+    public Reseña(ClienteParticular usuario, int calificacion, String comentario) {
+        this.usuario = usuario;
         this.calificacion = calificacion;
         this.comentario = comentario;
     }
 
     /**
-     * Get the value of comentario
+     * Devuelve el valor de comentario
      *
-     * @return the value of comentario
+     * @return valor de comentario en tipo String
      */
     public String getComentario() {
         return comentario;
     }
 
     /**
-     * Set the value of comentario
+     * Establece el valor de comentario
      *
-     * @param comentario new value of comentario
+     * @param comentario nuevo valor de comentario en tipo String
      */
     public void setComentario(String comentario) {
         this.comentario = comentario;
     }
 
     /**
-     * Get the value of calificacion
+     * Devuelve el valor de calificacion
      *
-     * @return the value of calificacion
+     * @return valor de calificacion en tipo int
      */
     public int getCalificacion() {
         return calificacion;
     }
 
     /**
-     * Set the value of calificacion
+     * Establece el valor de calificacion entre 1 y 5
      *
-     * @param calificacion new value of calificacion
+     * @param calificacion nuevo valor de calificacion en tipo int
      */
     public void setCalificacion(int calificacion) {
         this.calificacion = calificacion;
     }
 
+    /**
+     * Devuelve el valor de usuario
+     *
+     * @return valor de usuario en tipo ClienteParticular
+     */
+    public ClienteParticular getUsuario() {
+        return usuario;
+    }
+
+    /**
+     * Establece el valor de usuario
+     *
+     * @param usuario nuevo valor de usuario en tipo ClienteParticular
+     */
+    public void setUsuario(ClienteParticular usuario) {
+        this.usuario = usuario;
+    }
+
     @Override
     public String toString() {
-        return "Rese\u00f1a{" + "calificacion=" + calificacion + ", comentario=" + comentario + '}';
+        return "Reseña{" + "usuario=" + usuario + "calificacion=" + calificacion + ", comentario=" + comentario + '}'; // xd la ñ me la pone asi Rese\u00f1a en el toString
     }
 
 }
