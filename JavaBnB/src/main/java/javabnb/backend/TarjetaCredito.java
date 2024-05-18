@@ -1,8 +1,9 @@
 package javabnb.backend;
 import java.time.LocalDate;
+
 /**
- *
- * @author ALEJANDRO
+ * @author Alejandro Fernández Ambrós
+ * @author Sergio Caballero Ortego
  */
 public class TarjetaCredito {
     

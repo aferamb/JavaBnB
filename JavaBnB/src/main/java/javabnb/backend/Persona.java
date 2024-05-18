@@ -2,8 +2,8 @@ package javabnb.backend;
 import java.time.LocalDate;
 
 /**
- *
- * @author ALEJANDRO
+ * @author Alejandro Fernández Ambrós
+ * @author Sergio Caballero Ortego
  */
 public class Persona {
     
@@ -15,7 +15,8 @@ public class Persona {
     private LocalDate fechaRegistro;
 
     /**
-     * Constructor de la clase cliente particular se deben de introducir los datos del cliente de DNI, nombre, correo, clave y teléfono
+     * Constructor de la clase persona se deben de introducir los datos de la persona de DNI, nombre, correo, clave y teléfono
+     * La fecha de registro se establece automáticamente al día de la creación de la persona
      *
      * @param dni
      * @param nombre
@@ -29,117 +30,122 @@ public class Persona {
         this.correo = correo;
         this.clave = clave;
         this.telefono = telefono;
-        this.fechaRegistro = fechaRegistro; // MODIFICAR para que al crearlo se establezca la fecha actual
+        this.fechaRegistro = LocalDate.now(); 
     }
 
     /**
-     * Get the value of fechaRegistro
+     * Devuelve el valor de fechaRegistro
      *
-     * @return the value of fechaRegistro
+     * @return valor de fechaRegistro en tipo LocalDate
      */
     public LocalDate getFechaRegistro() {
         return fechaRegistro;
     }
 
     /**
-     * Set the value of fechaRegistro
+     * Establece el valor de fechaRegistro
      *
-     * @param fechaRegistro new value of fechaRegistro
+     * @param fechaRegistro nuevo valor de fechaRegistro en tipo LocalDate
      */
     public void setFechaRegistro(LocalDate fechaRegistro) {
-        this.fechaRegistro = fechaRegistro;
+        this.fechaRegistro = fechaRegistro; //quizas necesite un bloque try-catch
     }
 
     /**
-     * Get the value of telefono
+     * Devuelve el valor de telefono
      *
-     * @return the value of telefono
+     * @return valor de telefono en tipo int
      */
     public int getTelefono() {
         return telefono;
     }
 
     /**
-     * Set the value of telefono
+     * Establece el valor de telefono
      *
-     * @param telefono new value of telefono
+     * @param telefono nuevo valor de telefono en tipo int
      */
     public void setTelefono(int telefono) {
         this.telefono = telefono;
     }
 
     /**
-     * Get the value of clave
+     * Devuelve el valor de clave
      *
-     * @return the value of clave
+     * @return valor de clave en tipo String
      */
     public String getClave() {
         return clave;
     }
 
     /**
-     * Set the value of clave
+     * Establece el valor de clave
      *
-     * @param clave new value of clave
+     * @param clave nuevo valor de clave en tipo String
      */
     public void setClave(String clave) {
         this.clave = clave;
     }
 
     /**
-     * Get the value of correo
+     * Devuelve el valor de correo
      *
-     * @return the value of correo
+     * @return valor de correo en tipo String
      */
     public String getCorreo() {
         return correo;
     }
 
     /**
-     * Set the value of correo
+     * Establece el valor de correo
      *
-     * @param correo new value of correo
+     * @param correo nuevo valor de correo en tipo String
      */
     public void setCorreo(String correo) {
         this.correo = correo;
     }
 
     /**
-     * Get the value of nombre
+     * Devuelve el valor de nombre
      *
-     * @return the value of nombre
+     * @return valor de nombre en tipo String
      */
     public String getNombre() {
         return nombre;
     }
 
     /**
-     * Set the value of nombre
+     * Establece el valor de nombre
      *
-     * @param nombre new value of nombre
+     * @param nombre nuevo valor de nombre en tipo String
      */
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
     /**
-     * Get the value of dni
+     * Devuelve el valor de dni
      *
-     * @return the value of dni
+     * @return valor de dni en tipo String
      */
     public String getDni() {
         return dni;
     }
 
     /**
-     * Set the value of dni
+     * Establece el valor de dni
      *
-     * @param dni new value of dni
+     * @param dni nuevo valor de dni en tipo String
      */
     public void setDni(String dni) {
         this.dni = dni;
     }
 
+    /**
+     * Devuelve un resumen de los datos de la persona
+     *
+     * @return resumen de los datos de la persona
+     */
     @Override
     public String toString() {
         return "Persona{" + "dni=" + dni + ", nombre=" + nombre + ", correo=" + correo + ", clave=" + clave + ", telefono=" + telefono + ", fechaRegistro=" + fechaRegistro + '}';
