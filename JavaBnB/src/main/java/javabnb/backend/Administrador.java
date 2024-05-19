@@ -6,28 +6,16 @@ package javabnb.backend;
  */
 public class Administrador {
     
-    private String correo = "admin@javabnb.com";
-    private String clave = "admin";
+    private static String correo = "admin@javabnb.com";
+    private static String clave = "admin";
 
+    /**
+     * Constructor de la clase Administrador. 
+     * No se necesita introducir ningún dato, ya que el correo y la clave del administrador son fijos por defecto.
+     *
+     */
+    public Administrador() {}
     
-    /**
-     * Devuelve el valor de la clave del adminitrador
-     *
-     * @return clave tipo String
-     */
-    public String getClave() {
-        return clave;
-    }
-
-    /**
-     * Establece el valor de la clave de administrador
-     *
-     * @param clave nuevo valor de la clave tipo String
-     */
-    public void setClave(String clave) {
-        this.clave = clave;
-    }
-
     /**
      * Devuelve el valor del correo del adminitrador
      *
@@ -43,7 +31,25 @@ public class Administrador {
      * @param correo new value of correo
      */
     public void setCorreo(String correo) {
-        this.correo = correo;
+        Administrador.correo = correo;
+    }
+
+    /**
+     * Devuelve el valor de la clave del adminitrador
+     *
+     * @return clave tipo String
+     */
+    public String getClave() {
+        return clave;
+    }
+
+    /**
+     * Establece el valor de la clave de administrador
+     *
+     * @param clave nuevo valor de la clave tipo String
+     */
+    public void setClave(String clave) {
+        Administrador.clave = clave;
     }
 
     /**

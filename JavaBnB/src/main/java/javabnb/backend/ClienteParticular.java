@@ -13,15 +13,15 @@ public class ClienteParticular extends Persona {
     private ArrayList<Reserva> reservas;
 
     /**
-     * Constructor de la clase cliente particular se deben de introducir los datos del cliente de DNI, nombre, correo, clave, teléfono, tarjeta de crédito y si es VIP o no
+     * Constructor de la clase cliente particular, se deben de introducir los datos del cliente de DNI, nombre, correo, clave, teléfono, tarjeta de crédito y si es VIP o no
      *
-     * @param dni
-     * @param nombre
-     * @param correo
-     * @param clave 
-     * @param telefono
-     * @param tarjetaCredito
-     * @param vip
+     * @param dni String con el dni del cliente
+     * @param nombre String con el nombre del cliente
+     * @param correo String con el correo del cliente
+     * @param clave  String con la clave del cliente
+     * @param telefono int con el telefono del cliente
+     * @param tarjetaCredito objeto de la clase TarjetaCredito
+     * @param vip boolean si el cliente es VIP o no
      */
     public ClienteParticular(String dni, String nombre, String correo, String clave, int telefono, TarjetaCredito tarjetaCredito, boolean vip) {
         super(dni, nombre, correo, clave, telefono);
@@ -30,33 +30,23 @@ public class ClienteParticular extends Persona {
     }
     
     /**
-     * Devuelve una copia de la lista de reservas, para evitar modificar o alterar la original.
+     * Devuelve el valor de tarjetaCredito con solo los ultimos 4 digitos visibles
      *
-     * @return copia de la lista de reservas en forma de ArrayList
+     * @return datos de la targeta de credito(solo los ultimos 4 digitos visibles)
      */
-    public ArrayList<Reserva> getReservas() {
-        return new ArrayList<>(reservas); 
+    public TarjetaCredito getTarjetaCredito() {
+        return tarjetaCredito;
     }
 
     /**
-     * Intercambia una lista de reservas que ha hecho el cliente por completo por otra lista 
-     * REVISAR, modificacon se queda o no
+     * Establece el valor de la tarjeta de credito
      *
-     * @param nuevaListaReservas nueva lista de reservas en forma de ArrayList
+     * @param tarjetaCredito nuevo valor de tarjeta de credito de tipo TarjetaCredito
      */
-    public void setReservas(ArrayList<Reserva> nuevaListaReservas) {
-        this.reservas = nuevaListaReservas;
+    public void setTarjetaCredito(TarjetaCredito tarjetaCredito) {
+        this.tarjetaCredito = tarjetaCredito;
     }
-    
-    /**
-     * Agrega una reserva a la lista 
-     *
-     * @param nuevaReserva nueva reserva del cliente de tipo Reserva
-     */
-    public void addReserva(Reserva nuevaReserva) {
-        reservas.add(nuevaReserva);
-    }
-    
+
     /**
      * Devuelve true si el cliente es VIP y false si no lo es
      *
@@ -76,21 +66,43 @@ public class ClienteParticular extends Persona {
     }
 
     /**
-     * Devuelve el valor de tarjetaCredito con solo los ultimos 4 digitos visibles
+     * Devuelve una copia de la lista de reservas, para evitar modificar o alterar la original.
      *
-     * @return datos de la targeta de credito(solo los ultimos 4 digitos visibles)
+     * @return copia de la lista de reservas en forma de ArrayList de Reserva   
      */
-    public TarjetaCredito getTarjetaCredito() {
-        return tarjetaCredito;
+    public ArrayList<Reserva> getReservas() {
+        return new ArrayList<>(reservas); 
     }
 
     /**
-     * Establece el valor de la tarjeta de credito
+     * Intercambia una lista de reservas que ha hecho el cliente por completo por otra lista 
      *
-     * @param tarjetaCredito nuevo valor de tarjeta de credito de tipo TarjetaCredito
+     * @param nuevaListaReservas nueva lista de reservas en forma de ArrayList de Reserva
      */
-    public void setTarjetaCredito(TarjetaCredito tarjetaCredito) {
-        this.tarjetaCredito = tarjetaCredito;
+    public void setReservas(ArrayList<Reserva> nuevaListaReservas) {
+        this.reservas = nuevaListaReservas;
+    }
+    
+    /**
+     * Agrega una reserva a la lista 
+     *
+     * @param nuevaReserva nueva reserva del cliente de tipo Reserva
+     */
+    public void addReserva(Reserva nuevaReserva) {
+        reservas.add(nuevaReserva);
+    }
+
+    /**
+     * Elimina una reserva de la lista. Si la reserva no existe, se imprime un mensaje de error.
+     *
+     * @param reserva reserva a eliminar de tipo Reserva
+     */
+    public void removeReserva(Reserva reserva) {
+        if (reservas.contains(reserva)) {
+            reservas.remove(reserva);
+        } else {
+            System.out.println("La reserva a eliminar no existe.");
+        }
     }
 
     /**

@@ -17,13 +17,13 @@ public class Direccion {
     /**
      * Constructor de la clase direccion, se deben de introducir los datos de calle, numero, detalles de direccion, codigo postal, ciudad, provincia y pais
      *
-     * @param calle String
-     * @param numero int
-     * @param detallesDireccion String
-     * @param codigoPostal int
-     * @param ciudad String
-     * @param provincia String
-     * @param pais String
+     * @param calle nombre de la calle
+     * @param numero numero de la casa o edificio
+     * @param detallesDireccion detalles de la direccion como piso, puerta, etc
+     * @param codigoPostal numero de codigo postal
+     * @param ciudad nombre de la ciudad
+     * @param provincia nombre de la provincia
+     * @param pais nombre del pais
      */
     public Direccion(String calle, int numero, String detallesDireccion, int codigoPostal, String ciudad, String provincia, String pais) {
         this.calle = calle;
@@ -36,57 +36,57 @@ public class Direccion {
     }
 
     /**
-     * Devuelve el valor de pais
+     * Devuelve el nombre de calle
      *
-     * @return valor de pais en tipo String
+     * @return nombre de calle en tipo String
      */
-    public String getPais() {
-        return pais;
+    public String getCalle() {
+        return calle;
     }
 
     /**
-     * Establece el valor de pais
+     * Establece el nombre de calle
      *
-     * @param pais  nuevo valor de pais en tipo String
+     * @param calle nuevo nombre de calle en tipo String
      */
-    public void setPais(String pais) {
-        this.pais = pais;
+    public void setCalle(String calle) {
+        this.calle = calle;
     }
 
     /**
-     *  Get the value of provincia
+     * Devuelve el numero de la casa
      *
-     * @return  the value of provincia en tipo String
+     * @return valor de numero en tipo int
      */
-    public String getProvincia() {
-        return provincia;
+    public int getNumero() {
+        return numero;
     }
 
     /**
-     * Establece el valor de provincia
+     * Establece el numero de la casa
      *
-     * @param provincia nuevo valor de provincia en tipo String
+     * @param numero nuevo valor de numero en tipo int
      */
-    public void setProvincia(String provincia) {
-        this.provincia = provincia;
+    public void setNumero(int numero) {
+        this.numero = numero;
     }
 
     /**
-     * Devuelve el valor de ciudad
+     * Devuelve los detalles de la direccion como piso, puerta, etc
      *
-     * @return valor de ciudad en tipo String
+     * @return valor de detallesDireccion en tipo String
      */
-    public String getCiudad() {
-        return ciudad;
+    public String getDetallesDireccion() {
+        return detallesDireccion;
     }
 
     /**
-     * Establece el valor de ciudad
+     * Establece los de detalles de la direccion como piso, puerta, etc
      *
-     * @param ciudad nuevo valor de ciudad en tipo String
+     * @param detallesDireccion nuevo valor de detallesDireccion en tipo String
      */
-    public void setCiudad(String ciudad) {
-        this.ciudad = ciudad;
+    public void setDetallesDireccion(String detallesDireccion) {
+        this.detallesDireccion = detallesDireccion;
     }
 
     /**
@@ -108,57 +108,57 @@ public class Direccion {
     }
 
     /**
-     * Devuelve el valor de detalles de la direccion como piso, puerta, etc
+     * Devuelve la ciudad
      *
-     * @return valor de detallesDireccion en tipo String
+     * @return valor de ciudad en tipo String
      */
-    public String getDetallesDireccion() {
-        return detallesDireccion;
+    public String getCiudad() {
+        return ciudad;
     }
 
     /**
-     * Establece el valor de detalles de la direccion como piso, puerta, etc
+     * Establece la ciudad
      *
-     * @param detallesDireccion nuevo valor de detallesDireccion en tipo String
+     * @param ciudad nuevo valor de ciudad en tipo String
      */
-    public void setDetallesDireccion(String detallesDireccion) {
-        this.detallesDireccion = detallesDireccion;
+    public void setCiudad(String ciudad) {
+        this.ciudad = ciudad;
     }
 
     /**
-     * Devuelve el valor de numero de la casa
+     *  Devuelve el nombre de provincia
      *
-     * @return valor de numero en tipo int
+     * @return  the value of provincia en tipo String
      */
-    public int getNumero() {
-        return numero;
+    public String getProvincia() {
+        return provincia;
     }
 
     /**
-     * Establece el valor de numero de la casa
+     * Establece la provincia
      *
-     * @param numero nuevo valor de numero en tipo int
+     * @param provincia nuevo valor de provincia en tipo String
      */
-    public void setNumero(int numero) {
-        this.numero = numero;
+    public void setProvincia(String provincia) {
+        this.provincia = provincia;
     }
 
     /**
-     * Devuelve el valor de calle
+     * Devuelve el nombre del pais
      *
-     * @return valor de calle en tipo String
+     * @return valor de pais en tipo String
      */
-    public String getCalle() {
-        return calle;
+    public String getPais() {
+        return pais;
     }
 
     /**
-     * Establece el valor de calle
+     * Establece el pais
      *
-     * @param calle nuevo valor de calle en tipo String
+     * @param pais  nuevo valor de pais en tipo String
      */
-    public void setCalle(String calle) {
-        this.calle = calle;
+    public void setPais(String pais) {
+        this.pais = pais;
     }
 
     /**

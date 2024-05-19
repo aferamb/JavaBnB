@@ -1,4 +1,5 @@
 package javabnb.backend;
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -14,7 +15,7 @@ import java.time.temporal.ChronoUnit;
  */
 public class Reserva {
     
-    private Inmueble inm;
+    private Inmueble inmueble;
     private double importe; //el importe se calcula a partir de las fechas
     private TarjetaCredito tarjeta; // Es necesario poner tarjeta como atributo?? se puede obtener desde cliente
     private ClienteParticular cliente;
@@ -25,7 +26,7 @@ public class Reserva {
     /**
      * Constructor de la clase Reserva se deben de introducir los datos de la reserva: inmueble, fecha de entrada, fecha de salida, fecha de reserva, tarjeta de crédito, importe
 ´    *
-     * @param inm
+     * @param inmueble
      * @param importe
      * @param tarjeta
      * @param fechaReserva
@@ -33,8 +34,8 @@ public class Reserva {
      * @param fechaSalida
      * @param cliente
      */
-    public Reserva(Inmueble inm, double importe, TarjetaCredito tarjeta, ClienteParticular cliente, LocalDate fechaReserva, LocalDate fechaEntrada, LocalDate fechaSalida) {
-        this.inm = inm;
+    public Reserva(Inmueble inmueble, double importe, TarjetaCredito tarjeta, ClienteParticular cliente, LocalDate fechaReserva, LocalDate fechaEntrada, LocalDate fechaSalida) {
+        this.inmueble = inmueble;
         this.importe = importe;
         this.tarjeta = tarjeta;
         this.cliente = cliente;
@@ -44,21 +45,21 @@ public class Reserva {
     }
     
     /**
-     * Devuelve el valor de inm
+     * Devuelve el valor de inmueble
      * 
-     * @return el valor de inm
+     * @return el valor de inmueble
      */
     public Inmueble getInm() {
-        return inm;
+        return inmueble;
     }
 
     /**
      * Establece el valor de inmueble
      * 
-     * @param inm nuevo valor inmueble
+     * @param inmueble nuevo valor inmueble
      */
-    public void setInm(Inmueble inm) {
-        this.inm = inm;
+    public void setInm(Inmueble inmueble) {
+        this.inmueble = inmueble;
     }
 
     /**
@@ -175,7 +176,7 @@ public class Reserva {
      */
     @Override
     public String toString() {
-        return "Reserva{" + "Inmueble= " + inm + ", importe= " + importe + ", tarjeta= " + tarjeta + ", cliente= " + cliente +", fecha de reserva= " + fechaReserva +  ",fechade entrada= "+ fechaEntrada + ", fecha de salida= " + fechaSalida +"}";
+        return "Reserva{" + "Inmueble= " + inmueble + ", importe= " + importe + ", tarjeta= " + tarjeta + ", cliente= " + cliente +", fecha de reserva= " + fechaReserva +  ",fechade entrada= "+ fechaEntrada + ", fecha de salida= " + fechaSalida +"}";
     }
 
     /**
@@ -184,11 +185,11 @@ public class Reserva {
      * @return el importe de la reserva
      */
     public double calcularImporte(){
-     long dias = ChronoUnit.DAYS.between(this.fechaEntrada, this.fechaSalida);
-     double res = inm.getPrecioNoche() * dias;
-     if (cliente.isVip()) {
-         res = 0.9*res; }
-     return res;
+    long dias = ChronoUnit.DAYS.between(this.fechaEntrada, this.fechaSalida);
+    double res = inmueble.getPrecioNoche() * dias;
+    if (cliente.isVip()) {
+        res = 0.9*res; }
+    return res;
     }
 
     /**
@@ -202,7 +203,7 @@ public class Reserva {
         LocalDate fecha = reserva.getFechaReserva();
         DateTimeFormatter formatoCorto = DateTimeFormatter.ofPattern("dd/MM/yy");        
         String fn = fecha.format(formatoCorto);
-     String rutaFicheroFactura = "./Facturas/Factura--" + reserva.getInm().getTitulo().replace(' ','-')+ "__(" + fn.replace('/', '_') + ").txt";
+        String rutaFicheroFactura = "./Facturas/Factura--" + reserva.getInm().getTitulo().replace(' ','-')+ "__(" + fn.replace('/', '_') + ").txt";
         try {
             File dirFacturas = new File("./Facturas");
 
@@ -236,7 +237,7 @@ public class Reserva {
                 salida.println("DNI: " + reserva.getCliente().getDni());
                 salida.println("Teléfono: " + reserva.getCliente().getTelefono());
                 salida.println("Correo: " + reserva.getCliente().getCorreo());
-                salida.println("Tarjeta: " + TarjetaCredito.ocultarTarjeta(numeroTarjeta));
+                salida.println("Tarjeta: " + TarjetaCredito.ocultarTarjeta(numeroTarjeta)); //revisar junto a la clase tarjeta
                 salida.println("\n");
                 salida.println("-----------------------------IMPORTE--------------------------------------");
                 salida.println("\n");

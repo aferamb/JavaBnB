@@ -12,52 +12,16 @@ public class TarjetaCredito {
     private LocalDate fechaCaducidad;
 
     /**
-     * Constructor de la clase TarjetaCredito
+     * Constructor de la clase TarjetaCredito. Se deben de introducir los datos de nombre del titular, número de tarjeta y fecha de caducidad
      * 
-     * @param titular de tipo String
-     * @param numeroTarjeta de tipo long
-     * @param fechaCaducidad de tipo LocalDate
+     * @param titular String con el nombre del titular
+     * @param numeroTarjeta long con el número de la tarjeta
+     * @param fechaCaducidad LocalDate con la fecha de caducidad de la tarjeta
      */
     public TarjetaCredito(String titular, long numeroTarjeta, LocalDate fechaCaducidad) {
         this.titular = titular;
         this.numeroTarjeta = numeroTarjeta;
         this.fechaCaducidad = fechaCaducidad;
-    }
-
-    /**
-     * Devuelve el valor de la fecha de caducidad 
-     *
-     * @return valor de fechaCaducidad en LocalDate
-     */
-    public LocalDate getFechaCaducidad() {
-        return fechaCaducidad;
-    }
-
-    /**
-     * Establece el valor de la fecha de caducidad
-     *
-     * @param fechaCaducidad nuevo valor para la fecha de caducidad ed tipo LocalDate
-     */
-    public void setFechaCaducidad(LocalDate fechaCaducidad) {
-        this.fechaCaducidad = fechaCaducidad;
-    }
-
-    /**
-     * Devuelve el valor del número de la tarjera
-     *
-     * @return valor del número de la tarjeta en tipo long
-     */
-    public long getNumeroTarjeta() {
-        return numeroTarjeta;
-    }
-
-    /**
-     * Establece el valor del numero de la tarjeta
-     *
-     * @param numeroTarjeta nuevo valor de numeroTarjeta en long
-     */
-    public void setNumeroTarjeta(long numeroTarjeta) {
-        this.numeroTarjeta = numeroTarjeta;
     }
 
     /**
@@ -79,19 +43,28 @@ public class TarjetaCredito {
     }
 
     /**
-     * toString para la tarjeta de credito
-     * 
-     * @return datos de la targeta de credito en String, con el numero de la tarjeta oculto por seguridad, excepto los ultimos 4 digitos
+     * Devuelve el valor del número de la tarjera
+     *
+     * @return valor del número de la tarjeta en tipo long
      */
-    @Override   
-    public String toString() {
-        return "TarjetaCredito{" + "titular=" + titular + ", numeroTarjeta=" + ocultarTarjeta(numeroTarjeta) + ", fechaCaducidad=" + fechaCaducidad + '}';
+    public long getNumeroTarjeta() {
+        return numeroTarjeta;
     }
 
     /**
+     * Establece el valor del numero de la tarjeta, de 16 digitos
      *
-     * @param numero
-     * @return
+     * @param numeroTarjeta nuevo valor de numeroTarjeta en long
+     */
+    public void setNumeroTarjeta(long numeroTarjeta) {
+        this.numeroTarjeta = numeroTarjeta;
+    }
+
+    /**
+     * Método que oculta todos los dígitos de la tarjeta excepto los últimos 4
+     * 
+     * @param numero de la tarjeta
+     * @return el número de la tarjeta con todos los dígitos ocultos excepto los últimos 4
      */
     public static String ocultarTarjeta(long numero) {
         int len = String.valueOf( numero).length();
@@ -102,4 +75,33 @@ public class TarjetaCredito {
         String lastFourDigits = String.valueOf( numero).substring(len - 4);
         return cover + lastFourDigits;
     }
+
+    /**
+     * Devuelve el valor de la fecha de caducidad 
+     *
+     * @return valor de fechaCaducidad en LocalDate
+     */
+    public LocalDate getFechaCaducidad() {
+        return fechaCaducidad;
+    }
+
+    /**
+     * Establece el valor de la fecha de caducidad
+     *
+     * @param fechaCaducidad nuevo valor para la fecha de caducidad ed tipo LocalDate
+     */
+    public void setFechaCaducidad(LocalDate fechaCaducidad) {
+        this.fechaCaducidad = fechaCaducidad;
+    }
+
+    /**
+     * toString para la tarjeta de credito
+     * 
+     * @return datos de la targeta de credito en String, con el numero de la tarjeta oculto por seguridad, excepto los ultimos 4 digitos
+     */
+    @Override   
+    public String toString() {
+        return "TarjetaCredito{" + "titular=" + titular + ", numeroTarjeta=" + ocultarTarjeta(numeroTarjeta) + ", fechaCaducidad=" + fechaCaducidad + '}';
+    }
+
 }
