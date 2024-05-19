@@ -28,7 +28,6 @@ public class Inmueble {
     private ArrayList<BufferedImage> fotos = new ArrayList<BufferedImage>();
     private double calificacion;
     private ArrayList<Reseña> reseñas = new ArrayList<Reseña>();
-
     /**
      * Constructor de la clase Inmueble, se deben de introducir los datos del inmueble: titulo, anfitrion, direccion, numero maximo de huespedes, numero de habitaciones, 
      * numero de camas, numero de baños, tipo de propiedad (CASA o APARTAMENTO), precio por noche, lista de servicios, lista de fotos y calificacion
@@ -62,7 +61,7 @@ public class Inmueble {
         this.precioNoche = precioNoche;
         this.servicios = servicios;
         this.fotos = fotos; // REVISAR a;adir arraylist entero de fotos?
-        this.calificacion = 5; // Calificacion por defecto de 5
+        this.calificacion = 0; // Calificacion por defecto de 0
         anfitrion.addInmueble(this);
     }
 
@@ -410,5 +409,4 @@ public class Inmueble {
             System.out.println("La reseña no existe en la lista de reseñas.");
         }
     }
-
 }

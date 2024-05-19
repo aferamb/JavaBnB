@@ -8,7 +8,8 @@ import java.io.PrintWriter;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
-
+import java.text.DecimalFormat;
+import java.util.Arrays;
 /**
  * @author Alejandro Fernández Ambrós
  * @author Sergio Caballero Ortego
@@ -34,9 +35,8 @@ public class Reserva {
      * @param fechaSalida
      * @param cliente
      */
-    public Reserva(Inmueble inmueble, double importe, TarjetaCredito tarjeta, ClienteParticular cliente, LocalDate fechaReserva, LocalDate fechaEntrada, LocalDate fechaSalida) {
+    public Reserva(Inmueble inmueble, TarjetaCredito tarjeta, ClienteParticular cliente, LocalDate fechaReserva, LocalDate fechaEntrada, LocalDate fechaSalida) {
         this.inmueble = inmueble;
-        this.importe = importe;
         this.tarjeta = tarjeta;
         this.cliente = cliente;
         this.fechaReserva = fechaReserva;
@@ -200,6 +200,7 @@ public class Reserva {
     public static void generarFactura(Reserva reserva) throws IOException {
         double importefactura = reserva.calcularImporte();
         long numeroTarjeta = reserva.getCliente().getTarjetaCredito().getNumeroTarjeta();
+         DecimalFormat df = new DecimalFormat("#.##");
         LocalDate fecha = reserva.getFechaReserva();
         DateTimeFormatter formatoCorto = DateTimeFormatter.ofPattern("dd/MM/yy");        
         String fn = fecha.format(formatoCorto);
@@ -229,7 +230,7 @@ public class Reserva {
                 salida.println("Habitaciones: " + reserva.getInm().getHabitaciones());
                 salida.println("Camas: " + reserva.getInm().getCamas());
                 salida.println("Baños: " + reserva.getInm().getBaños());
-                salida.println("Servicios adicionales: " + reserva.getInm().getServicios());
+                salida.println("Servicios adicionales: " + String.join(", ", reserva.getInm().getServicios()));
                 salida.println("\n");
                 salida.println("--------------------------DATOS DEL CLIENTE-----------------------------------");
                 salida.println("\n");
@@ -243,9 +244,9 @@ public class Reserva {
                 salida.println("\n");
                 salida.println("Precio por noche: " + reserva.getInm().getPrecioNoche() + "€");
                 if (reserva.getCliente().isVip()) { 
-                    salida.println("Descuento VIP: -" + importefactura  *0.1 );
+                    salida.println("Descuento VIP: -" + importefactura*0.1);
                     importefactura = 0.9*importefactura;}
-                salida.println("Precio final: " + importefactura);
+                salida.println("Precio final: " + df.format(importefactura));
                 salida.println("\n");
                 salida.println("-------------------------------------------------------------------------------");
             }

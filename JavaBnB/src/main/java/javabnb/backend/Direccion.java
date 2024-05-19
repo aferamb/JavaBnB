@@ -168,7 +168,7 @@ public class Direccion {
      */
     @Override
     public String toString() {
-        return "Direccion{" + "calle=" + calle + ", numero=" + numero + ", detalles=" + detallesDireccion + ", codigoPostal=" + codigoPostal + ", ciudad=" + ciudad + ", provincia=" + provincia + ", pais=" + pais + '}';
+        return  "calle: " + calle + ", número: " + numero + ", detalles: " + detallesDireccion + ", codigoPostal: " + codigoPostal + ", ciudad: " + ciudad + ", provincia: " + provincia + ", pais: " + pais + '}';
     }
 
 }
