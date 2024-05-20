@@ -10,7 +10,8 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.text.DecimalFormat;
-import java.util.Arrays;
+//import java.util.Arrays;
+
 /**
  * @author Alejandro Fernández Ambrós
  * @author Sergio Caballero Ortego
@@ -19,7 +20,7 @@ public class Reserva implements Serializable{
     
     private Inmueble inmueble;
     private double importe; //el importe se calcula a partir de las fechas
-    private TarjetaCredito tarjeta; // Es necesario poner tarjeta como atributo?? se puede obtener desde cliente
+    private TarjetaCredito tarjeta; 
     private ClienteParticular cliente;
     private LocalDate fechaReserva;
     private LocalDate fechaEntrada;
@@ -27,26 +28,30 @@ public class Reserva implements Serializable{
 
     /**
      * Constructor de la clase Reserva se deben de introducir los datos de la reserva: inmueble, fecha de entrada, fecha de salida, fecha de reserva, tarjeta de crédito, importe
+     * La fecha de reserva se establece automáticamente al día de la creación de la reserva(momento en el que se ejecuta el constructor)
 ´    *
-     * @param inmueble
-     * @param tarjeta
-     * @param cliente
-     * @param fechaEntrada
-     * @param fechaSalida
+     * @param inmueble objeto de la clase Inmueble
+     * @param tarjeta objeto de la clase TarjetaCredito
+     * @param fechaEntrada fecha de entrada de tipo LocalDate
+     * @param fechaSalida fecha de salida de tipo LocalDate
+     * @param cliente objeto de la clase ClienteParticular
      */
     public Reserva(Inmueble inmueble, TarjetaCredito tarjeta, ClienteParticular cliente, LocalDate fechaEntrada, LocalDate fechaSalida) {
         this.inmueble = inmueble;
         this.tarjeta = tarjeta;
         this.cliente = cliente;
-        this.fechaReserva = LocalDate.now();
+        this.fechaReserva = LocalDate.now();;
         this.fechaEntrada = fechaEntrada;
         this.fechaSalida = fechaSalida;
+        this.importe = calcularImporte();
     }
     
+
+
     /**
      * Devuelve el valor de inmueble
      * 
-     * @return el valor de inmueble
+     * @return el valor de inmueble de tipo Inmueble
      */
     public Inmueble getInm() {
         return inmueble;
@@ -55,7 +60,7 @@ public class Reserva implements Serializable{
     /**
      * Establece el valor de inmueble
      * 
-     * @param inmueble nuevo valor inmueble
+     * @param inmueble nuevo valor inmueble de tipo Inmueble
      */
     public void setInm(Inmueble inmueble) {
         this.inmueble = inmueble;
@@ -64,7 +69,7 @@ public class Reserva implements Serializable{
     /**
      * Devuelve el valor de importe
      * 
-     * @return el valor de importe
+     * @return el valor de importe de tipo double
      */
     public double getImporte() {
         return importe;
@@ -73,7 +78,7 @@ public class Reserva implements Serializable{
     /**
      * Establece el valor de importe
      * 
-     * @param importe nuevo valor de importe
+     * @param importe nuevo valor de importe de tipo double
      */
     public void setImporte(double importe) {
         this.importe = importe;
@@ -82,7 +87,7 @@ public class Reserva implements Serializable{
     /**
      * Devuelve el valor de tarjeta
      * 
-     * @return el valor de tarjeta
+     * @return el valor de tarjeta de tipo TarjetaCredito
      */
     public TarjetaCredito getTarjeta() {
         return tarjeta;
@@ -91,7 +96,7 @@ public class Reserva implements Serializable{
     /**
      * Establece el valor de tarjeta
      * 
-     * @param tarjeta nuevo valor de tarjeta
+     * @param tarjeta nuevo valor de tarjeta de tipo TarjetaCredito
      */
     public void setTarjeta(TarjetaCredito tarjeta) {
         this.tarjeta = tarjeta;
@@ -100,7 +105,7 @@ public class Reserva implements Serializable{
     /**
      * Devuelve el valor de cliente
      * 
-     * @return el valor de cliente
+     * @return el valor de cliente de tipo ClienteParticular
      */
     public ClienteParticular getCliente() {
         return cliente;
@@ -109,7 +114,7 @@ public class Reserva implements Serializable{
     /**
      * Establece el valor de cliente
      * 
-     * @param cliente nuevo valor cliente
+     * @param cliente nuevo valor cliente de tipo ClienteParticular
      */
     public void setCliente(ClienteParticular cliente) {
         this.cliente = cliente;
@@ -118,7 +123,7 @@ public class Reserva implements Serializable{
     /**
      * Devuelve el valor de fechaReserva
      * 
-     * @return el valor de fechaReserva
+     * @return el valor de fechaReserva de tipo LocalDate
      */
     public LocalDate getFechaReserva() {
         return fechaReserva;
@@ -127,7 +132,7 @@ public class Reserva implements Serializable{
     /**
      * Establece el valor de fechaReserva
      * 
-     * @param fechaReserva nuevo valor fechaReserva
+     * @param fechaReserva nuevo valor fechaReserva de tipo LocalDate
      */
     public void setFechaReserva(LocalDate fechaReserva) {
         this.fechaReserva = fechaReserva;
@@ -136,7 +141,7 @@ public class Reserva implements Serializable{
     /**
      * Devuelve el valor de fechaEntrada
      * 
-     * @return el valor de fechaEntrada
+     * @return el valor de fechaEntrada de tipo LocalDate
      */
     public LocalDate getFechaEntrada() {
         return fechaEntrada;
@@ -145,7 +150,7 @@ public class Reserva implements Serializable{
     /**
      *Establece el valor de fechaEntrada
      * 
-     * @param fechaEntrada nuevo valor fechaEntrada
+     * @param fechaEntrada nuevo valor fechaEntrada de tipo LocalDate
      */
     public void setFechaEntrada(LocalDate fechaEntrada) {
         this.fechaEntrada = fechaEntrada;
@@ -154,7 +159,7 @@ public class Reserva implements Serializable{
     /**
      * Devuelve el valor de fechaSalida
      * 
-     * @return el valor de fechaSalida
+     * @return el valor de fechaSalida de tipo LocalDate
      */
     public LocalDate getFechaSalida() {
         return fechaSalida;
@@ -163,7 +168,7 @@ public class Reserva implements Serializable{
     /**
      *Establece el valor de fechasalida
      * 
-     * @param fechaSalida nuevo valor fechaSalida
+     * @param fechaSalida nuevo valor fechaSalida de tipo LocalDate
      */
     public void setFechaSalida(LocalDate fechaSalida) {
         this.fechaSalida = fechaSalida;
@@ -179,9 +184,9 @@ public class Reserva implements Serializable{
     }
 
     /**
-     * devuelve el importe de la reserva
+     * Calcula el importe de la reserva
      * 
-     * @return el importe de la reserva
+     * @return el importe de la reserva de tipo double
      */
     public double calcularImporte(){
     long dias = ChronoUnit.DAYS.between(this.fechaEntrada, this.fechaSalida);
@@ -192,9 +197,10 @@ public class Reserva implements Serializable{
     }
 
     /**
-     *
-     * @param reserva
-     * @throws IOException
+     *  Genera un fichero de texto con los datos de la reserva
+     * 
+     * @param reserva objeto de la clase Reserva
+     * @throws IOException 
      */
     public static void generarFactura(Reserva reserva) throws IOException {
         double importefactura = reserva.calcularImporte();
@@ -225,7 +231,6 @@ public class Reserva implements Serializable{
                 salida.println("Nombre: " + reserva.getInm().getTitulo());
                 salida.println("Dirección: " + reserva.getInm().getDireccion().toString());
                 salida.println("Tipo: " + reserva.getInm().getTipoPropiedad());
-                salida.println("Tipo: " + reserva.getInm().getTipoPropiedad());
                 salida.println("Huéspedes máximos: " + reserva.getInm().getHuespedesMax());
                 salida.println("Habitaciones: " + reserva.getInm().getHabitaciones());
                 salida.println("Camas: " + reserva.getInm().getCamas());
@@ -244,9 +249,9 @@ public class Reserva implements Serializable{
                 salida.println("\n");
                 salida.println("Precio por noche: " + reserva.getInm().getPrecioNoche() + "€");
                 if (reserva.getCliente().isVip()) { 
-                    salida.println("Descuento VIP: -" +df.format( importefactura*0.1)+"€");
+                    salida.println("Descuento VIP: -" + importefactura*0.1 + "€");
                     importefactura = 0.9*importefactura;}
-                salida.println("Precio final: " + df.format(importefactura)+"€");
+                salida.println("Precio final: " + df.format(importefactura) + "€");
                 salida.println("\n");
                 salida.println("-------------------------------------------------------------------------------");
             }
@@ -254,8 +259,6 @@ public class Reserva implements Serializable{
         catch (IOException ioe) {
             System.out.println("Error de IO: " + ioe.getMessage());
         }
-        
-        
     }
     }
     

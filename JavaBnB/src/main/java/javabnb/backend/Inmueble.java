@@ -327,6 +327,28 @@ public class Inmueble implements Serializable {
         }
     }
 
+    /**
+     * Añade una foto a la lista de fotos del inmueble a partir de un objeto BufferedImage
+     *
+     * @param foto foto a añadir a la lista de fotos del inmueble de tipo BufferedImage
+     */
+    public void addFoto(BufferedImage foto) {
+        fotos.add(foto);
+    }
+
+    /**
+     * Elimina una foto de la lista de fotos del inmueble. Si la foto no existe, imprime un mensaje de error
+     *
+     * @param foto foto a eliminar de la lista de fotos del inmueble de tipo BufferedImage
+     */
+    public void removeFoto(BufferedImage foto) {
+        if (fotos.contains(foto)) {
+            fotos.remove(foto);
+        } else {
+            System.out.println("La foto no existe en la lista de fotos.");
+        }
+    }
+
 
     /* @code
      * Para el frontend

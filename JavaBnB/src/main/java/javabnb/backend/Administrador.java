@@ -1,10 +1,12 @@
 package javabnb.backend;
 
+import java.io.Serializable;
+
 /**
  * @author Alejandro Fernández Ambrós
  * @author Sergio Caballero Ortego
  */
-public class Administrador {
+public class Administrador implements Serializable{
     
     private static String correo = "admin@javabnb.com";
     private static String clave = "admin";

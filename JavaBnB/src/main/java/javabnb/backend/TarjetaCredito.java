@@ -16,11 +16,20 @@ public class TarjetaCredito implements Serializable{
      * Constructor de la clase TarjetaCredito. Se deben de introducir los datos de nombre del titular, número de tarjeta y fecha de caducidad
      * 
      * @param titular String con el nombre del titular
-     * @param numeroTarjeta long con el número de la tarjeta
+     * @param numeroTarjeta long con el número de la tarjeta de 16 digitos
      * @param fechaCaducidad LocalDate con la fecha de caducidad de la tarjeta
      */
     public TarjetaCredito(String titular, long numeroTarjeta, LocalDate fechaCaducidad) {
         this.titular = titular;
+        try {
+            if (String.valueOf(numeroTarjeta).length() != 16) {
+                throw new IllegalArgumentException("El número de la tarjeta debe tener 16 dígitos");
+            } else {
+                this.numeroTarjeta = numeroTarjeta;
+            }
+        } catch (IllegalArgumentException e) {
+            System.err.println(e.getMessage());
+        }
         this.numeroTarjeta = numeroTarjeta;
         this.fechaCaducidad = fechaCaducidad;
     }

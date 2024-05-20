@@ -9,17 +9,13 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+/**
+ * @author Alejandro Fernández Ambrós
+ * @author Sergio Caballero Ortego
  */
 
-/**
- *
- * @author sco23
- */
 public class GestorInmueble {
-     private static ArrayList<Inmueble> inmuebles = new ArrayList<>();
+    private static ArrayList<Inmueble> inmuebles = new ArrayList<>();
     private static Inmueble inm;
     
     /** Establece el ArrayList de los inmuebles
