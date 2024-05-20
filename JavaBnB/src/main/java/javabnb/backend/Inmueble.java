@@ -375,17 +375,22 @@ public class Inmueble implements Serializable {
      *
      */
     public void updateCalificacion() {
-        double calificacionTotal = 0;
-        for (Reseña reseña : reseñas) {
-            calificacionTotal += reseña.getCalificacion();
-        }
-        try {
-            this.calificacion = calificacionTotal / reseñas.size();
-        } catch (ArithmeticException e) {
-            // Manejo division entre zero error
-            System.err.println("Error: Division by zero => No hay reseñas para calcular la calificación de la vivienda");
-            System.err.println("    Codigo de error: " + e.getMessage());
-            e.printStackTrace();
+        if (reseñas.isEmpty()) {
+            System.out.println("No hay reseñas para calcular la calificación de la vivienda.");
+            return;
+        } else {
+            double calificacionTotal = 0;
+            for (Reseña reseña : reseñas) {
+                calificacionTotal += reseña.getCalificacion();
+            }
+            try {
+                this.calificacion = calificacionTotal / reseñas.size();
+            } catch (ArithmeticException e) {
+                // Manejo division entre zero error
+                System.err.println("Error: Division by zero => No hay reseñas para calcular la calificación de la vivienda");
+                System.err.println("    Codigo de error: " + e.getMessage());
+                e.printStackTrace();
+            }
         }
     }
 
@@ -435,4 +440,15 @@ public class Inmueble implements Serializable {
             System.out.println("La reseña no existe en la lista de reseñas.");
         }
     }
+    
+    /**
+     * Devuelve una representacion en forma de String de la vivienda
+     *
+     * @return representacion de la vivienda en forma de String
+     */
+    @Override
+    public String toString() {
+        return "Inmueble{" + "titulo=" + titulo + ", anfitrion=" + anfitrion + ", direccion=" + direccion + ", huespedesMax=" + huespedesMax + ", habitaciones=" + habitaciones + ", camas=" + camas + ", banos=" + baños + ", tipoPropiedad=" + tipoPropiedad + ", precioNoche=" + precioNoche + ", servicios=" + servicios + ", calificacion=" + calificacion + '}';
+    }  
+    
 }

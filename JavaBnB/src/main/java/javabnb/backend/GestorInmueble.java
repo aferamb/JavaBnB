@@ -97,7 +97,7 @@ public class GestorInmueble {
         try {
             try (FileInputStream fis = new FileInputStream("ficheroInmuebles.txt")) {
                 ObjectInputStream ois = new ObjectInputStream(fis);
-                inmuebles = (ArrayList) ois.readObject();
+                inmuebles = (ArrayList<Inmueble>) ois.readObject();
             }
         } catch (IOException ioe) {
             System.out.println("Error de IO " + ioe.getMessage());

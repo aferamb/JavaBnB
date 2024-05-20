@@ -30,7 +30,7 @@ public class TarjetaCredito implements Serializable{
         } catch (IllegalArgumentException e) {
             System.err.println(e.getMessage());
         }
-        this.numeroTarjeta = numeroTarjeta;
+        
         this.fechaCaducidad = fechaCaducidad;
     }
 

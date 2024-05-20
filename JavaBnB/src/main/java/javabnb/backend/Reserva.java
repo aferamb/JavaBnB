@@ -40,7 +40,16 @@ public class Reserva implements Serializable{
         this.inmueble = inmueble;
         this.tarjeta = tarjeta;
         this.cliente = cliente;
-        this.fechaReserva = LocalDate.now();;
+        this.fechaReserva = LocalDate.now();
+        try {
+            if (fechaEntrada.isAfter(fechaSalida)) {
+                throw new IllegalArgumentException("La fecha de entrada debe ser anterior a la fecha de salida");
+            }
+            this.fechaEntrada = fechaEntrada;
+            this.fechaSalida = fechaSalida;
+        } catch (IllegalArgumentException e) {
+            System.err.println(e.getMessage());
+        }
         this.fechaEntrada = fechaEntrada;
         this.fechaSalida = fechaSalida;
         this.importe = calcularImporte();
@@ -175,25 +184,27 @@ public class Reserva implements Serializable{
     }
 
     /**
-     *
-     * @return 
-     */
-    @Override
-    public String toString() {
-        return "Reserva{" + "Inmueble= " + inmueble + ", importe= " + importe + ", tarjeta= " + tarjeta + ", cliente= " + cliente +", fecha de reserva= " + fechaReserva +  ",fechade entrada= "+ fechaEntrada + ", fecha de salida= " + fechaSalida +"}";
-    }
-
-    /**
-     * Calcula el importe de la reserva
+     * Calcula el importe de la reserva en función de los días de estancia y el precio por noche del inmueble 
      * 
      * @return el importe de la reserva de tipo double
      */
     public double calcularImporte(){
-    long dias = ChronoUnit.DAYS.between(this.fechaEntrada, this.fechaSalida);
-    double res = inmueble.getPrecioNoche() * dias;
-    if (cliente.isVip()) {
-        res = 0.9*res; }
-    return res;
+        long dias = ChronoUnit.DAYS.between(this.fechaEntrada, this.fechaSalida);
+        double precio = inmueble.getPrecioNoche() * dias;
+    
+        if (cliente.isVip()) {
+            precio = 0.9*precio; }
+        return precio;
+        }
+
+    /**
+     *  toString de la clase Reserva. 
+     * 
+     * @return String con los datos de la reserva
+     */
+    @Override
+    public String toString() {
+        return "Reserva{" + "Inmueble= " + inmueble + ", importe= " + importe + ", tarjeta= " + tarjeta + ", cliente= " + cliente +", fecha de reserva= " + fechaReserva +  ",fechade entrada= "+ fechaEntrada + ", fecha de salida= " + fechaSalida +"}";
     }
 
     /**
@@ -203,9 +214,9 @@ public class Reserva implements Serializable{
      * @throws IOException 
      */
     public static void generarFactura(Reserva reserva) throws IOException {
-        double importefactura = reserva.calcularImporte();
+        double importefactura = reserva.calcularImporte(); // sobra, el importe ya se calcula en el constructor
         long numeroTarjeta = reserva.getCliente().getTarjetaCredito().getNumeroTarjeta();
-         DecimalFormat df = new DecimalFormat("#.##");
+        DecimalFormat df = new DecimalFormat("#.##");
         LocalDate fecha = reserva.getFechaReserva();
         DateTimeFormatter formatoCorto = DateTimeFormatter.ofPattern("dd/MM/yy");        
         String fn = fecha.format(formatoCorto);
@@ -247,10 +258,11 @@ public class Reserva implements Serializable{
                 salida.println("\n");
                 salida.println("-----------------------------IMPORTE--------------------------------------");
                 salida.println("\n");
-                salida.println("Precio por noche: " + reserva.getInm().getPrecioNoche() + "€");
+                salida.println("Días de estancia: " + ChronoUnit.DAYS.between(reserva.getFechaEntrada(), reserva.getFechaSalida()));
+                salida.println("Precio por noche: " + df.format(reserva.getInm().getPrecioNoche()) + "€");  
                 if (reserva.getCliente().isVip()) { 
-                    salida.println("Descuento VIP: -" + importefactura*0.1 + "€");
-                    importefactura = 0.9*importefactura;}
+                    salida.println("Descuento VIP: -" + df.format(importefactura/0.9*0.1) + "€");
+                }
                 salida.println("Precio final: " + df.format(importefactura) + "€");
                 salida.println("\n");
                 salida.println("-------------------------------------------------------------------------------");

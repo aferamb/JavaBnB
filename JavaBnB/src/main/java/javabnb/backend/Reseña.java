@@ -91,7 +91,7 @@ public class Reseña implements Serializable{
 
     @Override
     public String toString() {
-        return "Reseña{" + "usuario=" + usuario + "calificacion=" + calificacion + ", comentario=" + comentario + '}';
+        return "Reseña{" + "usuario=" + usuario.getNombre() + ", calificacion=" + calificacion + ", comentario = " + comentario + '}';
     }
 
 }

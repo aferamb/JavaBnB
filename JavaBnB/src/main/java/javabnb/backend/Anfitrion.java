@@ -1,13 +1,13 @@
 package javabnb.backend;
 
-import java.io.Serializable;
+//import java.io.Serializable; //implements Serializable redundante en esta clase
 import java.util.ArrayList;
 
 /**
  * @author Alejandro Fernández Ambrós
  * @author Sergio Caballero Ortego
  */
-public class Anfitrion extends Persona implements Serializable {
+public class Anfitrion extends Persona {
     
     private boolean superanfitrion;
     private ArrayList<Inmueble> inmuebles;
@@ -110,7 +110,7 @@ public class Anfitrion extends Persona implements Serializable {
      */
     @Override
     public String toString() {
-        return super.toString() + "Anfitrion{" + "superanfitrion=" + superanfitrion + ", inmuebles=" + inmuebles + '}';
+        return super.toString() + "Anfitrion{" + "superanfitrion=" + superanfitrion + '}';
     }
 
 }
