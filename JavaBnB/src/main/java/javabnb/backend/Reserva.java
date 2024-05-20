@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
@@ -14,7 +15,7 @@ import java.util.Arrays;
  * @author Alejandro Fernández Ambrós
  * @author Sergio Caballero Ortego
  */
-public class Reserva {
+public class Reserva implements Serializable{
     
     private Inmueble inmueble;
     private double importe; //el importe se calcula a partir de las fechas
@@ -28,18 +29,16 @@ public class Reserva {
      * Constructor de la clase Reserva se deben de introducir los datos de la reserva: inmueble, fecha de entrada, fecha de salida, fecha de reserva, tarjeta de crédito, importe
 ´    *
      * @param inmueble
-     * @param importe
      * @param tarjeta
-     * @param fechaReserva
+     * @param cliente
      * @param fechaEntrada
      * @param fechaSalida
-     * @param cliente
      */
-    public Reserva(Inmueble inmueble, TarjetaCredito tarjeta, ClienteParticular cliente, LocalDate fechaReserva, LocalDate fechaEntrada, LocalDate fechaSalida) {
+    public Reserva(Inmueble inmueble, TarjetaCredito tarjeta, ClienteParticular cliente, LocalDate fechaEntrada, LocalDate fechaSalida) {
         this.inmueble = inmueble;
         this.tarjeta = tarjeta;
         this.cliente = cliente;
-        this.fechaReserva = fechaReserva;
+        this.fechaReserva = LocalDate.now();
         this.fechaEntrada = fechaEntrada;
         this.fechaSalida = fechaSalida;
     }
@@ -226,6 +225,7 @@ public class Reserva {
                 salida.println("Nombre: " + reserva.getInm().getTitulo());
                 salida.println("Dirección: " + reserva.getInm().getDireccion().toString());
                 salida.println("Tipo: " + reserva.getInm().getTipoPropiedad());
+                salida.println("Tipo: " + reserva.getInm().getTipoPropiedad());
                 salida.println("Huéspedes máximos: " + reserva.getInm().getHuespedesMax());
                 salida.println("Habitaciones: " + reserva.getInm().getHabitaciones());
                 salida.println("Camas: " + reserva.getInm().getCamas());
@@ -244,9 +244,9 @@ public class Reserva {
                 salida.println("\n");
                 salida.println("Precio por noche: " + reserva.getInm().getPrecioNoche() + "€");
                 if (reserva.getCliente().isVip()) { 
-                    salida.println("Descuento VIP: -" + importefactura*0.1);
+                    salida.println("Descuento VIP: -" +df.format( importefactura*0.1)+"€");
                     importefactura = 0.9*importefactura;}
-                salida.println("Precio final: " + df.format(importefactura));
+                salida.println("Precio final: " + df.format(importefactura)+"€");
                 salida.println("\n");
                 salida.println("-------------------------------------------------------------------------------");
             }
@@ -254,6 +254,8 @@ public class Reserva {
         catch (IOException ioe) {
             System.out.println("Error de IO: " + ioe.getMessage());
         }
+        
+        
     }
     }
     

@@ -1,10 +1,12 @@
 package javabnb.backend;
 
+import java.io.Serializable;
+
 /**
  * @author Alejandro Fernández Ambrós
  * @author Sergio Caballero Ortego
  */
-public class Reseña {
+public class Reseña implements Serializable{
     
     private ClienteParticular usuario;
     private int calificacion;

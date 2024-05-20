@@ -1,12 +1,13 @@
 package javabnb.backend;
 
+import java.io.Serializable;
 import java.util.ArrayList; 
 
 /**
  * @author Alejandro Fernández Ambrós
  * @author Sergio Caballero Ortego
  */
-public class ClienteParticular extends Persona {
+public class ClienteParticular extends Persona implements Serializable{
     
     private TarjetaCredito tarjetaCredito; //Si la clase fuese de otro paquete habría que especificar así: javabnb.backend.TarjetaCredito
     private boolean vip;

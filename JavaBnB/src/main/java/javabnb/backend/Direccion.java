@@ -1,10 +1,12 @@
 package javabnb.backend;
 
+import java.io.Serializable;
+
 /**
  * @author Alejandro Fernández Ambrós
  * @author Sergio Caballero Ortego
  */
-public class Direccion {
+public class Direccion implements Serializable{
     
     private String calle;
     private int numero;

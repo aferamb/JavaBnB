@@ -1,11 +1,12 @@
 package javabnb.backend;
+import java.io.Serializable;
 import java.time.LocalDate;
 
 /**
  * @author Alejandro Fernández Ambrós
  * @author Sergio Caballero Ortego
  */
-public class TarjetaCredito {
+public class TarjetaCredito implements Serializable{
     
     private String titular;
     private long numeroTarjeta; // A la hora de escribir los datos tipo Long, es buena practica poner al final una "L": ...342L no afecta al valor(de hecho sin la l el main no va)

@@ -4,6 +4,7 @@ import java.awt.image.BufferedImage;    // ni idea de si funciona
 import javax.imageio.ImageIO;           // ni idea de si funciona
 import java.io.File;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
@@ -13,7 +14,7 @@ import java.util.ArrayList;
 
 enum TipoInmueble {CASA, APARTAMENTO}
 
-public class Inmueble {
+public class Inmueble implements Serializable {
     
     private String titulo;
     private Anfitrion anfitrion;
@@ -28,6 +29,9 @@ public class Inmueble {
     private ArrayList<BufferedImage> fotos = new ArrayList<BufferedImage>();
     private double calificacion;
     private ArrayList<Reseña> reseñas = new ArrayList<Reseña>();
+    
+
+    
     /**
      * Constructor de la clase Inmueble, se deben de introducir los datos del inmueble: titulo, anfitrion, direccion, numero maximo de huespedes, numero de habitaciones, 
      * numero de camas, numero de baños, tipo de propiedad (CASA o APARTAMENTO), precio por noche, lista de servicios, lista de fotos y calificacion

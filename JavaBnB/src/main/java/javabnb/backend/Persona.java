@@ -1,11 +1,12 @@
 package javabnb.backend;
+import java.io.Serializable;
 import java.time.LocalDate;
 
 /**
  * @author Alejandro Fernández Ambrós
  * @author Sergio Caballero Ortego
  */
-public class Persona {
+public class Persona implements Serializable{
     
     private String dni;
     private String nombre;

@@ -1,0 +1,43 @@
+---------------------------- Factura de reserva ---------------------------
+
+
+-------------------------------- Fecha: 20/05/24 -------------------------------
+
+
+Fecha de entrada: 02/01/24
+Fecha de salida: 12/03/24
+
+
+-------------------------------- Inmueble -------------------------------
+
+
+Nombre: Casa
+Dirección: calle: calle avenida, número: 1, detalles: AAAAA, codigoPostal: 19005, ciudad: Paris, provincia: Perú, pais: peruu}
+Tipo: CASA
+Tipo: CASA
+Huéspedes máximos: 3222
+Habitaciones: 222
+Camas: 1
+Baños: 2
+Servicios adicionales: 
+
+
+--------------------------DATOS DEL CLIENTE-----------------------------------
+
+
+Nombre: pepe
+DNI: 12345678A
+Teléfono: 1123322
+Correo: email@email.com
+Tarjeta: *************5678
+
+
+-----------------------------IMPORTE--------------------------------------
+
+
+Precio por noche: 43.72€
+Descuento VIP: -275,44€
+Precio final: 2478,92€
+
+
+-------------------------------------------------------------------------------
