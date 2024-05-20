@@ -5,6 +5,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -15,12 +16,14 @@ import java.util.Comparator;
  */
 
 public class GestorInmueble {
+    private static Administrador admin;
     private static ArrayList<Inmueble> inmuebles = new ArrayList<>();
+    private static ArrayList<Anfitrion> anfitriones = new ArrayList<>();
     private static Inmueble inm;
     
     /** Establece el ArrayList de los inmuebles
      * @param inm */
-    public static void setProductos(ArrayList<Inmueble> inm) {
+    public static void setProductos(ArrayList<Inmueble> inm) { // SetProductos!!! Como se nota la IA jeje
         inmuebles = inm;
     }
 
