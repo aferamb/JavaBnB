@@ -18,7 +18,7 @@ public class Main {
  
    private static ArrayList<Persona> personas = new ArrayList<>();
    public static void main (String[] args) throws IOException{
-      /* 
+      
    ArrayList<String> servicios = new ArrayList<>();
    servicios.add("Wifi");
    servicios.add("Desayuno");
@@ -100,7 +100,7 @@ public class Main {
    System.out.println("Inmueble 2");
    GestorInmueble.recuperarDatosInmuebles();
    System.out.println("Inmueble 2");
-   */
+ 
    
    Administrador admin = new Administrador();
    

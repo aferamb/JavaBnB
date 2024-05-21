@@ -43,8 +43,11 @@ public class Reserva implements Serializable{
         this.cliente = cliente;
         this.fechaReserva = LocalDate.now();
         try {
-            if (fechaEntrada.isAfter(fechaSalida)) {
+            if (comprobarFecha(fechaSalida, fechaEntrada)) {
                 throw new IllegalArgumentException("La fecha de entrada debe ser anterior a la fecha de salida");
+            }
+            if (comprobarReserva(fechaEntrada,fechaSalida)) {
+             throw new IllegalArgumentException("La fecha indicada ya ha sido reservada");
             }
             this.fechaEntrada = fechaEntrada;
             this.fechaSalida = fechaSalida;
@@ -56,6 +59,7 @@ public class Reserva implements Serializable{
         this.importe = calcularImporte();
         cliente.addReserva(this);
         //GestorInmueble.addReserva(this);
+        
     }
     
 
@@ -208,7 +212,37 @@ public class Reserva implements Serializable{
     public String toString() {
         return "Reserva{" + "Inmueble= " + inmueble + ", importe= " + importe + ", tarjeta= " + tarjeta + ", cliente= " + cliente +", fecha de reserva= " + fechaReserva +  ",fechade entrada= "+ fechaEntrada + ", fecha de salida= " + fechaSalida +"}";
     }
+    
+    /**
+     * Comprueba que la fecha de fin ocurre despues de la fecha de inicio
+     * 
+     * @param inicio
+     * @param fin
+     * @return true si la fecha de inicio ocurre antes que la de fin, false en el caso contrario
+     */
+    public boolean comprobarFecha (LocalDate inicio, LocalDate fin){
+        return fin.isAfter(inicio);
+    }
 
+    /**
+     * Comprueba que las fechas no hayan sido ya reservadas
+     * 
+     * @param fechaEntrada
+     * @param fechaSalida
+     * @return true si las fechas están ya reservadas, false en caso contrario
+     */
+    public boolean comprobarReserva (LocalDate fechaEntrada, LocalDate fechaSalida){
+        boolean isReserved = false;
+        for (Reserva reserva : GestorInmueble.getReservas()){
+          if (reservasSolapadas(fechaEntrada,fechaSalida,reserva.getFechaEntrada(), reserva.getFechaSalida() ))
+          {isReserved = true;}
+        }
+        return isReserved;
+    }
+      
+    boolean reservasSolapadas(LocalDate inicioRes, LocalDate finRes, LocalDate inicioRes2, LocalDate finRes2 ) {
+    return !inicioRes.isAfter(finRes2) && !inicioRes2.isAfter(finRes);
+    }
     /**
      *  Genera un fichero de texto con los datos de la reserva
      * 
