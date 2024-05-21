@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
 import java.text.DecimalFormat;
 //import java.util.Arrays;
 
@@ -57,7 +58,6 @@ public class Reserva implements Serializable{
         //GestorInmueble.addReserva(this);
     }
     
-
 
     /**
      * Devuelve el valor de inmueble

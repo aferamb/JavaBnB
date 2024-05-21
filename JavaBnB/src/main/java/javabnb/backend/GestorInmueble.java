@@ -288,11 +288,12 @@ public class GestorInmueble implements Serializable{
     }
 
     /**
-     * Devuelve un objeto de tipo ArrayList de Persona recuperado de un fichero
+     * Establece el atributo personas de la clase GestorInmueble a un objeto de tipo ArrayList de Persona recuperado de un fichero
      * 
-     * @return personas en tipo ArrayList de Persona
      */
-    public static ArrayList<Persona> recuperarDatosPersonas() {
+    //Por si molesta el warning de unchecked xd
+    @SuppressWarnings("unchecked") 
+    public static void recuperarDatosPersonas() {
         ArrayList<Persona> personas = new ArrayList<>();
         try {
             FileInputStream fis = new FileInputStream("ficheroPersonas.dat");
@@ -304,7 +305,7 @@ public class GestorInmueble implements Serializable{
         } catch (ClassNotFoundException cnfe) {
             System.out.println("Clase no encontrada: " + cnfe.getMessage());
         }
-        return personas;
+        GestorInmueble.setPersonas(personas);
     }
 
     /**
@@ -324,13 +325,12 @@ public class GestorInmueble implements Serializable{
     }
 
     /**
-     * Devuelve un objeto de tipo ArrayList de Inmueble recuperado de un fichero
+     * Establece el atributo inmuebles de la clase GestorInmueble a un objeto de tipo ArrayList de Inmueble recuperado de un fichero
      * 
-     * @return inmuebles en tipo ArrayList de Inmueble
      */
     //Por si molesta el warning de unchecked xd
-    //@SuppressWarnings("unchecked") 
-    public static ArrayList<Inmueble> recuperarDatosInmuebles() {
+    @SuppressWarnings("unchecked") 
+    public static void recuperarDatosInmuebles() {
         ArrayList<Inmueble> inmuebles = new ArrayList<>();
         try {
             FileInputStream fis = new FileInputStream("ficheroInmuebles.dat");
@@ -342,7 +342,7 @@ public class GestorInmueble implements Serializable{
         } catch (ClassNotFoundException cnfe) {
             System.out.println("Clase no encontrada: " + cnfe.getMessage());
         }
-        return inmuebles;
+        GestorInmueble.setInmuebles(inmuebles);
     }
 
     /**
@@ -362,11 +362,12 @@ public class GestorInmueble implements Serializable{
     }
 
     /**
-     * Devuelve un objeto de tipo ArrayList de Reserva recuperado de un fichero
+     * Establece el atributo reservas de la clase GestorInmueble a un objeto de tipo ArrayList de Reserva recuperado de un fichero
      * 
-     * @return reservas en tipo ArrayList de Reserva
      */
-    public static ArrayList<Reserva> recuperarDatosReservas() {
+    //Por si molesta el warning de unchecked xd
+    @SuppressWarnings("unchecked") 
+    public static void recuperarDatosReservas() {
         ArrayList<Reserva> reservas = new ArrayList<>();
         try {
             FileInputStream fis = new FileInputStream("ficheroReservas.dat");
@@ -378,7 +379,7 @@ public class GestorInmueble implements Serializable{
         } catch (ClassNotFoundException cnfe) {
             System.out.println("Clase no encontrada: " + cnfe.getMessage());
         }
-        return reservas;
+        GestorInmueble.setReservas(reservas);
     }
 
     /**
@@ -388,7 +389,7 @@ public class GestorInmueble implements Serializable{
      */
     public static void guardarDatosReservas() {
         try {
-            FileOutputStream fos = new FileOutputStream("/ficheroReservas.dat");
+            FileOutputStream fos = new FileOutputStream("ficheroReservas.dat");
             ObjectOutputStream oos = new ObjectOutputStream(fos);
             oos.writeObject(reservas);
             oos.close();

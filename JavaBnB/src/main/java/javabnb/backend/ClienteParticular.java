@@ -11,7 +11,7 @@ public class ClienteParticular extends Persona{
     
     private TarjetaCredito tarjetaCredito; //Si la clase fuese de otro paquete habría que especificar así: javabnb.backend.TarjetaCredito
     private boolean vip;
-    private ArrayList<Reserva> reservas = new ArrayList<>();
+    private ArrayList<Reserva> reservas = new ArrayList<Reserva>();
 
     /**
      * Constructor de la clase cliente particular, se deben de introducir los datos del cliente de DNI, nombre, correo, clave, teléfono, tarjeta de crédito y si es VIP o no
