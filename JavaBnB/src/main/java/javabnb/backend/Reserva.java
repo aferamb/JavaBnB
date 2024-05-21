@@ -57,7 +57,7 @@ public class Reserva implements Serializable{
         this.fechaSalida = fechaSalida;
         this.importe = calcularImporte();
         cliente.addReserva(this);
-        //GestorInmueble.addReserva(this);
+        GestorInmueble.addReserva(this);
     }
     
 
