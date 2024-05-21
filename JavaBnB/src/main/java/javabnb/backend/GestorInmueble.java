@@ -22,18 +22,6 @@ public class GestorInmueble implements Serializable{
     private static ArrayList<Persona> personas = new ArrayList<>();
     private static ArrayList<Inmueble> inmuebles = new ArrayList<>();
     private static ArrayList<Reserva> reservas = new ArrayList<>();
-    
-    /*
-     * Faltan:
-     * - Recuperar datos administrador
-     * - Recuperar datos personas
-     * - Recuperar datos inmuebles
-     * - Recuperar datos reservas
-     * - Guardar datos administrador
-     * - Guardar datos personas
-     * - Guardar datos inmuebles
-     * - Guardar datos reservas
-     */
 
     /**
      * Devuelve el administrador
@@ -286,13 +274,13 @@ public class GestorInmueble implements Serializable{
     /**
      * Guarda un objeto de tipo Administrador en un fichero
      * 
-     * @param admin objeto de tipo Administrador
+     * 
      */
-    public static void guardarDatosAdmin(Administrador admin) {
+    public static void guardarDatosAdmin() {
         try {
             FileOutputStream fos = new FileOutputStream("ficheroAdmin.dat");
             ObjectOutputStream oos = new ObjectOutputStream(fos);
-            oos.writeObject(admin);
+            oos.writeObject(GestorInmueble.admin);
             oos.close();
         } catch (IOException ioe) {
             System.out.println("Error de IO " + ioe.getMessage());
@@ -322,9 +310,9 @@ public class GestorInmueble implements Serializable{
     /**
      * Guarda un objeto de tipo ArrayList de Persona en un fichero
      * 
-     * @param personas objeto de tipo ArrayList de Persona
+     * 
      */
-    public static void guardarDatosPersonas(ArrayList<Persona> personas) {
+    public static void guardarDatosPersonas() {
         try {
             FileOutputStream fos = new FileOutputStream("ficheroPersonas.dat");
             ObjectOutputStream oos = new ObjectOutputStream(fos);
@@ -360,9 +348,9 @@ public class GestorInmueble implements Serializable{
     /**
      * Guarda un objeto de tipo ArrayList de Persona en un fichero
      * 
-     * @param inmuebles objeto de tipo ArrayList de Inmueble
+     * 
      */
-    public static void guardarDatosInmuebles(ArrayList<Inmueble> inmuebles) {
+    public static void guardarDatosInmuebles() {
         try {
             FileOutputStream fos = new FileOutputStream("ficheroInmuebles.dat");
             ObjectOutputStream oos = new ObjectOutputStream(fos);
@@ -396,11 +384,11 @@ public class GestorInmueble implements Serializable{
     /**
      * Guarda un objeto de tipo ArrayList de Reserva en un fichero
      * 
-     * @param reservas objeto de tipo ArrayList de Reserva
+     * 
      */
-    public static void guardarDatosReservas(ArrayList<Reserva> reservas) {
+    public static void guardarDatosReservas() {
         try {
-            FileOutputStream fos = new FileOutputStream("ficheroReservas.dat");
+            FileOutputStream fos = new FileOutputStream("/ficheroReservas.dat");
             ObjectOutputStream oos = new ObjectOutputStream(fos);
             oos.writeObject(reservas);
             oos.close();
@@ -410,7 +398,7 @@ public class GestorInmueble implements Serializable{
     }
 
 
-    
+    // qeu se supone que hace esto?
     /**
      *
      * @param indice

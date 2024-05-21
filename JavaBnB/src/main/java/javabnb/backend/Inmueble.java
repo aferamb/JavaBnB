@@ -449,7 +449,18 @@ public class Inmueble implements Serializable {
      */
     @Override
     public String toString() {
-        return "Inmueble{" + "titulo=" + titulo + ", anfitrion=" + anfitrion + '}';
+        return "Inmueble{" +
+            "titulo='" + titulo + '\'' +
+            ", direccion=" + direccion +
+            ", huespedesMax=" + huespedesMax +
+            ", habitaciones=" + habitaciones +
+            ", camas=" + camas +
+            ", baños=" + baños +
+            ", tipoInmueble=" + tipoInmueble +
+            ", precioNoche=" + precioNoche +
+            ", servicios=" + servicios +
+            ", calificacion=" + calificacion +
+            '}';
     }  
     
 }

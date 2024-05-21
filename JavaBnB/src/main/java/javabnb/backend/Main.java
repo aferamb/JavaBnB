@@ -69,10 +69,26 @@ public class Main {
    GestorInmueble.addInmueble(inm3);
    GestorInmueble.addInmueble(inm2);
    GestorInmueble.addInmueble(inm1);
+   GestorInmueble.addPersona(per1);
+   GestorInmueble.addPersona(per2);
+   GestorInmueble.addPersona(anfi1);
+   GestorInmueble.addReserva(reserva);
+   GestorInmueble.addReserva(reserva2);
+   System.out.println(GestorInmueble.getPersonas());
+   System.out.println(GestorInmueble.getReservas());
    System.out.println(GestorInmueble.getInmuebles());
-   System.out.println(GestorInmueble.getInmueblesPorCalificacion());
-   System.out.println(GestorInmueble.getInmueblesPorPrecio());
-   System.out.println(GestorInmueble.getInmueblesPorTipo("apartamento"));
+
+   GestorInmueble.guardarDatosAdmin();
+   GestorInmueble.guardarDatosInmuebles();
+   GestorInmueble.guardarDatosPersonas();
+   GestorInmueble.guardarDatosReservas();
+
+
+
+   //System.out.println(GestorInmueble.getInmuebles());
+   //System.out.println(GestorInmueble.getInmueblesPorCalificacion());
+   //System.out.println(GestorInmueble.getInmueblesPorPrecio());
+   //System.out.println(GestorInmueble.getInmueblesPorTipo("apartamento"));
 
    Reserva.generarFactura(reserva);
    Reserva.generarFactura(reserva2);
