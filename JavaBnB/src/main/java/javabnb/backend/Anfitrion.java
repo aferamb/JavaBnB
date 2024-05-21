@@ -25,7 +25,7 @@ public class Anfitrion extends Persona {
     public Anfitrion(String dni, String nombre, String correo, String clave, int telefono) {
         super(dni, nombre, correo, clave, telefono);
         this.superanfitrion = false; 
-        //GestorInmueble.addPersona(this);
+        GestorInmueble.addPersona(this);
     }
 
     /**

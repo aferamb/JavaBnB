@@ -67,7 +67,7 @@ public class Inmueble implements Serializable {
         this.fotos = fotos; // REVISAR a;adir arraylist entero de fotos?
         this.calificacion = 0; // Calificacion por defecto de 0
         anfitrion.addInmueble(this);
-        //GestorInmueble.addInmueble(this);
+        GestorInmueble.addInmueble(this);
     }
 
     /**
