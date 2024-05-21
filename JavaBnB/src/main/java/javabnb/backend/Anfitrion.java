@@ -25,6 +25,7 @@ public class Anfitrion extends Persona {
     public Anfitrion(String dni, String nombre, String correo, String clave, int telefono) {
         super(dni, nombre, correo, clave, telefono);
         this.superanfitrion = false; 
+        //GestorInmueble.addPersona(this);
     }
 
     /**
@@ -63,12 +64,12 @@ public class Anfitrion extends Persona {
     }
 
     /**
-     * Devuelve una copia de la lista de inmuebles del anfitrion, para evitar modificar o alterar la original.
+     * Devuelve la lista de inmuebles del anfitrion
      *
-     * @return copia de la lista de inmuebles en forma de ArrayList de Inmueble
+     * @return  lista de inmuebles en forma de ArrayList de Inmueble
      */
     public ArrayList<Inmueble> getInmuebles() {
-        return new ArrayList<>(inmuebles);
+        return inmuebles;
     }
 
     /**

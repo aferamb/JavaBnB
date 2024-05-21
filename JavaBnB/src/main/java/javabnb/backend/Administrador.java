@@ -14,9 +14,14 @@ public class Administrador implements Serializable{
     /**
      * Constructor de la clase Administrador. 
      * No se necesita introducir ningún dato, ya que el correo y la clave del administrador son fijos por defecto.
+     * Y si no existe un administrador guardado en archivo, se establece este como administrador.
      *
      */
-    public Administrador() {}
+    public Administrador() {
+        if (GestorInmueble.getAdmin() == null) {
+            GestorInmueble.setAdmin(this);
+        }
+    }
     
     /**
      * Devuelve el valor del correo del adminitrador

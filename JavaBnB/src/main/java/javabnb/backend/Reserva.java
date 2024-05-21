@@ -54,6 +54,7 @@ public class Reserva implements Serializable{
         this.fechaSalida = fechaSalida;
         this.importe = calcularImporte();
         cliente.addReserva(this);
+        //GestorInmueble.addReserva(this);
     }
     
 
@@ -63,7 +64,7 @@ public class Reserva implements Serializable{
      * 
      * @return el valor de inmueble de tipo Inmueble
      */
-    public Inmueble getInm() {
+    public Inmueble getInmueble() {
         return inmueble;
     }
 
@@ -72,7 +73,7 @@ public class Reserva implements Serializable{
      * 
      * @param inmueble nuevo valor inmueble de tipo Inmueble
      */
-    public void setInm(Inmueble inmueble) {
+    public void setInmueble(Inmueble inmueble) {
         this.inmueble = inmueble;
     }
 
@@ -221,7 +222,7 @@ public class Reserva implements Serializable{
         LocalDate fecha = reserva.getFechaReserva();
         DateTimeFormatter formatoCorto = DateTimeFormatter.ofPattern("dd/MM/yy");        
         String fn = fecha.format(formatoCorto);
-        String rutaFicheroFactura = "./Facturas/Factura--" + reserva.getInm().getTitulo().replace(' ','-')+ "__(" + fn.replace('/', '_') + ").txt";
+        String rutaFicheroFactura = "./Facturas/Factura--" + reserva.getInmueble().getTitulo().replace(' ','-')+ "__(" + fn.replace('/', '_') + ").txt";
         try {
             File dirFacturas = new File("./Facturas");
 
@@ -240,14 +241,14 @@ public class Reserva implements Serializable{
                 salida.println("\n");
                 salida.println("-------------------------------- Inmueble -------------------------------");
                 salida.println("\n");
-                salida.println("Nombre: " + reserva.getInm().getTitulo());
-                salida.println("Dirección: " + reserva.getInm().getDireccion().toString());
-                salida.println("Tipo: " + reserva.getInm().getTipoPropiedad());
-                salida.println("Huéspedes máximos: " + reserva.getInm().getHuespedesMax());
-                salida.println("Habitaciones: " + reserva.getInm().getHabitaciones());
-                salida.println("Camas: " + reserva.getInm().getCamas());
-                salida.println("Baños: " + reserva.getInm().getBaños());
-                salida.println("Servicios adicionales: " + String.join(", ", reserva.getInm().getServicios()));
+                salida.println("Nombre: " + reserva.getInmueble().getTitulo());
+                salida.println("Dirección: " + reserva.getInmueble().getDireccion().toString());
+                salida.println("Tipo: " + reserva.getInmueble().getTipoInmueble());
+                salida.println("Huéspedes máximos: " + reserva.getInmueble().getHuespedesMax());
+                salida.println("Habitaciones: " + reserva.getInmueble().getHabitaciones());
+                salida.println("Camas: " + reserva.getInmueble().getCamas());
+                salida.println("Baños: " + reserva.getInmueble().getBaños());
+                salida.println("Servicios adicionales: " + String.join(", ", reserva.getInmueble().getServicios()));
                 salida.println("\n");
                 salida.println("--------------------------DATOS DEL CLIENTE-----------------------------------");
                 salida.println("\n");
@@ -260,7 +261,7 @@ public class Reserva implements Serializable{
                 salida.println("-----------------------------IMPORTE--------------------------------------");
                 salida.println("\n");
                 salida.println("Días de estancia: " + ChronoUnit.DAYS.between(reserva.getFechaEntrada(), reserva.getFechaSalida()));
-                salida.println("Precio por noche: " + df.format(reserva.getInm().getPrecioNoche()) + "€");  
+                salida.println("Precio por noche: " + df.format(reserva.getInmueble().getPrecioNoche()) + "€");  
                 if (reserva.getCliente().isVip()) { 
                     salida.println("Descuento VIP: -" + df.format(importefactura/0.9*0.1) + "€");
                 }

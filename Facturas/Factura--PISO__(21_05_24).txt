@@ -24,8 +24,8 @@ Servicios adicionales: Wifi, Desayuno
 --------------------------DATOS DEL CLIENTE-----------------------------------
 
 
-Nombre: pepe
-DNI: 12345678A
+Nombre: pepo
+DNI: 12335678A
 Teléfono: 1123322
 Correo: coreo@ee
 Tarjeta: ************4567

@@ -23,7 +23,7 @@ public class Inmueble implements Serializable {
     private int habitaciones;
     private int camas;
     private int baños; 
-    private TipoInmueble tipoPropiedad; 
+    private TipoInmueble tipoInmueble; 
     private double precioNoche;
     private ArrayList<String> servicios;
     private ArrayList<BufferedImage> fotos = new ArrayList<BufferedImage>();
@@ -43,13 +43,13 @@ public class Inmueble implements Serializable {
      * @param habitaciones int con el numero de habitaciones
      * @param camas int con el numero de camas
      * @param baños int con el numero de baños
-     * @param tipoPropiedad String con el tipo de propiedad (CASA o APARTAMENTO)
+     * @param tipoInmueble String con el tipo de propiedad (CASA o APARTAMENTO)
      * @param precioNoche double con el precio por noche
      * @param servicios lista de servicios ofrecidos en forma de ArrayList de String
      * @param fotos lista de fotos del inmueble en forma de ArrayList de BufferedImage
      * @param calificacion double con la calificacion del inmueble
      */
-    public Inmueble(String titulo, Anfitrion anfitrion, Direccion direccion, int huespedesMax, int habitaciones, int camas, int baños, String tipoPropiedad, double precioNoche, ArrayList<String> servicios, ArrayList<BufferedImage> fotos, double calificacion) {
+    public Inmueble(String titulo, Anfitrion anfitrion, Direccion direccion, int huespedesMax, int habitaciones, int camas, int baños, String tipoInmueble, double precioNoche, ArrayList<String> servicios, ArrayList<BufferedImage> fotos, double calificacion) {
         this.titulo = titulo;
         this.anfitrion = anfitrion;
         this.direccion = direccion;
@@ -57,16 +57,17 @@ public class Inmueble implements Serializable {
         this.habitaciones = habitaciones;
         this.camas = camas;
         this.baños = baños;
-        if (tipoPropiedad.toUpperCase() == "CASA") {
-            this.tipoPropiedad = TipoInmueble.CASA;
-        } else if (tipoPropiedad.toUpperCase() == "APARTAMENTO"){
-            this.tipoPropiedad = TipoInmueble.APARTAMENTO;
+        if (tipoInmueble.toUpperCase().equals("CASA")) {
+            this.tipoInmueble = TipoInmueble.CASA;
+        } else if (tipoInmueble.toUpperCase().equals("APARTAMENTO")){
+            this.tipoInmueble = TipoInmueble.APARTAMENTO;
         }
         this.precioNoche = precioNoche;
         this.servicios = servicios;
         this.fotos = fotos; // REVISAR a;adir arraylist entero de fotos?
         this.calificacion = 0; // Calificacion por defecto de 0
         anfitrion.addInmueble(this);
+        //GestorInmueble.addInmueble(this);
     }
 
     /**
@@ -200,20 +201,20 @@ public class Inmueble implements Serializable {
      *
      * @return el tipo de propiedad en forma de TipoInmueble
      */
-    public TipoInmueble getTipoPropiedad() {
-        return tipoPropiedad;
+    public TipoInmueble getTipoInmueble() {
+        return tipoInmueble;
     }
 
     /**
      * Establece el tipo de propiedad. Si el tipo de propiedad no es ni "CASA" ni "APARTAMENTO", imprime un mensaje de error
      *
-     * @param tipoPropiedad nuevo tipo de propiedad en forma de TipoInmueble: TipoInmueble.CASA o TipoInmueble.APARTAMENTO
+     * @param tipoInmueble nuevo tipo de propiedad en forma de TipoInmueble: TipoInmueble.CASA o TipoInmueble.APARTAMENTO
      */
-    public void setTipoPropiedad(TipoInmueble tipoPropiedad) {
-        if (tipoPropiedad != TipoInmueble.CASA && tipoPropiedad != TipoInmueble.APARTAMENTO) {
+    public void setTipoInmueble(TipoInmueble tipoInmueble) {
+        if (tipoInmueble != TipoInmueble.CASA && tipoInmueble != TipoInmueble.APARTAMENTO) {
             System.out.println("El tipo de propiedad no es válido.");
         } else {
-        this.tipoPropiedad = tipoPropiedad;
+        this.tipoInmueble = tipoInmueble;
         }
     }
 
@@ -236,12 +237,12 @@ public class Inmueble implements Serializable {
     }
 
     /**
-     * Devuelve una copia de la lista de servicios ofrecidos 
+     * Devuelve la lista de servicios ofrecidos 
      * 
      * @return lista de servicios en forma de ArrayList de String
      */
     public ArrayList<String> getServicios() {
-        return new ArrayList<>(servicios);
+        return servicios;
     }
 
     /**
@@ -395,12 +396,12 @@ public class Inmueble implements Serializable {
     }
 
     /**
-     * Devuelve una copia de la lista de reseñas de la vivienda
+     * Devuelve la lista de reseñas de la vivienda
      *
      * @return lista de reseñas de la vivienda en forma de ArrayList de Reseña
      */
     public ArrayList<Reseña> getReseñas() {
-        return new ArrayList<>(reseñas);
+        return reseñas;
     }
 
     /**
@@ -448,7 +449,7 @@ public class Inmueble implements Serializable {
      */
     @Override
     public String toString() {
-        return "Inmueble{" + "titulo=" + titulo + ", anfitrion=" + anfitrion + ", direccion=" + direccion + ", huespedesMax=" + huespedesMax + ", habitaciones=" + habitaciones + ", camas=" + camas + ", banos=" + baños + ", tipoPropiedad=" + tipoPropiedad + ", precioNoche=" + precioNoche + ", servicios=" + servicios + ", calificacion=" + calificacion + '}';
+        return "Inmueble{" + "titulo=" + titulo + ", anfitrion=" + anfitrion + '}';
     }  
     
 }

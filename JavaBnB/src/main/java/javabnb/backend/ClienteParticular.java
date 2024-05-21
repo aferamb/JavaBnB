@@ -28,6 +28,7 @@ public class ClienteParticular extends Persona{
         super(dni, nombre, correo, clave, telefono);
         this.tarjetaCredito = tarjetaCredito;
         this.vip = vip;
+        //GestorInmueble.addPersona(this);
     }
     
     /**
@@ -67,12 +68,12 @@ public class ClienteParticular extends Persona{
     }
 
     /**
-     * Devuelve una copia de la lista de reservas, para evitar modificar o alterar la original.
+     * Devuelve la lista de reservas del cliente particular
      *
-     * @return copia de la lista de reservas en forma de ArrayList de Reserva   
+     * @return lista de reservas en forma de ArrayList de Reserva   
      */
     public ArrayList<Reserva> getReservas() {
-        return new ArrayList<>(reservas); 
+        return reservas;
     }
 
     /**

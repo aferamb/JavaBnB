@@ -24,7 +24,7 @@ Servicios adicionales: Wifi, Desayuno
 --------------------------DATOS DEL CLIENTE-----------------------------------
 
 
-Nombre: pepe
+Nombre: Francisco
 DNI: 12345678A
 Teléfono: 1123322
 Correo: email@email.com
