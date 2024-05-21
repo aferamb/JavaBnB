@@ -13,8 +13,12 @@ import java.util.ArrayList;
 public class Main {
    //private static ArrayList<Inmueble> inmuebles = new ArrayList<>();
    //private static Inmueble inm;
+
+
+ 
    private static ArrayList<Persona> personas = new ArrayList<>();
    public static void main (String[] args) throws IOException{
+    /*   
    ArrayList<String> servicios = new ArrayList<>();
    servicios.add("Wifi");
    servicios.add("Desayuno");
@@ -94,7 +98,20 @@ public class Main {
    Reserva.generarFactura(reserva2);
 
    System.out.println("Inmueble 2");
-   GestorInmueble.recuperaraDatosInmuebles();
+   GestorInmueble.recuperarDatosInmuebles();
    System.out.println("Inmueble 2");
+
+   */
+
+
+   GestorInmueble.recuperarDatosAdmin();
+   GestorInmueble.recuperarDatosInmuebles();
+   GestorInmueble.recuperarDatosPersonas();
+   GestorInmueble.recuperarDatosReservas();
+   System.out.println(GestorInmueble.getPersonas());
+   System.out.println(GestorInmueble.getReservas());
+   System.out.println(GestorInmueble.getInmuebles());
+   System.out.println(GestorInmueble.getAdmin());
+
 }  
 }

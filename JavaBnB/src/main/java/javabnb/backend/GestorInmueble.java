@@ -254,9 +254,9 @@ public class GestorInmueble implements Serializable{
     /**
      * Devuelve un objeto de tipo Administrador recuperado de un fichero
      * 
-     * @return admin en tipo Administrador
+     * 
      */
-    public static Administrador recuperarDatosAdmin() {
+    public static void recuperarDatosAdmin() {
         Administrador admin = null;
         try {
             FileInputStream fis = new FileInputStream("ficheroAdmin.dat");
@@ -268,7 +268,7 @@ public class GestorInmueble implements Serializable{
         } catch (ClassNotFoundException cnfe) {
             System.out.println("Clase no encontrada: " + cnfe.getMessage());
         } 
-        return admin;
+        GestorInmueble.setAdmin(admin); 
     }
 
     /**
@@ -330,7 +330,7 @@ public class GestorInmueble implements Serializable{
      */
     //Por si molesta el warning de unchecked xd
     //@SuppressWarnings("unchecked") 
-    public static ArrayList<Inmueble> recuperaraDatosInmuebles() {
+    public static ArrayList<Inmueble> recuperarDatosInmuebles() {
         ArrayList<Inmueble> inmuebles = new ArrayList<>();
         try {
             FileInputStream fis = new FileInputStream("ficheroInmuebles.dat");
