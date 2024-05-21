@@ -28,7 +28,7 @@ public class ClienteParticular extends Persona{
         super(dni, nombre, correo, clave, telefono);
         this.tarjetaCredito = tarjetaCredito;
         this.vip = vip;
-        //GestorInmueble.addPersona(this);
+        GestorInmueble.addPersona(this);
     }
     
     /**
