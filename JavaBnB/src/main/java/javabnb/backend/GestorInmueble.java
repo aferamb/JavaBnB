@@ -9,21 +9,26 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.io.Serializable;
 
 /**
  * @author Alejandro Fernández Ambrós
  * @author Sergio Caballero Ortego
  */
 
-public class GestorInmueble {
+public class GestorInmueble implements Serializable{
     private static Administrador admin;
-    private static ArrayList<Inmueble> inmuebles = new ArrayList<>();
     private static ArrayList<Anfitrion> anfitriones = new ArrayList<>();
+    private static ArrayList<ClienteParticular> clientesParticulares = new ArrayList<>();
+    private static ArrayList<Inmueble> inmuebles = new ArrayList<>();
+    
+
+    
     private static Inmueble inm;
     
     /** Establece el ArrayList de los inmuebles
      * @param inm */
-    public static void setProductos(ArrayList<Inmueble> inm) { // SetProductos!!! Como se nota la IA jeje
+    public static void setProductos(ArrayList<Inmueble> inm) { 
         inmuebles = inm;
     }
 

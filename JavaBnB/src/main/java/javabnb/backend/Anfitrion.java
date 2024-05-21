@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class Anfitrion extends Persona {
     
     private boolean superanfitrion;
-    private ArrayList<Inmueble> inmuebles;
+    private ArrayList<Inmueble> inmuebles= new ArrayList<>();
 
     /**
      * Constructor de la clase anfitrion, se deben de introducir los datos del anfitrion de DNI, nombre, correo, clave y teléfono
@@ -25,7 +25,6 @@ public class Anfitrion extends Persona {
     public Anfitrion(String dni, String nombre, String correo, String clave, int telefono) {
         super(dni, nombre, correo, clave, telefono);
         this.superanfitrion = false; 
-        this.inmuebles = new ArrayList<>();
     }
 
     /**

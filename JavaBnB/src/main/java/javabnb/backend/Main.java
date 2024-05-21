@@ -34,6 +34,8 @@ public class Main {
    
    Reserva reserva = new Reserva (inm1,Tarjeta1,per1,LocalDate.of(2024, 3, 16),LocalDate.of(2024, 3, 15));
    Reserva reserva2 = new Reserva (inm2,Tarjeta1,per2,LocalDate.of(2024, 3, 12),LocalDate.of(2024, 3, 15));
+   System.out.println(per1.getReservas());
+   System.out.println(anfi1.getInmuebles());
    
    System.err.println("Inmueble 1");
    GestorInmueble.añadirInmueble(inm3);

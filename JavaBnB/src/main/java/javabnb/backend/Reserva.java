@@ -53,6 +53,7 @@ public class Reserva implements Serializable{
         this.fechaEntrada = fechaEntrada;
         this.fechaSalida = fechaSalida;
         this.importe = calcularImporte();
+        cliente.addReserva(this);
     }
     
 

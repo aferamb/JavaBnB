@@ -1,7 +1,7 @@
 package javabnb.backend;
 
-import java.awt.image.BufferedImage;    // ni idea de si funciona
-import javax.imageio.ImageIO;           // ni idea de si funciona
+import java.awt.image.BufferedImage;    
+import javax.imageio.ImageIO;           
 import java.io.File;
 import java.io.IOException;
 import java.io.Serializable;
@@ -23,7 +23,7 @@ public class Inmueble implements Serializable {
     private int habitaciones;
     private int camas;
     private int baños; 
-    private TipoInmueble tipoPropiedad; // OJO cuidado
+    private TipoInmueble tipoPropiedad; 
     private double precioNoche;
     private ArrayList<String> servicios;
     private ArrayList<BufferedImage> fotos = new ArrayList<BufferedImage>();
