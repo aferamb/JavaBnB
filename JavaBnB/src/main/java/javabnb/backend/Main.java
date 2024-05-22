@@ -78,11 +78,15 @@ public class Main {
    GestorInmueble.addPersona(anfi1);
    GestorInmueble.addReserva(reserva);
    GestorInmueble.addReserva(reserva2);
-   System.out.println(GestorInmueble.getPersonas());
-   System.out.println(GestorInmueble.getReservas());
-   System.out.println(GestorInmueble.getInmuebles());
+   //System.out.println(GestorInmueble.getPersonas());
+   //System.out.println(GestorInmueble.getReservas());
+   //System.out.println(GestorInmueble.getInmuebles());
 
-   GestorInmueble.guardarDatosAdmin();
+
+
+   //Administrador.setCorreo("correo@nuevo");
+   //Administrador.setClave("clavenueva");
+
    GestorInmueble.guardarDatosInmuebles();
    GestorInmueble.guardarDatosPersonas();
    GestorInmueble.guardarDatosReservas();
@@ -96,23 +100,15 @@ public class Main {
 
    Reserva.generarFactura(reserva);
    Reserva.generarFactura(reserva2);
+   
 
-   System.out.println("Inmueble 2");
-   GestorInmueble.recuperarDatosInmuebles();
-   System.out.println("Inmueble 2");
- 
-   
-   Administrador admin = new Administrador();
-   
-   GestorInmueble.recuperarDatosAdmin();
    GestorInmueble.recuperarDatosInmuebles();
    GestorInmueble.recuperarDatosPersonas();
    GestorInmueble.recuperarDatosReservas();
    System.out.println(GestorInmueble.getPersonas());
-   //System.out.println(GestorInmueble.recuperarDatosPersonas());
    System.out.println(GestorInmueble.getReservas());
    System.out.println(GestorInmueble.getInmuebles());
-   System.out.println(GestorInmueble.getAdmin());
-   
+   System.out.println("hola");
+
 }  
 }

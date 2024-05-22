@@ -46,7 +46,7 @@ public class Reserva implements Serializable{
                 throw new IllegalArgumentException("La fecha de entrada debe ser anterior a la fecha de salida");
             }
             if (comprobarReserva(fechaEntrada,fechaSalida)) {
-             throw new IllegalArgumentException("La fecha indicada ya ha sido reservada");
+                throw new IllegalArgumentException("La fecha indicada ya ha sido reservada");
             }
             this.fechaEntrada = fechaEntrada;
             this.fechaSalida = fechaSalida;

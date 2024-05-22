@@ -18,28 +18,9 @@ import java.io.Serializable;
  */
 
 public class GestorInmueble implements Serializable{
-    private static Administrador admin;
     private static ArrayList<Persona> personas = new ArrayList<>();
     private static ArrayList<Inmueble> inmuebles = new ArrayList<>();
     private static ArrayList<Reserva> reservas = new ArrayList<>();
-
-    /**
-     * Devuelve el administrador
-     * 
-     * @return admin en tipo Administrador
-     */
-    public static Administrador getAdmin() {
-        return admin;
-    }
-
-    /**
-     * Establece el administrador
-     * 
-     * @param admin nuevo valor de admin de tipo Administrador
-     */
-    public static void setAdmin(Administrador admin) {
-        GestorInmueble.admin = admin;  
-    }
 
     /**
      * Devuelve el ArrayList de personas
@@ -251,41 +232,6 @@ public class GestorInmueble implements Serializable{
     }
     */
 
-    /**
-     * Devuelve un objeto de tipo Administrador recuperado de un fichero
-     * 
-     * 
-     */
-    public static void recuperarDatosAdmin() {
-        Administrador admin = null;
-        try {
-            FileInputStream fis = new FileInputStream("ficheroAdmin.dat");
-            ObjectInputStream ois = new ObjectInputStream(fis);
-            admin = (Administrador) ois.readObject();
-            ois.close();
-        } catch (IOException ioe) {
-            System.out.println("Error de IO " + ioe.getMessage());
-        } catch (ClassNotFoundException cnfe) {
-            System.out.println("Clase no encontrada: " + cnfe.getMessage());
-        } 
-        GestorInmueble.setAdmin(admin); 
-    }
-
-    /**
-     * Guarda un objeto de tipo Administrador en un fichero
-     * 
-     * 
-     */
-    public static void guardarDatosAdmin() {
-        try {
-            FileOutputStream fos = new FileOutputStream("ficheroAdmin.dat");
-            ObjectOutputStream oos = new ObjectOutputStream(fos);
-            oos.writeObject(GestorInmueble.admin);
-            oos.close();
-        } catch (IOException ioe) {
-            System.out.println("Error de IO " + ioe.getMessage());
-        }
-    }
 
     /**
      * Establece el atributo personas de la clase GestorInmueble a un objeto de tipo ArrayList de Persona recuperado de un fichero
