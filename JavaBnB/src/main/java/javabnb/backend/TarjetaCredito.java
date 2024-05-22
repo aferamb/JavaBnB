@@ -87,6 +87,19 @@ public class TarjetaCredito implements Serializable{
     }
 
     /**
+     * Metodo para comprobar la validez de la tarjeta
+     * 
+     * @param fechaCaducidad
+     * @return true si la fecha es valida, false en caso contrario
+     */
+    public static boolean comprovarValidez (LocalDate fechaCaducidad){
+      boolean val = true;
+      if (!fechaCaducidad.isAfter(LocalDate.now())) {
+          val = false;
+      }
+       return val; 
+    }
+    /**
      * Devuelve el valor de la fecha de caducidad 
      *
      * @return valor de fechaCaducidad en LocalDate
