@@ -68,6 +68,11 @@ public class InicioSesion extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("JavaBnB Inicio sesion");
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         botonContraseña.setText("Contraseña");
         botonContraseña.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -114,25 +119,7 @@ public class InicioSesion extends javax.swing.JFrame {
         });
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        try {
-            File archivo = new File("imagenes/logoJavaBnB-removebg.png");
-            if (!archivo.exists()) {
-                throw new IOException("El archivo no existe");
-            } else if (!archivo.isFile()) {
-                throw new IOException("La ruta no corresponde a un archivo");
-            } else if (!archivo.canRead()) {
-                throw new IOException("No se puede leer el archivo");
-            } else if (!archivo.getName().endsWith(".jpg") && !archivo.getName().endsWith(".jpeg") && !archivo.getName().endsWith(".png")) {
-                throw new IOException("El archivo no es una imagen");
-            }
-            
-            BufferedImage imagen = ImageIO.read(archivo);
-            jLabel3.setIcon(new ImageIcon(imagen));
-        } catch (IOException ioe) {
-            // Imprimir mensaje de error resaltado
-            System.err.println("Error IO:" + ioe.getMessage());
-            ioe.printStackTrace();
-        }
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/logoJavaBnB-removebg.png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -213,6 +200,10 @@ public class InicioSesion extends javax.swing.JFrame {
         CrearCliente crearCliente = new CrearCliente();
         crearCliente.setVisible(true);
     }//GEN-LAST:event_crearClienteActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments
