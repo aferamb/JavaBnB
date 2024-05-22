@@ -8,6 +8,7 @@ import java.awt.Point;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+import javax.swing.JFrame;
 
 /**
  *
@@ -32,6 +33,7 @@ public class CrearCliente extends javax.swing.JFrame {
     private void initComponents() {
 
         jCheckBox1 = new javax.swing.JCheckBox();
+        jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         botonCrearCuenta = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
@@ -55,8 +57,11 @@ public class CrearCliente extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         fechaCaducidadCliente = new javax.swing.JFormattedTextField();
         jLabel9 = new javax.swing.JLabel();
+        BackButton = new javax.swing.JButton();
 
         jCheckBox1.setText("jCheckBox1");
+
+        jButton1.setText("jButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -269,6 +274,13 @@ public class CrearCliente extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        BackButton.setText("Volver Atrás");
+        BackButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BackButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -287,11 +299,15 @@ public class CrearCliente extends javax.swing.JFrame {
                         .addGap(236, 236, 236)
                         .addComponent(botonCrearCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(183, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(BackButton, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
+                .addComponent(BackButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -407,6 +423,13 @@ public class CrearCliente extends javax.swing.JFrame {
        }
     }//GEN-LAST:event_DNIClienteFocusLost
 
+    private void BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButtonActionPerformed
+        InicioSesion c = new InicioSesion();
+        c.setLocation(this.getLocation());
+        c.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_BackButtonActionPerformed
+
     boolean emailValido = false;
     boolean telefonoValido = false;
     boolean nombreValido = false;
@@ -418,12 +441,14 @@ public class CrearCliente extends javax.swing.JFrame {
     boolean fechaCadTarjetaValida = false;
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BackButton;
     private javax.swing.JFormattedTextField DNICliente;
     private javax.swing.JButton botonCrearCuenta;
     private javax.swing.JPasswordField contraseñaCliente;
     private javax.swing.JFormattedTextField emailCliente;
     private javax.swing.JCheckBox esClienteVIP;
     private javax.swing.JFormattedTextField fechaCaducidadCliente;
+    private javax.swing.JButton jButton1;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

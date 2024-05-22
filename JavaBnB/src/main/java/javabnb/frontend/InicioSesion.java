@@ -4,6 +4,8 @@
  */
 package javabnb.frontend;
 
+import java.awt.Point;
+
 /**
  *
  * @author sco23
@@ -15,6 +17,7 @@ public class InicioSesion extends javax.swing.JFrame {
      */
     public InicioSesion() {
         initComponents();
+
     }
 
     /**
