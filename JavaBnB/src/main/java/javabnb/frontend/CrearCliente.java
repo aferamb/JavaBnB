@@ -344,10 +344,26 @@ public class CrearCliente extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+<<<<<<< HEAD
     private void esClienteVIPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_esClienteVIPActionPerformed
         esClienteVIP.setText("Sí");
         esVip = true;
     }//GEN-LAST:event_esClienteVIPActionPerformed
+=======
+    /**
+     * @param args the command line arguments
+     */
+    public CrearCliente() {
+        initComponents();
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new CrearCliente().setVisible(true);
+            }
+        });
+    }
+}
+>>>>>>> 85b837dc6987eaa1401e5ccba030865af854004e
 
     private void nombreClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreClienteActionPerformed
        
