@@ -13,6 +13,7 @@ public class Administrador implements Serializable{
     
     /**
      * Devuelve el valor del correo del adminitrador
+     * 
      *
      * @return the value of correo
      */
