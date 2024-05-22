@@ -18,7 +18,7 @@ import java.io.Serializable;
  */
 
 public class GestorInmueble implements Serializable{
-    private static Administrador admin;
+    private static Administrador admin = new Administrador(); //Igual hay que quitarlo, no se porque pero no se guarda bien EN EL FICHERO
     private static ArrayList<Persona> personas = new ArrayList<>();
     private static ArrayList<Inmueble> inmuebles = new ArrayList<>();
     private static ArrayList<Reserva> reservas = new ArrayList<>();
@@ -257,18 +257,21 @@ public class GestorInmueble implements Serializable{
      * 
      */
     public static void recuperarDatosAdmin() {
-        Administrador admin = null;
+        Administrador adminGuardado = new Administrador();
+        System.out.println("Recuperando datos del administrador...");
         try {
             FileInputStream fis = new FileInputStream("ficheroAdmin.dat");
             ObjectInputStream ois = new ObjectInputStream(fis);
-            admin = (Administrador) ois.readObject();
+            adminGuardado = (Administrador) ois.readObject();
             ois.close();
         } catch (IOException ioe) {
             System.out.println("Error de IO " + ioe.getMessage());
         } catch (ClassNotFoundException cnfe) {
             System.out.println("Clase no encontrada: " + cnfe.getMessage());
         } 
-        GestorInmueble.setAdmin(admin); 
+        GestorInmueble.admin = adminGuardado; 
+        Administrador.setCorreo(admin.getCorreo());
+        Administrador.setClave(admin.getClave());
     }
 
     /**

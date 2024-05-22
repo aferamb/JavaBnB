@@ -10,6 +10,7 @@ public class Administrador implements Serializable{
     
     private static String correo = "admin@javabnb.com";
     private static String clave = "admin";
+    
 
     /**
      * Constructor de la clase Administrador. 
@@ -18,10 +19,18 @@ public class Administrador implements Serializable{
      *
      */
     public Administrador() {
+        /* 
         if (GestorInmueble.getAdmin() == null) {
+            System.out.println("No hay administrador guardado, se establece el administrador por defecto");
             GestorInmueble.setAdmin(this);
+        } else if (GestorInmueble.getAdmin() != null) {
+            System.out.println("Ya hay un administrador guardado, se establece el administrador guardado");
+            Administrador.correo = GestorInmueble.getAdmin().getCorreo();
+            Administrador.clave = GestorInmueble.getAdmin().getClave();
         }
+        */
     }
+    
     
     /**
      * Devuelve el valor del correo del adminitrador
@@ -37,7 +46,7 @@ public class Administrador implements Serializable{
      *
      * @param correo new value of correo
      */
-    public void setCorreo(String correo) {
+    public static void setCorreo(String correo) {
         Administrador.correo = correo;
     }
 
@@ -55,7 +64,7 @@ public class Administrador implements Serializable{
      *
      * @param clave nuevo valor de la clave tipo String
      */
-    public void setClave(String clave) {
+    public static void setClave(String clave) {
         Administrador.clave = clave;
     }
 
