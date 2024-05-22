@@ -86,7 +86,7 @@ public class Main {
 
    //Administrador.setCorreo("correo@nuevo");
    //Administrador.setClave("clavenueva");
-   GestorInmueble.guardarDatosAdmin();
+
    GestorInmueble.guardarDatosInmuebles();
    GestorInmueble.guardarDatosPersonas();
    GestorInmueble.guardarDatosReservas();
@@ -101,7 +101,7 @@ public class Main {
    Reserva.generarFactura(reserva);
    Reserva.generarFactura(reserva2);
    
-   GestorInmueble.recuperarDatosAdmin();
+
    GestorInmueble.recuperarDatosInmuebles();
    GestorInmueble.recuperarDatosPersonas();
    GestorInmueble.recuperarDatosReservas();
@@ -109,6 +109,6 @@ public class Main {
    System.out.println(GestorInmueble.getReservas());
    System.out.println(GestorInmueble.getInmuebles());
    System.out.println("hola");
-   System.out.println(GestorInmueble.getAdmin());
+
 }  
 }
