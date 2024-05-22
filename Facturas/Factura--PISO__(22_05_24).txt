@@ -1,0 +1,42 @@
+---------------------------- Factura de reserva ---------------------------
+
+
+-------------------------------- Fecha: 22/05/24 -------------------------------
+
+
+Fecha de entrada: 12/03/24
+Fecha de salida: 15/03/24
+
+
+-------------------------------- Inmueble -------------------------------
+
+
+Nombre: PISO
+Dirección: calle: calle avenida, número: 1, detalles: AAAAA, codigoPostal: 19005, ciudad: Paris, provincia: Perú, pais: peruu}
+Tipo: CASA
+Huéspedes máximos: 32
+Habitaciones: 22
+Camas: 1
+Baños: 2
+Servicios adicionales: Wifi, Desayuno
+
+
+--------------------------DATOS DEL CLIENTE-----------------------------------
+
+
+Nombre: pepo
+DNI: 12335678A
+Teléfono: 1123322
+Correo: coreo@ee
+Tarjeta: ************4567
+
+
+-----------------------------IMPORTE--------------------------------------
+
+
+Días de estancia: 3
+Precio por noche: 43,72€
+Precio final: 131,16€
+
+
+-------------------------------------------------------------------------------
