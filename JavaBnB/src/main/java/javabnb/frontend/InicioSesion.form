@@ -35,16 +35,12 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
-    <Property name="title" type="java.lang.String" value="JavaBnB Inicio sesion"/>
     <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
     <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
   </SyntheticProperties>
-  <Events>
-    <EventHandler event="windowClosing" listener="java.awt.event.WindowListener" parameters="java.awt.event.WindowEvent" handler="formWindowClosing"/>
-  </Events>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
@@ -61,10 +57,6 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 1c69d8ac1d11acffab6d4ca7d5d13dc08a9f9c7a
               <EmptySpace pref="90" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
                   <Component id="botonContraseña" min="-2" pref="151" max="-2" attributes="0"/>
@@ -82,60 +74,16 @@
               <EmptySpace pref="91" max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
-<<<<<<< HEAD
-              <EmptySpace max="32767" attributes="0"/>
-              <Component id="botonInicioSesion" min="-2" max="-2" attributes="0"/>
-=======
->>>>>>> 1c69d8ac1d11acffab6d4ca7d5d13dc08a9f9c7a
               <EmptySpace max="32767" attributes="0"/>
               <Component id="botonInicioSesion" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
-=======
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="botonContraseña" min="-2" pref="151" max="-2" attributes="0"/>
-                                  <Group type="102" attributes="0">
-                                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="crearAnfitrion" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="botonEmail" alignment="1" min="-2" pref="151" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jLabel2" min="-2" pref="41" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="crearCliente" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="botonInicioSesion" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  </Group>
-                  <Component id="jLabel3" alignment="0" max="32767" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
->>>>>>> 85b837dc6987eaa1401e5ccba030865af854004e
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-<<<<<<< HEAD
               <EmptySpace pref="172" max="32767" attributes="0"/>
-=======
-<<<<<<< HEAD
-              <EmptySpace pref="172" max="32767" attributes="0"/>
-=======
-              <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
-              <Component id="jLabel3" max="32767" attributes="0"/>
-              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
->>>>>>> 85b837dc6987eaa1401e5ccba030865af854004e
->>>>>>> 1c69d8ac1d11acffab6d4ca7d5d13dc08a9f9c7a
               <Component id="botonEmail" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="botonContraseña" min="-2" max="-2" attributes="0"/>
@@ -204,14 +152,6 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonInicioSesionActionPerformed"/>
       </Events>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel3">
-      <Properties>
-        <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/imagenes/logoJavaBnB-removebg.png"/>
-        </Property>
-      </Properties>
     </Component>
   </SubComponents>
 </Form>
