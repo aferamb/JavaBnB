@@ -57,6 +57,7 @@ public class Main {
    ArrayList<BufferedImage> fotos4 = new ArrayList<>();
    ArrayList<BufferedImage> fotos5 = new ArrayList<>();
    ArrayList<BufferedImage> fotos6 = new ArrayList<>();
+   
    //fotos.add(ImageIO.read(new File("src/main/java/javabnb/backend/imagenes/casa1.jpg")));
    fotos1.add(Main.cargarFoto("C:/Users/ALEJANDRO/Desktop/Imagenes casas vacacionales/casa1.jpg"));
 
@@ -92,19 +93,24 @@ public class Main {
    
    
    
-   Reserva reserva = new Reserva (inm1,Tarjeta1,cli1,LocalDate.of(2024, 6, 16),LocalDate.of(2024, 3, 15)); //poner bien las fechas
-   Reserva reserva2 = new Reserva (inm2,Tarjeta2,cli2,LocalDate.of(2024, 8, 23),LocalDate.of(2024, 3, 15));
-   Reserva reserva3 = new Reserva (inm3,Tarjeta1,cli1,LocalDate.of(2024, 5, 14),LocalDate.of(2024, 3, 15));
-   Reserva reserva4 = new Reserva (inm4,Tarjeta2,cli2,LocalDate.of(2024, 6, 14),LocalDate.of(2024, 3, 15));
-   Reserva reserva5 = new Reserva (inm5,Tarjeta1,cli1,LocalDate.of(2024, 6, 30),LocalDate.of(2024, 3, 15));
-   Reserva reserva6 = new Reserva (inm6,Tarjeta2,cli2,LocalDate.of(2024, 5, 12),LocalDate.of(2024, 3, 15));
-   Reserva reserva7 = new Reserva (inm1,Tarjeta1,cli1,LocalDate.of(2024, 7, 25),LocalDate.of(2024, 3, 15));
-   Reserva reserva8 = new Reserva (inm2,Tarjeta2,cli2,LocalDate.of(2024, 6, 2),LocalDate.of(2024, 3, 15));
-   Reserva reserva9 = new Reserva (inm3,Tarjeta1,cli1,LocalDate.of(2024, 7, 9),LocalDate.of(2024, 3, 15));
+   Reserva reserva = new Reserva (inm1,Tarjeta1,cli1,LocalDate.of(2024, 6, 16),LocalDate.of(2024, 6, 20)); //poner bien las fechas
+   Reserva reserva2 = new Reserva (inm2,Tarjeta2,cli2,LocalDate.of(2024, 8, 23),LocalDate.of(2024, 8, 30));
+   Reserva reserva3 = new Reserva (inm3,Tarjeta1,cli1,LocalDate.of(2024, 5, 14),LocalDate.of(2024, 5, 15));
+   Reserva reserva4 = new Reserva (inm4,Tarjeta2,cli2,LocalDate.of(2024, 6, 14),LocalDate.of(2024, 6, 21));
+   Reserva reserva5 = new Reserva (inm5,Tarjeta1,cli1,LocalDate.of(2024, 6, 30),LocalDate.of(2024, 7, 5));
+   Reserva reserva6 = new Reserva (inm6,Tarjeta2,cli2,LocalDate.of(2024, 5, 12),LocalDate.of(2024, 5, 17));
+   Reserva reserva7 = new Reserva (inm1,Tarjeta1,cli1,LocalDate.of(2024, 7, 25),LocalDate.of(2024, 8, 2));
+   Reserva reserva8 = new Reserva (inm2,Tarjeta2,cli2,LocalDate.of(2024, 6, 2),LocalDate.of(2024, 6, 10));
+   Reserva reserva9 = new Reserva (inm3,Tarjeta1,cli1,LocalDate.of(2024, 7, 9),LocalDate.of(2024, 7, 15));
 
    Reserva.generarFactura(reserva);
    Reserva.generarFactura(reserva2);
    Reserva.generarFactura(reserva3);
+   reserva4.generarFactura("C:/Users/ALEJANDRO/Desktop"); //ruta donde se guardará la factura introducida con / en vez de \
+
+   reserva.setFechaReserva(LocalDate.of(2024, 3, 15));
+
+   System.out.println(GestorInmueble.getReservasPorFecha());
    
    GestorInmueble.addInmueble(inm3);
    GestorInmueble.addInmueble(inm2);

@@ -200,16 +200,6 @@ public class Reserva implements Serializable{
             precio = 0.9*precio; }
         return precio;
         }
-
-    /**
-     *  toString de la clase Reserva. 
-     * 
-     * @return String con los datos de la reserva
-     */
-    @Override
-    public String toString() {
-        return "Reserva{" + "Inmueble= " + inmueble + ", importe= " + importe + ", tarjeta= " + tarjeta + ", cliente= " + cliente +", fecha de reserva= " + fechaReserva +  ",fechade entrada= "+ fechaEntrada + ", fecha de salida= " + fechaSalida +"}";
-    }
     
     /**
      * Comprueba que la fecha de fin ocurre despues de la fecha de inicio
@@ -248,7 +238,7 @@ public class Reserva implements Serializable{
      * @throws IOException 
      */
     public static void generarFactura(Reserva reserva) throws IOException {
-        double importefactura = reserva.calcularImporte(); // sobra, el importe ya se calcula en el constructor
+        double importefactura = reserva.calcularImporte(); 
         long numeroTarjeta = reserva.getCliente().getTarjetaCredito().getNumeroTarjeta();
         DecimalFormat df = new DecimalFormat("#.##");
         LocalDate fecha = reserva.getFechaReserva();
@@ -288,7 +278,7 @@ public class Reserva implements Serializable{
                 salida.println("DNI: " + reserva.getCliente().getDni());
                 salida.println("Teléfono: " + reserva.getCliente().getTelefono());
                 salida.println("Correo: " + reserva.getCliente().getCorreo());
-                salida.println("Tarjeta: " + TarjetaCredito.ocultarTarjeta(numeroTarjeta)); //revisar junto a la clase tarjeta
+                salida.println("Tarjeta: " + TarjetaCredito.ocultarTarjeta(numeroTarjeta)); 
                 salida.println("\n");
                 salida.println("-----------------------------IMPORTE--------------------------------------");
                 salida.println("\n");
@@ -306,7 +296,75 @@ public class Reserva implements Serializable{
             System.out.println("Error de IO: " + ioe.getMessage());
         }
     }
+
+    /**
+     * Método que crea un fichero de texto con los datos de la reserva dada una ruta de fichero
+     * 
+     * @param ruta donde se guardará el fichero
+     * @throws IOException 
+     */
+    public void generarFactura(String ruta) throws IOException {
+        double importefactura = importe; 
+        long numeroTarjeta = cliente.getTarjetaCredito().getNumeroTarjeta();
+        DecimalFormat df = new DecimalFormat("#.##");
+        LocalDate fecha = fechaReserva;
+        DateTimeFormatter formatoCorto = DateTimeFormatter.ofPattern("dd/MM/yy");        
+        String fn = fecha.format(formatoCorto);
+        String rutaFicheroFactura = ruta + "/Factura--" + inmueble.getTitulo().replace(' ','-')+ "__(" + fn.replace('/', '_') + ").txt";
+        try {
+            FileWriter fw = new FileWriter(rutaFicheroFactura);
+            try (PrintWriter salida = new PrintWriter(new BufferedWriter(fw))) {
+                salida.println("---------------------------- Factura de reserva ---------------------------");
+                salida.println("\n");
+                salida.println("-------------------------------- Fecha: " + fn + " -------------------------------");
+                salida.println("\n");
+                salida.println("Fecha de entrada: " + fechaEntrada.format(formatoCorto));
+                salida.println("Fecha de salida: "+ fechaSalida.format(formatoCorto));
+                salida.println("\n");
+                salida.println("-------------------------------- Inmueble -------------------------------");
+                salida.println("\n");
+                salida.println("Nombre: " + inmueble.getTitulo());
+                salida.println("Dirección: " + inmueble.getDireccion().toString());
+                salida.println("Tipo: " + inmueble.getTipoInmueble());
+                salida.println("Huéspedes máximos: " + inmueble.getHuespedesMax());
+                salida.println("Habitaciones: " + inmueble.getHabitaciones());
+                salida.println("Camas: " + inmueble.getCamas());
+                salida.println("Baños: " + inmueble.getBaños());
+                salida.println("Servicios adicionales: " + String.join(", ", inmueble.getServicios()));
+                salida.println("\n");
+                salida.println("--------------------------DATOS DEL CLIENTE-----------------------------------");
+                salida.println("\n");
+                salida.println("Nombre: " + cliente.getNombre());
+                salida.println("DNI: " + cliente.getDni());
+                salida.println("Teléfono: " + cliente.getTelefono());
+                salida.println("Correo: " + cliente.getCorreo());
+                salida.println("Tarjeta: " + TarjetaCredito.ocultarTarjeta(numeroTarjeta));
+                salida.println("\n");
+                salida.println("-----------------------------IMPORTE--------------------------------------");
+                salida.println("\n");
+                salida.println("Días de estancia: " + ChronoUnit.DAYS.between(fechaEntrada, fechaSalida));
+                salida.println("Precio por noche: " + df.format(inmueble.getPrecioNoche()) + "€");  
+                if (cliente.isVip()) { 
+                    salida.println("Descuento VIP: -" + df.format(importefactura/0.9*0.1) + "€");
+                }
+                salida.println("Precio final: " + df.format(importefactura) + "€");
+                salida.println("\n");
+                salida.println("-------------------------------------------------------------------------------");
+            }
+        } 
+        catch (IOException ioe) {
+            System.out.println("Error de IO: " + ioe.getMessage());
+        }
     }
-    
-    
+
+    /**
+     *  toString de la clase Reserva. 
+     * 
+     * @return String con los datos de la reserva
+     */
+    @Override
+    public String toString() {
+        return "Reserva{" + "Inmueble= " + inmueble + ", importe= " + importe + ", tarjeta= " + tarjeta + ", cliente= " + cliente +", fecha de reserva= " + fechaReserva +  ",fechade entrada= "+ fechaEntrada + ", fecha de salida= " + fechaSalida +"}";
+    }
+}
 

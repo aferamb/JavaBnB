@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.io.Serializable;
+//import java.time.LocalDate;
 
 
 /**
@@ -141,6 +142,38 @@ public class GestorInmueble implements Serializable{
             System.out.println("La reserva no se encuentra en el ArrayList de reservas.");
         }
     }
+
+    /**
+     * Devuelve un ArrayList de reservas ordenados por fecha de reserva.
+     * 
+     */
+    public static ArrayList<Reserva> getReservasPorFecha() {
+        Comparator<Reserva> FechaCompar = new Comparator<Reserva>() { //Se ha cambiado el tipo de la variable de Comparator a Comparator<Reserva> para evitar errores de compilación
+            @Override
+            public int compare(Reserva o1, Reserva o2) {
+                String pr1 = o1.getFechaReserva().toString(); // Convert LocalDate to String
+                String pr2 = o2.getFechaReserva().toString(); // Convert LocalDate to String
+                return pr1.compareTo(pr2);
+            }
+        };
+        Collections.sort(reservas, FechaCompar);
+        return reservas;
+        
+    }
+    
+    /* Para el caso de que se le pase una fecha de referencia en frontEnd
+     * if (fecha == null) {
+            return reservas;
+        } else if (fecha != null) {
+            ArrayList<Reserva> reservasFiltradas = new ArrayList<>();
+            for (Reserva res : reservas) {
+                if (res.getFechaReserva().compareTo(fecha) >= 0) {
+                    reservasFiltradas.add(res);
+                }
+            }
+            return reservasFiltradas;
+        }
+     */
 
     /**
      * Devuelve un ArrayList de inmuebles ordenados por calificación de mayor a menor
