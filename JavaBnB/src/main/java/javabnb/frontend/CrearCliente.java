@@ -8,7 +8,9 @@ import java.awt.Point;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+import javabnb.backend.*;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -246,11 +248,11 @@ public class CrearCliente extends javax.swing.JFrame {
                             .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel11))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(titularTarjetaCliente)
                             .addComponent(numeroTarjetaCliente)
-                            .addComponent(fechaCaducidadCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)))
+                            .addComponent(titularTarjetaCliente)
+                            .addComponent(fechaCaducidadCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)))
                     .addComponent(jLabel12))
                 .addContainerGap())
         );
@@ -343,8 +345,14 @@ public class CrearCliente extends javax.swing.JFrame {
     if (!numeroTarjetaCliente.getText().equals("") && numeroTarjetaCliente.getText().length() == 19) {
         numeroTarjetaValido = true;
     }
-    DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-          try {
+    for (Persona persona: GestorInmueble.getPersonas()){
+         if (persona.getCorreo().equals(emailCliente.getText())) {
+         emailexistente = true;}}
+    if (emailexistente){
+             JOptionPane.showMessageDialog(this,"el correo pertenece a una cuenta ya existente","error de correo",JOptionPane.WARNING_MESSAGE);
+    }
+    DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");  
+    try {
             LocalDate fechaConvertida = LocalDate.parse(fechaCaducidadCliente.getText(), formato);
             fechaCadTarjetaValida = true;
             if (LocalDate.now().isAfter(fechaConvertida)) {fechaCadTarjetaValida = false;
@@ -356,8 +364,19 @@ public class CrearCliente extends javax.swing.JFrame {
           
         if (nombreValido && DNIValido && telefonoValido && contraseñaValida && emailValido && titularValido && numeroTarjetaValido && fechaCadTarjetaValida){
             botonCrearCuenta.setText("aaaa");
-        
+            LocalDate fechaConvertida = LocalDate.parse(fechaCaducidadCliente.getText(), formato);
+             String contraseña = new String(contraseñaCliente.getPassword());
+             String numeroTarj = numeroTarjetaCliente.getText().replace(" ","");
+             int telefonoC = Integer.parseInt(telefonoCliente.getText().replace(" ",""));
+            TarjetaCredito tarjeta = new TarjetaCredito(titularTarjetaCliente.getText(),Long.parseLong(numeroTarj),fechaConvertida);
+            ClienteParticular cliente = new ClienteParticular(DNICliente.getText(),nombreCliente.getText(),emailCliente.getText(),contraseña,telefonoC,tarjeta,esVip);
+            GestorInmueble.addPersona(cliente);
+            this.dispose();
+            InicioSesion ini = new InicioSesion();
+            ini.setLocation(this.getLocation());
+            ini.setVisible(true);
         }
+    
     }//GEN-LAST:event_botonCrearCuentaActionPerformed
     
     private void titularTarjetaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_titularTarjetaClienteActionPerformed
@@ -395,14 +414,7 @@ public class CrearCliente extends javax.swing.JFrame {
 
     private void telefonoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_telefonoClienteActionPerformed
 
-        String telefono = telefonoCliente.getText();
-        try {
-            Integer.parseInt(telefono);
-        }
-        catch (NumberFormatException e) {
-            telefonoCliente.setText("inválido");
-            telefonoValido = false;
-        }
+    
     }//GEN-LAST:event_telefonoClienteActionPerformed
 
     private void DNIClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DNIClienteActionPerformed
@@ -439,6 +451,7 @@ public class CrearCliente extends javax.swing.JFrame {
     boolean titularValido = false;
     boolean numeroTarjetaValido = false;
     boolean fechaCadTarjetaValida = false;
+    boolean emailexistente = false;
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BackButton;

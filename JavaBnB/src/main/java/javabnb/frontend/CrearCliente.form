@@ -251,11 +251,11 @@
                               <Component id="jLabel9" alignment="0" min="-2" pref="104" max="-2" attributes="0"/>
                               <Component id="jLabel11" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="57" max="32767" attributes="0"/>
+                          <EmptySpace pref="38" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="titularTarjetaCliente" max="32767" attributes="0"/>
-                              <Component id="numeroTarjetaCliente" alignment="1" max="32767" attributes="0"/>
-                              <Component id="fechaCaducidadCliente" alignment="1" pref="115" max="32767" attributes="0"/>
+                              <Component id="numeroTarjetaCliente" max="32767" attributes="0"/>
+                              <Component id="titularTarjetaCliente" alignment="1" max="32767" attributes="0"/>
+                              <Component id="fechaCaducidadCliente" alignment="1" pref="134" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
