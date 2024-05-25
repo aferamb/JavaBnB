@@ -1,6 +1,7 @@
 package javabnb.backend;
 
 import javax.swing.ImageIcon;
+import java.awt.Image;
 import javax.imageio.ImageIO;           
 import java.io.File;
 import java.io.IOException;
@@ -307,6 +308,7 @@ public class Inmueble implements Serializable {
      * @param rutaArchivo ruta del archivo de la foto a añadir
      */
     public void addFoto(String rutaArchivo) {
+        Image imagen;
         try {
             File archivo = new File(rutaArchivo);
             if (!archivo.exists()) {
@@ -319,8 +321,9 @@ public class Inmueble implements Serializable {
                 throw new IOException("El archivo no es una imagen");
             }
             
-            ImageIcon imagen = ImageIO.read(archivo);
-            fotos.add(imagen);
+            imagen = ImageIO.read(archivo);
+            ImageIcon img = new ImageIcon(imagen);
+            fotos.add(img);
         } catch (IOException ioe) {
             // Imprimir mensaje de error resaltado
             System.err.println("Error IO:" + ioe.getMessage());

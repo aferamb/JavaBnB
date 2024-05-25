@@ -1,6 +1,8 @@
 package javabnb.backend;
 
 import javax.swing.ImageIcon;
+
+import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
@@ -10,12 +12,12 @@ import javax.imageio.ImageIO;
 
 
 /**
- * ...
+ * Clase Main que contiene el método main del programa de prueba para el backend
  */
 public class Main {
    
    private static ImageIcon cargarFoto(String rutaArchivo) {
-      ImageIcon imagen;
+      Image imagen;
       try {
          File archivo = new File(rutaArchivo);
          if (!archivo.exists()) {
@@ -29,7 +31,8 @@ public class Main {
          }
          
          imagen = ImageIO.read(archivo);
-         return imagen;
+         ImageIcon icono = new ImageIcon(imagen);
+         return icono;
       } catch (IOException ioe) {
          // Imprimir mensaje de error resaltado
          System.err.println("Error IO:" + ioe.getMessage());
@@ -40,7 +43,7 @@ public class Main {
 
 
    public static void main (String[] args) throws IOException {
-      
+      /* 
    ArrayList<String> servicios = new ArrayList<>();
    servicios.add("Wifi");
    servicios.add("Desayuno");
@@ -56,7 +59,7 @@ public class Main {
    ArrayList<ImageIcon> fotos5 = new ArrayList<>();
    ArrayList<ImageIcon> fotos6 = new ArrayList<>();
    
-   fotos1.add(ImageIO.read(new File("C:/Users/ALEJANDRO/Desktop/Imagenes_casas_vacacionales/casa1.jpg")));
+   //fotos1.add(ImageIO.read(new File("C:/Users/ALEJANDRO/Desktop/Imagenes_casas_vacacionales/casa1.jpg")));
    //fotos1.add(Main.cargarFoto("C:/Users/ALEJANDRO/Desktop/Imagenes_casas_vacacionales/casa1.jpg"));
 
 
@@ -107,16 +110,20 @@ public class Main {
 
    reserva.setFechaReserva(LocalDate.of(2024, 3, 15));
    reserva3.setFechaReserva(LocalDate.of(2024, 3, 16));
-   reserva2.setFechaReserva(LocalDate.of(2024, 3, 17));
+   reserva8.setFechaReserva(LocalDate.of(2024, 3, 17));
    reserva4.setFechaReserva(LocalDate.of(2024, 3, 18));
-   reserva5.setFechaReserva(LocalDate.of(2024, 3, 19));
+   reserva7.setFechaReserva(LocalDate.of(2024, 3, 19));
    reserva6.setFechaReserva(LocalDate.of(2024, 3, 20));
-   reserva7.setFechaReserva(LocalDate.of(2024, 3, 21));
-   reserva8.setFechaReserva(LocalDate.of(2024, 3, 22));
+   reserva5.setFechaReserva(LocalDate.of(2024, 3, 21));
+   reserva2.setFechaReserva(LocalDate.of(2024, 3, 22));
    reserva9.setFechaReserva(LocalDate.of(2024, 3, 23));
 
+   //ArrayList<Reserva> reservasPorFecha = new ArrayList<>(GestorInmueble.getReservas());
+   ArrayList<Reserva> reservasPorFecha = new ArrayList<>(GestorInmueble.getReservasPorFecha());
+   for (Reserva r: reservasPorFecha){
+      System.out.println(r);
+   }
 
-   System.out.println(GestorInmueble.getReservasPorFecha());
    GestorInmueble.addInmueble(inm3);
    GestorInmueble.addInmueble(inm2);
    GestorInmueble.addInmueble(inm1);
@@ -136,13 +143,11 @@ public class Main {
    GestorInmueble.addReserva(reserva7);
    GestorInmueble.addReserva(reserva8);
    GestorInmueble.addReserva(reserva9);
-   System.out.println("HOLA");
    GestorInmueble.guardarDatosInmuebles();
-   System.out.println("HOLA");
    GestorInmueble.guardarDatosPersonas();
-   System.out.println("HOLA");
    GestorInmueble.guardarDatosReservas();
-   System.out.println("HOLA");
+
+   */
 
    /* Para el frontend
    for (Persona p: personas){
@@ -183,5 +188,12 @@ public class Main {
    System.out.println(GestorInmueble.getInmuebles());
    */
 
+   System.out.println(GestorInmueble.getInmuebles());
+   System.out.println(GestorInmueble.getPersonas());
+   System.out.println(GestorInmueble.getReservas());
+   ArrayList<Reserva> reservasPorFecha2 = new ArrayList<>(GestorInmueble.getReservasPorFecha());
+   for (Reserva r: reservasPorFecha2){
+      System.out.println(r);
+   }
 }  
 }
