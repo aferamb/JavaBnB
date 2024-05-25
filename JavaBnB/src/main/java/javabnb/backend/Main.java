@@ -109,6 +109,15 @@ public class Main {
    reserva4.generarFactura("C:/Users/ALEJANDRO/Desktop"); //ruta donde se guardará la factura introducida con / en vez de \
 
    reserva.setFechaReserva(LocalDate.of(2024, 3, 15));
+   reserva3.setFechaReserva(LocalDate.of(2024, 3, 16));
+   reserva2.setFechaReserva(LocalDate.of(2024, 3, 17));
+   reserva4.setFechaReserva(LocalDate.of(2024, 3, 18));
+   reserva5.setFechaReserva(LocalDate.of(2024, 3, 19));
+   reserva6.setFechaReserva(LocalDate.of(2024, 3, 20));
+   reserva7.setFechaReserva(LocalDate.of(2024, 3, 21));
+   reserva8.setFechaReserva(LocalDate.of(2024, 3, 22));
+   reserva9.setFechaReserva(LocalDate.of(2024, 3, 23));
+   
 
    System.out.println(GestorInmueble.getReservasPorFecha());
    
