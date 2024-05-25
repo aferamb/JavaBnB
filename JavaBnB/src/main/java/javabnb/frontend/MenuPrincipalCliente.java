@@ -4,6 +4,8 @@
  */
 package javabnb.frontend;
 
+import javabnb.backend.Persona;
+
 /**
  *
  * @author sco23
@@ -18,7 +20,7 @@ public class MenuPrincipalCliente extends javax.swing.JDialog {
         initComponents();
     }
 
-    MenuPrincipalCliente() {
+    MenuPrincipalCliente(Persona persona) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 

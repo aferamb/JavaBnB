@@ -4,11 +4,14 @@
  */
 package javabnb.frontend;
 
+import javabnb.backend.*;
 /**
  *
  * @author sco23
  */
 public class MenuPrincipalAnfitrion extends javax.swing.JDialog {
+
+    private Anfitrion anfitrion;
 
     /**
      * Creates new form MenuPrincipalCliente
@@ -18,10 +21,11 @@ public class MenuPrincipalAnfitrion extends javax.swing.JDialog {
         initComponents();
     }
 
-    MenuPrincipalAnfitrion() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    MenuPrincipalAnfitrion(Anfitrion anfitrion) {
+         this.anfitrion = anfitrion;
+      
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -129,7 +133,7 @@ public class MenuPrincipalAnfitrion extends javax.swing.JDialog {
     }//GEN-LAST:event_botonReseñasActionPerformed
 
     private void botonDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonDatosActionPerformed
-        // TODO add your handling code here:
+        EditarDatosAnfitrion anf = new EditarDatosAnfitrion(anfitrion);
     }//GEN-LAST:event_botonDatosActionPerformed
 
     private void botonReservasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonReservasActionPerformed

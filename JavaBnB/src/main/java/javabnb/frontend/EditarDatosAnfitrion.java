@@ -14,11 +14,15 @@ public class EditarDatosAnfitrion extends javax.swing.JFrame {
 
     /**
      * Creates new form MenuEditarDatos
+     * @param anfitrion
      */
-    public EditarDatosAnfitrion() {
+    public EditarDatosAnfitrion(Anfitrion anfitrion) {
+        initComponents();
+        this.anfitrion = anfitrion;
+    }
+  public EditarDatosAnfitrion() {
         initComponents();
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -29,6 +33,8 @@ public class EditarDatosAnfitrion extends javax.swing.JFrame {
     private void initComponents() {
 
         jInternalFrame1 = new javax.swing.JInternalFrame();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
@@ -44,7 +50,7 @@ public class EditarDatosAnfitrion extends javax.swing.JFrame {
         editarNombre = new javax.swing.JButton();
         editarTel = new javax.swing.JButton();
         editarCorreo = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        editarClave = new javax.swing.JButton();
         GuardarDatos = new javax.swing.JButton();
 
         jInternalFrame1.setVisible(true);
@@ -60,6 +66,10 @@ public class EditarDatosAnfitrion extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -69,11 +79,7 @@ public class EditarDatosAnfitrion extends javax.swing.JFrame {
         jLabel5.setText("Clave");
 
         telefonoAnfitron.setEditable(false);
-        try {
-            telefonoAnfitron.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("### ## ## ##")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
+        telefonoAnfitron.setText(str(anfitrion.getTelefono()));
         telefonoAnfitron.setToolTipText("");
         telefonoAnfitron.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -84,12 +90,15 @@ public class EditarDatosAnfitrion extends javax.swing.JFrame {
         jLabel3.setText("DNI");
 
         emailAnfitrion.setEditable(false);
+        emailAnfitrion.setText(anfitrion.getCorreo());
         emailAnfitrion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 emailAnfitrionActionPerformed(evt);
             }
         });
 
+        DNIAnfitrion.setEditable(false);
+        DNIAnfitrion.setText(anfitrion.getDni());
         DNIAnfitrion.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 DNIAnfitrionFocusLost(evt);
@@ -101,6 +110,7 @@ public class EditarDatosAnfitrion extends javax.swing.JFrame {
             }
         });
 
+        contraseñaAnfitrion.setEditable(false);
         contraseñaAnfitrion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 contraseñaAnfitrionActionPerformed(evt);
@@ -112,6 +122,7 @@ public class EditarDatosAnfitrion extends javax.swing.JFrame {
         jLabel4.setText("Nombre");
 
         nombreAnfitrion.setEditable(false);
+        nombreAnfitrion.setText(anfitrion.getNombre());
         nombreAnfitrion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nombreAnfitrionActionPerformed(evt);
@@ -188,7 +199,12 @@ public class EditarDatosAnfitrion extends javax.swing.JFrame {
             }
         });
 
-        jButton5.setText("Editar");
+        editarClave.setText("Editar");
+        editarClave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editarClaveActionPerformed(evt);
+            }
+        });
 
         GuardarDatos.setText("Guardar Datos");
         GuardarDatos.addActionListener(new java.awt.event.ActionListener() {
@@ -204,7 +220,7 @@ public class EditarDatosAnfitrion extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(editarClave, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(editarCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(editarTel, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(editarNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -236,7 +252,7 @@ public class EditarDatosAnfitrion extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(editarCorreo)
                 .addGap(18, 18, 18)
-                .addComponent(jButton5)
+                .addComponent(editarClave)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                 .addComponent(GuardarDatos)
                 .addGap(75, 75, 75))
@@ -259,13 +275,11 @@ public class EditarDatosAnfitrion extends javax.swing.JFrame {
     }//GEN-LAST:event_emailAnfitrionActionPerformed
 
     private void DNIAnfitrionFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_DNIAnfitrionFocusLost
-        if (DNIAnfitrion.getText().length() != 9){
-            DNIAnfitrion.setText("");
-        }
+        
     }//GEN-LAST:event_DNIAnfitrionFocusLost
 
     private void DNIAnfitrionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DNIAnfitrionActionPerformed
-
+        DNIAnfitrion.setText(anfitrion.getDni());
     }//GEN-LAST:event_DNIAnfitrionActionPerformed
 
     private void contraseñaAnfitrionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contraseñaAnfitrionActionPerformed
@@ -289,12 +303,10 @@ public class EditarDatosAnfitrion extends javax.swing.JFrame {
     }//GEN-LAST:event_editarCorreoActionPerformed
 
     private void GuardarDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarDatosActionPerformed
-        if (!nombreAnfitrion.getText().equals("")) {
+    if (!nombreAnfitrion.getText().equals("")) {
         nombreValido = true; 
     }
-    if (!DNIAnfitrion.getText().equals("") && DNIAnfitrion.getText().length() == 9 ) {
-        DNIValido = true; 
-    }
+
     if (!telefonoAnfitron.getText().equals("") && telefonoAnfitron.getText().length() == 12 ) {
         telefonoValido = true; 
     }
@@ -304,16 +316,20 @@ public class EditarDatosAnfitrion extends javax.swing.JFrame {
     if (!emailAnfitrion.getText().equals("")) {
         emailValido = true;
     }
-    if (nombreValido && DNIValido && telefonoValido && contraseñaValida && emailValido){
-            anfitrion.setClave(DNIAnfitrion.getText());
+    if (nombreValido &&  telefonoValido && contraseñaValida && emailValido){
+            anfitrion.setNombre(nombreAnfitrion.getText());
             anfitrion.setTelefono(Integer.parseInt(telefonoAnfitron.getText().replace(" ","")));
             anfitrion.setCorreo(emailAnfitrion.getText());
             this.dispose();
-            InicioSesion ini = new InicioSesion();
-            ini.setLocation(this.getLocation());
-            ini.setVisible(true);
+            MenuPrincipalAnfitrion manf = new MenuPrincipalAnfitrion(anfitrion);
+            manf.setLocation(this.getLocation());
     }
     }//GEN-LAST:event_GuardarDatosActionPerformed
+
+    private void editarClaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarClaveActionPerformed
+        CambiarContraseña contr = new CambiarContraseña(anfitrion);
+        contr.setLocation(this.getLocation());
+    }//GEN-LAST:event_editarClaveActionPerformed
      /**
      * @param args the command line arguments
      */
@@ -352,18 +368,17 @@ public class EditarDatosAnfitrion extends javax.swing.JFrame {
     boolean emailValido = false;
     boolean telefonoValido = false;
     boolean nombreValido = false;
-    boolean DNIValido = false;
     boolean contraseñaValida = false;
     Anfitrion anfitrion;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JFormattedTextField DNIAnfitrion;
     private javax.swing.JButton GuardarDatos;
     private javax.swing.JPasswordField contraseñaAnfitrion;
+    private javax.swing.JButton editarClave;
     private javax.swing.JButton editarCorreo;
     private javax.swing.JButton editarNombre;
     private javax.swing.JButton editarTel;
     private javax.swing.JFormattedTextField emailAnfitrion;
-    private javax.swing.JButton jButton5;
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
@@ -372,7 +387,13 @@ public class EditarDatosAnfitrion extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JFormattedTextField nombreAnfitrion;
     private javax.swing.JFormattedTextField telefonoAnfitron;
     // End of variables declaration//GEN-END:variables
+
+    private String str(int telefono) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

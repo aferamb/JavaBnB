@@ -4,11 +4,18 @@
  */
 package javabnb.frontend;
 
+import javabnb.backend.*;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author sco23
  */
 public class CambiarContraseña extends javax.swing.JFrame {
+
+    
+
+    
 
     /**
      * Creates new form CambiarContraseña
@@ -17,6 +24,14 @@ public class CambiarContraseña extends javax.swing.JFrame {
         initComponents();
     }
 
+    CambiarContraseña(Anfitrion anfitrion) {
+        this.anfitrion = anfitrion;
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+     CambiarContraseña(ClienteParticular cliente) {
+        this.cliente = cliente;
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -29,10 +44,11 @@ public class CambiarContraseña extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        botonClave1 = new javax.swing.JTextField();
+        botonClave2 = new javax.swing.JTextField();
+        contraseñaActual = new javax.swing.JPasswordField();
         jLabel4 = new javax.swing.JLabel();
+        botonConfirmar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -43,10 +59,22 @@ public class CambiarContraseña extends javax.swing.JFrame {
 
         jLabel3.setText("Repita la nueva contraseña:");
 
-        jPasswordField1.setText("jPasswordField1");
+        contraseñaActual.setText("jPasswordField1");
+        contraseñaActual.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                contraseñaActualActionPerformed(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel4.setText("CAMBIAR CONTRASEÑA");
+
+        botonConfirmar.setText("Confirmar");
+        botonConfirmar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonConfirmarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -64,9 +92,12 @@ public class CambiarContraseña extends javax.swing.JFrame {
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(31, 31, 31)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField3)
-                            .addComponent(jTextField2)
-                            .addComponent(jPasswordField1, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE))))
+                            .addComponent(botonClave2)
+                            .addComponent(botonClave1)
+                            .addComponent(contraseñaActual, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(102, 102, 102)
+                        .addComponent(botonConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(50, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -77,20 +108,58 @@ public class CambiarContraseña extends javax.swing.JFrame {
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(contraseñaActual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(botonClave1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(21, Short.MAX_VALUE))
+                    .addComponent(botonClave2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(botonConfirmar)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void contraseñaActualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contraseñaActualActionPerformed
+        if (contraseñaActual.getPassword().equals(anfitrion.getClave()) || contraseñaActual.getPassword().equals(cliente.getClave() )){
+           ContraseñaCorrecta = true; 
+        }
+        else {ContraseñaCorrecta = false;}
+    }//GEN-LAST:event_contraseñaActualActionPerformed
+
+    private void botonConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonConfirmarActionPerformed
+        if (ContraseñaCorrecta && botonClave1.getText().equals(botonClave2.getText()) && anfitrion instanceof Anfitrion){
+        anfitrion.setClave(botonClave1.getText());
+        this.dispose();  
+        }
+         if (ContraseñaCorrecta && botonClave1.getText().equals(botonClave2.getText()) && cliente instanceof ClienteParticular){
+        cliente.setClave(botonClave1.getText());
+        this.dispose();  
+        }
+         if (!ContraseñaCorrecta && botonClave1.getText().equals(botonClave2.getText())){
+          JOptionPane.showMessageDialog(this,"la contraseña incorrecta","error de contraseña",JOptionPane.WARNING_MESSAGE);
+          contraseñaActual.setText("");
+         }
+          if (ContraseñaCorrecta && !botonClave1.getText().equals(botonClave2.getText())){
+          JOptionPane.showMessageDialog(this,"Las contraseñas no coinciden","error de contraseña",JOptionPane.WARNING_MESSAGE);
+          botonClave1.setText("");
+          botonClave2.setText("");
+          }
+           if (!ContraseñaCorrecta && !botonClave1.getText().equals(botonClave2.getText())){
+          JOptionPane.showMessageDialog(this,"Las contraseñas no coinciden","error de contraseña",JOptionPane.WARNING_MESSAGE);
+          botonClave1.setText("");
+          botonClave2.setText("");
+          contraseñaActual.setText("");
+          JOptionPane.showMessageDialog(this,"Todos los datos introducidos son incorrectos","error de contraseña",JOptionPane.WARNING_MESSAGE);
+           }
+
+      
+    }//GEN-LAST:event_botonConfirmarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -126,14 +195,17 @@ public class CambiarContraseña extends javax.swing.JFrame {
             }
         });
     }
-
+    boolean ContraseñaCorrecta = false;
+    private Anfitrion anfitrion;
+    private ClienteParticular cliente;
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField botonClave1;
+    private javax.swing.JTextField botonClave2;
+    private javax.swing.JButton botonConfirmar;
+    private javax.swing.JPasswordField contraseñaActual;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     // End of variables declaration//GEN-END:variables
 }

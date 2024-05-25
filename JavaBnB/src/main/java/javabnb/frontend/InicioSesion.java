@@ -138,6 +138,11 @@ public class InicioSesion extends javax.swing.JFrame {
                 botonEmailFocusGained(evt);
             }
         });
+        botonEmail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonEmailActionPerformed(evt);
+            }
+        });
 
         botonInicioSesion.setText("Iniciar Sesión");
         botonInicioSesion.addActionListener(new java.awt.event.ActionListener() {
@@ -235,12 +240,12 @@ CrearAnfitrion crearAnfitrion = new CrearAnfitrion(this.getLocation());
         if (persona.getCorreo().equals(email)){
             if (persona.getClave().equals(contraseña)) {
                 if (persona instanceof ClienteParticular){
-                MenuPrincipalCliente menuCliente = new MenuPrincipalCliente();
+                MenuPrincipalCliente menuCliente = new MenuPrincipalCliente((ClienteParticular)persona);
                 menuCliente.setLocation(this.getLocation());
                 this.setVisible(false);
                 }
                 if (persona instanceof Anfitrion) {
-                MenuPrincipalAnfitrion menuAnfitiron = new MenuPrincipalAnfitrion();
+                MenuPrincipalAnfitrion menuAnfitiron = new MenuPrincipalAnfitrion((Anfitrion)persona);
                 menuAnfitiron.setLocation(this.getLocation());
                 this.setVisible(false);
                 }
@@ -263,6 +268,10 @@ CrearAnfitrion crearAnfitrion = new CrearAnfitrion(this.getLocation());
         crearCliente.setVisible(true); // Mostrar la ventana CrearCliente
         this.setVisible(false); // Ocultar la ventana InicioSesion
     }//GEN-LAST:event_crearClienteActionPerformed
+
+    private void botonEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEmailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botonEmailActionPerformed
 
     /**
      * @param args the command line arguments
