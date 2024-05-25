@@ -45,7 +45,7 @@ public class Reserva implements Serializable{
             if (comprobarFecha(fechaSalida, fechaEntrada)) {
                 throw new IllegalArgumentException("La fecha de entrada debe ser anterior a la fecha de salida");
             }
-            if (comprobarReserva(fechaEntrada,fechaSalida)) {
+            if (!GestorInmueble.inmuebleDisponible(inmueble,fechaEntrada,fechaSalida)) {
                 throw new IllegalArgumentException("La fecha indicada ya ha sido reservada");
             }
             this.fechaEntrada = fechaEntrada;
@@ -213,25 +213,6 @@ public class Reserva implements Serializable{
     }
 
     /**
-     * Comprueba que las fechas no hayan sido ya reservadas
-     * 
-     * @param fechaEntrada
-     * @param fechaSalida
-     * @return true si las fechas están ya reservadas, false en caso contrario
-     */
-    public boolean comprobarReserva (LocalDate fechaEntrada, LocalDate fechaSalida){
-        boolean isReserved = false;
-        for (Reserva reserva : GestorInmueble.getReservas()){
-          if (reservasSolapadas(fechaEntrada,fechaSalida,reserva.getFechaEntrada(), reserva.getFechaSalida() ))
-          {isReserved = true;}
-        }
-        return isReserved;
-    }
-      
-    boolean reservasSolapadas(LocalDate inicioRes, LocalDate finRes, LocalDate inicioRes2, LocalDate finRes2 ) {
-    return !inicioRes.isAfter(finRes2) && !inicioRes2.isAfter(finRes);
-    }
-    /**
      *  Genera un fichero de texto con los datos de la reserva
      * 
      * @param reserva objeto de la clase Reserva
@@ -364,7 +345,7 @@ public class Reserva implements Serializable{
      */
     @Override
     public String toString() {
-        return "Reserva{" + "Inmueble= " + inmueble + ", importe= " + importe + ", tarjeta= " + tarjeta + ", cliente= " + cliente +", fecha de reserva= " + fechaReserva +  ",fechade entrada= "+ fechaEntrada + ", fecha de salida= " + fechaSalida +"}";
+        return "Reserva{" + "Inmueble= " + inmueble.getTitulo() + ", importe= " + importe + ", tarjeta= " + tarjeta.getNumeroTarjeta() + ", cliente= " + cliente.getNombre() +", fecha de reserva= " + fechaReserva +  ",fechade entrada= "+ fechaEntrada + ", fecha de salida= " + fechaSalida +"}";
     }
 }
 

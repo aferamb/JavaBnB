@@ -58,8 +58,8 @@ public class Main {
    ArrayList<BufferedImage> fotos5 = new ArrayList<>();
    ArrayList<BufferedImage> fotos6 = new ArrayList<>();
    
-   //fotos.add(ImageIO.read(new File("src/main/java/javabnb/backend/imagenes/casa1.jpg")));
-   fotos1.add(Main.cargarFoto("C:/Users/ALEJANDRO/Desktop/Imagenes casas vacacionales/casa1.jpg"));
+   fotos1.add(ImageIO.read(new File("C:/Users/ALEJANDRO/Desktop/Imagenes_casas_vacacionales/casa1.jpg")));
+   //fotos1.add(Main.cargarFoto("C:/Users/ALEJANDRO/Desktop/Imagenes_casas_vacacionales/casa1.jpg"));
 
 
    TarjetaCredito Tarjeta1 = new TarjetaCredito("Hector",5678432197421347L,LocalDate.of(2025, 5, 19));
@@ -91,9 +91,8 @@ public class Main {
    Reseña reseña5 = new Reseña(cli1,5,"Muy bonito",inm5);
    Reseña reseña6 = new Reseña(cli2,4,"Bien",inm6);
    
-   
-   
-   Reserva reserva = new Reserva (inm1,Tarjeta1,cli1,LocalDate.of(2024, 6, 16),LocalDate.of(2024, 6, 20)); //poner bien las fechas
+
+   Reserva reserva = new Reserva (inm1,Tarjeta1,cli1,LocalDate.of(2024, 6, 16),LocalDate.of(2024, 6, 20)); 
    Reserva reserva2 = new Reserva (inm2,Tarjeta2,cli2,LocalDate.of(2024, 8, 23),LocalDate.of(2024, 8, 30));
    Reserva reserva3 = new Reserva (inm3,Tarjeta1,cli1,LocalDate.of(2024, 5, 14),LocalDate.of(2024, 5, 15));
    Reserva reserva4 = new Reserva (inm4,Tarjeta2,cli2,LocalDate.of(2024, 6, 14),LocalDate.of(2024, 6, 21));
@@ -117,10 +116,9 @@ public class Main {
    reserva7.setFechaReserva(LocalDate.of(2024, 3, 21));
    reserva8.setFechaReserva(LocalDate.of(2024, 3, 22));
    reserva9.setFechaReserva(LocalDate.of(2024, 3, 23));
-   
+
 
    System.out.println(GestorInmueble.getReservasPorFecha());
-   
    GestorInmueble.addInmueble(inm3);
    GestorInmueble.addInmueble(inm2);
    GestorInmueble.addInmueble(inm1);
@@ -140,10 +138,13 @@ public class Main {
    GestorInmueble.addReserva(reserva7);
    GestorInmueble.addReserva(reserva8);
    GestorInmueble.addReserva(reserva9);
-
+   System.out.println("HOLA");
    GestorInmueble.guardarDatosInmuebles();
+   System.out.println("HOLA");
    GestorInmueble.guardarDatosPersonas();
+   System.out.println("HOLA");
    GestorInmueble.guardarDatosReservas();
+   System.out.println("HOLA");
 
    /* Para el frontend
    for (Persona p: personas){

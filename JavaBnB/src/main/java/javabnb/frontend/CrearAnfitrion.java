@@ -19,6 +19,7 @@ public class CrearAnfitrion extends javax.swing.JFrame {
 
     /**
      * Creates new form CrearCliente
+     * 
      */
     public CrearAnfitrion(Point location) {
         initComponents();
