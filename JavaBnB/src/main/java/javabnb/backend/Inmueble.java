@@ -1,6 +1,7 @@
 package javabnb.backend;
 
-import java.awt.image.BufferedImage;    
+import javax.swing.ImageIcon;
+import java.awt.Image;
 import javax.imageio.ImageIO;           
 import java.io.File;
 import java.io.IOException;
@@ -26,7 +27,7 @@ public class Inmueble implements Serializable {
     private TipoInmueble tipoInmueble; 
     private double precioNoche;
     private ArrayList<String> servicios;
-    private ArrayList<BufferedImage> fotos = new ArrayList<BufferedImage>();
+    private ArrayList<ImageIcon> fotos = new ArrayList<ImageIcon>();
     private double calificacion;
     private ArrayList<Reseña> reseñas = new ArrayList<Reseña>();
     
@@ -46,10 +47,10 @@ public class Inmueble implements Serializable {
      * @param tipoInmueble String con el tipo de propiedad (CASA o APARTAMENTO)
      * @param precioNoche double con el precio por noche
      * @param servicios lista de servicios ofrecidos en forma de ArrayList de String
-     * @param fotos lista de fotos del inmueble en forma de ArrayList de BufferedImage
+     * @param fotos lista de fotos del inmueble en forma de ArrayList de ImageIcon
      * @param calificacion double con la calificacion del inmueble
      */
-    public Inmueble(String titulo, Anfitrion anfitrion, Direccion direccion, int huespedesMax, int habitaciones, int camas, int baños, String tipoInmueble, double precioNoche, ArrayList<String> servicios, ArrayList<BufferedImage> fotos, double calificacion) {
+    public Inmueble(String titulo, Anfitrion anfitrion, Direccion direccion, int huespedesMax, int habitaciones, int camas, int baños, String tipoInmueble, double precioNoche, ArrayList<String> servicios, ArrayList<ImageIcon> fotos, double calificacion) {
         this.titulo = titulo;
         this.anfitrion = anfitrion;
         this.direccion = direccion;
@@ -286,18 +287,18 @@ public class Inmueble implements Serializable {
     /**
      * Devuelve la lista de fotos del inmueble, no una copia
      * 
-     * @return lista de fotos del inmueble en forma de ArrayList de BufferedImage
+     * @return lista de fotos del inmueble en forma de ArrayList de ImageIcon
      */
-    public ArrayList<BufferedImage> getFotos() {
+    public ArrayList<ImageIcon> getFotos() {
         return fotos;
     }
 
     /**
      * Establece la lista de fotos del inmueble
      *
-     * @param fotos nueva lista de fotos del inmueble en forma de ArrayList de BufferedImage
+     * @param fotos nueva lista de fotos del inmueble en forma de ArrayList de ImageIcon
      */
-    public void setFotos(ArrayList<BufferedImage> fotos) {
+    public void setFotos(ArrayList<ImageIcon> fotos) {
         this.fotos = fotos;
     }
 
@@ -307,6 +308,7 @@ public class Inmueble implements Serializable {
      * @param rutaArchivo ruta del archivo de la foto a añadir
      */
     public void addFoto(String rutaArchivo) {
+        Image imagen;
         try {
             File archivo = new File(rutaArchivo);
             if (!archivo.exists()) {
@@ -319,8 +321,9 @@ public class Inmueble implements Serializable {
                 throw new IOException("El archivo no es una imagen");
             }
             
-            BufferedImage imagen = ImageIO.read(archivo);
-            fotos.add(imagen);
+            imagen = ImageIO.read(archivo);
+            ImageIcon img = new ImageIcon(imagen);
+            fotos.add(img);
         } catch (IOException ioe) {
             // Imprimir mensaje de error resaltado
             System.err.println("Error IO:" + ioe.getMessage());
@@ -329,20 +332,20 @@ public class Inmueble implements Serializable {
     }
 
     /**
-     * Añade una foto a la lista de fotos del inmueble a partir de un objeto BufferedImage
+     * Añade una foto a la lista de fotos del inmueble a partir de un objeto ImageIcon
      *
-     * @param foto foto a añadir a la lista de fotos del inmueble de tipo BufferedImage
+     * @param foto foto a añadir a la lista de fotos del inmueble de tipo ImageIcon
      */
-    public void addFoto(BufferedImage foto) {
+    public void addFoto(ImageIcon foto) {
         fotos.add(foto);
     }
 
     /**
      * Elimina una foto de la lista de fotos del inmueble. Si la foto no existe, imprime un mensaje de error
      *
-     * @param foto foto a eliminar de la lista de fotos del inmueble de tipo BufferedImage
+     * @param foto foto a eliminar de la lista de fotos del inmueble de tipo ImageIcon
      */
-    public void removeFoto(BufferedImage foto) {
+    public void removeFoto(ImageIcon foto) {
         if (fotos.contains(foto)) {
             fotos.remove(foto);
         } else {
@@ -354,7 +357,7 @@ public class Inmueble implements Serializable {
     /* @code
      * Para el frontend
         JFrame ventana = new JFrame();
-        for (BufferedImage imagen : fotos) {
+        for (ImageIcon imagen : fotos) {
             JLabel etiquetaImagen = new JLabel();
             etiquetaImagen.setIcon(new ImageIcon(imagen));
 

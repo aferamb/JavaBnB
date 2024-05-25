@@ -12,6 +12,7 @@ import java.util.Comparator;
 import java.io.Serializable;
 //import java.time.LocalDate;
 import java.time.LocalDate;
+import javax.swing.ImageIcon;
 
 
 /**
@@ -319,13 +320,9 @@ public class GestorInmueble implements Serializable{
     public static void guardarDatosPersonas() {
         try {
             FileOutputStream fos = new FileOutputStream("ficheroPersonas.dat");
-            System.out.println("1");
             ObjectOutputStream oos = new ObjectOutputStream(fos);
-            System.out.println("2");
             oos.writeObject(personas); // Aquí se produce el error, ni puñetera idea de por qué, pero da error de java.awt.image.BufferedImage
-            System.out.println("3");
             oos.close();
-            System.out.println("4");
         } catch (IOException ioe) {
             System.out.println("Error de IO " + ioe.getMessage());
             ioe.printStackTrace();
