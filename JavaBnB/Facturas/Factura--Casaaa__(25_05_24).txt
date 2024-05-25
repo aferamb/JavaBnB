@@ -1,0 +1,43 @@
+---------------------------- Factura de reserva ---------------------------
+
+
+-------------------------------- Fecha: 25/05/24 -------------------------------
+
+
+Fecha de entrada: 16/06/24
+Fecha de salida: 20/06/24
+
+
+-------------------------------- Inmueble -------------------------------
+
+
+Nombre: Casaaa
+Dirección: calle: calle avenida, número: 1, detalles: Portal B, Bajo A, codigoPostal: 19005, ciudad: Paris, provincia: Perú, pais: Peru}
+Tipo: CASA
+Huéspedes máximos: 4
+Habitaciones: 3
+Camas: 3
+Baños: 1
+Servicios adicionales: Wifi, Desayuno, Piscina, Parking, Calefacción, Aire acondicionado
+
+
+--------------------------DATOS DEL CLIENTE-----------------------------------
+
+
+Nombre: Hector
+DNI: 12345678A
+Teléfono: 633954827
+Correo: hector@gmail.com
+Tarjeta: ************1347
+
+
+-----------------------------IMPORTE--------------------------------------
+
+
+Días de estancia: 4
+Precio por noche: 60,72€
+Descuento VIP: -24,29€
+Precio final: 218,59€
+
+
+-------------------------------------------------------------------------------

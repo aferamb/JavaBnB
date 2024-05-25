@@ -14,12 +14,13 @@ import javax.swing.JFrame;
  *
  * @author sco23
  */
-public class CrearCliente extends javax.swing.JFrame {
+public class CrearAnfitrion extends javax.swing.JFrame {
 
     /**
      * Creates new form CrearCliente
+     * 
      */
-    public CrearCliente(Point location) {
+    public CrearAnfitrion(Point location) {
         initComponents();
          this.setLocation(location);
     }

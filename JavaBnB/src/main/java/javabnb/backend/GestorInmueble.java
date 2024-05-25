@@ -11,6 +11,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.io.Serializable;
 //import java.time.LocalDate;
+import java.time.LocalDate;
 
 
 /**
@@ -141,6 +142,29 @@ public class GestorInmueble implements Serializable{
         } else {
             System.out.println("La reserva no se encuentra en el ArrayList de reservas.");
         }
+    }
+
+    /**
+     * Devuelve true o false si el inmueble pasado como parametro está disponible en las fechas indicadas
+     * 
+     * @param inmueble  en tipo Inmueble
+     * @param fechaEntrada en tipo LocalDate
+     * @param fechaSalida en tipo LocalDate
+     */
+    public static boolean inmuebleDisponible(Inmueble inmueble, LocalDate fechaEntrada, LocalDate fechaSalida) {
+        boolean disponible = true;
+        for (Reserva res : reservas) {
+            if (res.getInmueble().equals(inmueble)) {
+                if (fechaEntrada.isAfter(res.getFechaEntrada()) && fechaEntrada.isBefore(res.getFechaSalida())) {
+                    disponible = false;
+                } else if (fechaSalida.isAfter(res.getFechaEntrada()) && fechaSalida.isBefore(res.getFechaSalida())) {
+                    disponible = false;
+                } else if (fechaEntrada.isBefore(res.getFechaEntrada()) && fechaSalida.isAfter(fechaSalida)) {
+                    disponible = false;
+                }
+            }
+        }
+        return disponible;
     }
 
     /**
@@ -295,11 +319,16 @@ public class GestorInmueble implements Serializable{
     public static void guardarDatosPersonas() {
         try {
             FileOutputStream fos = new FileOutputStream("ficheroPersonas.dat");
+            System.out.println("1");
             ObjectOutputStream oos = new ObjectOutputStream(fos);
-            oos.writeObject(personas);
+            System.out.println("2");
+            oos.writeObject(personas); // Aquí se produce el error, ni puñetera idea de por qué, pero da error de java.awt.image.BufferedImage
+            System.out.println("3");
             oos.close();
+            System.out.println("4");
         } catch (IOException ioe) {
             System.out.println("Error de IO " + ioe.getMessage());
+            ioe.printStackTrace();
         }
     }
 

@@ -1,0 +1,43 @@
+---------------------------- Factura de reserva ---------------------------
+
+
+-------------------------------- Fecha: 25/05/24 -------------------------------
+
+
+Fecha de entrada: 23/08/24
+Fecha de salida: 30/08/24
+
+
+-------------------------------- Inmueble -------------------------------
+
+
+Nombre: PISO
+Dirección: calle: calle avenida, número: 2, detalles: Piso 2, A, codigoPostal: 19006, ciudad: Madrid, provincia: Madrid, pais: España}
+Tipo: CASA
+Huéspedes máximos: 5
+Habitaciones: 4
+Camas: 5
+Baños: 2
+Servicios adicionales: Wifi, Desayuno, Piscina, Parking, Calefacción, Aire acondicionado
+
+
+--------------------------DATOS DEL CLIENTE-----------------------------------
+
+
+Nombre: Alejandro
+DNI: 12345678B
+Teléfono: 611994828
+Correo: alejandro@gmail.com
+Tarjeta: ************4567
+
+
+-----------------------------IMPORTE--------------------------------------
+
+
+Días de estancia: 7
+Precio por noche: 73,72€
+Descuento VIP: -51,6€
+Precio final: 464,44€
+
+
+-------------------------------------------------------------------------------

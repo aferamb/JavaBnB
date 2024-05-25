@@ -1,0 +1,43 @@
+---------------------------- Factura de reserva ---------------------------
+
+
+-------------------------------- Fecha: 25/05/24 -------------------------------
+
+
+Fecha de entrada: 14/05/24
+Fecha de salida: 15/05/24
+
+
+-------------------------------- Inmueble -------------------------------
+
+
+Nombre: AVION
+Dirección: calle: calle avenida, número: 3, detalles: Cuarto C, codigoPostal: 19007, ciudad: Barcelona, provincia: Barcelona, pais: España}
+Tipo: APARTAMENTO
+Huéspedes máximos: 3
+Habitaciones: 2
+Camas: 3
+Baños: 2
+Servicios adicionales: Wifi, Desayuno, Piscina, Parking, Calefacción, Aire acondicionado
+
+
+--------------------------DATOS DEL CLIENTE-----------------------------------
+
+
+Nombre: Hector
+DNI: 12345678A
+Teléfono: 633954827
+Correo: hector@gmail.com
+Tarjeta: ************1347
+
+
+-----------------------------IMPORTE--------------------------------------
+
+
+Días de estancia: 1
+Precio por noche: 45,72€
+Descuento VIP: -4,57€
+Precio final: 41,15€
+
+
+-------------------------------------------------------------------------------
