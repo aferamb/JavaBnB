@@ -1,9 +1,8 @@
 package javabnb.backend;
 
-import java.awt.image.BufferedImage;
+import javax.swing.ImageIcon;
 import java.io.File;
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -11,13 +10,12 @@ import javax.imageio.ImageIO;
 
 
 /**
- * @author Alejandro Fernández Ambrós
- * @author Sergio Caballero Ortego
+ * ...
  */
 public class Main {
    
-   private static BufferedImage cargarFoto(String rutaArchivo) {
-      BufferedImage imagen;
+   private static ImageIcon cargarFoto(String rutaArchivo) {
+      ImageIcon imagen;
       try {
          File archivo = new File(rutaArchivo);
          if (!archivo.exists()) {
@@ -51,12 +49,12 @@ public class Main {
    servicios.add("Calefacción");
    servicios.add("Aire acondicionado");
 
-   ArrayList<BufferedImage> fotos1 = new ArrayList<>();
-   ArrayList<BufferedImage> fotos2 = new ArrayList<>();
-   ArrayList<BufferedImage> fotos3 = new ArrayList<>();
-   ArrayList<BufferedImage> fotos4 = new ArrayList<>();
-   ArrayList<BufferedImage> fotos5 = new ArrayList<>();
-   ArrayList<BufferedImage> fotos6 = new ArrayList<>();
+   ArrayList<ImageIcon> fotos1 = new ArrayList<>();
+   ArrayList<ImageIcon> fotos2 = new ArrayList<>();
+   ArrayList<ImageIcon> fotos3 = new ArrayList<>();
+   ArrayList<ImageIcon> fotos4 = new ArrayList<>();
+   ArrayList<ImageIcon> fotos5 = new ArrayList<>();
+   ArrayList<ImageIcon> fotos6 = new ArrayList<>();
    
    fotos1.add(ImageIO.read(new File("C:/Users/ALEJANDRO/Desktop/Imagenes_casas_vacacionales/casa1.jpg")));
    //fotos1.add(Main.cargarFoto("C:/Users/ALEJANDRO/Desktop/Imagenes_casas_vacacionales/casa1.jpg"));
