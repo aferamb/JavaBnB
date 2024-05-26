@@ -4,6 +4,11 @@ package javabnb.backend;
 import java.util.ArrayList; 
 
 /**
+ * Clase que representa un cliente particular de la aplicacion, hereda de la clase Persona.
+ * Un cliente particular es una persona que reserva inmuebles para pasar una estancia.
+ * Puede tener el rango de VIP si paga por el.
+ * 
+ * @see Persona
  * @author Alejandro Fernández Ambrós
  * @author Sergio Caballero Ortego
  */

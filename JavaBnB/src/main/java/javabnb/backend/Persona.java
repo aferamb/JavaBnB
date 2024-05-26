@@ -3,6 +3,9 @@ import java.io.Serializable;
 import java.time.LocalDate;
 
 /**
+ * Clase que representa una persona de la aplicacion.´
+ * Una persona es un usuario de la aplicacion que puede ser tanto un anfitrion como un cliente particular.
+ * 
  * @author Alejandro Fernández Ambrós
  * @author Sergio Caballero Ortego
  */

@@ -3,6 +3,8 @@ package javabnb.backend;
 import java.io.Serializable;
 
 /**
+ * Clase que representa una reseña de un inmueble realizada por un cliente particular.
+ * 
  * @author Alejandro Fernández Ambrós
  * @author Sergio Caballero Ortego
  */
