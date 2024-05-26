@@ -88,14 +88,20 @@ public class EditarDatoCliente extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTextArea1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("TUS DATOS");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, 256, 46));
 
         jLabel5.setText("Clave");
 
         telefonoCliente.setEditable(false);
+        try {
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
         telefonoCliente.setText(str(cliente.getTelefono()));
         telefonoCliente.setToolTipText("");
         telefonoCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -200,12 +206,15 @@ public class EditarDatoCliente extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(176, 140, -1, -1));
+
         editarNombre.setText("Editar");
         editarNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 editarNombreActionPerformed(evt);
             }
         });
+        getContentPane().add(editarNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(442, 143, 75, -1));
 
         editarTel.setText("Editar");
         editarTel.addActionListener(new java.awt.event.ActionListener() {
@@ -213,6 +222,7 @@ public class EditarDatoCliente extends javax.swing.JFrame {
                 editarTelActionPerformed(evt);
             }
         });
+        getContentPane().add(editarTel, new org.netbeans.lib.awtextra.AbsoluteConstraints(442, 225, 75, -1));
 
         editarCorreo.setText("Editar");
         editarCorreo.addActionListener(new java.awt.event.ActionListener() {
@@ -220,6 +230,7 @@ public class EditarDatoCliente extends javax.swing.JFrame {
                 editarCorreoActionPerformed(evt);
             }
         });
+        getContentPane().add(editarCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(442, 266, 75, -1));
 
         editarClave.setText("Editar");
         editarClave.addActionListener(new java.awt.event.ActionListener() {
@@ -227,6 +238,7 @@ public class EditarDatoCliente extends javax.swing.JFrame {
                 editarClaveActionPerformed(evt);
             }
         });
+        getContentPane().add(editarClave, new org.netbeans.lib.awtextra.AbsoluteConstraints(442, 307, 75, -1));
 
         GuardarDatos.setText("Guardar Datos");
         GuardarDatos.addActionListener(new java.awt.event.ActionListener() {
@@ -234,10 +246,15 @@ public class EditarDatoCliente extends javax.swing.JFrame {
                 GuardarDatosActionPerformed(evt);
             }
         });
+        getContentPane().add(GuardarDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 550, -1, -1));
 
         jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel13.setText("MODIFICAR TARJETA");
 
+        try {
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
         numeroTarjetaCliente1.setText(Long.toString(cliente.getTarjetaCredito().getNumeroTarjeta()));
         numeroTarjetaCliente1.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -316,78 +333,16 @@ public class EditarDatoCliente extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(143, 351, -1, -1));
+
         jButton1.setText("Editar");
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(421, 396, 75, -1));
 
         jButton2.setText("Editar");
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(421, 437, 75, -1));
 
         jButton3.setText("Editar");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(editarClave, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(editarCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(editarTel, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(editarNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(126, 126, 126))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(143, 143, 143)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(215, 215, 215)
-                        .addComponent(GuardarDatos)))
-                .addContainerGap(147, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(176, 176, 176)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(234, Short.MAX_VALUE)))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(66, 66, 66)
-                .addComponent(editarNombre)
-                .addGap(59, 59, 59)
-                .addComponent(editarTel)
-                .addGap(18, 18, 18)
-                .addComponent(editarCorreo)
-                .addGap(18, 18, 18)
-                .addComponent(editarClave)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(45, 45, 45)
-                        .addComponent(jButton1)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton2)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton3))
-                    .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40)
-                .addComponent(GuardarDatos)
-                .addGap(158, 158, 158))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(140, 140, 140)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(396, Short.MAX_VALUE)))
-        );
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(421, 478, 75, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -554,16 +509,12 @@ for (Persona persona: GestorInmueble.getPersonas()){
     private javax.swing.JButton editarNombre;
     private javax.swing.JButton editarTel;
     private javax.swing.JFormattedTextField emailCliente;
-    private javax.swing.JFormattedTextField fechaCaducidadCliente;
     private javax.swing.JFormattedTextField fechaCaducidadCliente1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
@@ -573,17 +524,13 @@ for (Persona persona: GestorInmueble.getPersonas()){
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JFormattedTextField nombreCliente;
-    private javax.swing.JFormattedTextField numeroTarjetaCliente;
     private javax.swing.JFormattedTextField numeroTarjetaCliente1;
     private javax.swing.JFormattedTextField telefonoCliente;
-    private javax.swing.JFormattedTextField titularTarjetaCliente;
     private javax.swing.JFormattedTextField titularTarjetaCliente1;
     // End of variables declaration//GEN-END:variables
 

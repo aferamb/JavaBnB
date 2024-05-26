@@ -114,8 +114,14 @@ public class InicioSesion extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(572, 418));
+        setMinimumSize(new java.awt.Dimension(600, 470));
+        setPreferredSize(new java.awt.Dimension(600, 470));
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("¿No tienes cuenta? Crea una como");
@@ -164,7 +170,12 @@ public class InicioSesion extends javax.swing.JFrame {
         jButton1.setBorder(null);
         jButton1.setBorderPainted(false);
         jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 60, -1, -1));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 60, -1, -1));
         getContentPane().add(textoContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(205, 311, 151, -1));
 
         jLabel3.setText("Correo");
@@ -199,17 +210,13 @@ CrearAnfitrion crearAnfitrion = new CrearAnfitrion(this.getLocation());
                 System.out.println(persona);
                 if (persona instanceof ClienteParticular){
                     System.out.println(persona);
-                MenuPrincipalCliente menuCliente = new MenuPrincipalCliente((ClienteParticular)persona);
-                menuCliente.setLocation(this.getLocation());
-                this.setVisible(false);
+                MenuPrincipal menuPrincipal = new MenuPrincipal(this, this.getLocation(), persona);
                 }
                 if (persona instanceof Anfitrion) {
-                MenuPrincipalAnfitrion menuAnfitiron = new MenuPrincipalAnfitrion((Anfitrion)persona);
-                menuAnfitiron.setLocation(this.getLocation());
-                this.setVisible(false);
+                //MenuPrincipal menuPrincipal = new MenuPrincipal(this, this.getLocation(), persona);
                 }
-            } else {
-                mostrar = true;
+            } else if (!persona.getCorreo().equals(email) || !persona.getClave().equals(contraseña)){
+                //mostrar = true;
             }
         }
         if (mostrar){
@@ -222,6 +229,15 @@ CrearAnfitrion crearAnfitrion = new CrearAnfitrion(this.getLocation());
         crearCliente.setVisible(true); // Mostrar la ventana CrearCliente
         this.setVisible(false); // Ocultar la ventana InicioSesion
     }//GEN-LAST:event_crearClienteActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        JOptionPane.showMessageDialog(this,"ESdtas segura dde cerrar","Error de inicio sesion",JOptionPane.WARNING_MESSAGE);
+        
+    }//GEN-LAST:event_formWindowClosing
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        MenuPrincipal menuprincipal = new MenuPrincipal(this, this.getLocation());
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
