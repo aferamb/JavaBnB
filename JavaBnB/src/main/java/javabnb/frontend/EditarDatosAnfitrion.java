@@ -5,6 +5,7 @@
 package javabnb.frontend;
 
 
+import java.awt.Point;
 import javabnb.backend.*;
 /**
  *
@@ -12,13 +13,25 @@ import javabnb.backend.*;
  */
 public class EditarDatosAnfitrion extends javax.swing.JFrame {
 
+    Anfitrion anfitrion;
+    MenuPrincipal menuPrincipal;
+    boolean emailValido = false;
+    boolean telefonoValido = false;
+    boolean nombreValido = false;
+    boolean contraseñaValida = false;
+    
     /**
      * Creates new form MenuEditarDatos
-     * @param anfitrion
+     * @param menuPrincipal
+     * @param localizacion
+     * @param persona
      */
-    public EditarDatosAnfitrion(Anfitrion anfitrion) {
+    public EditarDatosAnfitrion(MenuPrincipal menuPrincipal, Point localizacion, Persona persona) {
+        this.menuPrincipal = menuPrincipal;
+        menuPrincipal.setVisible(false);
+        this.setLocation(localizacion);
         initComponents();
-        this.anfitrion = anfitrion;
+        this.anfitrion = (Anfitrion) persona;
     }
     public EditarDatosAnfitrion() {
         initComponents();
@@ -283,9 +296,8 @@ public class EditarDatosAnfitrion extends javax.swing.JFrame {
             anfitrion.setNombre(nombreAnfitrion.getText());
             anfitrion.setTelefono(Integer.parseInt(telefonoAnfitron.getText().replace(" ","")));
             anfitrion.setCorreo(emailAnfitrion.getText());
+            menuPrincipal.setVisible(true);
             this.dispose();
-            MenuPrincipalAnfitrion manf = new MenuPrincipalAnfitrion(anfitrion);
-            manf.setLocation(this.getLocation());
     }
     }//GEN-LAST:event_GuardarDatosActionPerformed
 
@@ -328,11 +340,6 @@ public class EditarDatosAnfitrion extends javax.swing.JFrame {
             }
         });
     }
-    boolean emailValido = false;
-    boolean telefonoValido = false;
-    boolean nombreValido = false;
-    boolean contraseñaValida = false;
-    Anfitrion anfitrion;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JFormattedTextField DNIAnfitrion;
     private javax.swing.JButton GuardarDatos;
