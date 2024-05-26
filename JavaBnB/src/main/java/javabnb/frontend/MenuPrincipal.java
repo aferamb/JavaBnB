@@ -44,9 +44,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
+        jMenuItem3 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
+        jMenuItem4 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
 
         jPanelBusqueda.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -65,61 +69,39 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenuBar1.setMinimumSize(new java.awt.Dimension(70, 73));
         jMenuBar1.setPreferredSize(new java.awt.Dimension(70, 73));
 
-        jMenu1.setText("File");
-        jMenu1.addMenuListener(new javax.swing.event.MenuListener() {
-            public void menuCanceled(javax.swing.event.MenuEvent evt) {
-            }
-            public void menuDeselected(javax.swing.event.MenuEvent evt) {
-            }
-            public void menuSelected(javax.swing.event.MenuEvent evt) {
-                jMenu1MenuSelected(evt);
-            }
-        });
+        jMenu1.setText("Busqueda");
+
+        jMenuItem3.setText("Buscar inmuebles");
+        jMenuItem3.setToolTipText("");
+        jMenu1.add(jMenuItem3);
+
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Edit");
-        jMenu2.addMenuListener(new javax.swing.event.MenuListener() {
-            public void menuCanceled(javax.swing.event.MenuEvent evt) {
-            }
-            public void menuDeselected(javax.swing.event.MenuEvent evt) {
-            }
-            public void menuSelected(javax.swing.event.MenuEvent evt) {
-                jMenu2MenuSelected(evt);
-            }
-        });
+        jMenu2.setText("Reseñas");
+
+        jMenuItem4.setText("Escribir reseña");
+        jMenu2.add(jMenuItem4);
+
         jMenuBar1.add(jMenu2);
 
-        jMenu3.setText("jMenu3");
-        jMenu3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu3ActionPerformed(evt);
-            }
-        });
+        jMenu3.setText("Reservas");
+
+        jMenuItem2.setText("Consultar reservas");
+        jMenu3.add(jMenuItem2);
+
         jMenuBar1.add(jMenu3);
 
-        jMenu4.setText("jMenu4");
+        jMenu4.setText("Perfil");
+
+        jMenuItem1.setText("Modificar datos");
+        jMenu4.add(jMenuItem1);
+
         jMenuBar1.add(jMenu4);
 
         setJMenuBar(jMenuBar1);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jMenu1MenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_jMenu1MenuSelected
-        Container contenedor = getContentPane();
-        JLabel etiqueta = new JLabel("Etiqueta");
-        contenedor.add(new JLabel("Etiqueta"));
-        
-    }//GEN-LAST:event_jMenu1MenuSelected
-
-    private void jMenu2MenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_jMenu2MenuSelected
-        Container contenedor = getContentPane();
-        contenedor.add(jPanelBusqueda);
-    }//GEN-LAST:event_jMenu2MenuSelected
-
-    private void jMenu3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu3ActionPerformed
-        JOptionPane.showMessageDialog(this,"Menu 3 selec","Error de inicio sesion",JOptionPane.WARNING_MESSAGE);
-    }//GEN-LAST:event_jMenu3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -164,6 +146,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JPanel jPanelBusqueda;
     // End of variables declaration//GEN-END:variables
 }
