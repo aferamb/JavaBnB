@@ -13,6 +13,8 @@ import javax.imageio.ImageIO;
 
 /**
  * Clase Main que contiene el método main del programa de prueba para el backend
+ * 
+ * 
  */
 public class Main {
    
