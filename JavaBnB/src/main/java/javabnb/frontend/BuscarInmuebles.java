@@ -8,6 +8,7 @@ package javabnb.frontend;
 
 import java.awt.Container;
 import java.awt.Point;
+import java.util.ArrayList;
 import javabnb.backend.*;
 import javabnb.frontend.EditarAnfitrion;
 import javabnb.frontend.EditarCliente;
@@ -47,43 +48,44 @@ public class BuscarInmuebles extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         buttonGroup1 = new javax.swing.ButtonGroup();
         buttonGroup2 = new javax.swing.ButtonGroup();
+        buttonGroup3 = new javax.swing.ButtonGroup();
+        buttonGroup4 = new javax.swing.ButtonGroup();
         canvas1 = new java.awt.Canvas();
         jPanel2 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
-        jPanel5 = new javax.swing.JPanel();
-        jLabel20 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
-        jLabel25 = new javax.swing.JLabel();
-        jPanel6 = new javax.swing.JPanel();
-        jLabel26 = new javax.swing.JLabel();
-        jLabel27 = new javax.swing.JLabel();
-        jLabel28 = new javax.swing.JLabel();
-        jLabel29 = new javax.swing.JLabel();
-        jLabel30 = new javax.swing.JLabel();
-        jLabel31 = new javax.swing.JLabel();
-        jPanel7 = new javax.swing.JPanel();
-        jLabel32 = new javax.swing.JLabel();
-        jLabel33 = new javax.swing.JLabel();
-        jLabel34 = new javax.swing.JLabel();
-        jLabel35 = new javax.swing.JLabel();
-        jLabel36 = new javax.swing.JLabel();
-        jLabel37 = new javax.swing.JLabel();
+        foto1 = new javax.swing.JLabel();
+        titulo1 = new javax.swing.JLabel();
+        tipo1 = new javax.swing.JLabel();
+        precio1 = new javax.swing.JLabel();
+        media1 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
+        FiltroPrecio = new javax.swing.JRadioButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        botonAtras = new javax.swing.JButton();
+        jPanel5 = new javax.swing.JPanel();
+        foto2 = new javax.swing.JLabel();
+        titulo2 = new javax.swing.JLabel();
+        tipo2 = new javax.swing.JLabel();
+        precio2 = new javax.swing.JLabel();
+        media2 = new javax.swing.JLabel();
+        jPanel6 = new javax.swing.JPanel();
+        foto3 = new javax.swing.JLabel();
+        titulo3 = new javax.swing.JLabel();
+        tipo3 = new javax.swing.JLabel();
+        precio3 = new javax.swing.JLabel();
+        media3 = new javax.swing.JLabel();
+        jPanel7 = new javax.swing.JPanel();
+        foto4 = new javax.swing.JLabel();
+        titulo4 = new javax.swing.JLabel();
+        tipo4 = new javax.swing.JLabel();
+        precio4 = new javax.swing.JLabel();
+        media4 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jCheckBox1 = new javax.swing.JCheckBox();
+        jCheckBox2 = new javax.swing.JCheckBox();
+        filtroReseñas = new javax.swing.JRadioButton();
+        botonSiguiente = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
@@ -103,111 +105,150 @@ public class BuscarInmuebles extends javax.swing.JFrame {
         jPanelBusqueda.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(635, 174, -1, -1));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(1100, 800));
-        setMinimumSize(new java.awt.Dimension(1100, 800));
+        setMinimumSize(new java.awt.Dimension(900, 750));
         setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(canvas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 60, -1, -1));
 
         jPanel4.setBackground(new java.awt.Color(153, 153, 153));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel14.setText("iMAGENN");
-        jPanel4.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 230, 130));
+        foto1.setText("iMAGENN");
+        jPanel4.add(foto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 180, 110));
 
-        jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel15.setText("TITULO");
-        jPanel4.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, 370, 40));
+        titulo1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        titulo1.setText("TITULO");
+        jPanel4.add(titulo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, 370, 40));
 
-        jLabel16.setText("TIPO");
-        jPanel4.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 80, 200, -1));
+        tipo1.setText("TIPO");
+        jPanel4.add(tipo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 80, 200, -1));
 
-        jLabel17.setText("€€€€");
-        jPanel4.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 30, 100, -1));
+        precio1.setText("€€€€");
+        jPanel4.add(precio1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 30, 100, -1));
 
-        jLabel18.setText("DIRECCION");
-        jPanel4.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 110, 420, -1));
+        media1.setText("Media");
+        jPanel4.add(media1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 80, -1, -1));
 
-        jLabel19.setText("Media");
-        jPanel4.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 80, -1, -1));
+        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 80, 690, 130));
+
+        jTextField1.setText("BUSCAR POR CIUDAD");
+        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 30, 421, -1));
+
+        FiltroPrecio.setText("POR PRECIO");
+        FiltroPrecio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FiltroPrecioActionPerformed(evt);
+            }
+        });
+        getContentPane().add(FiltroPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 110, -1));
+
+        jButton2.setText("jButton2");
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 730, 75, -1));
+
+        jButton3.setText("jButton3");
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 730, 75, -1));
+
+        botonAtras.setText("Anterior");
+        botonAtras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonAtrasActionPerformed(evt);
+            }
+        });
+        getContentPane().add(botonAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 640, -1, -1));
 
         jPanel5.setBackground(new java.awt.Color(153, 153, 153));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel20.setText("iMAGENN");
-        jPanel5.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 230, 130));
+        foto2.setText("iMAGENN");
+        jPanel5.add(foto2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 180, 110));
 
-        jLabel21.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel21.setText("TITULO");
-        jPanel5.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, 370, 40));
+        titulo2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        titulo2.setText("titulo2");
+        jPanel5.add(titulo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, 370, 40));
 
-        jLabel22.setText("TIPO");
-        jPanel5.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 80, 200, -1));
+        tipo2.setText("TIPO");
+        jPanel5.add(tipo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 80, 200, -1));
 
-        jLabel23.setText("€€€€");
-        jPanel5.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 30, 100, -1));
+        precio2.setText("€€€€");
+        jPanel5.add(precio2, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 30, 100, -1));
 
-        jLabel24.setText("DIRECCION");
-        jPanel5.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 110, 420, -1));
+        media2.setText("Media");
+        jPanel5.add(media2, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 80, -1, -1));
 
-        jLabel25.setText("Media");
-        jPanel5.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 80, -1, -1));
+        getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 220, 690, 130));
 
         jPanel6.setBackground(new java.awt.Color(153, 153, 153));
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel26.setText("iMAGENN");
-        jPanel6.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 230, 130));
+        foto3.setText("iMAGENN");
+        jPanel6.add(foto3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 180, 110));
 
-        jLabel27.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel27.setText("TITULO");
-        jPanel6.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, 370, 40));
+        titulo3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        titulo3.setText("TITULO");
+        jPanel6.add(titulo3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, 370, 40));
 
-        jLabel28.setText("TIPO");
-        jPanel6.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 80, 200, -1));
+        tipo3.setText("TIPO");
+        jPanel6.add(tipo3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 80, 200, -1));
 
-        jLabel29.setText("€€€€");
-        jPanel6.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 30, 100, -1));
+        precio3.setText("€€€€");
+        jPanel6.add(precio3, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 30, 100, -1));
 
-        jLabel30.setText("DIRECCION");
-        jPanel6.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 110, 420, -1));
+        media3.setText("Media");
+        jPanel6.add(media3, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 80, -1, -1));
 
-        jLabel31.setText("Media");
-        jPanel6.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 80, -1, -1));
+        getContentPane().add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 360, 690, 130));
 
         jPanel7.setBackground(new java.awt.Color(153, 153, 153));
         jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel32.setText("iMAGENN");
-        jPanel7.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 230, 130));
+        foto4.setText("iMAGENN");
+        jPanel7.add(foto4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 180, 110));
 
-        jLabel33.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel33.setText("TITULO");
-        jPanel7.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, 370, 40));
+        titulo4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        titulo4.setText("TITULO");
+        jPanel7.add(titulo4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, 370, 40));
 
-        jLabel34.setText("TIPO");
-        jPanel7.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 80, 200, -1));
+        tipo4.setText("TIPO");
+        jPanel7.add(tipo4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 80, 200, -1));
 
-        jLabel35.setText("€€€€");
-        jPanel7.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 30, 100, -1));
+        precio4.setText("€€€€");
+        jPanel7.add(precio4, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 30, 100, -1));
 
-        jLabel36.setText("DIRECCION");
-        jPanel7.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 110, 420, -1));
+        media4.setText("Media");
+        jPanel7.add(media4, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 80, -1, -1));
 
-        jLabel37.setText("Media");
-        jPanel7.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 80, -1, -1));
+        getContentPane().add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 500, 690, 130));
 
-        jTextField1.setText("BUSCAR POR CIUDAD");
+        jLabel2.setText("FILTROS");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
 
-        jLabel8.setText("jLabel8");
+        jCheckBox1.setText("Casa");
+        getContentPane().add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, -1, -1));
 
-        jRadioButton1.setText("jRadioButton1");
+        jCheckBox2.setText("Apartamento");
+        jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jCheckBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, -1, -1));
 
-        jRadioButton2.setText("jRadioButton2");
+        filtroReseñas.setText("POR RESEÑAS");
+        filtroReseñas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                filtroReseñasActionPerformed(evt);
+            }
+        });
+        getContentPane().add(filtroReseñas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, -1));
 
-        jRadioButton3.setText("jRadioButton3");
-
-        jButton2.setText("jButton2");
-
-        jButton3.setText("jButton3");
+        botonSiguiente.setText("Siguiente");
+        botonSiguiente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonSiguienteActionPerformed(evt);
+            }
+        });
+        getContentPane().add(botonSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 640, -1, -1));
 
         jMenuBar1.setMinimumSize(new java.awt.Dimension(70, 73));
         jMenuBar1.setPreferredSize(new java.awt.Dimension(70, 73));
@@ -262,75 +303,6 @@ public class BuscarInmuebles extends javax.swing.JFrame {
 
         setJMenuBar(jMenuBar1);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(77, 77, 77)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jRadioButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE)
-                                .addComponent(jRadioButton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jRadioButton3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(450, 450, 450)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(302, 302, 302))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(canvas1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(570, 570, 570)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 421, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(canvas1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(57, 57, 57)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(45, 45, 45)
-                        .addComponent(jRadioButton1)
-                        .addGap(35, 35, 35)
-                        .addComponent(jRadioButton2)
-                        .addGap(35, 35, 35)
-                        .addComponent(jRadioButton3)))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
-                .addGap(13, 13, 13))
-        );
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -345,42 +317,79 @@ public class BuscarInmuebles extends javax.swing.JFrame {
         
     }//GEN-LAST:event_botonPerfilActionPerformed
 
-    
+    private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox2ActionPerformed
 
+    private void filtroReseñasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_filtroReseñasActionPerformed
+    inmuebles = GestorInmueble.getInmuebles();
+         ArrayList<Inmueble> inmuebles = GestorInmueble.getInmueblesPorCalificacion();
+        }
+    }//GEN-LAST:event_filtroReseñasActionPerformed
+
+    private void botonAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAtrasActionPerformed
+        if (pagAct > 0){ pagAct++;}
+        
+        titulo1.setText(inmuebles.get(pagAct*4).getTitulo());
+        titulo2.setText(inmuebles.get(1+(pagAct*4)).getTitulo());
+        titulo3.setText(inmuebles.get(2+(pagAct*4)).getTitulo());
+        titulo4.setText(inmuebles.get(3+(pagAct*4)).getTitulo());
+        
+        precio1.setText(Double.toString(inmuebles.get(pagAct*4).getPrecioNoche()));
+        precio2.setText(Double.toString(inmuebles.get(1+pagAct*4).getPrecioNoche()));
+        precio3.setText(Double.toString(inmuebles.get(2+pagAct*4).getPrecioNoche()));
+        precio4.setText(Double.toString(inmuebles.get(3+pagAct*4).getPrecioNoche()));
+
+        media1.setText(Double.toString(inmuebles.get(pagAct*4).getCalificacion()));
+        media2.setText(Double.toString(inmuebles.get(1+pagAct*4).getCalificacion()));
+        media3.setText(Double.toString(inmuebles.get(2+pagAct*4).getCalificacion()));
+        media4.setText(Double.toString(inmuebles.get(3+pagAct*4).getCalificacion()));
+    }//GEN-LAST:event_botonAtrasActionPerformed
+
+    private void botonSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSiguienteActionPerformed
+        if (pagAct < numPag){ pagAct--;}
+
+        titulo1.setText(inmuebles.get(pagAct*4).getTitulo());
+        titulo2.setText(inmuebles.get(1+(pagAct*4)).getTitulo());
+        titulo3.setText(inmuebles.get(2+(pagAct*4)).getTitulo());
+        titulo4.setText(inmuebles.get(3+(pagAct*4)).getTitulo());
+        
+        precio1.setText(Double.toString(inmuebles.get(pagAct*4).getPrecioNoche()));
+        precio2.setText(Double.toString(inmuebles.get(1+pagAct*4).getPrecioNoche()));
+        precio3.setText(Double.toString(inmuebles.get(2+pagAct*4).getPrecioNoche()));
+        precio4.setText(Double.toString(inmuebles.get(3+pagAct*4).getPrecioNoche()));
+
+        media1.setText(Double.toString(inmuebles.get(pagAct*4).getCalificacion()));
+        media2.setText(Double.toString(inmuebles.get(1+pagAct*4).getCalificacion()));
+        media3.setText(Double.toString(inmuebles.get(2+pagAct*4).getCalificacion()));
+        media4.setText(Double.toString(inmuebles.get(3+pagAct*4).getCalificacion()));
+    }//GEN-LAST:event_botonSiguienteActionPerformed
+    ArrayList<Inmueble> inmuebles = GestorInmueble.getInmuebles();
+    int pagAct = 0; 
+    int numPag = (int) Math.ceil(inmuebles.size()/4);
+   
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JRadioButton FiltroPrecio;
+    private javax.swing.JButton botonAtras;
     private javax.swing.JMenuItem botonPerfil;
+    private javax.swing.JButton botonSiguiente;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.ButtonGroup buttonGroup3;
+    private javax.swing.ButtonGroup buttonGroup4;
     private java.awt.Canvas canvas1;
+    private javax.swing.JRadioButton filtroReseñas;
+    private javax.swing.JLabel foto1;
+    private javax.swing.JLabel foto2;
+    private javax.swing.JLabel foto3;
+    private javax.swing.JLabel foto4;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
-    private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel31;
-    private javax.swing.JLabel jLabel32;
-    private javax.swing.JLabel jLabel33;
-    private javax.swing.JLabel jLabel34;
-    private javax.swing.JLabel jLabel35;
-    private javax.swing.JLabel jLabel36;
-    private javax.swing.JLabel jLabel37;
-    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -395,9 +404,22 @@ public class BuscarInmuebles extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanelBusqueda;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel media1;
+    private javax.swing.JLabel media2;
+    private javax.swing.JLabel media3;
+    private javax.swing.JLabel media4;
+    private javax.swing.JLabel precio1;
+    private javax.swing.JLabel precio2;
+    private javax.swing.JLabel precio3;
+    private javax.swing.JLabel precio4;
+    private javax.swing.JLabel tipo1;
+    private javax.swing.JLabel tipo2;
+    private javax.swing.JLabel tipo3;
+    private javax.swing.JLabel tipo4;
+    private javax.swing.JLabel titulo1;
+    private javax.swing.JLabel titulo2;
+    private javax.swing.JLabel titulo3;
+    private javax.swing.JLabel titulo4;
     // End of variables declaration//GEN-END:variables
 }
