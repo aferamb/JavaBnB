@@ -302,7 +302,7 @@ public class GestorInmueble implements Serializable{
         try {
             FileInputStream fis = new FileInputStream("ficheroPersonas.dat");
             ObjectInputStream ois = new ObjectInputStream(fis);
-            personas = (ArrayList<Persona>) ois.readObject();
+            personas = (ArrayList) ois.readObject();
             ois.close();
         } catch (IOException ioe) {
             System.out.println("Error de IO " + ioe.getMessage());
@@ -340,7 +340,7 @@ public class GestorInmueble implements Serializable{
         try {
             FileInputStream fis = new FileInputStream("ficheroInmuebles.dat");
             ObjectInputStream ois = new ObjectInputStream(fis);
-            inmuebles = (ArrayList<Inmueble>) ois.readObject();
+            inmuebles = (ArrayList) ois.readObject();
             ois.close();
         } catch (IOException ioe) {
             System.out.println("Error de IO " + ioe.getMessage());
@@ -377,7 +377,7 @@ public class GestorInmueble implements Serializable{
         try {
             FileInputStream fis = new FileInputStream("ficheroReservas.dat");
             ObjectInputStream ois = new ObjectInputStream(fis);
-            reservas = (ArrayList<Reserva>) ois.readObject();
+            reservas = (ArrayList) ois.readObject();
             ois.close();
         } catch (IOException ioe) {
             System.out.println("Error de IO " + ioe.getMessage());

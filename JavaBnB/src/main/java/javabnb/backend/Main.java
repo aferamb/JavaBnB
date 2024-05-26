@@ -17,7 +17,7 @@ import javax.imageio.ImageIO;
 public class Main {
    
    private static ImageIcon cargarFoto(String rutaArchivo) {
-      Image imagen;
+      //Image imagen;
       try {
          File archivo = new File(rutaArchivo);
          if (!archivo.exists()) {
@@ -30,7 +30,7 @@ public class Main {
             throw new IOException("El archivo no es una imagen");
          }
          
-         imagen = ImageIO.read(archivo);
+         Image imagen = ImageIO.read(archivo);
          ImageIcon icono = new ImageIcon(imagen);
          return icono;
       } catch (IOException ioe) {
@@ -43,7 +43,7 @@ public class Main {
 
 
    public static void main (String[] args) throws IOException {
-
+     /* 
    ArrayList<String> servicios = new ArrayList<>();
    servicios.add("Wifi");
    servicios.add("Desayuno");
@@ -51,16 +51,20 @@ public class Main {
    servicios.add("Parking");
    servicios.add("Calefacción");
    servicios.add("Aire acondicionado");
-/*
+
    ArrayList<ImageIcon> fotos1 = new ArrayList<>();
    ArrayList<ImageIcon> fotos2 = new ArrayList<>();
    ArrayList<ImageIcon> fotos3 = new ArrayList<>();
    ArrayList<ImageIcon> fotos4 = new ArrayList<>();
    ArrayList<ImageIcon> fotos5 = new ArrayList<>();
    ArrayList<ImageIcon> fotos6 = new ArrayList<>();
- */  
-   //fotos1.add(ImageIO.read(new File("C:/Users/ALEJANDRO/Desktop/Imagenes_casas_vacacionales/casa1.jpg")));
-   //fotos1.add(Main.cargarFoto("C:/Users/ALEJANDRO/Desktop/Imagenes_casas_vacacionales/casa1.jpg"));
+   
+   fotos1.add(Main.cargarFoto("C:/Users/ALEJANDRO/Desktop/Imagenes_casas_vacacionales/casa1.jpg"));
+   fotos2.add(Main.cargarFoto("C:/Users/ALEJANDRO/Desktop/Imagenes_casas_vacacionales/casa1.jpg"));
+   fotos3.add(Main.cargarFoto("C:/Users/ALEJANDRO/Desktop/Imagenes_casas_vacacionales/casa1.jpg"));
+   fotos4.add(Main.cargarFoto("C:/Users/ALEJANDRO/Desktop/Imagenes_casas_vacacionales/casa1.jpg"));
+   fotos5.add(Main.cargarFoto("C:/Users/ALEJANDRO/Desktop/Imagenes_casas_vacacionales/casa1.jpg"));
+   fotos6.add(Main.cargarFoto("C:/Users/ALEJANDRO/Desktop/Imagenes_casas_vacacionales/casa1.jpg"));
 
 
    TarjetaCredito Tarjeta1 = new TarjetaCredito("Hector",5678432197421347L,LocalDate.of(2025, 5, 19));
@@ -77,7 +81,7 @@ public class Main {
    Direccion dir4 = new Direccion ("calle avenida", 4, "1C",19008,"Valencia","Comunidad Valenciana","España");
    Direccion dir5 = new Direccion ("calle avenida", 5, "",19009,"Sevilla","Andalucia","España");
    Direccion dir6 = new Direccion ("calle avenida", 6, "",19010,"Bilbao","Vizcaya","España");
-/*
+
    Inmueble inm1 = new Inmueble ("Casaaa",anfi1,dir1,4,3,3,1,"CASA",60.72,servicios,fotos1,0);
    Inmueble inm2 = new Inmueble ("PISO",anfi2,dir2,5,4,5,2,"CASA",73.72,servicios,fotos2,0);
    Inmueble inm3 = new Inmueble ("AVION",anfi1,dir3,3,2,3,2,"apartamento",45.72,servicios,fotos3,0);
@@ -118,8 +122,8 @@ public class Main {
    reserva2.setFechaReserva(LocalDate.of(2024, 3, 22));
    reserva9.setFechaReserva(LocalDate.of(2024, 3, 23));
 
-   ArrayList<Reserva> reservasPorFecha = new ArrayList<>(GestorInmueble.getReservas());
-   
+   //ArrayList<Reserva> reservasPorFecha = new ArrayList<>(GestorInmueble.getReservas());
+   ArrayList<Reserva> reservasPorFecha = new ArrayList<>(GestorInmueble.getReservasPorFecha());
    for (Reserva r: reservasPorFecha){
       System.out.println(r);
    }
@@ -147,7 +151,7 @@ public class Main {
    GestorInmueble.guardarDatosPersonas();
    GestorInmueble.guardarDatosReservas();
 
-  
+   
 
    /* Para el frontend
    for (Persona p: personas){
@@ -187,7 +191,10 @@ public class Main {
    System.out.println(GestorInmueble.getReservas());
    System.out.println(GestorInmueble.getInmuebles());
    */
-
+   
+   GestorInmueble.recuperarDatosInmuebles();
+   GestorInmueble.recuperarDatosPersonas();
+   GestorInmueble.recuperarDatosReservas();
    System.out.println(GestorInmueble.getInmuebles());
    System.out.println(GestorInmueble.getPersonas());
    System.out.println(GestorInmueble.getReservas());
@@ -195,5 +202,8 @@ public class Main {
    for (Reserva r: reservasPorFecha2){
       System.out.println(r);
    }
+   System.out.println(GestorInmueble.getInmuebles());
+   System.out.println(GestorInmueble.getPersonas());
+   
 }  
 }

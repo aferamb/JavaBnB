@@ -308,7 +308,7 @@ public class Inmueble implements Serializable {
      * @param rutaArchivo ruta del archivo de la foto a añadir
      */
     public void addFoto(String rutaArchivo) {
-        Image imagen;
+        //Image imagen;
         try {
             File archivo = new File(rutaArchivo);
             if (!archivo.exists()) {
@@ -321,7 +321,7 @@ public class Inmueble implements Serializable {
                 throw new IOException("El archivo no es una imagen");
             }
             
-            imagen = ImageIO.read(archivo);
+            Image imagen = ImageIO.read(archivo);
             ImageIcon img = new ImageIcon(imagen);
             fotos.add(img);
         } catch (IOException ioe) {
