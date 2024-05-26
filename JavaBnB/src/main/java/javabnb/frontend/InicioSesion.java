@@ -53,7 +53,6 @@ public class InicioSesion extends javax.swing.JFrame {
         textoEmail = new javax.swing.JTextField();
         botonInicioSesion = new javax.swing.JButton();
         imgLabel = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         textoContraseña = new javax.swing.JPasswordField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -114,8 +113,14 @@ public class InicioSesion extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(572, 418));
+        setMinimumSize(new java.awt.Dimension(600, 470));
+        setPreferredSize(new java.awt.Dimension(600, 470));
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("¿No tienes cuenta? Crea una como");
@@ -159,12 +164,6 @@ public class InicioSesion extends javax.swing.JFrame {
         imgLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         imgLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/logoJavaBnB-removebg.png"))); // NOI18N
         getContentPane().add(imgLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(186, 44, -1, -1));
-
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/logo_size_invert.jpg"))); // NOI18N
-        jButton1.setBorder(null);
-        jButton1.setBorderPainted(false);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 60, -1, -1));
         getContentPane().add(textoContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(205, 311, 151, -1));
 
         jLabel3.setText("Correo");
@@ -199,16 +198,13 @@ CrearAnfitrion crearAnfitrion = new CrearAnfitrion(this.getLocation());
                 System.out.println(persona);
                 if (persona instanceof ClienteParticular){
                     System.out.println(persona);
-                MenuPrincipalCliente menuCliente = new MenuPrincipalCliente((ClienteParticular)persona);
-                menuCliente.setLocation(this.getLocation());
-                this.setVisible(false);
+                MenuPrincipal menuPrincipal = new MenuPrincipal(this, this.getLocation(), persona);
                 }
                 if (persona instanceof Anfitrion) {
-                MenuPrincipalAnfitrion menuAnfitiron = new MenuPrincipalAnfitrion((Anfitrion)persona);
-                menuAnfitiron.setLocation(this.getLocation());
-                this.setVisible(false);
+                //MenuPrincipal menuPrincipal = new MenuPrincipal(this, this.getLocation(), persona);
                 }
-            } else {
+                break;
+            } else if (!persona.getCorreo().equals(email) || !persona.getClave().equals(contraseña)){
                 mostrar = true;
             }
         }
@@ -222,6 +218,11 @@ CrearAnfitrion crearAnfitrion = new CrearAnfitrion(this.getLocation());
         crearCliente.setVisible(true); // Mostrar la ventana CrearCliente
         this.setVisible(false); // Ocultar la ventana InicioSesion
     }//GEN-LAST:event_crearClienteActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        JOptionPane.showMessageDialog(this,"ESdtas segura dde cerrar","Error de inicio sesion",JOptionPane.WARNING_MESSAGE);
+        
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments
@@ -263,7 +264,6 @@ CrearAnfitrion crearAnfitrion = new CrearAnfitrion(this.getLocation());
     private javax.swing.JButton crearAnfitrion;
     private javax.swing.JButton crearCliente;
     private javax.swing.JLabel imgLabel;
-    private javax.swing.JButton jButton1;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JDialog jDialog2;
     private javax.swing.JDialog jDialog3;

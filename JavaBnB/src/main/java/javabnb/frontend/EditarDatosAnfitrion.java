@@ -20,7 +20,7 @@ public class EditarDatosAnfitrion extends javax.swing.JFrame {
         initComponents();
         this.anfitrion = anfitrion;
     }
-  public EditarDatosAnfitrion() {
+    public EditarDatosAnfitrion() {
         initComponents();
     }
     /**
@@ -71,14 +71,20 @@ public class EditarDatosAnfitrion extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTextArea1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("TUS DATOS");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(178, 31, 256, 46));
 
         jLabel5.setText("Clave");
 
         telefonoAnfitron.setEditable(false);
+        try {
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
         telefonoAnfitron.setText(str(anfitrion.getTelefono()));
         telefonoAnfitron.setToolTipText("");
         telefonoAnfitron.addActionListener(new java.awt.event.ActionListener() {
@@ -178,12 +184,15 @@ public class EditarDatosAnfitrion extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(176, 140, -1, -1));
+
         editarNombre.setText("Editar");
         editarNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 editarNombreActionPerformed(evt);
             }
         });
+        getContentPane().add(editarNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(442, 143, 75, -1));
 
         editarTel.setText("Editar");
         editarTel.addActionListener(new java.awt.event.ActionListener() {
@@ -191,6 +200,7 @@ public class EditarDatosAnfitrion extends javax.swing.JFrame {
                 editarTelActionPerformed(evt);
             }
         });
+        getContentPane().add(editarTel, new org.netbeans.lib.awtextra.AbsoluteConstraints(442, 225, 75, -1));
 
         editarCorreo.setText("Editar");
         editarCorreo.addActionListener(new java.awt.event.ActionListener() {
@@ -198,6 +208,7 @@ public class EditarDatosAnfitrion extends javax.swing.JFrame {
                 editarCorreoActionPerformed(evt);
             }
         });
+        getContentPane().add(editarCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(442, 266, 75, -1));
 
         editarClave.setText("Editar");
         editarClave.addActionListener(new java.awt.event.ActionListener() {
@@ -205,6 +216,7 @@ public class EditarDatosAnfitrion extends javax.swing.JFrame {
                 editarClaveActionPerformed(evt);
             }
         });
+        getContentPane().add(editarClave, new org.netbeans.lib.awtextra.AbsoluteConstraints(442, 307, 75, -1));
 
         GuardarDatos.setText("Guardar Datos");
         GuardarDatos.addActionListener(new java.awt.event.ActionListener() {
@@ -212,56 +224,7 @@ public class EditarDatosAnfitrion extends javax.swing.JFrame {
                 GuardarDatosActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(editarClave, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(editarCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(editarTel, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(editarNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(126, 126, 126))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(178, 178, 178)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(256, 256, 256)
-                        .addComponent(GuardarDatos)))
-                .addContainerGap(209, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(176, 176, 176)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(234, Short.MAX_VALUE)))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(66, 66, 66)
-                .addComponent(editarNombre)
-                .addGap(59, 59, 59)
-                .addComponent(editarTel)
-                .addGap(18, 18, 18)
-                .addComponent(editarCorreo)
-                .addGap(18, 18, 18)
-                .addComponent(editarClave)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
-                .addComponent(GuardarDatos)
-                .addGap(75, 75, 75))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(140, 140, 140)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(140, Short.MAX_VALUE)))
-        );
+        getContentPane().add(GuardarDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(256, 376, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
