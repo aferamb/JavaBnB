@@ -4,7 +4,12 @@
  */
 package javabnb.frontend;
 
-import javabnb.backend.*;
+import java.util.ArrayList;
+
+import javabnb.backend.GestorInmueble;
+import javabnb.backend.Persona;
+import javabnb.backend.Anfitrion;
+import javabnb.backend.ClienteParticular;
 import javax.swing.JOptionPane;
 
 /**
@@ -13,12 +18,18 @@ import javax.swing.JOptionPane;
  */
 public class InicioSesion extends javax.swing.JFrame {
 
+    
+    ArrayList<Persona> personas = new ArrayList<>();
     /**
      * Creates new form InicioSesion
      */
     public InicioSesion() {
         initComponents();
-
+        imgLabel.requestFocusInWindow();
+        GestorInmueble.recuperarDatosPersonas();
+        GestorInmueble.recuperarDatosInmuebles();
+        GestorInmueble.recuperarDatosReservas();
+        personas = GestorInmueble.getPersonas();
     }
 
     /**
@@ -35,14 +46,17 @@ public class InicioSesion extends javax.swing.JFrame {
         jDialog1 = new javax.swing.JDialog();
         jDialog2 = new javax.swing.JDialog();
         jDialog3 = new javax.swing.JDialog();
-        botonContraseña = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         crearAnfitrion = new javax.swing.JButton();
         crearCliente = new javax.swing.JButton();
-        botonEmail = new javax.swing.JTextField();
+        textoEmail = new javax.swing.JTextField();
         botonInicioSesion = new javax.swing.JButton();
+        imgLabel = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        textoContraseña = new javax.swing.JPasswordField();
         jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
         jFrame1.getContentPane().setLayout(jFrame1Layout);
@@ -100,23 +114,15 @@ public class InicioSesion extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(572, 418));
         setResizable(false);
-
-        botonContraseña.setText("Contraseña");
-        botonContraseña.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                botonContraseñaFocusGained(evt);
-            }
-        });
-        botonContraseña.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonContraseñaActionPerformed(evt);
-            }
-        });
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("¿No tienes cuenta? Crea una como");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 390, -1, -1));
 
         jLabel2.setText("o como");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(362, 392, -1, -1));
 
         crearAnfitrion.setText("Anfitrión");
         crearAnfitrion.addActionListener(new java.awt.event.ActionListener() {
@@ -124,6 +130,7 @@ public class InicioSesion extends javax.swing.JFrame {
                 crearAnfitrionActionPerformed(evt);
             }
         });
+        getContentPane().add(crearAnfitrion, new org.netbeans.lib.awtextra.AbsoluteConstraints(279, 389, -1, -1));
 
         crearCliente.setText("Cliente");
         crearCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -131,18 +138,15 @@ public class InicioSesion extends javax.swing.JFrame {
                 crearClienteActionPerformed(evt);
             }
         });
+        getContentPane().add(crearCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(409, 389, -1, -1));
 
-        botonEmail.setText("Email");
-        botonEmail.addFocusListener(new java.awt.event.FocusAdapter() {
+        textoEmail.setText("Email");
+        textoEmail.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                botonEmailFocusGained(evt);
+                textoEmailFocusGained(evt);
             }
         });
-        botonEmail.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonEmailActionPerformed(evt);
-            }
-        });
+        getContentPane().add(textoEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(205, 280, 151, -1));
 
         botonInicioSesion.setText("Iniciar Sesión");
         botonInicioSesion.addActionListener(new java.awt.event.ActionListener() {
@@ -150,63 +154,27 @@ public class InicioSesion extends javax.swing.JFrame {
                 botonInicioSesionActionPerformed(evt);
             }
         });
+        getContentPane().add(botonInicioSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 351, -1, -1));
 
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/logoJavaBnB-removebg.png"))); // NOI18N
+        imgLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        imgLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/logoJavaBnB-removebg.png"))); // NOI18N
+        getContentPane().add(imgLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(186, 44, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(90, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(botonContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(crearAnfitrion))
-                    .addComponent(botonEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(crearCliente)
-                .addContainerGap(91, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(230, 230, 230)
-                .addComponent(botonInicioSesion)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(186, 186, 186)
-                .addComponent(jLabel3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addComponent(jLabel3)
-                .addGap(33, 33, 33)
-                .addComponent(botonEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(botonContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(botonInicioSesion)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(crearAnfitrion)
-                    .addComponent(jLabel2)
-                    .addComponent(crearCliente))
-                .addContainerGap())
-        );
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/logo_size_invert.jpg"))); // NOI18N
+        jButton1.setBorder(null);
+        jButton1.setBorderPainted(false);
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 60, -1, -1));
+        getContentPane().add(textoContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(205, 311, 151, -1));
+
+        jLabel3.setText("Correo");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 283, -1, -1));
+
+        jLabel4.setText("Contraseña");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(137, 313, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void botonContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonContraseñaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botonContraseñaActionPerformed
 
     private void crearAnfitrionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearAnfitrionActionPerformed
 CrearAnfitrion crearAnfitrion = new CrearAnfitrion(this.getLocation());
@@ -214,32 +182,23 @@ CrearAnfitrion crearAnfitrion = new CrearAnfitrion(this.getLocation());
         this.setVisible(false); // Ocultar la ventana InicioSesion        
     }//GEN-LAST:event_crearAnfitrionActionPerformed
 
-    private void botonEmailFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_botonEmailFocusGained
-       if (botonEmail.getText().equals("Email")){
-       botonEmail.setText("");
+    private void textoEmailFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textoEmailFocusGained
+       if (textoEmail.getText().equals("Email")){
+       textoEmail.setText("");
        }
-    }//GEN-LAST:event_botonEmailFocusGained
-
-    private void botonContraseñaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_botonContraseñaFocusGained
-           if (botonContraseña.getText().equals("Contraseña")){
-       botonContraseña.setText("");
-       }
-    }//GEN-LAST:event_botonContraseñaFocusGained
+    }//GEN-LAST:event_textoEmailFocusGained
 
     private void botonInicioSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonInicioSesionActionPerformed
-        String email = botonEmail.getText();
-        String contraseña = botonContraseña.getText();
-        boolean emailexistente = true;
-        for (Persona persona: GestorInmueble.getPersonas()){
-         if (persona.getCorreo().equals(email)) {
-         emailexistente = true;}}
+        String email = textoEmail.getText();
+        char[] arrayC = textoContraseña.getPassword();
+        String contraseña = new String(arrayC);
         
-         
-         if (emailexistente){
-        for (Persona persona: GestorInmueble.getPersonas()){
-        if (persona.getCorreo().equals(email)){
-            if (persona.getClave().equals(contraseña)) {
+        boolean mostrar = false;
+        for (Persona persona: personas){
+            if (persona.getCorreo().equals(email) && persona.getClave().equals(contraseña)){
+                System.out.println(persona);
                 if (persona instanceof ClienteParticular){
+                    System.out.println(persona);
                 MenuPrincipalCliente menuCliente = new MenuPrincipalCliente((ClienteParticular)persona);
                 menuCliente.setLocation(this.getLocation());
                 this.setVisible(false);
@@ -249,18 +208,13 @@ CrearAnfitrion crearAnfitrion = new CrearAnfitrion(this.getLocation());
                 menuAnfitiron.setLocation(this.getLocation());
                 this.setVisible(false);
                 }
-            }
-            else {
-                 JOptionPane.showMessageDialog(this,"contraseña incorrecta","error de contraseña",JOptionPane.WARNING_MESSAGE);
+            } else {
+                mostrar = true;
             }
         }
-        } 
+        if (mostrar){
+            JOptionPane.showMessageDialog(this,"Coreo o ontraseña incorrectos ","Error de inicio sesion",JOptionPane.WARNING_MESSAGE);
         }
-        else{
-         botonEmail.setText("");
-         JOptionPane.showMessageDialog(this,"el correo no está asociado a ninguna cuenta registrada","error de correo",JOptionPane.WARNING_MESSAGE);
-            }
-         
     }//GEN-LAST:event_botonInicioSesionActionPerformed
 
     private void crearClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearClienteActionPerformed
@@ -268,10 +222,6 @@ CrearAnfitrion crearAnfitrion = new CrearAnfitrion(this.getLocation());
         crearCliente.setVisible(true); // Mostrar la ventana CrearCliente
         this.setVisible(false); // Ocultar la ventana InicioSesion
     }//GEN-LAST:event_crearClienteActionPerformed
-
-    private void botonEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEmailActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botonEmailActionPerformed
 
     /**
      * @param args the command line arguments
@@ -309,11 +259,11 @@ CrearAnfitrion crearAnfitrion = new CrearAnfitrion(this.getLocation());
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField botonContraseña;
-    private javax.swing.JTextField botonEmail;
     private javax.swing.JButton botonInicioSesion;
     private javax.swing.JButton crearAnfitrion;
     private javax.swing.JButton crearCliente;
+    private javax.swing.JLabel imgLabel;
+    private javax.swing.JButton jButton1;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JDialog jDialog2;
     private javax.swing.JDialog jDialog3;
@@ -322,5 +272,8 @@ CrearAnfitrion crearAnfitrion = new CrearAnfitrion(this.getLocation());
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JPasswordField textoContraseña;
+    private javax.swing.JTextField textoEmail;
     // End of variables declaration//GEN-END:variables
 }
