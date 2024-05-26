@@ -267,7 +267,7 @@ public class EditarDatosAnfitrion extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void telefonoAnfitronActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_telefonoAnfitronActionPerformed
-
+        
     }//GEN-LAST:event_telefonoAnfitronActionPerformed
 
     private void emailAnfitrionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailAnfitrionActionPerformed

@@ -60,15 +60,15 @@ public class EditarDatoCliente extends javax.swing.JFrame {
         GuardarDatos = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
-        numeroTarjetaCliente1 = new javax.swing.JFormattedTextField();
+        numeroTarjetaCliente = new javax.swing.JFormattedTextField();
         jLabel14 = new javax.swing.JLabel();
-        titularTarjetaCliente1 = new javax.swing.JFormattedTextField();
+        titularTarjetaCliente = new javax.swing.JFormattedTextField();
         jLabel15 = new javax.swing.JLabel();
-        fechaCaducidadCliente1 = new javax.swing.JFormattedTextField();
+        fechaCaducidadCliente = new javax.swing.JFormattedTextField();
         jLabel16 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        editarTitular = new javax.swing.JButton();
+        editarNumero = new javax.swing.JButton();
+        editarFecha = new javax.swing.JButton();
 
         jInternalFrame1.setVisible(true);
 
@@ -238,39 +238,39 @@ public class EditarDatoCliente extends javax.swing.JFrame {
         jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel13.setText("MODIFICAR TARJETA");
 
-        numeroTarjetaCliente1.setText(Long.toString(cliente.getTarjetaCredito().getNumeroTarjeta()));
-        numeroTarjetaCliente1.addFocusListener(new java.awt.event.FocusAdapter() {
+        numeroTarjetaCliente.setText(Long.toString(cliente.getTarjetaCredito().getNumeroTarjeta()));
+        numeroTarjetaCliente.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                numeroTarjetaCliente1FocusGained(evt);
+                numeroTarjetaClienteFocusGained(evt);
             }
         });
-        numeroTarjetaCliente1.addActionListener(new java.awt.event.ActionListener() {
+        numeroTarjetaCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                numeroTarjetaCliente1ActionPerformed(evt);
+                numeroTarjetaClienteActionPerformed(evt);
             }
         });
 
         jLabel14.setText("Número");
 
-        titularTarjetaCliente1.setText(cliente.getTarjetaCredito().getNombre());
-        titularTarjetaCliente1.addActionListener(new java.awt.event.ActionListener() {
+        titularTarjetaCliente.setText(cliente.getTarjetaCredito().getNombre());
+        titularTarjetaCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                titularTarjetaCliente1ActionPerformed(evt);
+                titularTarjetaClienteActionPerformed(evt);
             }
         });
 
         jLabel15.setText("Fecha de Caducidad");
 
-        fechaCaducidadCliente1.setText(cliente.getTarjetaCredito().getFechaCaducidad().toString());
-        fechaCaducidadCliente1.setToolTipText("");
-        fechaCaducidadCliente1.addFocusListener(new java.awt.event.FocusAdapter() {
+        fechaCaducidadCliente.setText(cliente.getTarjetaCredito().getFechaCaducidad().toString());
+        fechaCaducidadCliente.setToolTipText("");
+        fechaCaducidadCliente.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                fechaCaducidadCliente1FocusGained(evt);
+                fechaCaducidadClienteFocusGained(evt);
             }
         });
-        fechaCaducidadCliente1.addActionListener(new java.awt.event.ActionListener() {
+        fechaCaducidadCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fechaCaducidadCliente1ActionPerformed(evt);
+                fechaCaducidadClienteActionPerformed(evt);
             }
         });
 
@@ -287,15 +287,14 @@ public class EditarDatoCliente extends javax.swing.JFrame {
                     .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel15))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(numeroTarjetaCliente1)
-                    .addComponent(fechaCaducidadCliente1)
-                    .addComponent(titularTarjetaCliente1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE))
-                .addContainerGap())
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(numeroTarjetaCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
+                    .addComponent(fechaCaducidadCliente)
+                    .addComponent(titularTarjetaCliente)))
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(61, 61, 61)
                 .addComponent(jLabel13)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(85, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -304,57 +303,62 @@ public class EditarDatoCliente extends javax.swing.JFrame {
                 .addGap(24, 24, 24)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(titularTarjetaCliente1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(titularTarjetaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
-                    .addComponent(numeroTarjetaCliente1))
+                    .addComponent(numeroTarjetaCliente))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(fechaCaducidadCliente1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fechaCaducidadCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jButton1.setText("Editar");
+        editarTitular.setText("Editar");
+        editarTitular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editarTitularActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Editar");
+        editarNumero.setText("Editar");
 
-        jButton3.setText("Editar");
+        editarFecha.setText("Editar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(editarClave, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(editarCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(editarTel, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(editarNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(126, 126, 126))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(143, 143, 143)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
+                        .addGap(18, 18, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(editarTitular, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(editarFecha, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(editarNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(215, 215, 215)
-                        .addComponent(GuardarDatos)))
-                .addContainerGap(147, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(editarClave, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(editarCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(editarTel, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(editarNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(143, 143, 143))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(GuardarDatos)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(176, 176, 176)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(234, Short.MAX_VALUE)))
+                    .addContainerGap(257, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -373,15 +377,15 @@ public class EditarDatoCliente extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(45, 45, 45)
-                        .addComponent(jButton1)
+                        .addComponent(editarTitular)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton2)
+                        .addComponent(editarNumero)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton3))
+                        .addComponent(editarFecha))
                     .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40)
+                .addGap(39, 39, 39)
                 .addComponent(GuardarDatos)
-                .addGap(158, 158, 158))
+                .addGap(159, 159, 159))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(140, 140, 140)
@@ -418,6 +422,7 @@ public class EditarDatoCliente extends javax.swing.JFrame {
 
     private void editarNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarNombreActionPerformed
         nombreCliente.setEditable(true);
+        
     }//GEN-LAST:event_editarNombreActionPerformed
 
     private void editarTelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarTelActionPerformed
@@ -451,15 +456,30 @@ public class EditarDatoCliente extends javax.swing.JFrame {
         } catch (DateTimeParseException e) {
             fechaCaducidadCliente.setText("");
             fechaCadTarjetaValida = false;}
-          
-    if (nombreValido &&  telefonoValido && contraseñaValida && emailValido){
+     if (!titularTarjetaCliente.getText().equals("")) {
+        titularValido = true; 
+    }
+    if (!numeroTarjetaCliente.getText().equals("") && numeroTarjetaCliente.getText().length() == 19) {
+        numeroTarjetaValido = true;
+    }
+    for (Persona persona: GestorInmueble.getPersonas()){
+         if (persona.getCorreo().equals(emailCliente.getText())) {
+         emailexistente = true;}}
+    if (emailexistente){
+             JOptionPane.showMessageDialog(this,"el correo pertenece a una cuenta ya existente","error de correo",JOptionPane.WARNING_MESSAGE);
+    }      
+    if (nombreValido &&  telefonoValido && contraseñaValida && emailValido && fechaCadTarjetaValida && numeroTarjetaValido && !emailexistente){
+            LocalDate fechaConvertida = LocalDate.parse(fechaCaducidadCliente.getText(), formato);
             cliente.setNombre(DNICliente.getText());
             cliente.setTelefono(Integer.parseInt(telefonoCliente.getText().replace(" ","")));
             cliente.setCorreo(emailCliente.getText());
+            cliente.getTarjetaCredito().setNombre(titularTarjetaCliente.getText());
+            cliente.getTarjetaCredito().setNumeroTarjeta(Long.parseLong(numeroTarjetaCliente.getText().replace(" ", "")));
+            cliente.getTarjetaCredito().setFechaCaducidad(fechaConvertida);     
             this.dispose();
-            InicioSesion ini = new InicioSesion();
-            ini.setLocation(this.getLocation());
-            ini.setVisible(true);
+            MenuPrincipalCliente menucliente = new MenuPrincipalCliente(cliente);
+            menucliente.setLocation(this.getLocation());
+
     }
     }//GEN-LAST:event_GuardarDatosActionPerformed
 
@@ -468,29 +488,29 @@ public class EditarDatoCliente extends javax.swing.JFrame {
         contr.setLocation(this.getLocation());
     }//GEN-LAST:event_editarClaveActionPerformed
 
-    private void numeroTarjetaCliente1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_numeroTarjetaCliente1FocusGained
+    private void numeroTarjetaClienteFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_numeroTarjetaClienteFocusGained
         if (numeroTarjetaCliente.getText().equals("####-####-####-####")){
             numeroTarjetaCliente.setText("");
         }
-    }//GEN-LAST:event_numeroTarjetaCliente1FocusGained
+    }//GEN-LAST:event_numeroTarjetaClienteFocusGained
 
-    private void numeroTarjetaCliente1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numeroTarjetaCliente1ActionPerformed
+    private void numeroTarjetaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numeroTarjetaClienteActionPerformed
 
-    }//GEN-LAST:event_numeroTarjetaCliente1ActionPerformed
+    }//GEN-LAST:event_numeroTarjetaClienteActionPerformed
 
-    private void titularTarjetaCliente1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_titularTarjetaCliente1ActionPerformed
+    private void titularTarjetaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_titularTarjetaClienteActionPerformed
+        
+    }//GEN-LAST:event_titularTarjetaClienteActionPerformed
 
-    }//GEN-LAST:event_titularTarjetaCliente1ActionPerformed
-
-    private void fechaCaducidadCliente1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fechaCaducidadCliente1FocusGained
+    private void fechaCaducidadClienteFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fechaCaducidadClienteFocusGained
         if (fechaCaducidadCliente.getText().equals("dd/mm/yyyy")) {
             fechaCaducidadCliente.setText("");
         }
-    }//GEN-LAST:event_fechaCaducidadCliente1FocusGained
+    }//GEN-LAST:event_fechaCaducidadClienteFocusGained
 
-    private void fechaCaducidadCliente1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fechaCaducidadCliente1ActionPerformed
+    private void fechaCaducidadClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fechaCaducidadClienteActionPerformed
 
-    }//GEN-LAST:event_fechaCaducidadCliente1ActionPerformed
+    }//GEN-LAST:event_fechaCaducidadClienteActionPerformed
 
     private void emailClienteFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_emailClienteFocusLost
 for (Persona persona: GestorInmueble.getPersonas()){
@@ -499,6 +519,10 @@ for (Persona persona: GestorInmueble.getPersonas()){
     if (emailexistente){
              JOptionPane.showMessageDialog(this,"el correo pertenece a una cuenta ya existente","error de correo",JOptionPane.WARNING_MESSAGE);}
     }//GEN-LAST:event_emailClienteFocusLost
+
+    private void editarTitularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarTitularActionPerformed
+        
+    }//GEN-LAST:event_editarTitularActionPerformed
      /**
      * @param args the command line arguments
      */
@@ -551,19 +575,15 @@ for (Persona persona: GestorInmueble.getPersonas()){
     private javax.swing.JPasswordField contraseñaCliente;
     private javax.swing.JButton editarClave;
     private javax.swing.JButton editarCorreo;
+    private javax.swing.JButton editarFecha;
     private javax.swing.JButton editarNombre;
+    private javax.swing.JButton editarNumero;
     private javax.swing.JButton editarTel;
+    private javax.swing.JButton editarTitular;
     private javax.swing.JFormattedTextField emailCliente;
     private javax.swing.JFormattedTextField fechaCaducidadCliente;
-    private javax.swing.JFormattedTextField fechaCaducidadCliente1;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
@@ -573,18 +593,14 @@ for (Persona persona: GestorInmueble.getPersonas()){
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JFormattedTextField nombreCliente;
     private javax.swing.JFormattedTextField numeroTarjetaCliente;
-    private javax.swing.JFormattedTextField numeroTarjetaCliente1;
     private javax.swing.JFormattedTextField telefonoCliente;
     private javax.swing.JFormattedTextField titularTarjetaCliente;
-    private javax.swing.JFormattedTextField titularTarjetaCliente1;
     // End of variables declaration//GEN-END:variables
 
     private String str(int telefono) {
