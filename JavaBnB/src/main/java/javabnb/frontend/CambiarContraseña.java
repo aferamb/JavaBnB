@@ -20,17 +20,11 @@ public class CambiarContraseña extends javax.swing.JFrame {
     /**
      * Creates new form CambiarContraseña
      */
-    public CambiarContraseña() {
+    public CambiarContraseña(Persona persona) {
         initComponents();
-    }
-
-    CambiarContraseña(Anfitrion anfitrion) {
-        this.anfitrion = anfitrion;
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-     CambiarContraseña(ClienteParticular cliente) {
-        this.cliente = cliente;
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.persona = persona;
+         throw new UnsupportedOperationException("Not supported yet.");
+         
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -50,7 +44,7 @@ public class CambiarContraseña extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         botonConfirmar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
         jLabel1.setText("Contraseña Actual:");
@@ -126,23 +120,19 @@ public class CambiarContraseña extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void contraseñaActualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contraseñaActualActionPerformed
-        if (contraseñaActual.getPassword().equals(anfitrion.getClave()) || contraseñaActual.getPassword().equals(cliente.getClave() )){
+        if (contraseñaActual.getPassword().equals(persona.getClave())){
            ContraseñaCorrecta = true; 
         }
         else {ContraseñaCorrecta = false;}
     }//GEN-LAST:event_contraseñaActualActionPerformed
 
     private void botonConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonConfirmarActionPerformed
-        if (ContraseñaCorrecta && botonClave1.getText().equals(botonClave2.getText()) && anfitrion instanceof Anfitrion){
-        anfitrion.setClave(botonClave1.getText());
-        this.dispose();  
-        }
-         if (ContraseñaCorrecta && botonClave1.getText().equals(botonClave2.getText()) && cliente instanceof ClienteParticular){
-        cliente.setClave(botonClave1.getText());
+        if (ContraseñaCorrecta && botonClave1.getText().equals(botonClave2.getText())){
+        persona.setClave(botonClave1.getText());
         this.dispose();  
         }
          if (!ContraseñaCorrecta && botonClave1.getText().equals(botonClave2.getText())){
-          JOptionPane.showMessageDialog(this,"la contraseña incorrecta","error de contraseña",JOptionPane.WARNING_MESSAGE);
+          JOptionPane.showMessageDialog(this,"la contraseña anterior es incorrecta","error de contraseña",JOptionPane.WARNING_MESSAGE);
           contraseñaActual.setText("");
          }
           if (ContraseñaCorrecta && !botonClave1.getText().equals(botonClave2.getText())){
@@ -191,13 +181,12 @@ public class CambiarContraseña extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CambiarContraseña().setVisible(true);
+                new CambiarContraseña(null).setVisible(true);
             }
         });
     }
+    private Persona persona;
     boolean ContraseñaCorrecta = false;
-    private Anfitrion anfitrion;
-    private ClienteParticular cliente;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField botonClave1;
     private javax.swing.JTextField botonClave2;

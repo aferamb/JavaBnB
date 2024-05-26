@@ -113,8 +113,7 @@ public class InicioSesion extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(600, 470));
-        setPreferredSize(new java.awt.Dimension(600, 470));
+        setMinimumSize(new java.awt.Dimension(800, 650));
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
@@ -198,10 +197,11 @@ CrearAnfitrion crearAnfitrion = new CrearAnfitrion(this.getLocation());
                 System.out.println(persona);
                 if (persona instanceof ClienteParticular){
                     System.out.println(persona);
-                MenuPrincipal menuPrincipal = new MenuPrincipal(this, this.getLocation(), persona);
+                MenuPrincipal menuPrincipal = new MenuPrincipal( this.getLocation(), persona);
+                this.dispose();
                 }
                 if (persona instanceof Anfitrion) {
-                MenuPrincipal menuPrincipal = new MenuPrincipal(this, this.getLocation(), persona);
+                MenuPrincipal menuPrincipal = new MenuPrincipal( this.getLocation(), persona);
                 }
                 break;
             } else if (!persona.getCorreo().equals(email) || !persona.getClave().equals(contraseña)){
