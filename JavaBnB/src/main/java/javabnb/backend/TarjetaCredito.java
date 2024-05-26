@@ -3,6 +3,8 @@ import java.io.Serializable;
 import java.time.LocalDate;
 
 /**
+ * Clase que representa una tarjeta de crédito de un cliente particular.
+ * 
  * @author Alejandro Fernández Ambrós
  * @author Sergio Caballero Ortego
  */

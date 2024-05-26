@@ -13,6 +13,8 @@ import java.text.DecimalFormat;
 //import java.util.Arrays;
 
 /**
+ * Clase que representa una reserva de un inmueble realizada por un cliente particular.
+ * 
  * @author Alejandro Fernández Ambrós
  * @author Sergio Caballero Ortego
  */

@@ -3,6 +3,8 @@ package javabnb.backend;
 import java.io.Serializable;
 
 /**
+ * Clase que representa una dirección de una vivienda
+ * 
  * @author Alejandro Fernández Ambrós
  * @author Sergio Caballero Ortego
  */

@@ -4,6 +4,11 @@ package javabnb.backend;
 import java.util.ArrayList;
 
 /**
+ * Clase que representa un anfitrion de la aplicacion, hereda de la clase Persona.
+ * Un anfitrion es una persona que tiene una serie de inmuebles que alquila a los huespedes.
+ * Puede tener el rango de superanfitrion si la media de las calificaciones de sus inmuebles es mayor que 4.
+ * 
+ * @see Persona
  * @author Alejandro Fernández Ambrós
  * @author Sergio Caballero Ortego
  */

@@ -9,6 +9,9 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
+ * Clase Inmueble que contiene los datos de un inmueble, como el titulo, el anfitrion, la direccion, el numero maximo de huespedes, el numero de habitaciones,
+ * el numero de camas, el numero de baños, el tipo de propiedad, el precio por noche, la lista de servicios, la lista de fotos, la calificacion y la lista de reseñas.
+ * 
  * @author Alejandro Fernández Ambrós
  * @author Sergio Caballero Ortego
  */
