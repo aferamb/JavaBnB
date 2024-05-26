@@ -201,7 +201,7 @@ CrearAnfitrion crearAnfitrion = new CrearAnfitrion(this.getLocation());
                 MenuPrincipal menuPrincipal = new MenuPrincipal(this, this.getLocation(), persona);
                 }
                 if (persona instanceof Anfitrion) {
-                //MenuPrincipal menuPrincipal = new MenuPrincipal(this, this.getLocation(), persona);
+                MenuPrincipal menuPrincipal = new MenuPrincipal(this, this.getLocation(), persona);
                 }
                 break;
             } else if (!persona.getCorreo().equals(email) || !persona.getClave().equals(contraseña)){
