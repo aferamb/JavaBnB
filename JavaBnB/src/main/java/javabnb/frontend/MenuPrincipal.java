@@ -8,6 +8,7 @@ package javabnb.frontend;
 
 import java.awt.Container;
 import java.awt.Point;
+import java.util.ArrayList;
 import javabnb.backend.*;
 import javabnb.frontend.EditarAnfitrion;
 import javabnb.frontend.EditarCliente;
@@ -147,8 +148,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
             this.dispose();
         }
     }//GEN-LAST:event_buscarGestionarInmueblesActionPerformed
-
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem botonPerfil;
