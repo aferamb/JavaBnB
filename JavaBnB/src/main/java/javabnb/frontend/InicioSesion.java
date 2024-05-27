@@ -4,12 +4,14 @@
  */
 package javabnb.frontend;
 
+import java.awt.Image;
 import java.util.ArrayList;
 
 import javabnb.backend.GestorInmueble;
 import javabnb.backend.Persona;
 import javabnb.backend.Anfitrion;
 import javabnb.backend.ClienteParticular;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -30,6 +32,8 @@ public class InicioSesion extends javax.swing.JFrame {
         GestorInmueble.recuperarDatosInmuebles();
         GestorInmueble.recuperarDatosReservas();
         personas = GestorInmueble.getPersonas();
+        Image icono = new ImageIcon("resources/imagenes/logoJavaBnB.jpg").getImage();
+        this.setIconImage(icono);
     }
 
     /**
@@ -113,7 +117,9 @@ public class InicioSesion extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(800, 650));
+        setTitle("JavaBnB");
+        setMinimumSize(new java.awt.Dimension(530, 450));
+        setPreferredSize(new java.awt.Dimension(530, 450));
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
@@ -175,7 +181,7 @@ public class InicioSesion extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void crearAnfitrionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearAnfitrionActionPerformed
-CrearAnfitrion crearAnfitrion = new CrearAnfitrion(this.getLocation());
+        CrearAnfitrion crearAnfitrion = new CrearAnfitrion(this.getLocation());
         crearAnfitrion.setVisible(true); // Mostrar la ventana CrearCliente
         this.setVisible(false); // Ocultar la ventana InicioSesion        
     }//GEN-LAST:event_crearAnfitrionActionPerformed
@@ -191,22 +197,19 @@ CrearAnfitrion crearAnfitrion = new CrearAnfitrion(this.getLocation());
         char[] arrayC = textoContraseña.getPassword();
         String contraseña = new String(arrayC);
         
-        boolean mostrar = false;
+        boolean mostrar = true;
         for (Persona persona: personas){
             if (persona.getCorreo().equals(email) && persona.getClave().equals(contraseña)){
-                System.out.println(persona);
                 if (persona instanceof ClienteParticular){
-                    System.out.println(persona);
                 MenuPrincipal menuPrincipal = new MenuPrincipal( this.getLocation(), persona);
                 this.dispose();
                 }
                 if (persona instanceof Anfitrion) {
                 MenuPrincipal menuPrincipal = new MenuPrincipal( this.getLocation(), persona);
+                this.dispose();
                 }
-                break;
-            } else if (!persona.getCorreo().equals(email) || !persona.getClave().equals(contraseña)){
-                mostrar = true;
-            }
+                mostrar = false;
+            } 
         }
         if (mostrar){
             JOptionPane.showMessageDialog(this,"Coreo o ontraseña incorrectos ","Error de inicio sesion",JOptionPane.WARNING_MESSAGE);

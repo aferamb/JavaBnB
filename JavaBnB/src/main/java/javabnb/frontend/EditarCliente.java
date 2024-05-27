@@ -19,7 +19,7 @@ import javax.swing.JOptionPane;
  */
 public class EditarCliente extends javax.swing.JFrame {
 
-    Persona persona;
+    private Persona persona;
     /**
      * Creates new form MenuPrincipal
      * 
@@ -30,6 +30,23 @@ public class EditarCliente extends javax.swing.JFrame {
         this.persona = persona;
         initComponents();
         this.setVisible(true);
+        if (persona instanceof ClienteParticular) {
+            jMenu1.setText("Busqueda");
+            buscarGestionarInmuebles.setText("Busqueda Inmuebles");
+        }
+        else {
+            jMenu1.setText("Añadir");
+            buscarGestionarInmuebles.setText("Añadir inmueble");
+        }
+
+        if (persona instanceof ClienteParticular) {
+            jMenu2.setText("Reseñas");
+            btnReseñaModInm.setText("Escribir Reseñas");
+        }
+        else {
+            jMenu2.setText("Gestionar");
+            btnReseñaModInm.setText("Modificar inmueble");
+        }
     }
 
     /**
@@ -76,9 +93,9 @@ public class EditarCliente extends javax.swing.JFrame {
         jButton9 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        buscarGestionarInmuebles = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        jMenuItem4 = new javax.swing.JMenuItem();
+        btnReseñaModInm = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
@@ -93,8 +110,9 @@ public class EditarCliente extends javax.swing.JFrame {
         jPanelBusqueda.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(635, 174, -1, -1));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(1100, 800));
+        setTitle("JavaBnB");
         setMinimumSize(new java.awt.Dimension(1100, 800));
+        setPreferredSize(new java.awt.Dimension(120, 22));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -383,30 +401,66 @@ public class EditarCliente extends javax.swing.JFrame {
         jMenuBar1.setPreferredSize(new java.awt.Dimension(70, 73));
 
         jMenu1.setText("Busqueda");
+        jMenu1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jMenu1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jMenu1.setMinimumSize(new java.awt.Dimension(120, 22));
+        jMenu1.setPreferredSize(new java.awt.Dimension(120, 22));
 
-        jMenuItem3.setText("Buscar inmuebles");
-        jMenuItem3.setToolTipText("");
-        jMenu1.add(jMenuItem3);
+        buscarGestionarInmuebles.setText("Buscar inmuebles");
+        buscarGestionarInmuebles.setToolTipText("");
+        buscarGestionarInmuebles.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buscarGestionarInmueblesActionPerformed(evt);
+            }
+        });
+        jMenu1.add(buscarGestionarInmuebles);
 
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Reseñas");
+        jMenu2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jMenu2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jMenu2.setMaximumSize(new java.awt.Dimension(120, 32767));
+        jMenu2.setMinimumSize(new java.awt.Dimension(120, 22));
 
-        jMenuItem4.setText("Escribir reseña");
-        jMenu2.add(jMenuItem4);
+        btnReseñaModInm.setText("Escribir reseña");
+        btnReseñaModInm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReseñaModInmActionPerformed(evt);
+            }
+        });
+        jMenu2.add(btnReseñaModInm);
 
         jMenuBar1.add(jMenu2);
 
         jMenu3.setText("Reservas");
+        jMenu3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jMenu3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jMenu3.setMaximumSize(new java.awt.Dimension(120, 32767));
+        jMenu3.setMinimumSize(new java.awt.Dimension(120, 22));
 
         jMenuItem2.setText("Consultar reservas");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         jMenu3.add(jMenuItem2);
 
         jMenuBar1.add(jMenu3);
 
         jMenu4.setText("Perfil");
+        jMenu4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jMenu4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jMenu4.setMaximumSize(new java.awt.Dimension(120, 32767));
+        jMenu4.setMinimumSize(new java.awt.Dimension(120, 22));
 
         jMenuItem1.setText("Modificar datos");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
         jMenu4.add(jMenuItem1);
 
         jMenuBar1.add(jMenu4);
@@ -514,8 +568,7 @@ public class EditarCliente extends javax.swing.JFrame {
             cliente.getTarjetaCredito().setNumeroTarjeta(Long.parseLong(numeroTarjetaCliente.getText().replace(" ", "")));
             cliente.getTarjetaCredito().setFechaCaducidad(fechaConvertida);     
             this.dispose();
-            MenuPrincipalCliente menucliente = new MenuPrincipalCliente(cliente);
-            menucliente.setLocation(this.getLocation());
+            MenuPrincipal menuPrincipal = new MenuPrincipal(this.getLocation(), persona);
 
     }
     }//GEN-LAST:event_BotonGuardarActionPerformed
@@ -545,6 +598,43 @@ public class EditarCliente extends javax.swing.JFrame {
         numeroTarjetaCliente.setEditable(true);
     }//GEN-LAST:event_EditarNumeroTarActionPerformed
 
+    private void buscarGestionarInmueblesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarGestionarInmueblesActionPerformed
+        if (persona instanceof ClienteParticular) {
+            //BuscarInmuebles busquedaInm = new BuscarInmuebles(this.getLocation(),persona);
+            this.dispose();
+        } else {
+            CrearInmueble crearInmueble = new CrearInmueble(this.getLocation(),persona);
+            this.dispose();
+        }
+    }//GEN-LAST:event_buscarGestionarInmueblesActionPerformed
+
+    private void btnReseñaModInmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReseñaModInmActionPerformed
+        if (persona instanceof Anfitrion) {
+            ModificarInmueble modInmueble = new ModificarInmueble(this.getLocation(),persona);
+            this.dispose();
+        }
+        else {
+            AñadirReseña añadirReseña = new AñadirReseña(this.getLocation(),persona);
+            this.dispose();
+        }  
+    }//GEN-LAST:event_btnReseñaModInmActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        ConsultarReservas consultarReservas = new ConsultarReservas(this.getLocation(),persona);
+        this.dispose();
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        if (persona instanceof Anfitrion) {
+            EditarAnfitrion editaranfitrion = new EditarAnfitrion(this.getLocation(),persona);
+            this.dispose();
+        }
+        else {
+            EditarCliente editarcliente = new EditarCliente(this.getLocation(),persona);
+            this.dispose();
+        }
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
     
     boolean emailValido = false;
     boolean telefonoValido = false;
@@ -562,6 +652,8 @@ public class EditarCliente extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField DNICliente;
     private javax.swing.JButton EditarClave;
     private javax.swing.JButton EditarNumeroTar;
+    private javax.swing.JMenuItem btnReseñaModInm;
+    private javax.swing.JMenuItem buscarGestionarInmuebles;
     private javax.swing.JPasswordField contraseñaCliente;
     private javax.swing.JButton editarCorreo;
     private javax.swing.JButton editarNombre;
@@ -591,8 +683,6 @@ public class EditarCliente extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanelBusqueda;

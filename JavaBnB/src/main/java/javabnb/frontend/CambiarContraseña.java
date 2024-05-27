@@ -45,6 +45,7 @@ public class CambiarContraseña extends javax.swing.JFrame {
         botonConfirmar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("JavaBnB");
         setResizable(false);
 
         jLabel1.setText("Contraseña Actual:");
