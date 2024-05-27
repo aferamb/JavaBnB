@@ -107,7 +107,10 @@ public class EditarAnfitrion extends javax.swing.JFrame {
         jLabel2.setText("MODIFICAR DATOS");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1100, 130));
 
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         jLabel5.setText("Clave");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 166, 161, 22));
 
         telefonoAnfitrion.setEditable(false);
         try {
@@ -122,8 +125,10 @@ public class EditarAnfitrion extends javax.swing.JFrame {
                 telefonoAnfitrionActionPerformed(evt);
             }
         });
+        jPanel1.add(telefonoAnfitrion, new org.netbeans.lib.awtextra.AbsoluteConstraints(173, 86, 111, -1));
 
         jLabel3.setText("DNI");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 46, 161, 22));
 
         emailAnfitrion.setEditable(false);
         emailAnfitrion.setText(persona.getCorreo());
@@ -132,6 +137,7 @@ public class EditarAnfitrion extends javax.swing.JFrame {
                 emailAnfitrionActionPerformed(evt);
             }
         });
+        jPanel1.add(emailAnfitrion, new org.netbeans.lib.awtextra.AbsoluteConstraints(173, 126, 111, -1));
 
         DNIAnfitrion.setEditable(false);
         DNIAnfitrion.setText(persona.getDni());
@@ -145,6 +151,7 @@ public class EditarAnfitrion extends javax.swing.JFrame {
                 DNIAnfitrionActionPerformed(evt);
             }
         });
+        jPanel1.add(DNIAnfitrion, new org.netbeans.lib.awtextra.AbsoluteConstraints(173, 46, 111, -1));
 
         contraseñaAnfitrion.setEditable(false);
         contraseñaAnfitrion.addActionListener(new java.awt.event.ActionListener() {
@@ -152,10 +159,13 @@ public class EditarAnfitrion extends javax.swing.JFrame {
                 contraseñaAnfitrionActionPerformed(evt);
             }
         });
+        jPanel1.add(contraseñaAnfitrion, new org.netbeans.lib.awtextra.AbsoluteConstraints(173, 166, 111, -1));
 
         jLabel6.setText("E-mail");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 126, 161, 22));
 
         jLabel4.setText("Nombre");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 161, 22));
 
         nombreAnfitrion.setEditable(false);
         nombreAnfitrion.setText(persona.getNombre());
@@ -164,55 +174,10 @@ public class EditarAnfitrion extends javax.swing.JFrame {
                 nombreAnfitrionActionPerformed(evt);
             }
         });
+        jPanel1.add(nombreAnfitrion, new org.netbeans.lib.awtextra.AbsoluteConstraints(173, 6, 111, -1));
 
         jLabel8.setText("Teléfono");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(DNIAnfitrion, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(telefonoAnfitrion, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(emailAnfitrion, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(nombreAnfitrion)
-                    .addComponent(contraseñaAnfitrion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(nombreAnfitrion))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(DNIAnfitrion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(telefonoAnfitrion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(emailAnfitrion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(contraseñaAnfitrion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(44, 44, 44))
-        );
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 86, 161, 22));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 130, -1, -1));
 
@@ -329,32 +294,6 @@ public class EditarAnfitrion extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void telefonoAnfitrionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_telefonoAnfitrionActionPerformed
-
-    }//GEN-LAST:event_telefonoAnfitrionActionPerformed
-
-    private void emailAnfitrionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailAnfitrionActionPerformed
-
-    }//GEN-LAST:event_emailAnfitrionActionPerformed
-
-    private void DNIAnfitrionFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_DNIAnfitrionFocusLost
-        if (DNIAnfitrion.getText().length() != 9){
-            DNIAnfitrion.setText("");
-        }
-    }//GEN-LAST:event_DNIAnfitrionFocusLost
-
-    private void DNIAnfitrionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DNIAnfitrionActionPerformed
-
-    }//GEN-LAST:event_DNIAnfitrionActionPerformed
-
-    private void contraseñaAnfitrionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contraseñaAnfitrionActionPerformed
-
-    }//GEN-LAST:event_contraseñaAnfitrionActionPerformed
-
-    private void nombreAnfitrionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreAnfitrionActionPerformed
-
-    }//GEN-LAST:event_nombreAnfitrionActionPerformed
-
     private void BotonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonGuardarActionPerformed
     if (!nombreAnfitrion.getText().equals("")) {
         nombreValido = true; 
@@ -423,7 +362,7 @@ public class EditarAnfitrion extends javax.swing.JFrame {
     }//GEN-LAST:event_btnReseñaModInmActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        ConsultarReservas consultarReservas = new ConsultarReservas(this.getLocation(),persona);
+        ConsultarReservasCliente consultarReservas = new ConsultarReservasCliente(this.getLocation(),persona);
         this.dispose();
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
@@ -437,6 +376,32 @@ public class EditarAnfitrion extends javax.swing.JFrame {
             this.dispose();
         }
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void nombreAnfitrionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreAnfitrionActionPerformed
+
+    }//GEN-LAST:event_nombreAnfitrionActionPerformed
+
+    private void contraseñaAnfitrionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contraseñaAnfitrionActionPerformed
+
+    }//GEN-LAST:event_contraseñaAnfitrionActionPerformed
+
+    private void DNIAnfitrionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DNIAnfitrionActionPerformed
+
+    }//GEN-LAST:event_DNIAnfitrionActionPerformed
+
+    private void DNIAnfitrionFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_DNIAnfitrionFocusLost
+        if (DNIAnfitrion.getText().length() != 9){
+            DNIAnfitrion.setText("");
+        }
+    }//GEN-LAST:event_DNIAnfitrionFocusLost
+
+    private void emailAnfitrionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailAnfitrionActionPerformed
+
+    }//GEN-LAST:event_emailAnfitrionActionPerformed
+
+    private void telefonoAnfitrionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_telefonoAnfitrionActionPerformed
+
+    }//GEN-LAST:event_telefonoAnfitrionActionPerformed
 
     
     boolean emailValido = false;

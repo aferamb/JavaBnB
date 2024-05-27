@@ -67,8 +67,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         buscarGestionarInmuebles = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
         btnReseñaModInm = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
         btnReservas = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
@@ -110,21 +110,20 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
         jMenu1.add(buscarGestionarInmuebles);
 
-        jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Reseñas");
-        jMenu2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jMenu2.setMaximumSize(new java.awt.Dimension(120, 32767));
-        jMenu2.setMinimumSize(new java.awt.Dimension(120, 22));
-
         btnReseñaModInm.setText("Escribir reseña");
         btnReseñaModInm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnReseñaModInmActionPerformed(evt);
             }
         });
-        jMenu2.add(btnReseñaModInm);
+        jMenu1.add(btnReseñaModInm);
 
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Reseñas");
+        jMenu2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jMenu2.setMaximumSize(new java.awt.Dimension(120, 32767));
+        jMenu2.setMinimumSize(new java.awt.Dimension(120, 22));
         jMenuBar1.add(jMenu2);
 
         jMenu3.setText("Reservas");
@@ -195,7 +194,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnReseñaModInmActionPerformed
 
     private void btnReservasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservasActionPerformed
-        ConsultarReservas consultarReservas = new ConsultarReservas(this.getLocation(),persona);
+        ConsultarReservasCliente consultarReservas = new ConsultarReservasCliente(this.getLocation(),persona);
         this.dispose();
     }//GEN-LAST:event_btnReservasActionPerformed
 

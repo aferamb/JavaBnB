@@ -620,7 +620,7 @@ public class EditarCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_btnReseñaModInmActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        ConsultarReservas consultarReservas = new ConsultarReservas(this.getLocation(),persona);
+        ConsultarReservasCliente consultarReservas = new ConsultarReservasCliente(this.getLocation(),persona);
         this.dispose();
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 

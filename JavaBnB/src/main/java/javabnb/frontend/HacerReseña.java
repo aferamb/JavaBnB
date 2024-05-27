@@ -8,6 +8,7 @@ package javabnb.frontend;
 
 import java.awt.Image;
 import java.awt.Point;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import javabnb.backend.*;
 import javabnb.frontend.EditarAnfitrion;
@@ -18,13 +19,13 @@ import javax.swing.ImageIcon;
  *
  * @author ALEJANDRO
  */
-public class MostrarInmueble extends javax.swing.JFrame {
+public class HacerReseña extends javax.swing.JFrame {
 
     private Persona persona;
-    private Inmueble inmueble;
     private ImageIcon image1;
     private ImageIcon image2;
     private ImageIcon image3;
+    private final Reserva reserva;
     
     /**
      * Creates new form MenuPrincipal
@@ -33,17 +34,17 @@ public class MostrarInmueble extends javax.swing.JFrame {
      * @param persona
      * @param inmueble
      */
-    public MostrarInmueble( Point localizacion, Persona persona, Inmueble inmueble) {
+    public HacerReseña( Point localizacion, Persona persona, Reserva reserva) {
         this.setLocation(localizacion);
         this.persona = persona;
-        this.inmueble = inmueble;
-        Image imagen1 = inmueble.getFotos().get(0).getImage(); // transform it 
+        this.reserva = reserva;
+        Image imagen1 = reserva.getInmueble().getFotos().get(0).getImage(); // transform it 
         Image newimg1 = imagen1.getScaledInstance(250, 250,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
         this.image1 = new ImageIcon(newimg1);  // transform it back
-        Image imagen2 = inmueble.getFotos().get(1).getImage(); // transform it 
+        Image imagen2 = reserva.getInmueble().getFotos().get(1).getImage(); // transform it 
         Image newimg2 = imagen2.getScaledInstance(250, 250,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
         this.image2 = new ImageIcon(newimg2);  // transform it back
-        Image imagen3 = inmueble.getFotos().get(2).getImage(); // transform it 
+        Image imagen3 = reserva.getInmueble().getFotos().get(2).getImage(); // transform it 
         Image newimg3 = imagen3.getScaledInstance(250, 250,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
         this.image3 = new ImageIcon(newimg3);  // transform it back
         initComponents();
@@ -69,17 +70,13 @@ public class MostrarInmueble extends javax.swing.JFrame {
         btnImg1.setIcon(image1);
         btnImg2.setIcon(image2);
         btnImg3.setIcon(image3);
-        etiquetaBaños.setText(String.valueOf(inmueble.getBaños()));
-        etiquetaCalificacion.setText(String.valueOf(inmueble.getCalificacion()));
-        etiquetaCamas.setText(String.valueOf(inmueble.getCamas()));
-        for (String servicio : inmueble.getServicios()) {
-            etiquetaServicios.setText(etiquetaServicios.getText() + servicio + ", ");
+
+        for (String servicio : reserva.getInmueble().getServicios()) {
+            FechaSalida.setText(FechaSalida.getText() + servicio + ", ");
         }
-        etiquetaDireccion.setText(inmueble.getDireccion().getCalle() + ", " + inmueble.getDireccion().getNumero() + ", " + inmueble.getDireccion().getCodigoPostal() + ", " + inmueble.getDireccion().getCiudad());
-        etiquetaHabitaciones.setText(String.valueOf(inmueble.getHabitaciones()));
-        etiquetaHuespedes.setText(String.valueOf(inmueble.getHuespedesMax()));
-        etiquetaPrecio.setText(String.valueOf(inmueble.getPrecioNoche()));
-        etiquetaTitulo.setText(inmueble.getTitulo());
+        etiquetaDireccion.setText(reserva.getInmueble().getDireccion().getCalle() + ", " + reserva.getInmueble().getDireccion().getNumero() + ", " + reserva.getInmueble().getDireccion().getCodigoPostal() + ", " + reserva.getInmueble().getDireccion().getCiudad());
+        etiquetaPrecio.setText(String.valueOf(reserva.getInmueble().getPrecioNoche()));
+        etiquetaTitulo.setText(reserva.getInmueble().getTitulo());
     }
     
 
@@ -102,17 +99,20 @@ public class MostrarInmueble extends javax.swing.JFrame {
         btnImg3 = new javax.swing.JButton();
         etiquetaPrecio = new javax.swing.JLabel();
         btnReservar = new javax.swing.JButton();
-        etiquetaCalificacion = new javax.swing.JLabel();
-        etiquetaBaños = new javax.swing.JLabel();
+        etiquetaDireccion = new javax.swing.JLabel();
+        FechaSalida = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        fechaReserva = new javax.swing.JLabel();
+        FechaEntrada = new javax.swing.JLabel();
+        barraCalificacion = new javax.swing.JSlider();
+        numeroCalific = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        etiquetaHuespedes = new javax.swing.JLabel();
-        etiquetaHabitaciones = new javax.swing.JLabel();
-        etiquetaCamas = new javax.swing.JLabel();
-        etiquetaDireccion = new javax.swing.JLabel();
-        etiquetaServicios = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        panelReseña = new javax.swing.JTextPane();
+        publicarReseña = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         buscarGestionarInmuebles = new javax.swing.JMenuItem();
@@ -133,7 +133,6 @@ public class MostrarInmueble extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("JavaBnB");
-        setMaximumSize(new java.awt.Dimension(900, 720));
         setMinimumSize(new java.awt.Dimension(900, 720));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -148,7 +147,7 @@ public class MostrarInmueble extends javax.swing.JFrame {
 
         etiquetaTitulo.setBackground(new java.awt.Color(255, 255, 255));
         etiquetaTitulo.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        etiquetaTitulo.setText("Titulo del inmueble");
+        etiquetaTitulo.setText(reserva.getInmueble().getTitulo());
         etiquetaTitulo.setMaximumSize(new java.awt.Dimension(600, 33));
         etiquetaTitulo.setMinimumSize(new java.awt.Dimension(600, 33));
         etiquetaTitulo.setPreferredSize(new java.awt.Dimension(600, 33));
@@ -213,71 +212,64 @@ public class MostrarInmueble extends javax.swing.JFrame {
         });
         getContentPane().add(btnReservar, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 73, -1, -1));
 
-        etiquetaCalificacion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        etiquetaCalificacion.setText("Calificacion");
-        etiquetaCalificacion.setMaximumSize(new java.awt.Dimension(60, 25));
-        etiquetaCalificacion.setMinimumSize(new java.awt.Dimension(60, 25));
-        etiquetaCalificacion.setPreferredSize(new java.awt.Dimension(60, 25));
-        getContentPane().add(etiquetaCalificacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 90, -1, -1));
-
-        etiquetaBaños.setText("0");
-        etiquetaBaños.setMaximumSize(new java.awt.Dimension(30, 25));
-        etiquetaBaños.setMinimumSize(new java.awt.Dimension(30, 25));
-        etiquetaBaños.setPreferredSize(new java.awt.Dimension(30, 25));
-        getContentPane().add(etiquetaBaños, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 250, -1, -1));
-
-        jLabel3.setText("Baños");
-        jLabel3.setMaximumSize(new java.awt.Dimension(120, 25));
-        jLabel3.setMinimumSize(new java.awt.Dimension(120, 25));
-        jLabel3.setPreferredSize(new java.awt.Dimension(120, 25));
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 250, -1, 20));
-
-        jLabel4.setText("Habitaciones");
-        jLabel4.setMaximumSize(new java.awt.Dimension(120, 25));
-        jLabel4.setMinimumSize(new java.awt.Dimension(120, 25));
-        jLabel4.setPreferredSize(new java.awt.Dimension(120, 25));
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 190, -1, 20));
-
-        jLabel5.setText("Camas");
-        jLabel5.setMaximumSize(new java.awt.Dimension(120, 25));
-        jLabel5.setMinimumSize(new java.awt.Dimension(120, 25));
-        jLabel5.setPreferredSize(new java.awt.Dimension(120, 25));
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 220, -1, 20));
-
-        jLabel6.setText("Huespedes máximos");
-        jLabel6.setMaximumSize(new java.awt.Dimension(120, 25));
-        jLabel6.setMinimumSize(new java.awt.Dimension(120, 25));
-        jLabel6.setPreferredSize(new java.awt.Dimension(120, 25));
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 160, -1, -1));
-
-        etiquetaHuespedes.setText("0");
-        etiquetaHuespedes.setMaximumSize(new java.awt.Dimension(30, 25));
-        etiquetaHuespedes.setMinimumSize(new java.awt.Dimension(30, 25));
-        etiquetaHuespedes.setPreferredSize(new java.awt.Dimension(30, 25));
-        getContentPane().add(etiquetaHuespedes, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 160, -1, -1));
-
-        etiquetaHabitaciones.setText("0");
-        etiquetaHabitaciones.setMaximumSize(new java.awt.Dimension(30, 25));
-        etiquetaHabitaciones.setMinimumSize(new java.awt.Dimension(30, 25));
-        etiquetaHabitaciones.setPreferredSize(new java.awt.Dimension(30, 25));
-        getContentPane().add(etiquetaHabitaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 190, -1, -1));
-
-        etiquetaCamas.setText("0");
-        etiquetaCamas.setMaximumSize(new java.awt.Dimension(30, 25));
-        etiquetaCamas.setMinimumSize(new java.awt.Dimension(30, 25));
-        etiquetaCamas.setPreferredSize(new java.awt.Dimension(30, 25));
-        getContentPane().add(etiquetaCamas, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 220, -1, -1));
-
         etiquetaDireccion.setText("Calle, numero, codPostal, Ciudad");
         etiquetaDireccion.setMaximumSize(new java.awt.Dimension(200, 25));
         etiquetaDireccion.setMinimumSize(new java.awt.Dimension(200, 25));
         etiquetaDireccion.setPreferredSize(new java.awt.Dimension(300, 25));
-        getContentPane().add(etiquetaDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 90, -1, -1));
+        getContentPane().add(etiquetaDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 200, -1, -1));
 
-        etiquetaServicios.setMaximumSize(new java.awt.Dimension(450, 25));
-        etiquetaServicios.setMinimumSize(new java.awt.Dimension(450, 25));
-        etiquetaServicios.setPreferredSize(new java.awt.Dimension(550, 25));
-        getContentPane().add(etiquetaServicios, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 160, -1, -1));
+        FechaSalida.setText(reserva.getFechaSalida().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+        FechaSalida.setMaximumSize(new java.awt.Dimension(450, 25));
+        FechaSalida.setMinimumSize(new java.awt.Dimension(450, 25));
+        FechaSalida.setPreferredSize(new java.awt.Dimension(550, 25));
+        getContentPane().add(FechaSalida, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 160, -1, -1));
+
+        jLabel2.setText("Fecha de Reserva:");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, -1, -1));
+
+        jLabel7.setText("Fecha de Inicio:");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 130, -1, -1));
+
+        jLabel8.setText("Fecha de fin:");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 160, -1, -1));
+
+        fechaReserva.setText(reserva.getFechaReserva().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+        getContentPane().add(fechaReserva, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 100, 160, -1));
+
+        FechaEntrada.setText(reserva.getFechaEntrada().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+        getContentPane().add(FechaEntrada, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 130, 110, -1));
+
+        barraCalificacion.setMajorTickSpacing(1);
+        barraCalificacion.setMaximum(5);
+        barraCalificacion.setPaintTicks(true);
+        barraCalificacion.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                barraCalificacionFocusLost(evt);
+            }
+        });
+        getContentPane().add(barraCalificacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 240, -1, -1));
+
+        numeroCalific.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        numeroCalific.setText(String.valueOf(barraCalificacion.getValue()));
+        getContentPane().add(numeroCalific, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 240, -1, -1));
+
+        jLabel3.setText("0");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 270, -1, -1));
+
+        jLabel4.setText("5");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 270, -1, -1));
+
+        jScrollPane1.setViewportView(panelReseña);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 310, 410, 170));
+
+        publicarReseña.setText("Publicar");
+        publicarReseña.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                publicarReseñaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(publicarReseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 510, 160, -1));
 
         jMenuBar1.setMinimumSize(new java.awt.Dimension(70, 73));
         jMenuBar1.setPreferredSize(new java.awt.Dimension(70, 73));
@@ -363,7 +355,7 @@ public class MostrarInmueble extends javax.swing.JFrame {
 
     private void buscarGestionarInmueblesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarGestionarInmueblesActionPerformed
         if (persona instanceof ClienteParticular) {
-            //BuscarInmuebles busquedaInm = new BuscarInmuebles(this.getLocation(),persona);
+            BuscarInmuebles busquedaInm = new BuscarInmuebles(this.getLocation(),persona);
             this.dispose();
         } else {
             CrearInmueble crearInmueble = new CrearInmueble(this.getLocation(),persona);
@@ -400,10 +392,27 @@ public class MostrarInmueble extends javax.swing.JFrame {
     }//GEN-LAST:event_btnImg3ActionPerformed
 
     private void btnReservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservarActionPerformed
-        VentanaPago pago = new VentanaPago(this.getLocation(), persona, inmueble);
+
     }//GEN-LAST:event_btnReservarActionPerformed
 
+    private void barraCalificacionFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_barraCalificacionFocusLost
+        numeroCalific.setText(String.valueOf(barraCalificacion.getValue()));
+    }//GEN-LAST:event_barraCalificacionFocusLost
+
+    private void publicarReseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_publicarReseñaActionPerformed
+       if (!panelReseña.equals("")){
+            Reseña reseña = new Reseña((ClienteParticular) persona,barraCalificacion.getValue(),panelReseña.getText(),reserva.getInmueble());
+            reserva.getInmueble().addReseña(reseña);
+            MenuPrincipal menu = new MenuPrincipal(this.getLocation(),persona);
+            this.dispose();
+       }
+       
+    }//GEN-LAST:event_publicarReseñaActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel FechaEntrada;
+    private javax.swing.JLabel FechaSalida;
+    private javax.swing.JSlider barraCalificacion;
     private javax.swing.JMenuItem botonPerfil;
     private javax.swing.JButton btnImg1;
     private javax.swing.JButton btnImg2;
@@ -412,27 +421,27 @@ public class MostrarInmueble extends javax.swing.JFrame {
     private javax.swing.JMenuItem btnReservas;
     private javax.swing.JMenuItem btnReseñaModInm;
     private javax.swing.JMenuItem buscarGestionarInmuebles;
-    private javax.swing.JLabel etiquetaBaños;
-    private javax.swing.JLabel etiquetaCalificacion;
-    private javax.swing.JLabel etiquetaCamas;
     private javax.swing.JLabel etiquetaDireccion;
-    private javax.swing.JLabel etiquetaHabitaciones;
-    private javax.swing.JLabel etiquetaHuespedes;
     private javax.swing.JLabel etiquetaPrecio;
-    private javax.swing.JLabel etiquetaServicios;
     private javax.swing.JLabel etiquetaTitulo;
+    private javax.swing.JLabel fechaReserva;
     private javax.swing.JLabel imgPrincipal;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanelBusqueda;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel numeroCalific;
+    private javax.swing.JTextPane panelReseña;
+    private javax.swing.JButton publicarReseña;
     // End of variables declaration//GEN-END:variables
 }

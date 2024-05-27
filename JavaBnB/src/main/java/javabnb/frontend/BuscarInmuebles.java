@@ -7,13 +7,16 @@
 package javabnb.frontend;
 
 import java.awt.Container;
+import java.awt.Image;
 import java.awt.Point;
 import java.util.ArrayList;
 import javabnb.backend.*;
 import javabnb.frontend.EditarAnfitrion;
 import javabnb.frontend.EditarCliente;
+import javax.swing.Icon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -51,41 +54,40 @@ public class BuscarInmuebles extends javax.swing.JFrame {
         buttonGroup3 = new javax.swing.ButtonGroup();
         buttonGroup4 = new javax.swing.ButtonGroup();
         canvas1 = new java.awt.Canvas();
-        jPanel2 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         foto1 = new javax.swing.JLabel();
         titulo1 = new javax.swing.JLabel();
-        tipo1 = new javax.swing.JLabel();
         precio1 = new javax.swing.JLabel();
         media1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        FiltroPrecio = new javax.swing.JRadioButton();
+        AmpliarInmueble1 = new javax.swing.JButton();
+        buscarCiudad = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
         botonAtras = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         foto2 = new javax.swing.JLabel();
         titulo2 = new javax.swing.JLabel();
-        tipo2 = new javax.swing.JLabel();
         precio2 = new javax.swing.JLabel();
         media2 = new javax.swing.JLabel();
+        inmueble2 = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         foto3 = new javax.swing.JLabel();
         titulo3 = new javax.swing.JLabel();
-        tipo3 = new javax.swing.JLabel();
         precio3 = new javax.swing.JLabel();
         media3 = new javax.swing.JLabel();
+        inmueble3 = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
         foto4 = new javax.swing.JLabel();
         titulo4 = new javax.swing.JLabel();
-        tipo4 = new javax.swing.JLabel();
         precio4 = new javax.swing.JLabel();
         media4 = new javax.swing.JLabel();
+        inmueble4 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jCheckBox2 = new javax.swing.JCheckBox();
-        filtroReseñas = new javax.swing.JRadioButton();
+        filtroCasa = new javax.swing.JCheckBox();
+        filtroApartamento = new javax.swing.JCheckBox();
+        botonReseña = new javax.swing.JRadioButton();
         botonSiguiente = new javax.swing.JButton();
+        botonPorPrecio = new javax.swing.JRadioButton();
+        botonBuscar = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
@@ -106,49 +108,41 @@ public class BuscarInmuebles extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("JavaBnB");
-        setMinimumSize(new java.awt.Dimension(900, 750));
+        setMaximumSize(new java.awt.Dimension(900, 720));
+        setMinimumSize(new java.awt.Dimension(900, 720));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(canvas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 60, -1, -1));
 
         jPanel4.setBackground(new java.awt.Color(153, 153, 153));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        foto1.setText("iMAGENN");
         jPanel4.add(foto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 180, 110));
 
         titulo1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        titulo1.setText("TITULO");
         jPanel4.add(titulo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, 370, 40));
-
-        tipo1.setText("TIPO");
-        jPanel4.add(tipo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 80, 200, -1));
-
-        precio1.setText("€€€€");
         jPanel4.add(precio1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 30, 100, -1));
-
-        media1.setText("Media");
         jPanel4.add(media1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 80, -1, -1));
 
-        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 80, 690, 130));
-
-        jTextField1.setText("BUSCAR POR CIUDAD");
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 30, 421, -1));
-
-        FiltroPrecio.setText("POR PRECIO");
-        FiltroPrecio.addActionListener(new java.awt.event.ActionListener() {
+        AmpliarInmueble1.setText("Leer más");
+        AmpliarInmueble1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                FiltroPrecioActionPerformed(evt);
+                AmpliarInmueble1ActionPerformed(evt);
             }
         });
-        getContentPane().add(FiltroPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 110, -1));
+        jPanel4.add(AmpliarInmueble1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 80, 130, -1));
+
+        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 50, 690, 130));
+
+        buscarCiudad.setText("BUSCAR POR CIUDAD");
+        buscarCiudad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buscarCiudadActionPerformed(evt);
+            }
+        });
+        getContentPane().add(buscarCiudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, 380, 30));
 
         jButton2.setText("jButton2");
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 730, 75, -1));
-
-        jButton3.setText("jButton3");
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 730, 75, -1));
 
         botonAtras.setText("Anterior");
         botonAtras.addActionListener(new java.awt.event.ActionListener() {
@@ -156,92 +150,91 @@ public class BuscarInmuebles extends javax.swing.JFrame {
                 botonAtrasActionPerformed(evt);
             }
         });
-        getContentPane().add(botonAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 640, -1, -1));
+        getContentPane().add(botonAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, -1, -1));
 
         jPanel5.setBackground(new java.awt.Color(153, 153, 153));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        foto2.setText("iMAGENN");
         jPanel5.add(foto2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 180, 110));
 
         titulo2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        titulo2.setText("titulo2");
         jPanel5.add(titulo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, 370, 40));
-
-        tipo2.setText("TIPO");
-        jPanel5.add(tipo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 80, 200, -1));
-
-        precio2.setText("€€€€");
         jPanel5.add(precio2, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 30, 100, -1));
-
-        media2.setText("Media");
         jPanel5.add(media2, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 80, -1, -1));
 
-        getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 220, 690, 130));
+        inmueble2.setText("Leer más");
+        inmueble2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inmueble2ActionPerformed(evt);
+            }
+        });
+        jPanel5.add(inmueble2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 80, 130, -1));
+
+        getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 190, 690, 130));
 
         jPanel6.setBackground(new java.awt.Color(153, 153, 153));
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        foto3.setText("iMAGENN");
         jPanel6.add(foto3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 180, 110));
 
         titulo3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        titulo3.setText("TITULO");
         jPanel6.add(titulo3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, 370, 40));
-
-        tipo3.setText("TIPO");
-        jPanel6.add(tipo3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 80, 200, -1));
-
-        precio3.setText("€€€€");
         jPanel6.add(precio3, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 30, 100, -1));
-
-        media3.setText("Media");
         jPanel6.add(media3, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 80, -1, -1));
 
-        getContentPane().add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 360, 690, 130));
+        inmueble3.setText("Leer más");
+        inmueble3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inmueble3ActionPerformed(evt);
+            }
+        });
+        jPanel6.add(inmueble3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 80, 130, -1));
+
+        getContentPane().add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 330, 690, 130));
 
         jPanel7.setBackground(new java.awt.Color(153, 153, 153));
         jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        foto4.setText("iMAGENN");
         jPanel7.add(foto4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 180, 110));
 
         titulo4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        titulo4.setText("TITULO");
         jPanel7.add(titulo4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, 370, 40));
-
-        tipo4.setText("TIPO");
-        jPanel7.add(tipo4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 80, 200, -1));
-
-        precio4.setText("€€€€");
         jPanel7.add(precio4, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 30, 100, -1));
-
-        media4.setText("Media");
         jPanel7.add(media4, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 80, -1, -1));
 
-        getContentPane().add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 500, 690, 130));
+        inmueble4.setText("Leer más");
+        inmueble4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inmueble4ActionPerformed(evt);
+            }
+        });
+        jPanel7.add(inmueble4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 80, 130, -1));
+
+        getContentPane().add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 470, 690, 130));
 
         jLabel2.setText("FILTROS");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
 
-        jCheckBox1.setText("Casa");
-        getContentPane().add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, -1, -1));
-
-        jCheckBox2.setText("Apartamento");
-        jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
+        filtroCasa.setText("Casa");
+        filtroCasa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox2ActionPerformed(evt);
+                filtroCasaActionPerformed(evt);
             }
         });
-        getContentPane().add(jCheckBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, -1, -1));
+        getContentPane().add(filtroCasa, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, -1, -1));
 
-        filtroReseñas.setText("POR RESEÑAS");
-        filtroReseñas.addActionListener(new java.awt.event.ActionListener() {
+        filtroApartamento.setText("Apartamento");
+        filtroApartamento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                filtroReseñasActionPerformed(evt);
+                filtroApartamentoActionPerformed(evt);
             }
         });
-        getContentPane().add(filtroReseñas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, -1));
+        getContentPane().add(filtroApartamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, -1, -1));
+
+        botonReseña.setText("POR RESEÑAS");
+        botonReseña.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonReseñaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(botonReseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, -1));
 
         botonSiguiente.setText("Siguiente");
         botonSiguiente.addActionListener(new java.awt.event.ActionListener() {
@@ -249,7 +242,23 @@ public class BuscarInmuebles extends javax.swing.JFrame {
                 botonSiguienteActionPerformed(evt);
             }
         });
-        getContentPane().add(botonSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 640, -1, -1));
+        getContentPane().add(botonSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 20, -1, -1));
+
+        botonPorPrecio.setText("POR PRECIO");
+        botonPorPrecio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonPorPrecioActionPerformed(evt);
+            }
+        });
+        getContentPane().add(botonPorPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, -1, -1));
+
+        botonBuscar.setText("Buscar");
+        botonBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonBuscarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(botonBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 10, -1, 30));
 
         jMenuBar1.setMinimumSize(new java.awt.Dimension(70, 73));
         jMenuBar1.setPreferredSize(new java.awt.Dimension(70, 73));
@@ -318,77 +327,555 @@ public class BuscarInmuebles extends javax.swing.JFrame {
         
     }//GEN-LAST:event_botonPerfilActionPerformed
 
-    private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox2ActionPerformed
+    private void filtroApartamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_filtroApartamentoActionPerformed
+        listaInmuebles = listaInmuebles2;
+        botonReseña.setSelected(false);
+        botonPorPrecio.setSelected(false);
+        filtroCasa.setSelected(false);
+        ArrayList<Inmueble> listaInmuebles = GestorInmueble.getInmueblesPorTipo("APARTAMENTO");
+        pagAct = 0;
+        titulo1.setText("");
+        precio1.setText("");
+        media1.setText("");
+        foto1.setIcon(null);
 
-    private void filtroReseñasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_filtroReseñasActionPerformed
-    inmuebles = GestorInmueble.getInmuebles();
-         ArrayList<Inmueble> inmuebles = GestorInmueble.getInmueblesPorCalificacion();
-        }
-    }//GEN-LAST:event_filtroReseñasActionPerformed
+        titulo2.setText("");
+        precio2.setText("");
+        media2.setText("");
+        foto2.setIcon(null);  
+
+        titulo3.setText("");
+        precio3.setText("");
+        media3.setText("");
+        foto3.setIcon(null);
+
+        titulo4.setText("");
+        precio4.setText("");
+        media4.setText("");
+        foto4.setIcon(null);
+        
+
+    if (startIndex < listaInmuebles.size()) {
+        Inmueble inmueble1 = listaInmuebles.get(startIndex);
+        /*Image imagen1 = inmueble1.getFotos().get(0).getImage(); // transform it 
+        Image newimg1 = imagen1.getScaledInstance(90, 10,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
+        this.imagen1 = new ImageIcon(newimg1);*/
+        titulo1.setText(inmueble1.getTitulo());
+        precio1.setText(Double.toString(inmueble1.getPrecioNoche()));
+        media1.setText(Double.toString(inmueble1.getCalificacion()));
+        foto1.setIcon((Icon) imagen1); // Asegúrate de manejar bien las fotos
+    }
+    if (startIndex + 1 < listaInmuebles.size()) {
+        Inmueble inmueble2 = listaInmuebles.get(startIndex + 1);
+        titulo2.setText(inmueble2.getTitulo());
+        precio2.setText(Double.toString(inmueble2.getPrecioNoche()));
+        media2.setText(Double.toString(inmueble2.getCalificacion()));
+        foto2.setIcon(inmueble2.getFotos().get(0));
+    }
+    if (startIndex + 2 < listaInmuebles.size()) {
+        Inmueble inmueble3 = listaInmuebles.get(startIndex + 2);
+        titulo3.setText(inmueble3.getTitulo());
+        precio3.setText(Double.toString(inmueble3.getPrecioNoche()));
+        media3.setText(Double.toString(inmueble3.getCalificacion()));
+        foto3.setIcon(inmueble3.getFotos().get(0));
+    }
+    if (startIndex + 3 < listaInmuebles.size()) {
+        Inmueble inmueble4 = listaInmuebles.get(startIndex + 3);
+        titulo4.setText(inmueble4.getTitulo());
+        precio4.setText(Double.toString(inmueble4.getPrecioNoche()));
+        media4.setText(Double.toString(inmueble4.getCalificacion()));
+        foto4.setIcon(inmueble4.getFotos().get(0));
+    }  
+    }//GEN-LAST:event_filtroApartamentoActionPerformed
+
+    private void botonReseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonReseñaActionPerformed
+        filtroCasa.setSelected(false);
+        filtroApartamento.setSelected(false);
+        botonPorPrecio.setSelected(false);
+        listaInmuebles = listaInmuebles2;
+        ArrayList<Inmueble> listaInmuebles = GestorInmueble.getInmueblesPorCalificacion();
+        pagAct = 0;
+        titulo1.setText("");
+        precio1.setText("");
+        media1.setText("");
+        foto1.setIcon(null);
+
+        titulo2.setText("");
+        precio2.setText("");
+        media2.setText("");
+        foto2.setIcon(null);  
+
+        titulo3.setText("");
+        precio3.setText("");
+        media3.setText("");
+        foto3.setIcon(null);
+
+        titulo4.setText("");
+        precio4.setText("");
+        media4.setText("");
+        foto4.setIcon(null);
+        
+
+    if (startIndex < listaInmuebles.size()) {
+        
+        Inmueble inmueble1 = listaInmuebles.get(startIndex);
+        Image imagen1 = inmueble1.getFotos().get(0).getImage();
+        titulo1.setText(inmueble1.getTitulo());
+        precio1.setText(Double.toString(inmueble1.getPrecioNoche()));
+        media1.setText(Double.toString(inmueble1.getCalificacion()));
+        foto1.setIcon(inmueble1.getFotos().get(0)); // Asegúrate de manejar bien las fotos
+    }
+    if (startIndex + 1 < listaInmuebles.size()) {
+        Inmueble inmueble2 = listaInmuebles.get(startIndex + 1);
+        titulo2.setText(inmueble2.getTitulo());
+        precio2.setText(Double.toString(inmueble2.getPrecioNoche()));
+        media2.setText(Double.toString(inmueble2.getCalificacion()));
+        foto2.setIcon(inmueble2.getFotos().get(0));
+    }
+    if (startIndex + 2 < listaInmuebles.size()) {
+        Inmueble inmueble3 = listaInmuebles.get(startIndex + 2);
+        titulo3.setText(inmueble3.getTitulo());
+        precio3.setText(Double.toString(inmueble3.getPrecioNoche()));
+        media3.setText(Double.toString(inmueble3.getCalificacion()));
+        foto3.setIcon(inmueble3.getFotos().get(0));
+    }
+    if (startIndex + 3 < listaInmuebles.size()) {
+        Inmueble inmueble4 = listaInmuebles.get(startIndex + 3);
+        titulo4.setText(inmueble4.getTitulo());
+        precio4.setText(Double.toString(inmueble4.getPrecioNoche()));
+        media4.setText(Double.toString(inmueble4.getCalificacion()));
+        foto4.setIcon(inmueble4.getFotos().get(0));
+    }
+    }//GEN-LAST:event_botonReseñaActionPerformed
 
     private void botonAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAtrasActionPerformed
-        if (pagAct > 0){ pagAct++;}
-        
-        titulo1.setText(inmuebles.get(pagAct*4).getTitulo());
-        titulo2.setText(inmuebles.get(1+(pagAct*4)).getTitulo());
-        titulo3.setText(inmuebles.get(2+(pagAct*4)).getTitulo());
-        titulo4.setText(inmuebles.get(3+(pagAct*4)).getTitulo());
-        
-        precio1.setText(Double.toString(inmuebles.get(pagAct*4).getPrecioNoche()));
-        precio2.setText(Double.toString(inmuebles.get(1+pagAct*4).getPrecioNoche()));
-        precio3.setText(Double.toString(inmuebles.get(2+pagAct*4).getPrecioNoche()));
-        precio4.setText(Double.toString(inmuebles.get(3+pagAct*4).getPrecioNoche()));
+    if (pagAct >0) {pagAct--;}
+        titulo1.setText("");
+        precio1.setText("");
+        media1.setText("");
+        foto1.setIcon(null);
 
-        media1.setText(Double.toString(inmuebles.get(pagAct*4).getCalificacion()));
-        media2.setText(Double.toString(inmuebles.get(1+pagAct*4).getCalificacion()));
-        media3.setText(Double.toString(inmuebles.get(2+pagAct*4).getCalificacion()));
-        media4.setText(Double.toString(inmuebles.get(3+pagAct*4).getCalificacion()));
+        titulo2.setText("");
+        precio2.setText("");
+        media2.setText("");
+        foto2.setIcon(null);  
+
+        titulo3.setText("");
+        precio3.setText("");
+        media3.setText("");
+        foto3.setIcon(null);
+
+        titulo4.setText("");
+        precio4.setText("");
+        media4.setText("");
+        foto4.setIcon(null);
+
+
+    if (startIndex < listaInmuebles.size()) {
+        Inmueble inmueble1 = listaInmuebles.get(startIndex);
+        Image imagen1 = inmueble1.getFotos().get(0).getImage();
+        
+        titulo1.setText(inmueble1.getTitulo());
+        precio1.setText(Double.toString(inmueble1.getPrecioNoche()));
+        media1.setText(Double.toString(inmueble1.getCalificacion()));
+        foto1.setIcon(inmueble1.getFotos().get(0)); // Asegúrate de manejar bien las fotos
+    }
+    if (startIndex + 1 < listaInmuebles.size()) {
+        Inmueble inmueble2 = listaInmuebles.get(startIndex + 1);
+        titulo2.setText(inmueble2.getTitulo());
+        precio2.setText(Double.toString(inmueble2.getPrecioNoche()));
+        media2.setText(Double.toString(inmueble2.getCalificacion()));
+        foto2.setIcon(inmueble2.getFotos().get(0));
+    }
+    if (startIndex + 2 < listaInmuebles.size()) {
+        Inmueble inmueble3 = listaInmuebles.get(startIndex + 2);
+        titulo3.setText(inmueble3.getTitulo());
+        precio3.setText(Double.toString(inmueble3.getPrecioNoche()));
+        media3.setText(Double.toString(inmueble3.getCalificacion()));
+        foto3.setIcon(inmueble3.getFotos().get(0));
+    }
+    if (startIndex + 3 < listaInmuebles.size()) {
+        Inmueble inmueble4 = listaInmuebles.get(startIndex + 3);
+        titulo4.setText(inmueble4.getTitulo());
+        precio4.setText(Double.toString(inmueble4.getPrecioNoche()));
+        media4.setText(Double.toString(inmueble4.getCalificacion()));
+        foto4.setIcon(inmueble4.getFotos().get(0));
+    }
+
+
     }//GEN-LAST:event_botonAtrasActionPerformed
 
     private void botonSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSiguienteActionPerformed
-        if (pagAct < numPag){ pagAct--;}
-
-        titulo1.setText(inmuebles.get(pagAct*4).getTitulo());
-        titulo2.setText(inmuebles.get(1+(pagAct*4)).getTitulo());
-        titulo3.setText(inmuebles.get(2+(pagAct*4)).getTitulo());
-        titulo4.setText(inmuebles.get(3+(pagAct*4)).getTitulo());
+        if (pagAct < numPag){ pagAct++;}
         
-        precio1.setText(Double.toString(inmuebles.get(pagAct*4).getPrecioNoche()));
-        precio2.setText(Double.toString(inmuebles.get(1+pagAct*4).getPrecioNoche()));
-        precio3.setText(Double.toString(inmuebles.get(2+pagAct*4).getPrecioNoche()));
-        precio4.setText(Double.toString(inmuebles.get(3+pagAct*4).getPrecioNoche()));
+        titulo1.setText("");
+        precio1.setText("");
+        media1.setText("");
+        foto1.setIcon(null);
 
-        media1.setText(Double.toString(inmuebles.get(pagAct*4).getCalificacion()));
-        media2.setText(Double.toString(inmuebles.get(1+pagAct*4).getCalificacion()));
-        media3.setText(Double.toString(inmuebles.get(2+pagAct*4).getCalificacion()));
-        media4.setText(Double.toString(inmuebles.get(3+pagAct*4).getCalificacion()));
+        titulo2.setText("");
+        precio2.setText("");
+        media2.setText("");
+        foto2.setIcon(null);  
+
+        titulo3.setText("");
+        precio3.setText("");
+        media3.setText("");
+        foto3.setIcon(null);
+
+        titulo4.setText("");
+        precio4.setText("");
+        media4.setText("");
+        foto4.setIcon(null);
+
+
+    if (startIndex < listaInmuebles.size()) {
+        Inmueble inmueble1 = listaInmuebles.get(pagAct*4);
+        Image imagen1 = inmueble1.getFotos().get(0).getImage();
+        titulo1.setText(inmueble1.getTitulo());
+        precio1.setText(Double.toString(inmueble1.getPrecioNoche()));
+        media1.setText(Double.toString(inmueble1.getCalificacion()));
+        foto1.setIcon(inmueble1.getFotos().get(0)); // Asegúrate de manejar bien las fotos
+    }
+    if (startIndex + 1 < listaInmuebles.size()) {
+        Inmueble inmueble2 = listaInmuebles.get(pagAct*4 + 1);
+        titulo2.setText(inmueble2.getTitulo());
+        precio2.setText(Double.toString(inmueble2.getPrecioNoche()));
+        media2.setText(Double.toString(inmueble2.getCalificacion()));
+        foto2.setIcon(inmueble2.getFotos().get(0));
+    }
+    if (startIndex + 2 < listaInmuebles.size()) {
+        Inmueble inmueble3 = listaInmuebles.get(pagAct*4 + 2);
+        titulo3.setText(inmueble3.getTitulo());
+        precio3.setText(Double.toString(inmueble3.getPrecioNoche()));
+        media3.setText(Double.toString(inmueble3.getCalificacion()));
+        foto3.setIcon(inmueble3.getFotos().get(0));
+    }
+    if (startIndex + 3 < listaInmuebles.size()) {
+        Inmueble inmueble4 = listaInmuebles.get(pagAct*4 + 3);
+        titulo4.setText(inmueble4.getTitulo());
+        precio4.setText(Double.toString(inmueble4.getPrecioNoche()));
+        media4.setText(Double.toString(inmueble4.getCalificacion()));
+        foto4.setIcon(inmueble4.getFotos().get(0));
+    }    
+
     }//GEN-LAST:event_botonSiguienteActionPerformed
-    ArrayList<Inmueble> inmuebles = GestorInmueble.getInmuebles();
+
+    private void AmpliarInmueble1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AmpliarInmueble1ActionPerformed
+    Inmueble inmueble1 = listaInmuebles.get(pagAct*4);
+        
+        if (!titulo1.getText().equals("")){
+            if (botonPorPrecio.isSelected()) {GestorInmueble.getInmueblesPorPrecio();}
+            if (botonReseña.isSelected()) {GestorInmueble.getInmueblesPorCalificacion();}
+            if (filtroCasa.isSelected()) {GestorInmueble.getInmueblesPorTipo("CASA");}
+            if (filtroApartamento.isSelected()) {GestorInmueble.getInmueblesPorTipo("APARTAMENTO");}
+            MostrarInmueble mostrarInmueble = new MostrarInmueble(this.getLocation(),persona,inmueble1);
+         }
+    }//GEN-LAST:event_AmpliarInmueble1ActionPerformed
+
+    private void botonPorPrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonPorPrecioActionPerformed
+        listaInmuebles = listaInmuebles2;
+        botonReseña.setSelected(false);
+        
+        ArrayList<Inmueble> listaInmuebles = GestorInmueble.getInmueblesPorPrecio();
+
+        titulo1.setText("");
+        precio1.setText("");
+        media1.setText("");
+        foto1.setIcon(null);
+
+        titulo2.setText("");
+        precio2.setText("");
+        media2.setText("");
+        foto2.setIcon(null);  
+
+        titulo3.setText("");
+        precio3.setText("");
+        media3.setText("");
+        foto3.setIcon(null);
+
+        titulo4.setText("");
+        precio4.setText("");
+        media4.setText("");
+        foto4.setIcon(null);
+        
+
+    if (startIndex < listaInmuebles.size()) {
+        Inmueble inmueble1 = listaInmuebles.get(startIndex);
+        Image imagen1 = inmueble1.getFotos().get(0).getImage();
+        titulo1.setText(inmueble1.getTitulo());
+            precio1.setText(Double.toString(inmueble1.getPrecioNoche()));
+        media1.setText(Double.toString(inmueble1.getCalificacion()));
+        foto1.setIcon(inmueble1.getFotos().get(0)); // Asegúrate de manejar bien las fotos
+    }
+    if (startIndex + 1 < listaInmuebles.size()) {
+        Inmueble inmueble2 = listaInmuebles.get(startIndex + 1);
+        titulo2.setText(inmueble2.getTitulo());
+        precio2.setText(Double.toString(inmueble2.getPrecioNoche()));
+        media2.setText(Double.toString(inmueble2.getCalificacion()));
+        foto2.setIcon(inmueble2.getFotos().get(0));
+    }
+    if (startIndex + 2 < listaInmuebles.size()) {
+        Inmueble inmueble3 = listaInmuebles.get(startIndex + 2);
+        titulo3.setText(inmueble3.getTitulo());
+       precio3.setText(Double.toString(inmueble3.getPrecioNoche()));
+        media3.setText(Double.toString(inmueble3.getCalificacion()));
+        foto3.setIcon(inmueble3.getFotos().get(0));
+    }
+    if (startIndex + 3 < listaInmuebles.size()) {
+        Inmueble inmueble4 = listaInmuebles.get(startIndex + 3);
+        titulo4.setText(inmueble4.getTitulo());
+        precio4.setText(Double.toString(inmueble4.getPrecioNoche()));
+        media4.setText(Double.toString(inmueble4.getCalificacion()));
+        foto4.setIcon(inmueble4.getFotos().get(0));
+    }
+    }//GEN-LAST:event_botonPorPrecioActionPerformed
+
+    private void buscarCiudadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarCiudadActionPerformed
+       titulo1.setText("");
+        precio1.setText("");
+        media1.setText("");
+        foto1.setIcon(null);
+
+        titulo2.setText("");
+        precio2.setText("");
+        media2.setText("");
+        foto2.setIcon(null);  
+
+        titulo3.setText("");
+        precio3.setText("");
+        media3.setText("");
+        foto3.setIcon(null);
+
+        titulo4.setText("");
+        precio4.setText("");
+        media4.setText("");
+        foto4.setIcon(null);
+        for (Inmueble inm: listaInmuebles){
+        if (inm.getDireccion().getCiudad().equals(buscarCiudad.getText())){
+            if (startIndex < listaInmuebles.size()) {
+        Inmueble inmueble1 = listaInmuebles.get(pagAct*4);
+        Image imagen1 = inmueble1.getFotos().get(0).getImage();
+        titulo1.setText(inmueble1.getTitulo());
+        precio1.setText(Double.toString(inmueble1.getPrecioNoche()));
+        media1.setText(Double.toString(inmueble1.getCalificacion()));
+        foto1.setIcon(inmueble1.getFotos().get(0)); // Asegúrate de manejar bien las fotos
+    }
+    if (startIndex + 1 < listaInmuebles.size()) {
+        Inmueble inmueble2 = listaInmuebles.get(pagAct*4 + 1);
+        titulo2.setText(inmueble2.getTitulo());
+        precio2.setText(Double.toString(inmueble2.getPrecioNoche()));
+        media2.setText(Double.toString(inmueble2.getCalificacion()));
+        foto2.setIcon(inmueble2.getFotos().get(0));
+    }
+    if (startIndex + 2 < listaInmuebles.size()) {
+        Inmueble inmueble3 = listaInmuebles.get(pagAct*4 + 2);
+        titulo3.setText(inmueble3.getTitulo());
+        precio3.setText(Double.toString(inmueble3.getPrecioNoche()));
+        media3.setText(Double.toString(inmueble3.getCalificacion()));
+        foto3.setIcon(inmueble3.getFotos().get(0));
+    }
+    if (startIndex + 3 < listaInmuebles.size()) {
+        Inmueble inmueble4 = listaInmuebles.get(pagAct*4 + 3);
+        titulo4.setText(inmueble4.getTitulo());
+        precio4.setText(Double.toString(inmueble4.getPrecioNoche()));
+        media4.setText(Double.toString(inmueble4.getCalificacion()));
+        foto4.setIcon(inmueble4.getFotos().get(0));
+    }
+        }
+             }
+        
+    }//GEN-LAST:event_buscarCiudadActionPerformed
+
+    private void botonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBuscarActionPerformed
+        
+        ArrayList<Inmueble> listaInmuebles = listaInmuebles2;
+        for (Inmueble inm: listaInmuebles){
+        
+        if (inm.getDireccion().getCiudad().equals(buscarCiudad.getText())){
+           titulo1.setText("");
+        precio1.setText("");
+        media1.setText("");
+        foto1.setIcon(null);
+
+        titulo2.setText("");
+        precio2.setText("");
+        media2.setText("");
+        foto2.setIcon(null);  
+
+        titulo3.setText("");
+        precio3.setText("");
+        media3.setText("");
+        foto3.setIcon(null);
+
+        titulo4.setText("");
+        precio4.setText("");
+        media4.setText("");
+        foto4.setIcon(null);
+
+
+    if (startIndex < listaInmuebles.size()) {
+        Inmueble inmueble1 = listaInmuebles.get(pagAct*4);
+        Image imagen1 = inmueble1.getFotos().get(0).getImage();
+        titulo1.setText(inmueble1.getTitulo());
+        precio1.setText(Double.toString(inmueble1.getPrecioNoche()));
+        media1.setText(Double.toString(inmueble1.getCalificacion()));
+        foto1.setIcon(inmueble1.getFotos().get(0)); // Asegúrate de manejar bien las fotos
+    }
+    if (startIndex + 1 < listaInmuebles.size()) {
+        Inmueble inmueble2 = listaInmuebles.get(pagAct*4 + 1);
+        titulo2.setText(inmueble2.getTitulo());
+        precio2.setText(Double.toString(inmueble2.getPrecioNoche()));
+        media2.setText(Double.toString(inmueble2.getCalificacion()));
+        foto2.setIcon(inmueble2.getFotos().get(0));
+    }
+    if (startIndex + 2 < listaInmuebles.size()) {
+        Inmueble inmueble3 = listaInmuebles.get(pagAct*4 + 2);
+        titulo3.setText(inmueble3.getTitulo());
+        precio3.setText(Double.toString(inmueble3.getPrecioNoche()));
+        media3.setText(Double.toString(inmueble3.getCalificacion()));
+        foto3.setIcon(inmueble3.getFotos().get(0));
+    }
+    if (startIndex + 3 < listaInmuebles.size()) {
+        Inmueble inmueble4 = listaInmuebles.get(pagAct*4 + 3);
+        titulo4.setText(inmueble4.getTitulo());
+        precio4.setText(Double.toString(inmueble4.getPrecioNoche()));
+        media4.setText(Double.toString(inmueble4.getCalificacion()));
+        foto4.setIcon(inmueble4.getFotos().get(0));
+    } 
+        }}
+  
+        
+        
+    }//GEN-LAST:event_botonBuscarActionPerformed
+
+    private void filtroCasaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_filtroCasaActionPerformed
+        listaInmuebles = listaInmuebles2;
+        botonReseña.setSelected(false);
+        botonPorPrecio.setSelected(false);
+        filtroApartamento.setSelected(false);
+        ArrayList<Inmueble> listaInmuebles = GestorInmueble.getInmueblesPorTipo("CASA");
+        pagAct = 0;
+        titulo1.setText("");
+        precio1.setText("");
+        media1.setText("");
+        foto1.setIcon(null);
+
+        titulo2.setText("");
+        precio2.setText("");
+        media2.setText("");
+        foto2.setIcon(null);  
+
+        titulo3.setText("");
+        precio3.setText("");
+        media3.setText("");
+        foto3.setIcon(null);
+
+        titulo4.setText("");
+        precio4.setText("");
+        media4.setText("");
+        foto4.setIcon(null);
+        
+
+    if (startIndex < listaInmuebles.size()) {
+        Inmueble inmueble1 = listaInmuebles.get(startIndex);
+        Image imagen1 = inmueble1.getFotos().get(0).getImage();
+        titulo1.setText(inmueble1.getTitulo());
+        precio1.setText(Double.toString(inmueble1.getPrecioNoche()));
+        media1.setText(Double.toString(inmueble1.getCalificacion()));
+        foto1.setIcon(inmueble1.getFotos().get(0)); // Asegúrate de manejar bien las fotos
+    }
+    if (startIndex + 1 < listaInmuebles.size()) {
+        Inmueble inmueble2 = listaInmuebles.get(startIndex + 1);
+        titulo2.setText(inmueble2.getTitulo());
+        precio2.setText(Double.toString(inmueble2.getPrecioNoche()));
+        media2.setText(Double.toString(inmueble2.getCalificacion()));
+        foto2.setIcon(inmueble2.getFotos().get(0));
+    }
+    if (startIndex + 2 < listaInmuebles.size()) {
+        Inmueble inmueble3 = listaInmuebles.get(startIndex + 2);
+        titulo3.setText(inmueble3.getTitulo());
+        precio3.setText(Double.toString(inmueble3.getPrecioNoche()));
+        media3.setText(Double.toString(inmueble3.getCalificacion()));
+        foto3.setIcon(inmueble3.getFotos().get(0));
+    }
+    if (startIndex + 3 < listaInmuebles.size()) {
+        Inmueble inmueble4 = listaInmuebles.get(startIndex + 3);
+        titulo4.setText(inmueble4.getTitulo());
+        precio4.setText(Double.toString(inmueble4.getPrecioNoche()));
+        media4.setText(Double.toString(inmueble4.getCalificacion()));
+        foto4.setIcon(inmueble4.getFotos().get(0));
+    }  
+    }//GEN-LAST:event_filtroCasaActionPerformed
+
+    private void inmueble2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inmueble2ActionPerformed
+         Inmueble inmueble2 = listaInmuebles.get(1+pagAct*4);
+        
+        if (!titulo2.getText().equals("")){
+            if (botonPorPrecio.isSelected()) {GestorInmueble.getInmueblesPorPrecio();}
+            if (botonReseña.isSelected()) {GestorInmueble.getInmueblesPorCalificacion();}
+            if (filtroCasa.isSelected()) {GestorInmueble.getInmueblesPorTipo("CASA");}
+            if (filtroApartamento.isSelected()) {GestorInmueble.getInmueblesPorTipo("APARTAMENTO");}
+            MostrarInmueble mostrarInmueble = new MostrarInmueble(this.getLocation(),persona,inmueble2);
+        }
+    }//GEN-LAST:event_inmueble2ActionPerformed
+
+    private void inmueble3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inmueble3ActionPerformed
+        Inmueble inmueble3 = listaInmuebles.get(2+pagAct*4);
+        if (!titulo3.getText().equals("")){
+            if (botonPorPrecio.isSelected()) {GestorInmueble.getInmueblesPorPrecio();}
+            if (botonReseña.isSelected()) {GestorInmueble.getInmueblesPorCalificacion();}
+            if (filtroCasa.isSelected()) {GestorInmueble.getInmueblesPorTipo("CASA");}
+            if (filtroApartamento.isSelected()) {GestorInmueble.getInmueblesPorTipo("APARTAMENTO");}
+            MostrarInmueble mostrarInmueble = new MostrarInmueble(this.getLocation(),persona,inmueble3);
+        }
+    }//GEN-LAST:event_inmueble3ActionPerformed
+
+    private void inmueble4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inmueble4ActionPerformed
+             Inmueble inmueble4 = listaInmuebles.get(3+pagAct*4);
+        if (!titulo4.getText().equals("")){
+            if (botonPorPrecio.isSelected()) {GestorInmueble.getInmueblesPorPrecio();}
+            if (botonReseña.isSelected()) {GestorInmueble.getInmueblesPorCalificacion();}
+            if (filtroCasa.isSelected()) {GestorInmueble.getInmueblesPorTipo("CASA");}
+            if (filtroApartamento.isSelected()) {GestorInmueble.getInmueblesPorTipo("APARTAMENTO");}
+            MostrarInmueble mostrarInmueble = new MostrarInmueble(this.getLocation(),persona,inmueble4);
+        }
+    }//GEN-LAST:event_inmueble4ActionPerformed
+    ArrayList<Inmueble> listaInmuebles = GestorInmueble.getInmuebles();
+    ArrayList<Inmueble> listaInmuebles2 = GestorInmueble.getInmuebles();
     int pagAct = 0; 
-    int numPag = (int) Math.ceil(inmuebles.size()/4);
+    int numPag = (int) Math.ceil(listaInmuebles.size()/4);
+    int startIndex = pagAct*4;
+    
+    private ImageIcon imagen1;
+    private ImageIcon imagen2;
+    private ImageIcon imagen3;
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JRadioButton FiltroPrecio;
+    private javax.swing.JButton AmpliarInmueble1;
     private javax.swing.JButton botonAtras;
+    private javax.swing.JButton botonBuscar;
     private javax.swing.JMenuItem botonPerfil;
+    private javax.swing.JRadioButton botonPorPrecio;
+    private javax.swing.JRadioButton botonReseña;
     private javax.swing.JButton botonSiguiente;
+    private javax.swing.JTextField buscarCiudad;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.ButtonGroup buttonGroup3;
     private javax.swing.ButtonGroup buttonGroup4;
     private java.awt.Canvas canvas1;
-    private javax.swing.JRadioButton filtroReseñas;
+    private javax.swing.JCheckBox filtroApartamento;
+    private javax.swing.JCheckBox filtroCasa;
     private javax.swing.JLabel foto1;
     private javax.swing.JLabel foto2;
     private javax.swing.JLabel foto3;
     private javax.swing.JLabel foto4;
+    private javax.swing.JButton inmueble2;
+    private javax.swing.JButton inmueble3;
+    private javax.swing.JButton inmueble4;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
@@ -399,13 +886,11 @@ public class BuscarInmuebles extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanelBusqueda;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel media1;
     private javax.swing.JLabel media2;
     private javax.swing.JLabel media3;
@@ -414,10 +899,6 @@ public class BuscarInmuebles extends javax.swing.JFrame {
     private javax.swing.JLabel precio2;
     private javax.swing.JLabel precio3;
     private javax.swing.JLabel precio4;
-    private javax.swing.JLabel tipo1;
-    private javax.swing.JLabel tipo2;
-    private javax.swing.JLabel tipo3;
-    private javax.swing.JLabel tipo4;
     private javax.swing.JLabel titulo1;
     private javax.swing.JLabel titulo2;
     private javax.swing.JLabel titulo3;

@@ -308,7 +308,7 @@ public class Main {
       System.out.println(p);
    }
    */
-   
+   System.out.println (GestorInmueble.getInmuebles().toString());
    GestorInmueble.recuperarDatosInmuebles();
    GestorInmueble.recuperarDatosPersonas();
    GestorInmueble.recuperarDatosReservas();

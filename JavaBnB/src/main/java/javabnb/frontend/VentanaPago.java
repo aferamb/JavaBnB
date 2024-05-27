@@ -79,9 +79,6 @@ public class VentanaPago extends javax.swing.JFrame {
         jPanelBusqueda = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        fechaDeEntrada = new javax.swing.JFormattedTextField();
-        fechaDeSalida = new javax.swing.JFormattedTextField();
-        etiquetaPrecio = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         imgPrincipal = new javax.swing.JLabel();
         etiquetaTitulo = new javax.swing.JLabel();
@@ -91,6 +88,8 @@ public class VentanaPago extends javax.swing.JFrame {
         etiquetaPrecio1 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         btnPagar = new javax.swing.JButton();
+        fechaDeSalida = new javax.swing.JFormattedTextField();
+        fechaDeEntrada = new javax.swing.JFormattedTextField();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         buscarGestionarInmuebles = new javax.swing.JMenuItem();
@@ -111,43 +110,21 @@ public class VentanaPago extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("JavaBnB");
-        setMinimumSize(new java.awt.Dimension(1100, 800));
+        setMaximumSize(new java.awt.Dimension(900, 720));
+        setMinimumSize(new java.awt.Dimension(900, 720));
+        setPreferredSize(new java.awt.Dimension(900, 720));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        fechaDeEntrada.setText("dd/mm/yyyy");
-        fechaDeEntrada.setToolTipText("");
-        fechaDeEntrada.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        fechaDeEntrada.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                fechaDeEntradaFocusGained(evt);
-            }
-        });
-        getContentPane().add(fechaDeEntrada, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 190, -1, -1));
-
-        fechaDeSalida.setText("dd/mm/yyyy");
-        fechaDeSalida.setToolTipText("");
-        fechaDeSalida.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        fechaDeSalida.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                fechaDeSalidaFocusGained(evt);
-            }
-        });
-        getContentPane().add(fechaDeSalida, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 140, -1, -1));
-
-        etiquetaPrecio.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        etiquetaPrecio.setText("Precio");
-        getContentPane().add(etiquetaPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 320, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel3.setText("Fecha de entrada");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, -1, -1));
 
         imgPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/logoJavaBnB-PNGx2.png"))); // NOI18N
-        getContentPane().add(imgPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 50, -1, -1));
+        getContentPane().add(imgPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 50, -1, -1));
 
         etiquetaTitulo.setBackground(new java.awt.Color(255, 255, 255));
-        etiquetaTitulo.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        etiquetaTitulo.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         etiquetaTitulo.setText("Titulo del inmueble");
         etiquetaTitulo.setMaximumSize(new java.awt.Dimension(600, 33));
         etiquetaTitulo.setMinimumSize(new java.awt.Dimension(600, 33));
@@ -173,8 +150,7 @@ public class VentanaPago extends javax.swing.JFrame {
         getContentPane().add(btnCalcularPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 250, -1, -1));
 
         etiquetaPrecio1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        etiquetaPrecio1.setText("Precio");
-        getContentPane().add(etiquetaPrecio1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 320, -1, -1));
+        getContentPane().add(etiquetaPrecio1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 320, 130, 30));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel7.setText("Precio Final");
@@ -189,6 +165,36 @@ public class VentanaPago extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnPagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 390, -1, -1));
+
+        fechaDeSalida.setText("dd/mm/yyyy");
+        fechaDeSalida.setToolTipText("");
+        fechaDeSalida.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        fechaDeSalida.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                fechaDeSalidaFocusGained(evt);
+            }
+        });
+        fechaDeSalida.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fechaDeSalidaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(fechaDeSalida, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 190, -1, -1));
+
+        fechaDeEntrada.setText("dd/mm/yyyy");
+        fechaDeEntrada.setToolTipText("");
+        fechaDeEntrada.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        fechaDeEntrada.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                fechaDeEntradaFocusGained(evt);
+            }
+        });
+        fechaDeEntrada.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fechaDeEntradaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(fechaDeEntrada, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 140, -1, -1));
 
         jMenuBar1.setMinimumSize(new java.awt.Dimension(70, 73));
         jMenuBar1.setPreferredSize(new java.awt.Dimension(70, 73));
@@ -294,28 +300,19 @@ public class VentanaPago extends javax.swing.JFrame {
     }//GEN-LAST:event_btnReseñaModInmActionPerformed
 
     private void btnReservasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservasActionPerformed
-        ConsultarReservas consultarReservas = new ConsultarReservas(this.getLocation(),persona);
+        ConsultarReservasCliente consultarReservas = new ConsultarReservasCliente(this.getLocation(),persona);
         this.dispose();
     }//GEN-LAST:event_btnReservasActionPerformed
 
     
     
-    private void fechaDeEntradaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fechaDeEntradaFocusGained
-        if (fechaDeEntrada.getText().equals("dd/mm/yyyy")) {
-            fechaDeEntrada.setText("");
-        }
-    }//GEN-LAST:event_fechaDeEntradaFocusGained
-
-    private void fechaDeSalidaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fechaDeSalidaFocusGained
-        if (fechaDeSalida.getText().equals("dd/mm/yyyy")) {
-            fechaDeSalida.setText("");
-        }
-    }//GEN-LAST:event_fechaDeSalidaFocusGained
-
     private void btnCalcularPrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularPrecioActionPerformed
+         boolean fechaValida = true ;
+         boolean fechaReservada = false;
+        
         DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");  
-        LocalDate fechaEntradaConvertida = null;
-        LocalDate fechaSalidaConvertida = null;
+        LocalDate fechaEntradaConvertida;
+        LocalDate fechaSalidaConvertida;
         try {
             fechaEntradaConvertida = LocalDate.parse(fechaDeEntrada.getText(), formato);
             fechaSalidaConvertida = LocalDate.parse(fechaDeSalida.getText(), formato);
@@ -326,18 +323,21 @@ public class VentanaPago extends javax.swing.JFrame {
             }
             if (fechaEntradaConvertida.isAfter(fechaSalidaConvertida)) {
                 JOptionPane.showMessageDialog(this,"Fechas introducidas no validas","Error de fecha",JOptionPane.WARNING_MESSAGE);
+                fechaValida = false;
             }
             if (!GestorInmueble.inmuebleDisponible(inmueble,fechaEntradaConvertida,fechaSalidaConvertida)) {
                 JOptionPane.showMessageDialog(this,"Fechas introducidas ya reservadas","Error de fecha",JOptionPane.WARNING_MESSAGE);
+                 fechaReservada = true;
             }
             this.fechaEntrada = fechaEntradaConvertida;
             this.fechaSalida = fechaSalidaConvertida;
             this.importe = precio;
-            etiquetaPrecio1.setText(String.valueOf(precio));
+            if (!fechaReservada && fechaValida){
+            etiquetaPrecio1.setText(String.valueOf(Math.floor(precio * 100)/100) + "€");}
         } catch (DateTimeParseException e) {
-            fechaDeEntrada.setText("dd/mm/yyyy");
-        }
+            fechaDeSalida.setText("dd/mm/yyyy");
         
+        }
     }//GEN-LAST:event_btnCalcularPrecioActionPerformed
 
     private void btnPagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPagarActionPerformed
@@ -350,6 +350,7 @@ public class VentanaPago extends javax.swing.JFrame {
             String ruta = fileChooser.getSelectedFile().getAbsolutePath();
             try {
                 reserva.generarFactura(ruta);
+                cliente.addReserva(reserva);
             } catch (IOException e) {
                 JOptionPane.showMessageDialog(this,"Error al generar la factura","Error",JOptionPane.ERROR_MESSAGE);
                 e.printStackTrace();
@@ -366,6 +367,28 @@ public class VentanaPago extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnPagarActionPerformed
 
+    private void fechaDeSalidaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fechaDeSalidaFocusGained
+        if (fechaDeSalida.getText().equals("dd/mm/yyyy")) {
+            fechaDeSalida.setText("");
+        }
+        fechaDeSalida.setToolTipText(null);
+    }//GEN-LAST:event_fechaDeSalidaFocusGained
+
+    private void fechaDeSalidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fechaDeSalidaActionPerformed
+    
+    }//GEN-LAST:event_fechaDeSalidaActionPerformed
+
+    private void fechaDeEntradaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fechaDeEntradaFocusGained
+        if (fechaDeEntrada.getText().equals("dd/mm/yyyy")) {
+            fechaDeEntrada.setText("");
+        }
+        fechaDeEntrada.setToolTipText(null);
+    }//GEN-LAST:event_fechaDeEntradaFocusGained
+
+    private void fechaDeEntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fechaDeEntradaActionPerformed
+
+    }//GEN-LAST:event_fechaDeEntradaActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem botonPerfil;
     private javax.swing.JButton btnCalcularPrecio;
@@ -373,7 +396,6 @@ public class VentanaPago extends javax.swing.JFrame {
     private javax.swing.JMenuItem btnReservas;
     private javax.swing.JMenuItem btnReseñaModInm;
     private javax.swing.JMenuItem buscarGestionarInmuebles;
-    private javax.swing.JLabel etiquetaPrecio;
     private javax.swing.JLabel etiquetaPrecio1;
     private javax.swing.JLabel etiquetaTitulo;
     private javax.swing.JFormattedTextField fechaDeEntrada;

@@ -7,13 +7,19 @@
 package javabnb.frontend;
 
 import java.awt.Container;
+import java.awt.Image;
 import java.awt.Point;
+import java.io.File;
 import java.util.ArrayList;
 import javabnb.backend.*;
 import javabnb.frontend.EditarAnfitrion;
 import javabnb.frontend.EditarCliente;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
@@ -65,6 +71,45 @@ public class CrearInmueble extends javax.swing.JFrame {
         jPanelBusqueda = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        imgPrincipal = new javax.swing.JLabel();
+        icono2 = new javax.swing.JButton();
+        icono3 = new javax.swing.JButton();
+        icono4 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        nombreCalle = new javax.swing.JTextField();
+        numeroCalle = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        serviciosAdicionales = new javax.swing.JTextArea();
+        detallesCalle = new javax.swing.JTextField();
+        ciudad = new javax.swing.JTextField();
+        comunidad = new javax.swing.JTextField();
+        pais = new javax.swing.JTextField();
+        jButton2 = new javax.swing.JButton();
+        jLabel14 = new javax.swing.JLabel();
+        precioNoche = new javax.swing.JTextField();
+        tipoInmueble = new javax.swing.JComboBox<>();
+        jLabel15 = new javax.swing.JLabel();
+        codigoPostal = new javax.swing.JFormattedTextField();
+        huespedesMax = new javax.swing.JTextField();
+        habitaciones = new javax.swing.JTextField();
+        camas = new javax.swing.JTextField();
+        baños = new javax.swing.JTextField();
+        foto2 = new javax.swing.JButton();
+        foto4 = new javax.swing.JButton();
+        foto3 = new javax.swing.JButton();
+        nombreInmueble = new javax.swing.JTextField();
+        jLabel16 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         buscarGestionarInmuebles = new javax.swing.JMenuItem();
@@ -85,9 +130,198 @@ public class CrearInmueble extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("JavaBnB");
-        setMinimumSize(new java.awt.Dimension(1100, 800));
+        setMinimumSize(new java.awt.Dimension(900, 720));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        imgPrincipal.setBackground(new java.awt.Color(102, 102, 102));
+        imgPrincipal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        imgPrincipal.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        imgPrincipal.setMaximumSize(new java.awt.Dimension(250, 250));
+        imgPrincipal.setMinimumSize(new java.awt.Dimension(250, 250));
+        imgPrincipal.setPreferredSize(new java.awt.Dimension(250, 250));
+        imgPrincipal.setRequestFocusEnabled(false);
+        getContentPane().add(imgPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, -1, -1));
+
+        icono2.setBackground(new java.awt.Color(102, 102, 102));
+        icono2.setText("FOTO 2");
+        icono2.setBorder(null);
+        icono2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        icono2.setMaximumSize(new java.awt.Dimension(75, 75));
+        icono2.setMinimumSize(new java.awt.Dimension(75, 75));
+        icono2.setPreferredSize(new java.awt.Dimension(75, 75));
+        icono2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                icono2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(icono2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, -1, -1));
+
+        icono3.setBackground(new java.awt.Color(102, 102, 102));
+        icono3.setText("FOTO 3");
+        icono3.setBorder(null);
+        icono3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        icono3.setMaximumSize(new java.awt.Dimension(75, 75));
+        icono3.setMinimumSize(new java.awt.Dimension(75, 75));
+        icono3.setPreferredSize(new java.awt.Dimension(75, 75));
+        icono3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                icono3ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(icono3, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 310, -1, -1));
+
+        icono4.setBackground(new java.awt.Color(102, 102, 102));
+        icono4.setText("foto4");
+        icono4.setBorder(null);
+        icono4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        icono4.setMaximumSize(new java.awt.Dimension(75, 75));
+        icono4.setMinimumSize(new java.awt.Dimension(75, 75));
+        icono4.setPreferredSize(new java.awt.Dimension(75, 75));
+        icono4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                icono4ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(icono4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 310, -1, -1));
+
+        jLabel3.setText("Baños");
+        jLabel3.setMaximumSize(new java.awt.Dimension(120, 25));
+        jLabel3.setMinimumSize(new java.awt.Dimension(120, 25));
+        jLabel3.setPreferredSize(new java.awt.Dimension(120, 25));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 210, -1, 40));
+
+        jLabel4.setText("Habitaciones");
+        jLabel4.setMaximumSize(new java.awt.Dimension(120, 25));
+        jLabel4.setMinimumSize(new java.awt.Dimension(120, 25));
+        jLabel4.setPreferredSize(new java.awt.Dimension(120, 25));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 140, -1, 30));
+
+        jLabel5.setText("Camas");
+        jLabel5.setMaximumSize(new java.awt.Dimension(120, 25));
+        jLabel5.setMinimumSize(new java.awt.Dimension(120, 25));
+        jLabel5.setPreferredSize(new java.awt.Dimension(120, 25));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 170, -1, 40));
+
+        jLabel6.setText("Huespedes máximos");
+        jLabel6.setMaximumSize(new java.awt.Dimension(120, 25));
+        jLabel6.setMinimumSize(new java.awt.Dimension(120, 25));
+        jLabel6.setPreferredSize(new java.awt.Dimension(120, 25));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 90, -1, 50));
+
+        jLabel2.setText("Calle");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 100, -1, -1));
+
+        jLabel7.setText("Numero");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 140, -1, -1));
+
+        jLabel8.setText("Planta, letra");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 180, -1, -1));
+
+        jLabel9.setText("Código Postal");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 220, -1, -1));
+
+        jLabel10.setText("Ciudad");
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 270, -1, -1));
+
+        jLabel11.setText("Comunidad");
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 310, -1, -1));
+
+        jLabel12.setText("País");
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 350, -1, -1));
+
+        jLabel13.setText("Servicios adicionales");
+        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 400, -1, -1));
+
+        nombreCalle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nombreCalleActionPerformed(evt);
+            }
+        });
+        getContentPane().add(nombreCalle, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 100, 180, -1));
+        getContentPane().add(numeroCalle, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 140, 180, -1));
+
+        serviciosAdicionales.setColumns(20);
+        serviciosAdicionales.setRows(5);
+        jScrollPane1.setViewportView(serviciosAdicionales);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 400, 360, -1));
+        getContentPane().add(detallesCalle, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 180, 180, -1));
+        getContentPane().add(ciudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 270, 180, -1));
+        getContentPane().add(comunidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 310, 180, -1));
+        getContentPane().add(pais, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 350, 180, -1));
+
+        jButton2.setText("Publicar Inmueble");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 510, 250, -1));
+
+        jLabel14.setText("Precio");
+        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 350, -1, -1));
+        getContentPane().add(precioNoche, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 350, -1, -1));
+
+        tipoInmueble.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CASA", "APARTAMENTO", " " }));
+        getContentPane().add(tipoInmueble, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 270, -1, -1));
+
+        jLabel15.setText("Tipo de inmueble");
+        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 270, 110, -1));
+
+        try {
+            codigoPostal.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        getContentPane().add(codigoPostal, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 220, 180, -1));
+
+        huespedesMax.setText("jTextField1");
+        getContentPane().add(huespedesMax, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 100, -1, -1));
+
+        habitaciones.setText("jTextField2");
+        getContentPane().add(habitaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 140, -1, -1));
+
+        camas.setText("jTextField3");
+        getContentPane().add(camas, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 180, -1, -1));
+
+        baños.setText("jTextField4");
+        getContentPane().add(baños, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 220, -1, -1));
+
+        foto2.setText("Añadir");
+        foto2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                foto2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(foto2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 390, 70, -1));
+
+        foto4.setText("Añadir");
+        foto4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                foto4ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(foto4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 390, 70, -1));
+
+        foto3.setText("Añadir");
+        foto3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                foto3ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(foto3, new org.netbeans.lib.awtextra.AbsoluteConstraints(126, 390, 70, -1));
+
+        nombreInmueble.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        nombreInmueble.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nombreInmuebleActionPerformed(evt);
+            }
+        });
+        getContentPane().add(nombreInmueble, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 32, 510, 40));
+
+        jLabel16.setText("Nombre del inmueble");
+        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 10, -1, -1));
 
         jMenuBar1.setMinimumSize(new java.awt.Dimension(70, 73));
         jMenuBar1.setPreferredSize(new java.awt.Dimension(70, 73));
@@ -193,22 +427,205 @@ public class CrearInmueble extends javax.swing.JFrame {
     }//GEN-LAST:event_btnReseñaModInmActionPerformed
 
     private void btnReservasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservasActionPerformed
-        ConsultarReservas consultarReservas = new ConsultarReservas(this.getLocation(),persona);
+        ConsultarReservasCliente consultarReservas = new ConsultarReservasCliente(this.getLocation(),persona);
         this.dispose();
     }//GEN-LAST:event_btnReservasActionPerformed
 
+    private void icono2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_icono2ActionPerformed
+        imgPrincipal.setIcon(foto2.getIcon());
+    }//GEN-LAST:event_icono2ActionPerformed
+
+    private void icono3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_icono3ActionPerformed
+        imgPrincipal.setIcon(foto3.getIcon());
+    }//GEN-LAST:event_icono3ActionPerformed
+
+    private void icono4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_icono4ActionPerformed
+        imgPrincipal.setIcon(foto4.getIcon());
+    }//GEN-LAST:event_icono4ActionPerformed
+
+    private void nombreCalleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreCalleActionPerformed
+        
+    }//GEN-LAST:event_nombreCalleActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+         if (!nombreInmueble.getText().equals("") )   {nombreValido = true;}
+        if (!nombreCalle.getText().equals("") )   {calleValida = true;}
+        if (!numeroCalle.getText().equals("") )   {
+            try {
+        Integer.valueOf(numeroCalle.getText());
+        numeroValido = true;
+    } catch (NumberFormatException e) {
+        numeroValido = false;    }}
+        if (!detallesCalle.getText().equals("") )   {detallesValidos = true;}
+        if (!codigoPostal.getText().equals("") )   {codigoValido = true;}
+        if (!ciudad.getText().equals("") )   {ciudadValida = true;}
+        if (!pais.getText().equals("") )   {paisValido = true;}
+        if (!comunidad.getText().equals("") )   {comunidadValida = true;}
+    if (calleValida && numeroValido && codigoValido && detallesValidos && ciudadValida && paisValido && comunidadValida) {
+        Direccion dir = new Direccion(nombreCalle.getText(),Integer.parseInt(numeroCalle.getText()),detallesCalle.getText(),Integer.parseInt(codigoPostal.getText()),ciudad.getText(),comunidad.getText(),pais.getText());
+         direccionValida = true;   
+    }
+    if (!huespedesMax.getText().equals("") )   {
+        try {
+        Integer.valueOf(huespedesMax.getText());huespedesValidos = true;} 
+        catch (NumberFormatException e) {huespedesValidos = false;    }
+        }
+     if (!habitaciones.getText().equals("") )   {
+        try {
+        Integer.valueOf(habitaciones.getText());habitacionesValidas = true;} 
+        catch (NumberFormatException e) {habitacionesValidas = false;    }
+        }
+     if (!baños.getText().equals("") )   {
+        try {
+        Integer.valueOf(baños.getText());bañosValidos = true;} 
+        catch (NumberFormatException e) {bañosValidos = false;    }
+        }
+    if (!camas.getText().equals("") )   {
+        try {
+        Integer.valueOf(camas.getText());camasValidas = true;} 
+        catch (NumberFormatException e) {camasValidas = false;    }
+        }
+    if (!precioNoche.getText().equals("") )   {
+        try {
+        Double.valueOf(precioNoche.getText());precioValido = true;} 
+        catch (NumberFormatException e) {precioValido = false;    }
+        }
+    if (icono2.getIcon()!= null) {fotos.add((ImageIcon)icono2.getIcon());}
+    if (icono3.getIcon()!= null) {fotos.add((ImageIcon)icono3.getIcon());}
+    if (icono4.getIcon()!= null) {fotos.add((ImageIcon)icono4.getIcon());}
+    
+    if (!fotos.isEmpty() && nombreValido && huespedesValidos && camasValidas && bañosValidos && habitacionesValidas && precioValido && direccionValida){
+        Inmueble inmueble = new Inmueble(nombreInmueble.getText(), (Anfitrion) persona, dir,Integer.parseInt(huespedesMax.getText()),Integer.parseInt(habitaciones.getText()),Integer.parseInt(camas.getText()),Integer.parseInt(baños.getText()),tipoInmueble.getSelectedItem().toString(),Double.parseDouble(precioNoche.getText()),serviciosAdicionales.getText().split(","),fotos,0);
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void foto2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_foto2ActionPerformed
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("Image files", "jpg", "png", "gif", "bmp"));
+        fileChooser.setAcceptAllFileFilterUsed(false);
+
+        int returnValue = fileChooser.showOpenDialog(null);
+        if (returnValue == JFileChooser.APPROVE_OPTION) {
+        File  selectedFile = fileChooser.getSelectedFile();
+        ImageIcon imagenIcon = new ImageIcon(selectedFile.getAbsolutePath());
+        
+        Image imagen2 = imagenIcon.getImage();
+        Image newimg2 = imagen2.getScaledInstance(250, 250, java.awt.Image.SCALE_SMOOTH); 
+        ImageIcon imagen22 = new ImageIcon(newimg2);
+        
+        icono2.setIcon(imagen22);
+        }
+    
+              
+    }//GEN-LAST:event_foto2ActionPerformed
+
+    private void foto3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_foto3ActionPerformed
+JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("Image files", "jpg", "png", "gif", "bmp"));
+        fileChooser.setAcceptAllFileFilterUsed(false);
+
+        int returnValue = fileChooser.showOpenDialog(null);
+        if (returnValue == JFileChooser.APPROVE_OPTION) {
+        File  selectedFile = fileChooser.getSelectedFile();
+        ImageIcon imagenIcon = new ImageIcon(selectedFile.getAbsolutePath());
+        
+        Image imagen3 = imagenIcon.getImage();
+        Image newimg3 = imagen3.getScaledInstance(250, 250, java.awt.Image.SCALE_SMOOTH); 
+        ImageIcon imagen33 = new ImageIcon(newimg3);
+        
+        icono3.setIcon(imagen33);
+        }
+    }//GEN-LAST:event_foto3ActionPerformed
+
+    private void foto4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_foto4ActionPerformed
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("Image files", "jpg", "png", "gif", "bmp"));
+        fileChooser.setAcceptAllFileFilterUsed(false);
+
+        int returnValue = fileChooser.showOpenDialog(null);
+        if (returnValue == JFileChooser.APPROVE_OPTION) {
+        File  selectedFile = fileChooser.getSelectedFile();
+        ImageIcon imagenIcon = new ImageIcon(selectedFile.getAbsolutePath());
+        
+        Image imagen4 = imagenIcon.getImage();
+        Image newimg4 = imagen4.getScaledInstance(250, 250, java.awt.Image.SCALE_SMOOTH); 
+        ImageIcon imagen44 = new ImageIcon(newimg4);
+        
+        icono4.setIcon(imagen44);}
+    }//GEN-LAST:event_foto4ActionPerformed
+
+    private void nombreInmuebleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreInmuebleActionPerformed
+    }//GEN-LAST:event_nombreInmuebleActionPerformed
+    boolean nombreValido = false;
+    boolean calleValida = false;
+    boolean numeroValido= false;
+    boolean detallesValidos= false;
+    boolean codigoValido= false;
+    boolean ciudadValida= false;
+    boolean comunidadValida= false;
+    boolean paisValido= false;
+    boolean huespedesValidos= false;
+    boolean habitacionesValidas= false;
+    boolean bañosValidos= false;
+    boolean precioValido= false;
+    boolean camasValidas= false;
+    boolean direccionValida = false;
+    Direccion dir;
+    private ArrayList<ImageIcon> fotos;
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField baños;
     private javax.swing.JMenuItem botonPerfil;
     private javax.swing.JMenuItem btnReservas;
     private javax.swing.JMenuItem btnReseñaModInm;
     private javax.swing.JMenuItem buscarGestionarInmuebles;
+    private javax.swing.JTextField camas;
+    private javax.swing.JTextField ciudad;
+    private javax.swing.JFormattedTextField codigoPostal;
+    private javax.swing.JTextField comunidad;
+    private javax.swing.JTextField detallesCalle;
+    private javax.swing.JButton foto2;
+    private javax.swing.JButton foto3;
+    private javax.swing.JButton foto4;
+    private javax.swing.JTextField habitaciones;
+    private javax.swing.JTextField huespedesMax;
+    private javax.swing.JButton icono2;
+    private javax.swing.JButton icono3;
+    private javax.swing.JButton icono4;
+    private javax.swing.JLabel imgPrincipal;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanelBusqueda;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField nombreCalle;
+    private javax.swing.JTextField nombreInmueble;
+    private javax.swing.JTextField numeroCalle;
+    private javax.swing.JTextField pais;
+    private javax.swing.JTextField precioNoche;
+    private javax.swing.JTextArea serviciosAdicionales;
+    private javax.swing.JComboBox<String> tipoInmueble;
     // End of variables declaration//GEN-END:variables
 }

@@ -8,7 +8,6 @@ package javabnb.frontend;
 
 import java.awt.Container;
 import java.awt.Point;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import javabnb.backend.*;
 import javabnb.frontend.EditarAnfitrion;
@@ -20,18 +19,20 @@ import javax.swing.JOptionPane;
  *
  * @author ALEJANDRO
  */
-public class AñadirReseña extends javax.swing.JFrame {
+public class ConsultarReservasCliente extends javax.swing.JFrame {
 
-   
+    
+
+    
     /**
      * Creates new form MenuPrincipal
      * 
      * @param localizacion
      * @param persona
      */
-    public AñadirReseña( Point localizacion, Persona persona) {
+    public ConsultarReservasCliente( Point localizacion, Persona persona) {
         this.setLocation(localizacion);
-        this.persona = persona;
+        this.persona =  persona;
         initComponents();
         this.setVisible(true);
         if (persona instanceof ClienteParticular) {
@@ -51,12 +52,8 @@ public class AñadirReseña extends javax.swing.JFrame {
             jMenu2.setText("Gestionar");
             btnReseñaModInm.setText("Modificar inmueble");
         }
-         for (Reserva reserva : listaRes){
-    if (!reserva.getFechaSalida().isAfter(LocalDate.now())){
-        listaReservas.add(reserva);}
     }
-    this.listaReservas = listaReservas;
-    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -130,7 +127,7 @@ public class AñadirReseña extends javax.swing.JFrame {
         jPanel4.add(precio1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 30, 100, -1));
         jPanel4.add(media1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 80, -1, -1));
 
-        AmpliarInmueble1.setText("Hacer reseña");
+        AmpliarInmueble1.setText("Leer más");
         AmpliarInmueble1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AmpliarInmueble1ActionPerformed(evt);
@@ -138,7 +135,7 @@ public class AñadirReseña extends javax.swing.JFrame {
         });
         jPanel4.add(AmpliarInmueble1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 80, 130, -1));
 
-        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 60, 690, 130));
+        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 690, 130));
 
         botonAtras.setText("Anterior");
         botonAtras.addActionListener(new java.awt.event.ActionListener() {
@@ -146,7 +143,7 @@ public class AñadirReseña extends javax.swing.JFrame {
                 botonAtrasActionPerformed(evt);
             }
         });
-        getContentPane().add(botonAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 30, -1, -1));
+        getContentPane().add(botonAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, -1, -1));
 
         jPanel5.setBackground(new java.awt.Color(153, 153, 153));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -157,7 +154,7 @@ public class AñadirReseña extends javax.swing.JFrame {
         jPanel5.add(precio2, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 30, 100, -1));
         jPanel5.add(media2, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 80, -1, -1));
 
-        inmueble2.setText("Hacer reseña");
+        inmueble2.setText("Leer más");
         inmueble2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 inmueble2ActionPerformed(evt);
@@ -165,7 +162,7 @@ public class AñadirReseña extends javax.swing.JFrame {
         });
         jPanel5.add(inmueble2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 80, 130, -1));
 
-        getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, 690, 130));
+        getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, 690, 130));
 
         jPanel6.setBackground(new java.awt.Color(153, 153, 153));
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -176,7 +173,7 @@ public class AñadirReseña extends javax.swing.JFrame {
         jPanel6.add(precio3, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 30, 100, -1));
         jPanel6.add(media3, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 80, -1, -1));
 
-        inmueble3.setText("Hacer reseña");
+        inmueble3.setText("Leer más");
         inmueble3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 inmueble3ActionPerformed(evt);
@@ -184,7 +181,7 @@ public class AñadirReseña extends javax.swing.JFrame {
         });
         jPanel6.add(inmueble3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 80, 130, -1));
 
-        getContentPane().add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 340, 690, 130));
+        getContentPane().add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 330, 690, 130));
 
         jPanel7.setBackground(new java.awt.Color(153, 153, 153));
         jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -195,7 +192,7 @@ public class AñadirReseña extends javax.swing.JFrame {
         jPanel7.add(precio4, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 30, 100, -1));
         jPanel7.add(media4, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 80, -1, -1));
 
-        inmueble4.setText("Hacer reseña");
+        inmueble4.setText("Leer más");
         inmueble4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 inmueble4ActionPerformed(evt);
@@ -203,7 +200,7 @@ public class AñadirReseña extends javax.swing.JFrame {
         });
         jPanel7.add(inmueble4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 80, 130, -1));
 
-        getContentPane().add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 480, 690, 130));
+        getContentPane().add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 470, 690, 130));
 
         botonSiguiente.setText("Siguiente");
         botonSiguiente.addActionListener(new java.awt.event.ActionListener() {
@@ -211,7 +208,7 @@ public class AñadirReseña extends javax.swing.JFrame {
                 botonSiguienteActionPerformed(evt);
             }
         });
-        getContentPane().add(botonSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 30, -1, -1));
+        getContentPane().add(botonSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 20, -1, -1));
 
         jMenuBar1.setMinimumSize(new java.awt.Dimension(70, 73));
         jMenuBar1.setPreferredSize(new java.awt.Dimension(70, 73));
@@ -222,6 +219,7 @@ public class AñadirReseña extends javax.swing.JFrame {
         jMenu1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jMenu1.setMaximumSize(new java.awt.Dimension(120, 32767));
         jMenu1.setMinimumSize(new java.awt.Dimension(120, 22));
+        jMenu1.setPreferredSize(new java.awt.Dimension(120, 22));
 
         buscarGestionarInmuebles.setText("Buscar inmuebles");
         buscarGestionarInmuebles.setToolTipText("");
@@ -236,6 +234,7 @@ public class AñadirReseña extends javax.swing.JFrame {
 
         jMenu2.setText("Reseñas");
         jMenu2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jMenu2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jMenu2.setMaximumSize(new java.awt.Dimension(120, 32767));
         jMenu2.setMinimumSize(new java.awt.Dimension(120, 22));
 
@@ -251,6 +250,7 @@ public class AñadirReseña extends javax.swing.JFrame {
 
         jMenu3.setText("Reservas");
         jMenu3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jMenu3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jMenu3.setMaximumSize(new java.awt.Dimension(120, 32767));
         jMenu3.setMinimumSize(new java.awt.Dimension(120, 22));
 
@@ -266,6 +266,7 @@ public class AñadirReseña extends javax.swing.JFrame {
 
         jMenu4.setText("Perfil");
         jMenu4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jMenu4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jMenu4.setMaximumSize(new java.awt.Dimension(120, 32767));
         jMenu4.setMinimumSize(new java.awt.Dimension(120, 45));
 
@@ -375,10 +376,11 @@ public class AñadirReseña extends javax.swing.JFrame {
             titulo4.setText(reserva4.getInmueble().getTitulo());
             foto4.setIcon(reserva4.getInmueble().getFotos().get(0));
         }
+
     }//GEN-LAST:event_botonAtrasActionPerformed
 
     private void inmueble2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inmueble2ActionPerformed
-        Reserva reserva2 = listaReservas.get(1 + pagAct*4);
+         Reserva reserva2 = listaReservas.get(1 + pagAct*4);
 
         if (!titulo2.getText().equals("")){
             MostrarReserva mostrarReserva = new MostrarReserva(this.getLocation(),persona,reserva2);
@@ -386,7 +388,7 @@ public class AñadirReseña extends javax.swing.JFrame {
     }//GEN-LAST:event_inmueble2ActionPerformed
 
     private void inmueble3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inmueble3ActionPerformed
-        Reserva reserva3 = listaReservas.get(2 + pagAct*4);
+         Reserva reserva3 = listaReservas.get(2 + pagAct*4);
 
         if (!titulo1.getText().equals("")){
             MostrarReserva mostrarReserva = new MostrarReserva(this.getLocation(),persona,reserva3);
@@ -394,7 +396,7 @@ public class AñadirReseña extends javax.swing.JFrame {
     }//GEN-LAST:event_inmueble3ActionPerformed
 
     private void inmueble4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inmueble4ActionPerformed
-        Reserva reserva4 = listaReservas.get(3 + pagAct*4);
+         Reserva reserva4 = listaReservas.get(3 + pagAct*4);
 
         if (!titulo1.getText().equals("")){
             MostrarReserva mostrarReserva = new MostrarReserva(this.getLocation(),persona,reserva4);
@@ -435,19 +437,15 @@ public class AñadirReseña extends javax.swing.JFrame {
             Reserva reserva4 = listaReservas.get(pagAct*4 + 3);
             titulo4.setText(reserva4.getInmueble().getTitulo());
             foto4.setIcon(reserva4.getInmueble().getFotos().get(0));
-  
-    }
-        
+        }
     }//GEN-LAST:event_botonSiguienteActionPerformed
-     private Persona persona;
-    
 
-    
-      ArrayList<Reserva> listaRes =((ClienteParticular) persona ).getReservas();
-       ArrayList<Reserva> listaReservas;
+      private  Persona persona;
+      ArrayList<Reserva> listaReservas =((ClienteParticular) persona ).getReservas();
     int pagAct = 0; 
     int numPag = (int) Math.ceil(listaReservas.size()/4);
     int startIndex = pagAct*4;
+   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AmpliarInmueble1;
     private javax.swing.JButton botonAtras;
