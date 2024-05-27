@@ -1,0 +1,43 @@
+---------------------------- Factura de reserva ---------------------------
+
+
+-------------------------------- Fecha: 27/05/24 -------------------------------
+
+
+Fecha de entrada: 16/06/24
+Fecha de salida: 20/06/24
+
+
+-------------------------------- Inmueble -------------------------------
+
+
+Nombre: Piso de la luz
+Dirección: calle: calle Buena Vista, número: 1, detalles: Portal B, Bajo A, codigoPostal: 19005, ciudad: Guadalajara, provincia: Castilla-La Mancha, pais: Peru}
+Tipo: APARTAMENTO
+Huéspedes máximos: 3
+Habitaciones: 1
+Camas: 3
+Baños: 1
+Servicios adicionales: Wifi, Desayuno, Parking, Calefacción, Aire acondicionado
+
+
+--------------------------DATOS DEL CLIENTE-----------------------------------
+
+
+Nombre: Hector
+DNI: 12345678A
+Teléfono: 633954827
+Correo: hector@gmail.com
+Tarjeta: ************1347
+
+
+-----------------------------IMPORTE--------------------------------------
+
+
+Días de estancia: 4
+Precio por noche: 60€
+Descuento VIP: -24€
+Precio final: 216€
+
+
+-------------------------------------------------------------------------------

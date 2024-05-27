@@ -1,0 +1,43 @@
+---------------------------- Factura de reserva ---------------------------
+
+
+-------------------------------- Fecha: 27/05/24 -------------------------------
+
+
+Fecha de entrada: 23/08/24
+Fecha de salida: 30/08/24
+
+
+-------------------------------- Inmueble -------------------------------
+
+
+Nombre: Apatamento tradicional
+Dirección: calle: calle Diccionario, número: 2, detalles: Piso 2, A, codigoPostal: 19006, ciudad: Guadalajara, provincia: Castilla-La Mancha, pais: España}
+Tipo: APARTAMENTO
+Huéspedes máximos: 4
+Habitaciones: 3
+Camas: 3
+Baños: 1
+Servicios adicionales: Wifi, Desayuno, Parking, Calefacción, Aire acondicionado
+
+
+--------------------------DATOS DEL CLIENTE-----------------------------------
+
+
+Nombre: Hector
+DNI: 12345678A
+Teléfono: 633954827
+Correo: hector@gmail.com
+Tarjeta: ************1347
+
+
+-----------------------------IMPORTE--------------------------------------
+
+
+Días de estancia: 7
+Precio por noche: 73,44€
+Descuento VIP: -51,41€
+Precio final: 462,67€
+
+
+-------------------------------------------------------------------------------

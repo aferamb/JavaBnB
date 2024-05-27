@@ -1,0 +1,43 @@
+---------------------------- Factura de reserva ---------------------------
+
+
+-------------------------------- Fecha: 27/05/24 -------------------------------
+
+
+Fecha de entrada: 14/05/24
+Fecha de salida: 15/05/24
+
+
+-------------------------------- Inmueble -------------------------------
+
+
+Nombre: Piso roble oscuro
+Dirección: calle: calle Java, número: 3, detalles: Cuarto C, codigoPostal: 19007, ciudad: Guadalajara, provincia: Castilla-La Mancha, pais: España}
+Tipo: APARTAMENTO
+Huéspedes máximos: 3
+Habitaciones: 2
+Camas: 1
+Baños: 1
+Servicios adicionales: Wifi, Desayuno, Parking, Calefacción, Aire acondicionado
+
+
+--------------------------DATOS DEL CLIENTE-----------------------------------
+
+
+Nombre: Alejandro
+DNI: 12345678B
+Teléfono: 611994828
+Correo: alejandro@gmail.com
+Tarjeta: ************4567
+
+
+-----------------------------IMPORTE--------------------------------------
+
+
+Días de estancia: 1
+Precio por noche: 45,52€
+Descuento VIP: -4,55€
+Precio final: 40,97€
+
+
+-------------------------------------------------------------------------------
