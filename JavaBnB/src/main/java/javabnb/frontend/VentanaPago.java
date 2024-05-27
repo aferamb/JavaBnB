@@ -6,29 +6,45 @@
  */
 package javabnb.frontend;
 
+import java.awt.Image;
 import java.awt.Point;
-import java.util.ArrayList;
+import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
+import java.time.temporal.ChronoUnit;
 import javabnb.backend.*;
-import javabnb.frontend.EditarAnfitrion;
-import javabnb.frontend.EditarCliente;
-import javax.swing.JLabel;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author ALEJANDRO
  */
-public class MenuPrincipal extends javax.swing.JFrame {
+public class VentanaPago extends javax.swing.JFrame {
 
     private Persona persona;
+    private ClienteParticular cliente;
+    private double importe;
+    private Inmueble inmueble;
+    private ImageIcon image1;
+    private LocalDate fechaEntrada;
+    private LocalDate fechaSalida;
     /**
      * Creates new form MenuPrincipal
      * 
      * @param localizacion
      * @param persona
      */
-    public MenuPrincipal( Point localizacion, Persona persona) {
+    public VentanaPago( Point localizacion, Persona persona, Inmueble inmueble) {
         this.setLocation(localizacion);
         this.persona = persona;
+        this.cliente = (ClienteParticular) persona;
+        this.inmueble = inmueble;
+        Image imagen1 = inmueble.getFotos().get(0).getImage(); // transform it 
+        Image newimg1 = imagen1.getScaledInstance(250, 250,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
+        this.image1 = new ImageIcon(newimg1);  // transform it back
         initComponents();
         this.setVisible(true);
         if (persona instanceof ClienteParticular) {
@@ -48,8 +64,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
             jMenu2.setText("Gestionar");
             btnReseñaModInm.setText("Modificar inmueble");
         }
+        imgPrincipal.setIcon(image1);
     }
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -63,7 +79,18 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jPanelBusqueda = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        fechaDeEntrada = new javax.swing.JFormattedTextField();
+        fechaDeSalida = new javax.swing.JFormattedTextField();
+        etiquetaPrecio = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        imgPrincipal = new javax.swing.JLabel();
+        etiquetaTitulo = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        btnCalcularPrecio = new javax.swing.JButton();
+        etiquetaPrecio1 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        btnPagar = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         buscarGestionarInmuebles = new javax.swing.JMenuItem();
@@ -88,8 +115,80 @@ public class MenuPrincipal extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/logoJavaBnB-PNGx2.png"))); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 90, -1, -1));
+        fechaDeEntrada.setText("dd/mm/yyyy");
+        fechaDeEntrada.setToolTipText("");
+        fechaDeEntrada.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        fechaDeEntrada.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                fechaDeEntradaFocusGained(evt);
+            }
+        });
+        getContentPane().add(fechaDeEntrada, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 190, -1, -1));
+
+        fechaDeSalida.setText("dd/mm/yyyy");
+        fechaDeSalida.setToolTipText("");
+        fechaDeSalida.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        fechaDeSalida.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                fechaDeSalidaFocusGained(evt);
+            }
+        });
+        getContentPane().add(fechaDeSalida, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 140, -1, -1));
+
+        etiquetaPrecio.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        etiquetaPrecio.setText("Precio");
+        getContentPane().add(etiquetaPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 320, -1, -1));
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel3.setText("Fecha de entrada");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, -1, -1));
+
+        imgPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/logoJavaBnB-PNGx2.png"))); // NOI18N
+        getContentPane().add(imgPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 50, -1, -1));
+
+        etiquetaTitulo.setBackground(new java.awt.Color(255, 255, 255));
+        etiquetaTitulo.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        etiquetaTitulo.setText("Titulo del inmueble");
+        etiquetaTitulo.setMaximumSize(new java.awt.Dimension(600, 33));
+        etiquetaTitulo.setMinimumSize(new java.awt.Dimension(600, 33));
+        etiquetaTitulo.setPreferredSize(new java.awt.Dimension(600, 33));
+        getContentPane().add(etiquetaTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel5.setText("Fecha de salida");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, -1, -1));
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel6.setText("Precio Final");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 320, -1, -1));
+
+        btnCalcularPrecio.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        btnCalcularPrecio.setText("Calcular precio");
+        btnCalcularPrecio.setPreferredSize(new java.awt.Dimension(300, 40));
+        btnCalcularPrecio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCalcularPrecioActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnCalcularPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 250, -1, -1));
+
+        etiquetaPrecio1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        etiquetaPrecio1.setText("Precio");
+        getContentPane().add(etiquetaPrecio1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 320, -1, -1));
+
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel7.setText("Precio Final");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 320, -1, -1));
+
+        btnPagar.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        btnPagar.setText("Pagar");
+        btnPagar.setPreferredSize(new java.awt.Dimension(300, 40));
+        btnPagar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPagarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnPagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 390, -1, -1));
 
         jMenuBar1.setMinimumSize(new java.awt.Dimension(70, 73));
         jMenuBar1.setPreferredSize(new java.awt.Dimension(70, 73));
@@ -175,7 +274,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void buscarGestionarInmueblesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarGestionarInmueblesActionPerformed
         if (persona instanceof ClienteParticular) {
-            BuscarInmuebles busquedaInm = new BuscarInmuebles(this.getLocation(),persona);
+            //BuscarInmuebles busquedaInm = new BuscarInmuebles(this.getLocation(),persona);
             this.dispose();
         } else {
             CrearInmueble crearInmueble = new CrearInmueble(this.getLocation(),persona);
@@ -199,14 +298,93 @@ public class MenuPrincipal extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnReservasActionPerformed
 
+    
+    
+    private void fechaDeEntradaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fechaDeEntradaFocusGained
+        if (fechaDeEntrada.getText().equals("dd/mm/yyyy")) {
+            fechaDeEntrada.setText("");
+        }
+    }//GEN-LAST:event_fechaDeEntradaFocusGained
+
+    private void fechaDeSalidaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fechaDeSalidaFocusGained
+        if (fechaDeSalida.getText().equals("dd/mm/yyyy")) {
+            fechaDeSalida.setText("");
+        }
+    }//GEN-LAST:event_fechaDeSalidaFocusGained
+
+    private void btnCalcularPrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularPrecioActionPerformed
+        DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");  
+        LocalDate fechaEntradaConvertida = null;
+        LocalDate fechaSalidaConvertida = null;
+        try {
+            fechaEntradaConvertida = LocalDate.parse(fechaDeEntrada.getText(), formato);
+            fechaSalidaConvertida = LocalDate.parse(fechaDeSalida.getText(), formato);
+            long dias = ChronoUnit.DAYS.between(fechaEntradaConvertida, fechaSalidaConvertida);
+            double precio = inmueble.getPrecioNoche() * dias;
+            if (cliente.isVip()) {
+                precio = 0.9 * precio;
+            }
+            if (fechaEntradaConvertida.isAfter(fechaSalidaConvertida)) {
+                JOptionPane.showMessageDialog(this,"Fechas introducidas no validas","Error de fecha",JOptionPane.WARNING_MESSAGE);
+            }
+            if (!GestorInmueble.inmuebleDisponible(inmueble,fechaEntradaConvertida,fechaSalidaConvertida)) {
+                JOptionPane.showMessageDialog(this,"Fechas introducidas ya reservadas","Error de fecha",JOptionPane.WARNING_MESSAGE);
+            }
+            this.fechaEntrada = fechaEntradaConvertida;
+            this.fechaSalida = fechaSalidaConvertida;
+            this.importe = precio;
+            etiquetaPrecio1.setText(String.valueOf(precio));
+        } catch (DateTimeParseException e) {
+            fechaDeEntrada.setText("dd/mm/yyyy");
+        }
+        
+    }//GEN-LAST:event_btnCalcularPrecioActionPerformed
+
+    private void btnPagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPagarActionPerformed
+        Reserva reserva = new Reserva(inmueble, cliente.getTarjetaCredito(), cliente, fechaEntrada, fechaSalida);
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setDialogTitle("Guardar factura");
+        fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        int seleccion = fileChooser.showSaveDialog(this);
+        if (seleccion == JFileChooser.APPROVE_OPTION) {
+            String ruta = fileChooser.getSelectedFile().getAbsolutePath();
+            try {
+                reserva.generarFactura(ruta);
+            } catch (IOException e) {
+                JOptionPane.showMessageDialog(this,"Error al generar la factura","Error",JOptionPane.ERROR_MESSAGE);
+                e.printStackTrace();
+                try {
+                    Reserva.generarFactura(reserva);
+                } catch (IOException ioe) {
+                    JOptionPane.showMessageDialog(this,"Error al generar la factura, en carpeta de proyecto","Error",JOptionPane.ERROR_MESSAGE);
+                    ioe.printStackTrace();
+                
+            }
+        }
+        MenuPrincipal menu = new MenuPrincipal(this.getLocation(),persona);
+        this.dispose();
+        }
+    }//GEN-LAST:event_btnPagarActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem botonPerfil;
+    private javax.swing.JButton btnCalcularPrecio;
+    private javax.swing.JButton btnPagar;
     private javax.swing.JMenuItem btnReservas;
     private javax.swing.JMenuItem btnReseñaModInm;
     private javax.swing.JMenuItem buscarGestionarInmuebles;
+    private javax.swing.JLabel etiquetaPrecio;
+    private javax.swing.JLabel etiquetaPrecio1;
+    private javax.swing.JLabel etiquetaTitulo;
+    private javax.swing.JFormattedTextField fechaDeEntrada;
+    private javax.swing.JFormattedTextField fechaDeSalida;
+    private javax.swing.JLabel imgPrincipal;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;

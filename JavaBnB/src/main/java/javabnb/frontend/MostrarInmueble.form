@@ -545,7 +545,6 @@
     </Component>
     <Component class="javax.swing.JLabel" name="etiquetaServicios">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Servicios"/>
         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[450, 25]"/>
         </Property>

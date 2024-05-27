@@ -13,7 +13,6 @@ import javabnb.backend.*;
 import javabnb.frontend.EditarAnfitrion;
 import javabnb.frontend.EditarCliente;
 import javax.swing.ImageIcon;
-import javax.swing.JLabel;
 
 /**
  *
@@ -23,6 +22,10 @@ public class MostrarInmueble extends javax.swing.JFrame {
 
     private Persona persona;
     private Inmueble inmueble;
+    private ImageIcon image1;
+    private ImageIcon image2;
+    private ImageIcon image3;
+    
     /**
      * Creates new form MenuPrincipal
      * 
@@ -34,6 +37,15 @@ public class MostrarInmueble extends javax.swing.JFrame {
         this.setLocation(localizacion);
         this.persona = persona;
         this.inmueble = inmueble;
+        Image imagen1 = inmueble.getFotos().get(0).getImage(); // transform it 
+        Image newimg1 = imagen1.getScaledInstance(250, 250,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
+        this.image1 = new ImageIcon(newimg1);  // transform it back
+        Image imagen2 = inmueble.getFotos().get(1).getImage(); // transform it 
+        Image newimg2 = imagen2.getScaledInstance(250, 250,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
+        this.image2 = new ImageIcon(newimg2);  // transform it back
+        Image imagen3 = inmueble.getFotos().get(2).getImage(); // transform it 
+        Image newimg3 = imagen3.getScaledInstance(250, 250,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
+        this.image3 = new ImageIcon(newimg3);  // transform it back
         initComponents();
         this.setVisible(true);
         if (persona instanceof ClienteParticular) {
@@ -53,6 +65,21 @@ public class MostrarInmueble extends javax.swing.JFrame {
             jMenu2.setText("Gestionar");
             btnReseñaModInm.setText("Modificar inmueble");
         }
+        imgPrincipal.setIcon(image1);
+        btnImg1.setIcon(image1);
+        btnImg2.setIcon(image2);
+        btnImg3.setIcon(image3);
+        etiquetaBaños.setText(String.valueOf(inmueble.getBaños()));
+        etiquetaCalificacion.setText(String.valueOf(inmueble.getCalificacion()));
+        etiquetaCamas.setText(String.valueOf(inmueble.getCamas()));
+        for (String servicio : inmueble.getServicios()) {
+            etiquetaServicios.setText(etiquetaServicios.getText() + servicio + ", ");
+        }
+        etiquetaDireccion.setText(inmueble.getDireccion().getCalle() + ", " + inmueble.getDireccion().getNumero() + ", " + inmueble.getDireccion().getCodigoPostal() + ", " + inmueble.getDireccion().getCiudad());
+        etiquetaHabitaciones.setText(String.valueOf(inmueble.getHabitaciones()));
+        etiquetaHuespedes.setText(String.valueOf(inmueble.getHuespedesMax()));
+        etiquetaPrecio.setText(String.valueOf(inmueble.getPrecioNoche()));
+        etiquetaTitulo.setText(inmueble.getTitulo());
     }
     
 
@@ -246,7 +273,6 @@ public class MostrarInmueble extends javax.swing.JFrame {
         etiquetaDireccion.setPreferredSize(new java.awt.Dimension(300, 25));
         getContentPane().add(etiquetaDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 90, -1, -1));
 
-        etiquetaServicios.setText("Servicios");
         etiquetaServicios.setMaximumSize(new java.awt.Dimension(450, 25));
         etiquetaServicios.setMinimumSize(new java.awt.Dimension(450, 25));
         etiquetaServicios.setPreferredSize(new java.awt.Dimension(550, 25));
@@ -361,22 +387,19 @@ public class MostrarInmueble extends javax.swing.JFrame {
     }//GEN-LAST:event_btnReservasActionPerformed
 
     private void btnImg1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImg1ActionPerformed
-        Image image = inmueble.getFotos().get(0).getImage(); // transform it 
-        Image newimg = image.getScaledInstance(250, 250,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
-        ImageIcon image1 = new ImageIcon(newimg);  // transform it back
         imgPrincipal.setIcon(image1);
     }//GEN-LAST:event_btnImg1ActionPerformed
 
     private void btnImg2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImg2ActionPerformed
-        // TODO add your handling code here:
+        imgPrincipal.setIcon(image2);
     }//GEN-LAST:event_btnImg2ActionPerformed
 
     private void btnImg3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImg3ActionPerformed
-        // TODO add your handling code here:
+        imgPrincipal.setIcon(image3);
     }//GEN-LAST:event_btnImg3ActionPerformed
 
     private void btnReservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservarActionPerformed
-        //VentanaPago pago = new VentanaPago();
+        VentanaPago pago = new VentanaPago(this.getLocation(), persona, inmueble);
     }//GEN-LAST:event_btnReservarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
