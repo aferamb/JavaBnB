@@ -44,7 +44,7 @@ public class Main {
    }
 
    public static void main (String[] args) throws IOException {
-      /* 
+       
    ArrayList<Persona> personas = new ArrayList<>();
    ArrayList<Inmueble> inmuebles = new ArrayList<>();
    ArrayList<Reserva> reservas = new ArrayList<>();
@@ -70,14 +70,14 @@ public class Main {
    //fotos1.add(Main.cargarFoto("C:/Users/ALEJANDRO/Desktop/Imagenes_casas_vacacionales/apartamento3pers1dorm1bano/iloveimg-converted/5.jpg"));
    //fotos1.add(Main.cargarFoto("C:/Users/ALEJANDRO/Desktop/Imagenes_casas_vacacionales/apartamento3pers1dorm1bano/iloveimg-converted/6.jpg"));
    fotos2.add(Main.cargarFoto("C:/Users/ALEJANDRO/Desktop/Imagenes_casas_vacacionales/apartamentoAlicante4pers3dorm1bano/iloveimg-converted/1.jpg"));
-   fotos2.add(Main.cargarFoto("C:/Users/ALEJANDRO/Desktop/Imagenes_casas_vacacionales/apartamentoAlicante4pers3dorm1bano/iloveimg-converted/2.jpg"));
+   //fotos2.add(Main.cargarFoto("C:/Users/ALEJANDRO/Desktop/Imagenes_casas_vacacionales/apartamentoAlicante4pers3dorm1bano/iloveimg-converted/2.jpg"));
    fotos2.add(Main.cargarFoto("C:/Users/ALEJANDRO/Desktop/Imagenes_casas_vacacionales/apartamentoAlicante4pers3dorm1bano/iloveimg-converted/3.jpg"));
    //fotos2.add(Main.cargarFoto("C:/Users/ALEJANDRO/Desktop/Imagenes_casas_vacacionales/apartamentoAlicante4pers3dorm1bano/iloveimg-converted/4.jpg"));
-   //fotos2.add(Main.cargarFoto("C:/Users/ALEJANDRO/Desktop/Imagenes_casas_vacacionales/apartamentoAlicante4pers3dorm1bano/iloveimg-converted/5.jpg"));
+   fotos2.add(Main.cargarFoto("C:/Users/ALEJANDRO/Desktop/Imagenes_casas_vacacionales/apartamentoAlicante4pers3dorm1bano/iloveimg-converted/5.jpg"));
    //fotos2.add(Main.cargarFoto("C:/Users/ALEJANDRO/Desktop/Imagenes_casas_vacacionales/apartamentoAlicante4pers3dorm1bano/iloveimg-converted/6.jpg"));
    fotos3.add(Main.cargarFoto("C:/Users/ALEJANDRO/Desktop/Imagenes_casas_vacacionales/apartamentoMadera3pers2dorm1bano/iloveimg-converted/1.jpg"));
    fotos3.add(Main.cargarFoto("C:/Users/ALEJANDRO/Desktop/Imagenes_casas_vacacionales/apartamentoMadera3pers2dorm1bano/iloveimg-converted/2.jpg"));
-   //fotos3.add(Main.cargarFoto("C:/Users/ALEJANDRO/Desktop/Imagenes_casas_vacacionales/apartamentoMadera3pers2dorm1bano/iloveimg-converted/3.jpg"));
+   fotos3.add(Main.cargarFoto("C:/Users/ALEJANDRO/Desktop/Imagenes_casas_vacacionales/apartamentoMadera3pers2dorm1bano/iloveimg-converted/3.jpg"));
    //fotos3.add(Main.cargarFoto("C:/Users/ALEJANDRO/Desktop/Imagenes_casas_vacacionales/apartamentoMadera3pers2dorm1bano/iloveimg-converted/4.jpg"));
    //fotos3.add(Main.cargarFoto("C:/Users/ALEJANDRO/Desktop/Imagenes_casas_vacacionales/apartamentoMadera3pers2dorm1bano/iloveimg-converted/5.jpg"));
    fotos4.add(Main.cargarFoto("C:/Users/ALEJANDRO/Desktop/Imagenes_casas_vacacionales/ApartamentoPlayaValencia4pers2dorm1bano/iloveimg-converted/1.jpg"));
@@ -88,21 +88,22 @@ public class Main {
    //fotos4.add(Main.cargarFoto("C:/Users/ALEJANDRO/Desktop/Imagenes_casas_vacacionales/ApartamentoPlayaValencia4pers2dorm1bano/iloveimg-converted/6.jpg"));
    fotos5.add(Main.cargarFoto("C:/Users/ALEJANDRO/Desktop/Imagenes_casas_vacacionales/casaCavanaMontana2per1dorm1bano/iloveimg-converted/1.jpg"));
    fotos5.add(Main.cargarFoto("C:/Users/ALEJANDRO/Desktop/Imagenes_casas_vacacionales/casaCavanaMontana2per1dorm1bano/iloveimg-converted/2.jpg"));
+   fotos5.add(Main.cargarFoto("C:/Users/ALEJANDRO/Desktop/Imagenes_casas_vacacionales/ApartamentoPlayaValencia4pers2dorm1bano/iloveimg-converted/5.jpg"));
    //fotos5.add(Main.cargarFoto("C:/Users/ALEJANDRO/Desktop/Imagenes_casas_vacacionales/casaCavanaMontana2per1dorm1bano/iloveimg-converted/3.jpg"));
    //fotos5.add(Main.cargarFoto("C:/Users/ALEJANDRO/Desktop/Imagenes_casas_vacacionales/casaCavanaMontana2per1dorm1bano/iloveimg-converted/4.jpg"));
    //fotos5.add(Main.cargarFoto("C:/Users/ALEJANDRO/Desktop/Imagenes_casas_vacacionales/casaCavanaMontana2per1dorm1bano/iloveimg-converted/5.jpg"));
    fotos6.add(Main.cargarFoto("C:/Users/ALEJANDRO/Desktop/Imagenes_casas_vacacionales/casaCueva2pers1dorm1bano/iloveimg-converted/1.jpg"));
    fotos6.add(Main.cargarFoto("C:/Users/ALEJANDRO/Desktop/Imagenes_casas_vacacionales/casaCueva2pers1dorm1bano/iloveimg-converted/2.jpg"));
    //fotos6.add(Main.cargarFoto("C:/Users/ALEJANDRO/Desktop/Imagenes_casas_vacacionales/casaCueva2pers1dorm1bano/iloveimg-converted/3.jpg"));
-   //fotos6.add(Main.cargarFoto("C:/Users/ALEJANDRO/Desktop/Imagenes_casas_vacacionales/casaCueva2pers1dorm1bano/iloveimg-converted/4.jpg"));
+   fotos6.add(Main.cargarFoto("C:/Users/ALEJANDRO/Desktop/Imagenes_casas_vacacionales/casaCueva2pers1dorm1bano/iloveimg-converted/4.jpg"));
    //fotos6.add(Main.cargarFoto("C:/Users/ALEJANDRO/Desktop/Imagenes_casas_vacacionales/casaCueva2pers1dorm1bano/iloveimg-converted/5.jpg"));
    fotos7.add(Main.cargarFoto("C:/Users/ALEJANDRO/Desktop/Imagenes_casas_vacacionales/casaplaya7pers4dorm3bano/iloveimg-converted/1.jpg"));
-   fotos7.add(Main.cargarFoto("C:/Users/ALEJANDRO/Desktop/Imagenes_casas_vacacionales/casaplaya7pers4dorm3bano/iloveimg-converted/2.jpg"));
+   //fotos7.add(Main.cargarFoto("C:/Users/ALEJANDRO/Desktop/Imagenes_casas_vacacionales/casaplaya7pers4dorm3bano/iloveimg-converted/2.jpg"));
    fotos7.add(Main.cargarFoto("C:/Users/ALEJANDRO/Desktop/Imagenes_casas_vacacionales/casaplaya7pers4dorm3bano/iloveimg-converted/3.jpg"));
    //fotos7.add(Main.cargarFoto("C:/Users/ALEJANDRO/Desktop/Imagenes_casas_vacacionales/casaplaya7pers4dorm3bano/iloveimg-converted/4.jpg"));
    //fotos7.add(Main.cargarFoto("C:/Users/ALEJANDRO/Desktop/Imagenes_casas_vacacionales/casaplaya7pers4dorm3bano/iloveimg-converted/5.jpg"));
    //fotos7.add(Main.cargarFoto("C:/Users/ALEJANDRO/Desktop/Imagenes_casas_vacacionales/casaplaya7pers4dorm3bano/iloveimg-converted/6.jpg"));
-   //fotos7.add(Main.cargarFoto("C:/Users/ALEJANDRO/Desktop/Imagenes_casas_vacacionales/casaplaya7pers4dorm3bano/iloveimg-converted/7.jpg"));
+   fotos7.add(Main.cargarFoto("C:/Users/ALEJANDRO/Desktop/Imagenes_casas_vacacionales/casaplaya7pers4dorm3bano/iloveimg-converted/7.jpg"));
    //fotos7.add(Main.cargarFoto("C:/Users/ALEJANDRO/Desktop/Imagenes_casas_vacacionales/casaplaya7pers4dorm3bano/iloveimg-converted/8.jpg"));
    
    
@@ -207,7 +208,7 @@ public class Main {
    GestorInmueble.addReserva(reserva9);
    GestorInmueble.addReserva(reserva10);
    
-      *
+      */
 
    personas.add(cli1);
    personas.add(cli2);
@@ -308,25 +309,7 @@ public class Main {
    }
    */
    
-   GestorInmueble.recuperarDatosInmuebles();
-   GestorInmueble.recuperarDatosPersonas();
-   GestorInmueble.recuperarDatosReservas();
-   System.out.println(GestorInmueble.getInmuebles());
-   System.out.println(GestorInmueble.getPersonas());
-   System.out.println(GestorInmueble.getReservas());
-   ArrayList<Reserva> reservasPorFecha3 = new ArrayList<>(GestorInmueble.getReservasPorFecha());
-   for (Reserva r: reservasPorFecha3){
-      System.out.println(r);
-   }
-   for (Inmueble i: GestorInmueble.getInmuebles()){
-      System.out.println(i);
-   }
-   for (Inmueble i: GestorInmueble.getInmueblesPorTipo("apartamento")){
-      System.out.println(i);
-   }
-   for (Persona p: GestorInmueble.getPersonas()){
-      System.out.println(p);
-   }
+   
    
 }  
 }

@@ -118,8 +118,9 @@ public class InicioSesion extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("JavaBnB");
-        setMinimumSize(new java.awt.Dimension(530, 450));
-        setPreferredSize(new java.awt.Dimension(530, 450));
+        setMaximumSize(new java.awt.Dimension(530, 480));
+        setMinimumSize(new java.awt.Dimension(530, 480));
+        setPreferredSize(new java.awt.Dimension(530, 480));
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
