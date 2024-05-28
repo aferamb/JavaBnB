@@ -78,7 +78,7 @@ public class MostrarInmueble extends javax.swing.JFrame {
         etiquetaDireccion.setText(inmueble.getDireccion().getCalle() + ", " + inmueble.getDireccion().getNumero() + ", " + inmueble.getDireccion().getCodigoPostal() + ", " + inmueble.getDireccion().getCiudad());
         etiquetaHabitaciones.setText(String.valueOf(inmueble.getHabitaciones()));
         etiquetaHuespedes.setText(String.valueOf(inmueble.getHuespedesMax()));
-        etiquetaPrecio.setText(String.valueOf(inmueble.getPrecioNoche()));
+        etiquetaPrecio.setText(String.valueOf(inmueble.getPrecioNoche()) + "€");
         etiquetaTitulo.setText(inmueble.getTitulo());
     }
     
@@ -401,6 +401,7 @@ public class MostrarInmueble extends javax.swing.JFrame {
 
     private void btnReservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservarActionPerformed
         VentanaPago pago = new VentanaPago(this.getLocation(), persona, inmueble);
+        this.dispose();
     }//GEN-LAST:event_btnReservarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

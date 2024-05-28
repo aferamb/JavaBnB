@@ -44,7 +44,7 @@ public class Main {
    }
 
    public static void main (String[] args) throws IOException {
-      /* 
+      
    ArrayList<Persona> personas = new ArrayList<>();
    ArrayList<Inmueble> inmuebles = new ArrayList<>();
    ArrayList<Reserva> reservas = new ArrayList<>();
@@ -147,6 +147,7 @@ public class Main {
 
    Reserva reserva = new Reserva (inm1,Tarjeta1,cli1,LocalDate.of(2024, 6, 16),LocalDate.of(2024, 6, 20)); 
    Reserva reserva2 = new Reserva (inm2,Tarjeta2,cli1,LocalDate.of(2024, 8, 23),LocalDate.of(2024, 8, 30));
+   Reserva reserva25 = new Reserva (inm2,Tarjeta2,cli1,LocalDate.of(2024, 8, 22),LocalDate.of(2024, 8, 26));
    Reserva reserva3 = new Reserva (inm3,Tarjeta1,cli2,LocalDate.of(2024, 5, 14),LocalDate.of(2024, 5, 15));
    Reserva reserva4 = new Reserva (inm4,Tarjeta2,cli2,LocalDate.of(2024, 6, 14),LocalDate.of(2024, 6, 21));
    Reserva reserva5 = new Reserva (inm5,Tarjeta1,cli1,LocalDate.of(2024, 6, 30),LocalDate.of(2024, 7, 5));
@@ -208,8 +209,8 @@ public class Main {
    GestorInmueble.addReserva(reserva9);
    GestorInmueble.addReserva(reserva10);
    
-      *
-
+      */
+/* 
    personas.add(cli1);
    personas.add(cli2);
    personas.add(cli3);
@@ -254,7 +255,7 @@ public class Main {
    for (Persona p: GestorInmueble.getPersonas()){
       System.out.println(p);
    }
-
+*/
 
 
    /* Para el frontend
@@ -308,26 +309,7 @@ public class Main {
       System.out.println(p);
    }
    */
-   System.out.println (GestorInmueble.getInmuebles().toString());
-   GestorInmueble.recuperarDatosInmuebles();
-   GestorInmueble.recuperarDatosPersonas();
-   GestorInmueble.recuperarDatosReservas();
-   System.out.println(GestorInmueble.getInmuebles());
-   System.out.println(GestorInmueble.getPersonas());
-   System.out.println(GestorInmueble.getReservas());
-   ArrayList<Reserva> reservasPorFecha3 = new ArrayList<>(GestorInmueble.getReservasPorFecha());
-   for (Reserva r: reservasPorFecha3){
-      System.out.println(r);
-   }
-   for (Inmueble i: GestorInmueble.getInmuebles()){
-      System.out.println(i);
-   }
-   for (Inmueble i: GestorInmueble.getInmueblesPorTipo("apartamento")){
-      System.out.println(i);
-   }
-   for (Persona p: GestorInmueble.getPersonas()){
-      System.out.println(p);
-   }
+   
    
 }  
 }

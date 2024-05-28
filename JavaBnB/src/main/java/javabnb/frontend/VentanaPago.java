@@ -9,6 +9,7 @@ package javabnb.frontend;
 import java.awt.Image;
 import java.awt.Point;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
@@ -311,11 +312,12 @@ public class VentanaPago extends javax.swing.JFrame {
          boolean fechaReservada = false;
         
         DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");  
+        DateTimeFormatter formatogood = DateTimeFormatter.ofPattern("yyyy/mm/dd");  
         LocalDate fechaEntradaConvertida;
         LocalDate fechaSalidaConvertida;
         try {
-            fechaEntradaConvertida = LocalDate.parse(fechaDeEntrada.getText(), formato);
-            fechaSalidaConvertida = LocalDate.parse(fechaDeSalida.getText(), formato);
+            fechaEntradaConvertida = LocalDate.parse(fechaDeEntrada.getText(), formatogood);
+            fechaSalidaConvertida = LocalDate.parse(fechaDeSalida.getText(), formatogood);
             long dias = ChronoUnit.DAYS.between(fechaEntradaConvertida, fechaSalidaConvertida);
             double precio = inmueble.getPrecioNoche() * dias;
             if (cliente.isVip()) {
@@ -350,7 +352,6 @@ public class VentanaPago extends javax.swing.JFrame {
             String ruta = fileChooser.getSelectedFile().getAbsolutePath();
             try {
                 reserva.generarFactura(ruta);
-                cliente.addReserva(reserva);
             } catch (IOException e) {
                 JOptionPane.showMessageDialog(this,"Error al generar la factura","Error",JOptionPane.ERROR_MESSAGE);
                 e.printStackTrace();
