@@ -128,7 +128,9 @@ public class MenuAdministrador extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void mostrarUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarUsuariosActionPerformed
-
+        VerUsuariosAdministrador userAdmin = new VerUsuariosAdministrador(this.getLocation());
+        userAdmin.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_mostrarUsuariosActionPerformed
 
     private void botonInmueblesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonInmueblesActionPerformed

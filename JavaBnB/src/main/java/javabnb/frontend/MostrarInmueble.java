@@ -402,6 +402,12 @@ public class MostrarInmueble extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnReservas1ActionPerformed
 
+    private void btnReservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservarActionPerformed
+        VentanaPago pago = new VentanaPago(this.getLocation(), persona, inmueble);
+        this.dispose();
+    }//GEN-LAST:event_btnReservarActionPerformed
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonReserva;
     private javax.swing.JButton btnImg1;
