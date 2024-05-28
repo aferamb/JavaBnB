@@ -7,6 +7,7 @@ import javabnb.frontend.InicioSesion;
 import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -240,6 +241,11 @@ public class Main {
    GestorInmueble.setInmuebles(inmuebles);
    GestorInmueble.setPersonas(personas);
    GestorInmueble.setReservas(reservas);
+
+
+
+
+   
 
 
    GestorInmueble.guardarDatosInmuebles();
