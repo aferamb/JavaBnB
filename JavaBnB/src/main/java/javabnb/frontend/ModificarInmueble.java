@@ -34,8 +34,12 @@ public class ModificarInmueble extends javax.swing.JFrame {
      */
     public ModificarInmueble( Point localizacion, Persona persona) {
         this.setLocation(localizacion);
+        System.out.println(persona);
         this.persona = persona;
+        System.out.println(this.persona);
         this.anfitrion = (Anfitrion) persona;
+        System.out.println(anfitrion);
+        System.out.println("cast"+(Anfitrion) persona);
         initComponents();
         this.setVisible(true);
         if (persona instanceof ClienteParticular) {
@@ -752,7 +756,8 @@ public class ModificarInmueble extends javax.swing.JFrame {
             foto4.setIcon(inmueble4.getFotos().get(0));
         }
     }//GEN-LAST:event_botonPorPrecioActionPerformed
-    ArrayList<Inmueble> listaInmuebles = anfitrion.getInmuebles();
+    
+    ArrayList<Inmueble> listaInmuebles = this.anfitrion.getInmuebles();
     ArrayList<Inmueble> listaInmuebles2 = GestorInmueble.getInmuebles();
     int pagAct = 0; 
     int numPag = (int) Math.ceil(listaInmuebles.size()/4);

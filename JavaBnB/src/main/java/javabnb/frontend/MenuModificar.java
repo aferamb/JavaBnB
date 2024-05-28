@@ -6,6 +6,7 @@
  */
 package javabnb.frontend;
 
+
 import java.awt.Container;
 import java.awt.Image;
 import java.awt.Point;
