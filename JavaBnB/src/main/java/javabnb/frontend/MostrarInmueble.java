@@ -384,7 +384,6 @@ public class MostrarInmueble extends javax.swing.JFrame {
         imgPrincipal.setIcon(image3);
     }//GEN-LAST:event_btnImg3ActionPerformed
 
-<<<<<<< HEAD
     private void botonReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonReservaActionPerformed
             VentanaPago pago = new VentanaPago(this.getLocation(),persona,inmueble);
             pago.setVisible(true);

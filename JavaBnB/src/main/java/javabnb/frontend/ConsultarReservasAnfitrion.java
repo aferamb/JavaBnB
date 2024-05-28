@@ -388,6 +388,7 @@ public class ConsultarReservasAnfitrion extends javax.swing.JFrame {
         if (!titulo1.getText().equals("")){
             MostrarReserva mostrarReserva = new MostrarReserva(this.getLocation(),persona,reserva1);
             mostrarReserva.setVisible(true);
+            this.dispose();
         }
     }//GEN-LAST:event_AmpliarInmueble1ActionPerformed
 
@@ -445,6 +446,7 @@ public class ConsultarReservasAnfitrion extends javax.swing.JFrame {
 
         if (!titulo2.getText().equals("")){
             MostrarReserva mostrarReserva = new MostrarReserva(this.getLocation(),persona,reserva2);
+            this.dispose();
         }
     }//GEN-LAST:event_inmueble2ActionPerformed
 
@@ -453,6 +455,7 @@ public class ConsultarReservasAnfitrion extends javax.swing.JFrame {
 
         if (!titulo1.getText().equals("")){
             MostrarReserva mostrarReserva = new MostrarReserva(this.getLocation(),persona,reserva3);
+            this.dispose();
         }
     }//GEN-LAST:event_inmueble3ActionPerformed
 
@@ -461,6 +464,7 @@ public class ConsultarReservasAnfitrion extends javax.swing.JFrame {
 
         if (!titulo1.getText().equals("")){
             MostrarReserva mostrarReserva = new MostrarReserva(this.getLocation(),persona,reserva4);
+            this.dispose();
         }
     }//GEN-LAST:event_inmueble4ActionPerformed
 

@@ -420,7 +420,7 @@ public class CrearInmueble extends javax.swing.JFrame {
     }//GEN-LAST:event_btnReseñaModInmActionPerformed
 
     private void btnReservasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservasActionPerformed
-        ConsultarReservasCliente consultarReservas = new ConsultarReservasCliente(this.getLocation(),persona);
+        ConsultarReservasAnfitrion consultarReservas = new ConsultarReservasAnfitrion(this.getLocation(),persona);
         this.dispose();
     }//GEN-LAST:event_btnReservasActionPerformed
 
@@ -491,7 +491,7 @@ public class CrearInmueble extends javax.swing.JFrame {
         String[] serviciosArray = serviciosAdicionales.getText().split(",");
         ArrayList<String> serviciosLista = new ArrayList<String>(Arrays.asList(serviciosArray));
         Inmueble inmueble = new Inmueble(nombreInmueble.getText(), (Anfitrion) persona, dir,Integer.parseInt(huespedesMax.getText()),Integer.parseInt(habitaciones.getText()),Integer.parseInt(camas.getText()),Integer.parseInt(baños.getText()),tipoInmueble.getSelectedItem().toString(),Double.parseDouble(precioNoche.getText()),serviciosLista,fotos,0);
-        GestorInmueble.addInmueble(inmueble);
+
         MenuPrincipal menu = new MenuPrincipal(this.getLocation(),persona);
         this.dispose();
         }
@@ -576,7 +576,7 @@ JFileChooser fileChooser = new JFileChooser();
     boolean camasValidas= false;
     boolean direccionValida = false;
     Direccion dir;
-    private ArrayList<ImageIcon> fotos;
+    private ArrayList<ImageIcon> fotos = new ArrayList<ImageIcon>();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField baños;
     private javax.swing.JMenuItem botonPerfil;

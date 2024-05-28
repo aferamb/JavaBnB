@@ -25,6 +25,7 @@ import javax.swing.JOptionPane;
 public class ModificarInmueble extends javax.swing.JFrame {
 
     private Persona persona;
+    private Anfitrion anfitrion;
     /**
      * Creates new form MenuPrincipal
      * 
@@ -33,7 +34,12 @@ public class ModificarInmueble extends javax.swing.JFrame {
      */
     public ModificarInmueble( Point localizacion, Persona persona) {
         this.setLocation(localizacion);
+        System.out.println(persona);
         this.persona = persona;
+        System.out.println(this.persona);
+        this.anfitrion = (Anfitrion) persona;
+        System.out.println(anfitrion);
+        System.out.println("cast"+(Anfitrion) persona);
         initComponents();
         this.setVisible(true);
         if (persona instanceof ClienteParticular) {
@@ -334,7 +340,7 @@ public class ModificarInmueble extends javax.swing.JFrame {
 
     private void buscarGestionarInmueblesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarGestionarInmueblesActionPerformed
         if (persona instanceof ClienteParticular) {
-            //BuscarInmuebles busquedaInm = new BuscarInmuebles(this.getLocation(),persona);
+            BuscarInmuebles busquedaInm = new BuscarInmuebles(this.getLocation(),persona);
             this.dispose();
         } else {
             CrearInmueble crearInmueble = new CrearInmueble(this.getLocation(),persona);
@@ -354,7 +360,7 @@ public class ModificarInmueble extends javax.swing.JFrame {
     }//GEN-LAST:event_btnReseñaModInmActionPerformed
 
     private void btnReservasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservasActionPerformed
-        ConsultarReservasCliente consultarReservas = new ConsultarReservasCliente(this.getLocation(),persona);
+        ConsultarReservasAnfitrion consultarReservas = new ConsultarReservasAnfitrion(this.getLocation(),persona);
         this.dispose();
     }//GEN-LAST:event_btnReservasActionPerformed
 
@@ -367,6 +373,7 @@ public class ModificarInmueble extends javax.swing.JFrame {
             if (filtroCasa.isSelected()) {GestorInmueble.getInmueblesPorTipo("CASA");}
             if (filtroApartamento.isSelected()) {GestorInmueble.getInmueblesPorTipo("APARTAMENTO");}
             MenuModificar modInmueble = new MenuModificar(this.getLocation(),persona,inmueble1);
+            this.dispose();
         }
     }//GEN-LAST:event_AmpliarInmueble1ActionPerformed
 
@@ -433,7 +440,8 @@ public class ModificarInmueble extends javax.swing.JFrame {
             if (botonReseña.isSelected()) {GestorInmueble.getInmueblesPorCalificacion();}
             if (filtroCasa.isSelected()) {GestorInmueble.getInmueblesPorTipo("CASA");}
             if (filtroApartamento.isSelected()) {GestorInmueble.getInmueblesPorTipo("APARTAMENTO");}
-            MostrarInmueble mostrarInmueble = new MostrarInmueble(this.getLocation(),persona,inmueble2);
+            MenuModificar modInmueble = new MenuModificar(this.getLocation(),persona,inmueble2);
+            this.dispose();
         }
     }//GEN-LAST:event_inmueble2ActionPerformed
 
@@ -444,7 +452,8 @@ public class ModificarInmueble extends javax.swing.JFrame {
             if (botonReseña.isSelected()) {GestorInmueble.getInmueblesPorCalificacion();}
             if (filtroCasa.isSelected()) {GestorInmueble.getInmueblesPorTipo("CASA");}
             if (filtroApartamento.isSelected()) {GestorInmueble.getInmueblesPorTipo("APARTAMENTO");}
-            MostrarInmueble mostrarInmueble = new MostrarInmueble(this.getLocation(),persona,inmueble3);
+            MenuModificar modInmueble = new MenuModificar(this.getLocation(),persona,inmueble3);
+            this.dispose();
         }
     }//GEN-LAST:event_inmueble3ActionPerformed
 
@@ -455,7 +464,8 @@ public class ModificarInmueble extends javax.swing.JFrame {
             if (botonReseña.isSelected()) {GestorInmueble.getInmueblesPorCalificacion();}
             if (filtroCasa.isSelected()) {GestorInmueble.getInmueblesPorTipo("CASA");}
             if (filtroApartamento.isSelected()) {GestorInmueble.getInmueblesPorTipo("APARTAMENTO");}
-            MostrarInmueble mostrarInmueble = new MostrarInmueble(this.getLocation(),persona,inmueble4);
+            MenuModificar modInmueble = new MenuModificar(this.getLocation(),persona,inmueble4);
+            this.dispose();
         }
     }//GEN-LAST:event_inmueble4ActionPerformed
 
@@ -746,7 +756,8 @@ public class ModificarInmueble extends javax.swing.JFrame {
             foto4.setIcon(inmueble4.getFotos().get(0));
         }
     }//GEN-LAST:event_botonPorPrecioActionPerformed
-    ArrayList<Inmueble> listaInmuebles =((Anfitrion) persona).getInmuebles();
+    
+    ArrayList<Inmueble> listaInmuebles = this.anfitrion.getInmuebles();
     ArrayList<Inmueble> listaInmuebles2 = GestorInmueble.getInmuebles();
     int pagAct = 0; 
     int numPag = (int) Math.ceil(listaInmuebles.size()/4);

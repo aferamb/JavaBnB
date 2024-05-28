@@ -2,6 +2,8 @@ package javabnb.backend;
 
 import javax.swing.ImageIcon;
 
+import javabnb.frontend.InicioSesion;
+
 import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
@@ -184,6 +186,8 @@ public class Main {
    for (Persona p: GestorInmueble.getPersonas()){
       System.out.println(p);
    }
+
+   InicioSesion inicio = new InicioSesion();
 
    /* 
    GestorInmueble.addInmueble(inm3);

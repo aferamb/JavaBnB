@@ -80,6 +80,10 @@ public class MostrarReserva extends javax.swing.JFrame {
         etiquetaHuespedes.setText(String.valueOf(reserva.getInmueble().getHuespedesMax()));
         etiquetaPrecio.setText(String.valueOf(reserva.getInmueble().getPrecioNoche()));
         etiquetaTitulo.setText(reserva.getInmueble().getTitulo());
+        nombreCliente.setText(reserva.getCliente().getNombre());
+        dniCliente.setText(reserva.getCliente().getDni());
+        telefonoCliente.setText(String.valueOf(reserva.getCliente().getTelefono()));
+
     }
     
 
@@ -118,6 +122,13 @@ public class MostrarReserva extends javax.swing.JFrame {
         fechaReserva = new javax.swing.JLabel();
         FechaEntrada = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        nombreCliente = new javax.swing.JLabel();
+        dniCliente = new javax.swing.JLabel();
+        telefonoCliente = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         buscarGestionarInmuebles = new javax.swing.JMenuItem();
@@ -307,6 +318,37 @@ public class MostrarReserva extends javax.swing.JFrame {
         jLabel9.setText("Calificación");
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 200, 80, 20));
 
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel10.setText("Datos anfitrión");
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 100, -1, -1));
+
+        jLabel11.setText("DNI: ");
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 130, -1, -1));
+
+        jLabel12.setText("Nombre: ");
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 160, -1, -1));
+
+        jLabel13.setText("Telefono: ");
+        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 190, -1, -1));
+
+        nombreCliente.setText("nombre");
+        nombreCliente.setMaximumSize(new java.awt.Dimension(77, 16));
+        nombreCliente.setMinimumSize(new java.awt.Dimension(77, 16));
+        nombreCliente.setPreferredSize(new java.awt.Dimension(77, 16));
+        getContentPane().add(nombreCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 160, -1, -1));
+
+        dniCliente.setText("dni");
+        dniCliente.setMaximumSize(new java.awt.Dimension(77, 16));
+        dniCliente.setMinimumSize(new java.awt.Dimension(77, 16));
+        dniCliente.setPreferredSize(new java.awt.Dimension(77, 16));
+        getContentPane().add(dniCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 130, -1, -1));
+
+        telefonoCliente.setText("telefono");
+        telefonoCliente.setMaximumSize(new java.awt.Dimension(77, 16));
+        telefonoCliente.setMinimumSize(new java.awt.Dimension(77, 16));
+        telefonoCliente.setPreferredSize(new java.awt.Dimension(77, 16));
+        getContentPane().add(telefonoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 190, -1, -1));
+
         jMenuBar1.setMinimumSize(new java.awt.Dimension(70, 73));
         jMenuBar1.setPreferredSize(new java.awt.Dimension(70, 73));
 
@@ -411,7 +453,7 @@ public class MostrarReserva extends javax.swing.JFrame {
     }//GEN-LAST:event_btnReseñaModInmActionPerformed
 
     private void btnReservasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservasActionPerformed
-        ConsultarReservasCliente consultarReservas = new ConsultarReservasCliente(this.getLocation(),persona);
+        ConsultarReservasAnfitrion consultarReservas = new ConsultarReservasAnfitrion(this.getLocation(),persona);
         this.dispose();
     }//GEN-LAST:event_btnReservasActionPerformed
 
@@ -437,6 +479,7 @@ public class MostrarReserva extends javax.swing.JFrame {
     private javax.swing.JMenuItem btnReservas;
     private javax.swing.JMenuItem btnReseñaModInm;
     private javax.swing.JMenuItem buscarGestionarInmuebles;
+    private javax.swing.JLabel dniCliente;
     private javax.swing.JLabel etiquetaBaños;
     private javax.swing.JLabel etiquetaCalificacion;
     private javax.swing.JLabel etiquetaCamas;
@@ -449,6 +492,10 @@ public class MostrarReserva extends javax.swing.JFrame {
     private javax.swing.JLabel imgPrincipal;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -463,5 +510,7 @@ public class MostrarReserva extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanelBusqueda;
+    private javax.swing.JLabel nombreCliente;
+    private javax.swing.JLabel telefonoCliente;
     // End of variables declaration//GEN-END:variables
 }
