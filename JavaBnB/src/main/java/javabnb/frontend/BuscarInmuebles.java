@@ -264,6 +264,11 @@ public class BuscarInmuebles extends javax.swing.JFrame {
 
         jMenuItem3.setText("Buscar inmuebles");
         jMenuItem3.setToolTipText("");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem3);
 
         jMenuBar1.add(jMenu1);
@@ -274,6 +279,11 @@ public class BuscarInmuebles extends javax.swing.JFrame {
         jMenu2.setMinimumSize(new java.awt.Dimension(120, 22));
 
         jMenuItem4.setText("Escribir reseña");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem4);
 
         jMenuBar1.add(jMenu2);
@@ -715,6 +725,14 @@ public class BuscarInmuebles extends javax.swing.JFrame {
             MostrarInmueble mostrarInmueble = new MostrarInmueble(this.getLocation(),persona,inmueble4);
         }
     }//GEN-LAST:event_inmueble4ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
    
    
     // Variables declaration - do not modify//GEN-BEGIN:variables

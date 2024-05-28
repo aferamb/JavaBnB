@@ -196,8 +196,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnReseñaModInmActionPerformed
 
     private void btnReservasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservasActionPerformed
+        if (persona instanceof Anfitrion){
+        
+        }
+        else{
         ConsultarReservasCliente consultarReservas = new ConsultarReservasCliente(this.getLocation(),persona);
-        this.dispose();
+        this.dispose();}
     }//GEN-LAST:event_btnReservasActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

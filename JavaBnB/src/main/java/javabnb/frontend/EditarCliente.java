@@ -35,7 +35,7 @@ public class EditarCliente extends javax.swing.JFrame {
     public EditarCliente( Point localizacion, Persona persona) {
         this.setLocation(localizacion);
         this.persona = persona;
-        
+        this.cliente = (ClienteParticular) persona;
         initComponents();
         this.setVisible(true);
         if (persona instanceof ClienteParticular) {
@@ -606,7 +606,7 @@ public class EditarCliente extends javax.swing.JFrame {
 
     private void buscarGestionarInmueblesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarGestionarInmueblesActionPerformed
         if (persona instanceof ClienteParticular) {
-            //BuscarInmuebles busquedaInm = new BuscarInmuebles(this.getLocation(),persona);
+            BuscarInmuebles busquedaInm = new BuscarInmuebles(this.getLocation(),persona);
             this.dispose();
         } else {
             CrearInmueble crearInmueble = new CrearInmueble(this.getLocation(),persona);
