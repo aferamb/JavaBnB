@@ -98,14 +98,15 @@ public class EditarAnfitrion extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("JavaBnB");
-        setMinimumSize(new java.awt.Dimension(1100, 800));
+        setMaximumSize(new java.awt.Dimension(900, 720));
+        setMinimumSize(new java.awt.Dimension(900, 720));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("MODIFICAR DATOS");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1100, 130));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 900, 130));
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -179,7 +180,7 @@ public class EditarAnfitrion extends javax.swing.JFrame {
         jLabel8.setText("Teléfono");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 86, 161, 22));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 130, -1, -1));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 130, -1, -1));
 
         BotonGuardar.setText("Guardar Datos");
         BotonGuardar.addActionListener(new java.awt.event.ActionListener() {
@@ -187,7 +188,7 @@ public class EditarAnfitrion extends javax.swing.JFrame {
                 BotonGuardarActionPerformed(evt);
             }
         });
-        getContentPane().add(BotonGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 620, 170, -1));
+        getContentPane().add(BotonGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 430, 170, -1));
 
         editarNombre.setText("Editar");
         editarNombre.addActionListener(new java.awt.event.ActionListener() {
@@ -195,7 +196,7 @@ public class EditarAnfitrion extends javax.swing.JFrame {
                 editarNombreActionPerformed(evt);
             }
         });
-        getContentPane().add(editarNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(728, 133, 75, -1));
+        getContentPane().add(editarNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 140, 75, -1));
 
         editarTel.setText("Editar");
         editarTel.addActionListener(new java.awt.event.ActionListener() {
@@ -203,7 +204,7 @@ public class EditarAnfitrion extends javax.swing.JFrame {
                 editarTelActionPerformed(evt);
             }
         });
-        getContentPane().add(editarTel, new org.netbeans.lib.awtextra.AbsoluteConstraints(728, 215, 75, -1));
+        getContentPane().add(editarTel, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 220, 75, -1));
 
         editarCorreo.setText("Editar");
         editarCorreo.addActionListener(new java.awt.event.ActionListener() {
@@ -211,7 +212,7 @@ public class EditarAnfitrion extends javax.swing.JFrame {
                 editarCorreoActionPerformed(evt);
             }
         });
-        getContentPane().add(editarCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(728, 256, 75, -1));
+        getContentPane().add(editarCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 260, 75, -1));
 
         EditarClave.setText("Editar");
         EditarClave.addActionListener(new java.awt.event.ActionListener() {
@@ -219,7 +220,7 @@ public class EditarAnfitrion extends javax.swing.JFrame {
                 EditarClaveActionPerformed(evt);
             }
         });
-        getContentPane().add(EditarClave, new org.netbeans.lib.awtextra.AbsoluteConstraints(728, 297, 75, -1));
+        getContentPane().add(EditarClave, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 300, 75, -1));
 
         jMenuBar1.setMinimumSize(new java.awt.Dimension(70, 73));
         jMenuBar1.setPreferredSize(new java.awt.Dimension(70, 73));
@@ -301,24 +302,17 @@ public class EditarAnfitrion extends javax.swing.JFrame {
     if (!telefonoAnfitrion.getText().equals("") && telefonoAnfitrion.getText().length() == 12 ) {
         telefonoValido = true; 
     }
-    if (contraseñaAnfitrion.getPassword().length > 0) {
-        contraseñaValida = true; 
-    }
+    
     if (!emailAnfitrion.getText().equals("")) {
         emailValido = true;
     }
-    for (Persona pers: GestorInmueble.getPersonas()){
-         if (pers.getCorreo().equals(emailAnfitrion.getText())) {
-         emailexistente = true;}}
-    if (emailexistente){
-             JOptionPane.showMessageDialog(this,"el correo pertenece a una cuenta ya existente","error de correo",JOptionPane.WARNING_MESSAGE);
-    }      
-    if (nombreValido &&  telefonoValido && contraseñaValida && emailValido && !emailexistente){
+       if (nombreValido &&  telefonoValido  && emailValido){
             persona.setNombre(nombreAnfitrion.getText());
             persona.setTelefono(Integer.parseInt(telefonoAnfitrion.getText().replace(" ","")));
             persona.setCorreo(emailAnfitrion.getText());
             this.dispose();
             MenuPrincipal menuPrincipal = new MenuPrincipal(this.getLocation(), persona);
+            menuPrincipal.setVisible(true);
 
     }
     }//GEN-LAST:event_BotonGuardarActionPerformed
@@ -336,8 +330,9 @@ public class EditarAnfitrion extends javax.swing.JFrame {
     }//GEN-LAST:event_editarCorreoActionPerformed
 
     private void EditarClaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarClaveActionPerformed
-         CambiarContraseña contr = new CambiarContraseña(persona);
+          CambiarContraseña contr = new CambiarContraseña(this.getLocation(),persona);
          contr.setLocation(this.getLocation());
+         contr.setVisible(true);
     }//GEN-LAST:event_EditarClaveActionPerformed
 
     private void buscarGestionarInmueblesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarGestionarInmueblesActionPerformed
@@ -408,7 +403,6 @@ public class EditarAnfitrion extends javax.swing.JFrame {
     boolean telefonoValido = false;
     boolean nombreValido = false;
     boolean contraseñaValida = false;
-    boolean emailexistente = false;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotonGuardar;
     private javax.swing.JFormattedTextField DNIAnfitrion;

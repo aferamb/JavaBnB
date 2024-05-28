@@ -25,7 +25,7 @@ public class MostrarReserva extends javax.swing.JFrame {
     private ImageIcon image1;
     private ImageIcon image2;
     private ImageIcon image3;
-    private final Reserva reserva;
+    private  Reserva reserva;
     
     /**
      * Creates new form MenuPrincipal
@@ -102,7 +102,6 @@ public class MostrarReserva extends javax.swing.JFrame {
         btnImg2 = new javax.swing.JButton();
         btnImg3 = new javax.swing.JButton();
         etiquetaPrecio = new javax.swing.JLabel();
-        btnReservar = new javax.swing.JButton();
         etiquetaCalificacion = new javax.swing.JLabel();
         etiquetaBaños = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -119,6 +118,7 @@ public class MostrarReserva extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         fechaReserva = new javax.swing.JLabel();
         FechaEntrada = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         buscarGestionarInmuebles = new javax.swing.JMenuItem();
@@ -157,7 +157,7 @@ public class MostrarReserva extends javax.swing.JFrame {
         etiquetaTitulo.setMaximumSize(new java.awt.Dimension(600, 33));
         etiquetaTitulo.setMinimumSize(new java.awt.Dimension(600, 33));
         etiquetaTitulo.setPreferredSize(new java.awt.Dimension(600, 33));
-        getContentPane().add(etiquetaTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 40, -1, -1));
+        getContentPane().add(etiquetaTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 30, -1, -1));
 
         btnImg1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/logo_size_invert.jpg"))); // NOI18N
         btnImg1.setBorder(null);
@@ -204,101 +204,109 @@ public class MostrarReserva extends javax.swing.JFrame {
         etiquetaPrecio.setMaximumSize(new java.awt.Dimension(100, 33));
         etiquetaPrecio.setMinimumSize(new java.awt.Dimension(100, 33));
         etiquetaPrecio.setPreferredSize(new java.awt.Dimension(100, 33));
-        getContentPane().add(etiquetaPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 40, -1, -1));
+        getContentPane().add(etiquetaPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 400, -1, -1));
 
-        btnReservar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnReservar.setText("Reservar");
-        btnReservar.setMaximumSize(new java.awt.Dimension(100, 33));
-        btnReservar.setMinimumSize(new java.awt.Dimension(100, 33));
-        btnReservar.setPreferredSize(new java.awt.Dimension(100, 33));
-        btnReservar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnReservarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnReservar, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 73, -1, -1));
-
+        etiquetaCalificacion.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         etiquetaCalificacion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         etiquetaCalificacion.setText("Calificacion");
         etiquetaCalificacion.setMaximumSize(new java.awt.Dimension(60, 25));
         etiquetaCalificacion.setMinimumSize(new java.awt.Dimension(60, 25));
         etiquetaCalificacion.setPreferredSize(new java.awt.Dimension(60, 25));
-        getContentPane().add(etiquetaCalificacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 200, -1, -1));
+        getContentPane().add(etiquetaCalificacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 200, 60, -1));
 
+        etiquetaBaños.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         etiquetaBaños.setText("0");
         etiquetaBaños.setMaximumSize(new java.awt.Dimension(30, 25));
         etiquetaBaños.setMinimumSize(new java.awt.Dimension(30, 25));
         etiquetaBaños.setPreferredSize(new java.awt.Dimension(30, 25));
         getContentPane().add(etiquetaBaños, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 320, -1, -1));
 
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel3.setText("Baños");
         jLabel3.setMaximumSize(new java.awt.Dimension(120, 25));
         jLabel3.setMinimumSize(new java.awt.Dimension(120, 25));
         jLabel3.setPreferredSize(new java.awt.Dimension(120, 25));
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 320, -1, 20));
 
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel4.setText("Habitaciones");
         jLabel4.setMaximumSize(new java.awt.Dimension(120, 25));
         jLabel4.setMinimumSize(new java.awt.Dimension(120, 25));
         jLabel4.setPreferredSize(new java.awt.Dimension(120, 25));
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 260, -1, 20));
 
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel5.setText("Camas");
         jLabel5.setMaximumSize(new java.awt.Dimension(120, 25));
         jLabel5.setMinimumSize(new java.awt.Dimension(120, 25));
         jLabel5.setPreferredSize(new java.awt.Dimension(120, 25));
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 290, -1, 20));
 
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel6.setText("Huespedes máximos");
         jLabel6.setMaximumSize(new java.awt.Dimension(120, 25));
         jLabel6.setMinimumSize(new java.awt.Dimension(120, 25));
         jLabel6.setPreferredSize(new java.awt.Dimension(120, 25));
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 230, -1, -1));
 
+        etiquetaHuespedes.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         etiquetaHuespedes.setText("0");
         etiquetaHuespedes.setMaximumSize(new java.awt.Dimension(30, 25));
         etiquetaHuespedes.setMinimumSize(new java.awt.Dimension(30, 25));
         etiquetaHuespedes.setPreferredSize(new java.awt.Dimension(30, 25));
         getContentPane().add(etiquetaHuespedes, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 230, -1, -1));
 
+        etiquetaHabitaciones.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         etiquetaHabitaciones.setText("0");
         etiquetaHabitaciones.setMaximumSize(new java.awt.Dimension(30, 25));
         etiquetaHabitaciones.setMinimumSize(new java.awt.Dimension(30, 25));
         etiquetaHabitaciones.setPreferredSize(new java.awt.Dimension(30, 25));
         getContentPane().add(etiquetaHabitaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 260, -1, -1));
 
+        etiquetaCamas.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         etiquetaCamas.setText("0");
         etiquetaCamas.setMaximumSize(new java.awt.Dimension(30, 25));
         etiquetaCamas.setMinimumSize(new java.awt.Dimension(30, 25));
         etiquetaCamas.setPreferredSize(new java.awt.Dimension(30, 25));
         getContentPane().add(etiquetaCamas, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 290, -1, -1));
 
+        etiquetaDireccion.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         etiquetaDireccion.setText("Calle, numero, codPostal, Ciudad");
         etiquetaDireccion.setMaximumSize(new java.awt.Dimension(200, 25));
         etiquetaDireccion.setMinimumSize(new java.awt.Dimension(200, 25));
         etiquetaDireccion.setPreferredSize(new java.awt.Dimension(300, 25));
         getContentPane().add(etiquetaDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 360, -1, -1));
 
+        FechaSalida.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         FechaSalida.setText(reserva.getFechaSalida().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
         FechaSalida.setMaximumSize(new java.awt.Dimension(450, 25));
         FechaSalida.setMinimumSize(new java.awt.Dimension(450, 25));
         FechaSalida.setPreferredSize(new java.awt.Dimension(550, 25));
-        getContentPane().add(FechaSalida, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 160, -1, -1));
+        getContentPane().add(FechaSalida, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 160, 120, -1));
 
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel2.setText("Fecha de Reserva:");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, -1, -1));
 
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel7.setText("Fecha de Inicio:");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 130, -1, -1));
 
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel8.setText("Fecha de fin:");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 160, -1, -1));
 
+        fechaReserva.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         fechaReserva.setText(reserva.getFechaReserva().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
         getContentPane().add(fechaReserva, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 100, 160, -1));
 
+        FechaEntrada.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         FechaEntrada.setText(reserva.getFechaEntrada().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
         getContentPane().add(FechaEntrada, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 130, 110, -1));
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel9.setText("Calificación");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 200, 80, 20));
 
         jMenuBar1.setMinimumSize(new java.awt.Dimension(70, 73));
         jMenuBar1.setPreferredSize(new java.awt.Dimension(70, 73));
@@ -420,10 +428,6 @@ public class MostrarReserva extends javax.swing.JFrame {
         imgPrincipal.setIcon(image3);
     }//GEN-LAST:event_btnImg3ActionPerformed
 
-    private void btnReservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservarActionPerformed
-
-    }//GEN-LAST:event_btnReservarActionPerformed
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel FechaEntrada;
     private javax.swing.JLabel FechaSalida;
@@ -431,7 +435,6 @@ public class MostrarReserva extends javax.swing.JFrame {
     private javax.swing.JButton btnImg1;
     private javax.swing.JButton btnImg2;
     private javax.swing.JButton btnImg3;
-    private javax.swing.JButton btnReservar;
     private javax.swing.JMenuItem btnReservas;
     private javax.swing.JMenuItem btnReseñaModInm;
     private javax.swing.JMenuItem buscarGestionarInmuebles;
@@ -454,6 +457,7 @@ public class MostrarReserva extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;

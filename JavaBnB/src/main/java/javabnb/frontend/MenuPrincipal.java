@@ -67,8 +67,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         buscarGestionarInmuebles = new javax.swing.JMenuItem();
-        btnReseñaModInm = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
+        btnReseñaModInm = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         btnReservas = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
@@ -84,12 +84,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("JavaBnB");
-        setMinimumSize(new java.awt.Dimension(1100, 800));
+        setMaximumSize(new java.awt.Dimension(900, 720));
+        setMinimumSize(new java.awt.Dimension(900, 720));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/logoJavaBnB-PNGx2.png"))); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 90, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 100, -1, -1));
 
         jMenuBar1.setMinimumSize(new java.awt.Dimension(70, 73));
         jMenuBar1.setPreferredSize(new java.awt.Dimension(70, 73));
@@ -110,20 +111,21 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
         jMenu1.add(buscarGestionarInmuebles);
 
-        btnReseñaModInm.setText("Escribir reseña");
-        btnReseñaModInm.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnReseñaModInmActionPerformed(evt);
-            }
-        });
-        jMenu1.add(btnReseñaModInm);
-
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Reseñas");
         jMenu2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jMenu2.setMaximumSize(new java.awt.Dimension(120, 32767));
         jMenu2.setMinimumSize(new java.awt.Dimension(120, 22));
+
+        btnReseñaModInm.setText("Escribir reseña");
+        btnReseñaModInm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReseñaModInmActionPerformed(evt);
+            }
+        });
+        jMenu2.add(btnReseñaModInm);
+
         jMenuBar1.add(jMenu2);
 
         jMenu3.setText("Reservas");

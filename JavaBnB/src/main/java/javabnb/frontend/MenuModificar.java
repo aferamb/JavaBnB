@@ -26,18 +26,20 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  *
  * @author ALEJANDRO
  */
-public class CrearInmueble extends javax.swing.JFrame {
+public class MenuModificar extends javax.swing.JFrame {
 
     private Persona persona;
+    private final Inmueble inmueble;
     /**
      * Creates new form MenuPrincipal
      * 
      * @param localizacion
      * @param persona
      */
-    public CrearInmueble( Point localizacion, Persona persona) {
+    public MenuModificar( Point localizacion, Persona persona, Inmueble inmueble) {
         this.setLocation(localizacion);
         this.persona = persona;
+        this.inmueble = inmueble;
         initComponents();
         this.setVisible(true);
         if (persona instanceof ClienteParticular) {
@@ -111,6 +113,7 @@ public class CrearInmueble extends javax.swing.JFrame {
         foto3 = new javax.swing.JButton();
         nombreInmueble = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         buscarGestionarInmuebles = new javax.swing.JMenuItem();
@@ -234,22 +237,37 @@ public class CrearInmueble extends javax.swing.JFrame {
         jLabel13.setText("Servicios adicionales");
         getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 400, -1, -1));
 
+        nombreCalle.setText(inmueble.getDireccion().getCalle());
         nombreCalle.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nombreCalleActionPerformed(evt);
             }
         });
         getContentPane().add(nombreCalle, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 100, 180, -1));
+
+        numeroCalle.setText(String.valueOf(inmueble.getDireccion().getNumero())
+        );
+        numeroCalle.setToolTipText("");
         getContentPane().add(numeroCalle, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 140, 180, -1));
 
         serviciosAdicionales.setColumns(20);
         serviciosAdicionales.setRows(5);
+        serviciosAdicionales.setText(String.join(", ", inmueble.getServicios())
+        );
         jScrollPane1.setViewportView(serviciosAdicionales);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 400, 360, -1));
+
+        detallesCalle.setText(inmueble.getDireccion().getDetallesDireccion());
         getContentPane().add(detallesCalle, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 180, 180, -1));
+
+        ciudad.setText(inmueble.getDireccion().getCiudad());
         getContentPane().add(ciudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 270, 180, -1));
+
+        comunidad.setText(inmueble.getDireccion().getProvincia());
         getContentPane().add(comunidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 310, 180, -1));
+
+        pais.setText(inmueble.getDireccion().getPais());
         getContentPane().add(pais, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 350, 180, -1));
 
         jButton2.setText("Publicar Inmueble");
@@ -258,10 +276,12 @@ public class CrearInmueble extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 510, 250, -1));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 510, 250, -1));
 
         jLabel14.setText("Precio");
         getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 350, -1, -1));
+
+        precioNoche.setText(Double.toString(inmueble.getPrecioNoche()));
         getContentPane().add(precioNoche, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 350, 70, -1));
 
         tipoInmueble.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CASA", "APARTAMENTO", " " }));
@@ -275,10 +295,20 @@ public class CrearInmueble extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        codigoPostal.setText(String.valueOf(inmueble.getDireccion().getCodigoPostal()));
         getContentPane().add(codigoPostal, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 220, 180, -1));
+
+        huespedesMax.setText(Integer.toString(inmueble.getHuespedesMax())
+        );
         getContentPane().add(huespedesMax, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 100, 80, -1));
+
+        habitaciones.setText(Integer.toString(inmueble.getHabitaciones()));
         getContentPane().add(habitaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 140, 80, -1));
+
+        camas.setText(Integer.toString(inmueble.getCamas()));
         getContentPane().add(camas, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 180, 80, -1));
+
+        baños.setText(Integer.toString(inmueble.getBaños()));
         getContentPane().add(baños, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 220, 80, -1));
 
         foto2.setText("Añadir");
@@ -306,6 +336,7 @@ public class CrearInmueble extends javax.swing.JFrame {
         getContentPane().add(foto3, new org.netbeans.lib.awtextra.AbsoluteConstraints(126, 390, 70, -1));
 
         nombreInmueble.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        nombreInmueble.setText(inmueble.getTitulo());
         nombreInmueble.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nombreInmuebleActionPerformed(evt);
@@ -315,6 +346,14 @@ public class CrearInmueble extends javax.swing.JFrame {
 
         jLabel16.setText("Nombre del inmueble");
         getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 10, -1, -1));
+
+        jButton3.setText("Eliminar Inmueble");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 510, 250, -1));
 
         jMenuBar1.setMinimumSize(new java.awt.Dimension(70, 73));
         jMenuBar1.setPreferredSize(new java.awt.Dimension(70, 73));
@@ -426,6 +465,7 @@ public class CrearInmueble extends javax.swing.JFrame {
 
     private void icono2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_icono2ActionPerformed
         imgPrincipal.setIcon(foto2.getIcon());
+        if (inmueble.getFotos().size() > 0) {}
     }//GEN-LAST:event_icono2ActionPerformed
 
     private void icono3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_icono3ActionPerformed
@@ -561,6 +601,12 @@ JFileChooser fileChooser = new JFileChooser();
 
     private void nombreInmuebleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreInmuebleActionPerformed
     }//GEN-LAST:event_nombreInmuebleActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+            GestorInmueble.removeInmueble(inmueble);
+            MenuPrincipal menup = new MenuPrincipal(this.getLocation(),persona);
+            this.dispose();
+    }//GEN-LAST:event_jButton3ActionPerformed
     boolean nombreValido = false;
     boolean calleValida = false;
     boolean numeroValido= false;
@@ -599,6 +645,7 @@ JFileChooser fileChooser = new JFileChooser();
     private javax.swing.JLabel imgPrincipal;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

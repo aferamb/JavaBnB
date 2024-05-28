@@ -4,6 +4,7 @@
  */
 package javabnb.frontend;
 
+import java.awt.Point;
 import javabnb.backend.*;
 import javax.swing.JOptionPane;
 
@@ -13,17 +14,17 @@ import javax.swing.JOptionPane;
  */
 public class CambiarContraseña extends javax.swing.JFrame {
 
-    
-
-    
 
     /**
      * Creates new form CambiarContraseña
+     * @param localizacion
+     * @param persona
      */
-    public CambiarContraseña(Persona persona) {
-        initComponents();
+    public CambiarContraseña(Point localizacion, Persona persona) {
+       
+        this.setLocation(localizacion );
         this.persona = persona;
-         throw new UnsupportedOperationException("Not supported yet.");
+        initComponents();
          
     }
     /**
@@ -121,14 +122,19 @@ public class CambiarContraseña extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void contraseñaActualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contraseñaActualActionPerformed
-        if (contraseñaActual.getPassword().equals(persona.getClave())){
-           ContraseñaCorrecta = true; 
-        }
-        else {ContraseñaCorrecta = false;}
+
     }//GEN-LAST:event_contraseñaActualActionPerformed
 
     private void botonConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonConfirmarActionPerformed
-        if (ContraseñaCorrecta && botonClave1.getText().equals(botonClave2.getText())){
+               String password = new String(contraseñaActual.getPassword());
+        if (password.equals(persona.getClave())){
+       ContraseñaCorrecta = true; 
+    }
+    else {
+       ContraseñaCorrecta = false;
+    }
+        
+        if (ContraseñaCorrecta && botonClave1.getText().equals(botonClave2.getText()) && !botonClave1.getText().equals("")){
         persona.setClave(botonClave1.getText());
         this.dispose();  
         }
@@ -148,44 +154,10 @@ public class CambiarContraseña extends javax.swing.JFrame {
           contraseñaActual.setText("");
           JOptionPane.showMessageDialog(this,"Todos los datos introducidos son incorrectos","error de contraseña",JOptionPane.WARNING_MESSAGE);
            }
-
+     
       
     }//GEN-LAST:event_botonConfirmarActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CambiarContraseña.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CambiarContraseña.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CambiarContraseña.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CambiarContraseña.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new CambiarContraseña(null).setVisible(true);
-            }
-        });
-    }
     private Persona persona;
     boolean ContraseñaCorrecta = false;
     // Variables declaration - do not modify//GEN-BEGIN:variables

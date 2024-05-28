@@ -25,6 +25,17 @@ import javax.swing.ImageIcon;
 public class BuscarInmuebles extends javax.swing.JFrame {
 
     Persona persona;
+    
+    ArrayList<Inmueble> listaInmuebles = GestorInmueble.getInmuebles();
+    ArrayList<Inmueble> listaInmuebles2 = GestorInmueble.getInmuebles();
+    int pagAct = 0; 
+    int numPag = (int) Math.ceil(listaInmuebles.size()/4);
+    int startIndex = pagAct*4;
+    
+    private ImageIcon imagen1;
+    private ImageIcon imagen2;
+    private ImageIcon imagen3;
+    
     /**
      * Creates new form MenuPrincipal
      * 
@@ -60,7 +71,6 @@ public class BuscarInmuebles extends javax.swing.JFrame {
         precio1 = new javax.swing.JLabel();
         media1 = new javax.swing.JLabel();
         AmpliarInmueble1 = new javax.swing.JButton();
-        buscarCiudad = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         botonAtras = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
@@ -87,7 +97,6 @@ public class BuscarInmuebles extends javax.swing.JFrame {
         botonReseña = new javax.swing.JRadioButton();
         botonSiguiente = new javax.swing.JButton();
         botonPorPrecio = new javax.swing.JRadioButton();
-        botonBuscar = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
@@ -108,7 +117,6 @@ public class BuscarInmuebles extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("JavaBnB");
-        setMaximumSize(new java.awt.Dimension(900, 720));
         setMinimumSize(new java.awt.Dimension(900, 720));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -132,14 +140,6 @@ public class BuscarInmuebles extends javax.swing.JFrame {
         jPanel4.add(AmpliarInmueble1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 80, 130, -1));
 
         getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 50, 690, 130));
-
-        buscarCiudad.setText("BUSCAR POR CIUDAD");
-        buscarCiudad.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buscarCiudadActionPerformed(evt);
-            }
-        });
-        getContentPane().add(buscarCiudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, 380, 30));
 
         jButton2.setText("jButton2");
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 730, 75, -1));
@@ -251,14 +251,6 @@ public class BuscarInmuebles extends javax.swing.JFrame {
             }
         });
         getContentPane().add(botonPorPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, -1, -1));
-
-        botonBuscar.setText("Buscar");
-        botonBuscar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonBuscarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(botonBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 10, -1, 30));
 
         jMenuBar1.setMinimumSize(new java.awt.Dimension(70, 73));
         jMenuBar1.setPreferredSize(new java.awt.Dimension(70, 73));
@@ -631,124 +623,6 @@ public class BuscarInmuebles extends javax.swing.JFrame {
     }
     }//GEN-LAST:event_botonPorPrecioActionPerformed
 
-    private void buscarCiudadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarCiudadActionPerformed
-       titulo1.setText("");
-        precio1.setText("");
-        media1.setText("");
-        foto1.setIcon(null);
-
-        titulo2.setText("");
-        precio2.setText("");
-        media2.setText("");
-        foto2.setIcon(null);  
-
-        titulo3.setText("");
-        precio3.setText("");
-        media3.setText("");
-        foto3.setIcon(null);
-
-        titulo4.setText("");
-        precio4.setText("");
-        media4.setText("");
-        foto4.setIcon(null);
-        for (Inmueble inm: listaInmuebles){
-        if (inm.getDireccion().getCiudad().equals(buscarCiudad.getText())){
-            if (startIndex < listaInmuebles.size()) {
-        Inmueble inmueble1 = listaInmuebles.get(pagAct*4);
-        Image imagen1 = inmueble1.getFotos().get(0).getImage();
-        titulo1.setText(inmueble1.getTitulo());
-        precio1.setText(Double.toString(inmueble1.getPrecioNoche()));
-        media1.setText(Double.toString(inmueble1.getCalificacion()));
-        foto1.setIcon(inmueble1.getFotos().get(0)); // Asegúrate de manejar bien las fotos
-    }
-    if (startIndex + 1 < listaInmuebles.size()) {
-        Inmueble inmueble2 = listaInmuebles.get(pagAct*4 + 1);
-        titulo2.setText(inmueble2.getTitulo());
-        precio2.setText(Double.toString(inmueble2.getPrecioNoche()));
-        media2.setText(Double.toString(inmueble2.getCalificacion()));
-        foto2.setIcon(inmueble2.getFotos().get(0));
-    }
-    if (startIndex + 2 < listaInmuebles.size()) {
-        Inmueble inmueble3 = listaInmuebles.get(pagAct*4 + 2);
-        titulo3.setText(inmueble3.getTitulo());
-        precio3.setText(Double.toString(inmueble3.getPrecioNoche()));
-        media3.setText(Double.toString(inmueble3.getCalificacion()));
-        foto3.setIcon(inmueble3.getFotos().get(0));
-    }
-    if (startIndex + 3 < listaInmuebles.size()) {
-        Inmueble inmueble4 = listaInmuebles.get(pagAct*4 + 3);
-        titulo4.setText(inmueble4.getTitulo());
-        precio4.setText(Double.toString(inmueble4.getPrecioNoche()));
-        media4.setText(Double.toString(inmueble4.getCalificacion()));
-        foto4.setIcon(inmueble4.getFotos().get(0));
-    }
-        }
-             }
-        
-    }//GEN-LAST:event_buscarCiudadActionPerformed
-
-    private void botonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBuscarActionPerformed
-        
-        ArrayList<Inmueble> listaInmuebles = listaInmuebles2;
-        for (Inmueble inm: listaInmuebles){
-        
-        if (inm.getDireccion().getCiudad().equals(buscarCiudad.getText())){
-           titulo1.setText("");
-        precio1.setText("");
-        media1.setText("");
-        foto1.setIcon(null);
-
-        titulo2.setText("");
-        precio2.setText("");
-        media2.setText("");
-        foto2.setIcon(null);  
-
-        titulo3.setText("");
-        precio3.setText("");
-        media3.setText("");
-        foto3.setIcon(null);
-
-        titulo4.setText("");
-        precio4.setText("");
-        media4.setText("");
-        foto4.setIcon(null);
-
-
-    if (startIndex < listaInmuebles.size()) {
-        Inmueble inmueble1 = listaInmuebles.get(pagAct*4);
-        Image imagen1 = inmueble1.getFotos().get(0).getImage();
-        titulo1.setText(inmueble1.getTitulo());
-        precio1.setText(Double.toString(inmueble1.getPrecioNoche()));
-        media1.setText(Double.toString(inmueble1.getCalificacion()));
-        foto1.setIcon(inmueble1.getFotos().get(0)); // Asegúrate de manejar bien las fotos
-    }
-    if (startIndex + 1 < listaInmuebles.size()) {
-        Inmueble inmueble2 = listaInmuebles.get(pagAct*4 + 1);
-        titulo2.setText(inmueble2.getTitulo());
-        precio2.setText(Double.toString(inmueble2.getPrecioNoche()));
-        media2.setText(Double.toString(inmueble2.getCalificacion()));
-        foto2.setIcon(inmueble2.getFotos().get(0));
-    }
-    if (startIndex + 2 < listaInmuebles.size()) {
-        Inmueble inmueble3 = listaInmuebles.get(pagAct*4 + 2);
-        titulo3.setText(inmueble3.getTitulo());
-        precio3.setText(Double.toString(inmueble3.getPrecioNoche()));
-        media3.setText(Double.toString(inmueble3.getCalificacion()));
-        foto3.setIcon(inmueble3.getFotos().get(0));
-    }
-    if (startIndex + 3 < listaInmuebles.size()) {
-        Inmueble inmueble4 = listaInmuebles.get(pagAct*4 + 3);
-        titulo4.setText(inmueble4.getTitulo());
-        precio4.setText(Double.toString(inmueble4.getPrecioNoche()));
-        media4.setText(Double.toString(inmueble4.getCalificacion()));
-        foto4.setIcon(inmueble4.getFotos().get(0));
-    } 
-        }}
-  
-        
-        
-    }//GEN-LAST:event_botonBuscarActionPerformed
-
     private void filtroCasaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_filtroCasaActionPerformed
         listaInmuebles = listaInmuebles2;
         botonReseña.setSelected(false);
@@ -841,25 +715,15 @@ public class BuscarInmuebles extends javax.swing.JFrame {
             MostrarInmueble mostrarInmueble = new MostrarInmueble(this.getLocation(),persona,inmueble4);
         }
     }//GEN-LAST:event_inmueble4ActionPerformed
-    ArrayList<Inmueble> listaInmuebles = GestorInmueble.getInmuebles();
-    ArrayList<Inmueble> listaInmuebles2 = GestorInmueble.getInmuebles();
-    int pagAct = 0; 
-    int numPag = (int) Math.ceil(listaInmuebles.size()/4);
-    int startIndex = pagAct*4;
-    
-    private ImageIcon imagen1;
-    private ImageIcon imagen2;
-    private ImageIcon imagen3;
+   
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AmpliarInmueble1;
     private javax.swing.JButton botonAtras;
-    private javax.swing.JButton botonBuscar;
     private javax.swing.JMenuItem botonPerfil;
     private javax.swing.JRadioButton botonPorPrecio;
     private javax.swing.JRadioButton botonReseña;
     private javax.swing.JButton botonSiguiente;
-    private javax.swing.JTextField buscarCiudad;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.ButtonGroup buttonGroup3;

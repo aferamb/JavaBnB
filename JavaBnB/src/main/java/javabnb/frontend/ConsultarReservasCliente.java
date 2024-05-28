@@ -21,6 +21,12 @@ import javax.swing.JOptionPane;
  */
 public class ConsultarReservasCliente extends javax.swing.JFrame {
 
+    private  ClienteParticular cliente;
+    private  Persona persona;
+    ArrayList<Reserva> listaReservas;
+    int pagAct = 0; 
+    int numPag;
+    int startIndex = pagAct*4;
     
 
     
@@ -33,9 +39,13 @@ public class ConsultarReservasCliente extends javax.swing.JFrame {
     public ConsultarReservasCliente( Point localizacion, Persona persona) {
         this.setLocation(localizacion);
         this.persona =  persona;
+        this.cliente = (ClienteParticular) persona;
+        this.listaReservas = cliente.getReservas();
+        this.numPag = (int) Math.ceil(listaReservas.size()/4);
+       
         initComponents();
         this.setVisible(true);
-        if (persona instanceof ClienteParticular) {
+        if (this.persona instanceof ClienteParticular) {
             jMenu1.setText("Busqueda");
             buscarGestionarInmuebles.setText("Busqueda Inmuebles");
         }
@@ -44,13 +54,57 @@ public class ConsultarReservasCliente extends javax.swing.JFrame {
             buscarGestionarInmuebles.setText("Añadir inmueble");
         }
 
-        if (persona instanceof ClienteParticular) {
+        if (this.persona instanceof ClienteParticular) {
             jMenu2.setText("Reseñas");
             btnReseñaModInm.setText("Escribir Reseñas");
         }
         else {
             jMenu2.setText("Gestionar");
             btnReseñaModInm.setText("Modificar inmueble");
+        }
+        titulo1.setText("");
+        foto1.setIcon(null);
+
+        titulo2.setText("");
+        foto2.setIcon(null);
+
+        titulo3.setText("");
+        foto3.setIcon(null);
+
+        titulo4.setText("");
+        foto4.setIcon(null);
+
+        titulo1.setText("");
+        foto1.setIcon(null);
+
+        titulo2.setText("");
+        foto2.setIcon(null);
+
+        titulo3.setText("");
+        foto3.setIcon(null);
+
+        titulo4.setText("");
+        foto4.setIcon(null);
+
+        if (startIndex < listaReservas.size()) {
+            Reserva reserva1 = listaReservas.get(pagAct*4);
+            titulo1.setText(reserva1.getInmueble().getTitulo());
+            foto1.setIcon(reserva1.getInmueble().getFotos().get(0)); // Asegúrate de manejar bien las fotos
+        }
+        if (startIndex + 1 < listaReservas.size()) {
+            Reserva reserva2 = listaReservas.get(pagAct*4 + 1);
+            titulo2.setText(reserva2.getInmueble().getTitulo());
+            foto2.setIcon(reserva2.getInmueble().getFotos().get(0));
+        }
+        if (startIndex + 2 < listaReservas.size()) {
+            Reserva reserva3 = listaReservas.get(pagAct*4 + 2);
+            titulo3.setText(reserva3.getInmueble().getTitulo());
+            foto3.setIcon(reserva3.getInmueble().getFotos().get(0));
+        }
+        if (startIndex + 3 < listaReservas.size()) {
+            Reserva reserva4 = listaReservas.get(pagAct*4 + 3);
+            titulo4.setText(reserva4.getInmueble().getTitulo());
+            foto4.setIcon(reserva4.getInmueble().getFotos().get(0));
         }
     }
     
@@ -327,6 +381,7 @@ public class ConsultarReservasCliente extends javax.swing.JFrame {
 
         if (!titulo1.getText().equals("")){
             MostrarReserva mostrarReserva = new MostrarReserva(this.getLocation(),persona,reserva1);
+            mostrarReserva.setVisible(true);
         }
     }//GEN-LAST:event_AmpliarInmueble1ActionPerformed
 
@@ -440,11 +495,7 @@ public class ConsultarReservasCliente extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_botonSiguienteActionPerformed
 
-      private  Persona persona;
-      ArrayList<Reserva> listaReservas =((ClienteParticular) persona ).getReservas();
-    int pagAct = 0; 
-    int numPag = (int) Math.ceil(listaReservas.size()/4);
-    int startIndex = pagAct*4;
+    
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AmpliarInmueble1;
