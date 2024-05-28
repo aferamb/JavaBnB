@@ -384,7 +384,6 @@ public class MostrarInmueble extends javax.swing.JFrame {
         imgPrincipal.setIcon(image3);
     }//GEN-LAST:event_btnImg3ActionPerformed
 
-<<<<<<< HEAD
     private void botonReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonReservaActionPerformed
             VentanaPago pago = new VentanaPago(this.getLocation(),persona,inmueble);
             pago.setVisible(true);
@@ -402,12 +401,6 @@ public class MostrarInmueble extends javax.swing.JFrame {
             this.dispose();
         }
     }//GEN-LAST:event_btnReservas1ActionPerformed
-=======
-    private void btnReservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservarActionPerformed
-        VentanaPago pago = new VentanaPago(this.getLocation(), persona, inmueble);
-        this.dispose();
-    }//GEN-LAST:event_btnReservarActionPerformed
->>>>>>> 9c592f9559ec53f2b58518130545580a2c88b057
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonReserva;

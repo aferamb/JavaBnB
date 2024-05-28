@@ -29,6 +29,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 public class MenuModificar extends javax.swing.JFrame {
 
     private Persona persona;
+    private Anfitrion anfitrion;
     private final Inmueble inmueble;
     /**
      * Creates new form MenuPrincipal
@@ -39,6 +40,7 @@ public class MenuModificar extends javax.swing.JFrame {
     public MenuModificar( Point localizacion, Persona persona, Inmueble inmueble) {
         this.setLocation(localizacion);
         this.persona = persona;
+        this.anfitrion = (Anfitrion) persona;
         this.inmueble = inmueble;
         initComponents();
         this.setVisible(true);
@@ -439,7 +441,7 @@ public class MenuModificar extends javax.swing.JFrame {
 
     private void buscarGestionarInmueblesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarGestionarInmueblesActionPerformed
         if (persona instanceof ClienteParticular) {
-            //BuscarInmuebles busquedaInm = new BuscarInmuebles(this.getLocation(),persona);
+            BuscarInmuebles busquedaInm = new BuscarInmuebles(this.getLocation(),persona);
             this.dispose();
         } else {
             CrearInmueble crearInmueble = new CrearInmueble(this.getLocation(),persona);
