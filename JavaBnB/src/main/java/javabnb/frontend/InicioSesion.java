@@ -32,7 +32,7 @@ public class InicioSesion extends javax.swing.JFrame {
         GestorInmueble.recuperarDatosPersonas();
         GestorInmueble.recuperarDatosInmuebles();
         GestorInmueble.recuperarDatosReservas();
-        personas = GestorInmueble.getPersonas();
+        //personas = GestorInmueble.getPersonas();
         Image icono = new ImageIcon("resources/imagenes/logoJavaBnB.jpg").getImage();
         this.setIconImage(icono);
     }
@@ -198,6 +198,7 @@ public class InicioSesion extends javax.swing.JFrame {
     }//GEN-LAST:event_textoEmailFocusGained
 
     private void botonInicioSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonInicioSesionActionPerformed
+        personas = GestorInmueble.getPersonas();
         String email = textoEmail.getText();
         char[] arrayC = textoContraseña.getPassword();
         String contraseña = new String(arrayC);
@@ -235,7 +236,13 @@ public class InicioSesion extends javax.swing.JFrame {
     }//GEN-LAST:event_crearClienteActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        JOptionPane.showMessageDialog(this,"ESdtas segura dde cerrar","Error de inicio sesion",JOptionPane.WARNING_MESSAGE);
+        JOptionPane.showMessageDialog(this,"Estas seguro de cerrar","Cierre programa",JOptionPane.WARNING_MESSAGE);
+        GestorInmueble.guardarDatosInmuebles();
+        System.out.println("Guardando datos de inmuebles");
+        GestorInmueble.guardarDatosPersonas();
+        System.out.println("Guardando datos de personas");
+        GestorInmueble.guardarDatosReservas();
+        System.out.println("Guardando datos de reservas");
         
     }//GEN-LAST:event_formWindowClosing
 

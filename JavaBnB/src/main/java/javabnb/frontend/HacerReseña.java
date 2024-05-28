@@ -14,6 +14,7 @@ import javabnb.backend.*;
 import javabnb.frontend.EditarAnfitrion;
 import javabnb.frontend.EditarCliente;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -133,6 +134,11 @@ public class HacerReseña extends javax.swing.JFrame {
         setTitle("JavaBnB");
         setMinimumSize(new java.awt.Dimension(900, 720));
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         imgPrincipal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -390,6 +396,16 @@ public class HacerReseña extends javax.swing.JFrame {
        }
        
     }//GEN-LAST:event_publicarReseñaActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        JOptionPane.showMessageDialog(this,"Estas seguro de cerrar","Cierre programa",JOptionPane.WARNING_MESSAGE);
+        GestorInmueble.guardarDatosInmuebles();
+        System.out.println("Guardando datos de inmuebles");
+        GestorInmueble.guardarDatosPersonas();
+        System.out.println("Guardando datos de personas");
+        GestorInmueble.guardarDatosReservas();
+        System.out.println("Guardando datos de reservas");
+    }//GEN-LAST:event_formWindowClosing
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel FechaEntrada;

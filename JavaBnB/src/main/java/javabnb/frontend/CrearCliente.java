@@ -71,6 +71,11 @@ public class CrearCliente extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("JavaBnB");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -446,6 +451,16 @@ public class CrearCliente extends javax.swing.JFrame {
         c.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BackButtonActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        JOptionPane.showMessageDialog(this,"Estas seguro de cerrar","Cierre programa",JOptionPane.WARNING_MESSAGE);
+        GestorInmueble.guardarDatosInmuebles();
+        System.out.println("Guardando datos de inmuebles");
+        GestorInmueble.guardarDatosPersonas();
+        System.out.println("Guardando datos de personas");
+        GestorInmueble.guardarDatosReservas();
+        System.out.println("Guardando datos de reservas");
+    }//GEN-LAST:event_formWindowClosing
 
     boolean emailValido = false;
     boolean telefonoValido = false;

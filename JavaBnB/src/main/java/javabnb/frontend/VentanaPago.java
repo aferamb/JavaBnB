@@ -113,10 +113,13 @@ public class VentanaPago extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("JavaBnB");
-        setMaximumSize(new java.awt.Dimension(900, 720));
         setMinimumSize(new java.awt.Dimension(900, 720));
-        setPreferredSize(new java.awt.Dimension(900, 720));
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -391,6 +394,16 @@ public class VentanaPago extends javax.swing.JFrame {
     private void fechaDeEntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fechaDeEntradaActionPerformed
 
     }//GEN-LAST:event_fechaDeEntradaActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        JOptionPane.showMessageDialog(this,"Estas seguro de cerrar","Cierre programa",JOptionPane.WARNING_MESSAGE);
+        GestorInmueble.guardarDatosInmuebles();
+        System.out.println("Guardando datos de inmuebles");
+        GestorInmueble.guardarDatosPersonas();
+        System.out.println("Guardando datos de personas");
+        GestorInmueble.guardarDatosReservas();
+        System.out.println("Guardando datos de reservas");
+    }//GEN-LAST:event_formWindowClosing
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem botonPerfil;
