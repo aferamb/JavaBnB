@@ -26,6 +26,7 @@ public class ModificarInmueble extends javax.swing.JFrame {
 
     private Persona persona;
     private Anfitrion anfitrion;
+    private ArrayList<Inmueble> listaInmuebles = new ArrayList<Inmueble>();
     /**
      * Creates new form MenuPrincipal
      * 
@@ -59,7 +60,21 @@ public class ModificarInmueble extends javax.swing.JFrame {
             jMenu2.setText("Gestionar");
             btnReseñaModInm.setText("Modificar inmueble");
         }
+
+
+        for (Inmueble inm : GestorInmueble.getInmuebles()) {
+            if (inm.getAnfitrion().getNombre().equals(this.anfitrion.getNombre())) {
+                listaInmuebles.add(inm);
+            }
+        }
     }
+
+    //ArrayList<Inmueble> listaInmuebles = this.anfitrion.getInmuebles();
+    ArrayList<Inmueble> listaInmuebles2 = GestorInmueble.getInmuebles();
+    int pagAct = 0; 
+    int numPag = (int) Math.ceil(listaInmuebles.size()/4);
+    int startIndex = pagAct*4;
+    
     
 
     /**
@@ -757,11 +772,6 @@ public class ModificarInmueble extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_botonPorPrecioActionPerformed
     
-    ArrayList<Inmueble> listaInmuebles = this.anfitrion.getInmuebles();
-    ArrayList<Inmueble> listaInmuebles2 = GestorInmueble.getInmuebles();
-    int pagAct = 0; 
-    int numPag = (int) Math.ceil(listaInmuebles.size()/4);
-    int startIndex = pagAct*4;
     
     private ImageIcon imagen1;
     private ImageIcon imagen2;

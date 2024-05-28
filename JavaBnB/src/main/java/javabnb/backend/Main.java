@@ -214,7 +214,7 @@ public class Main {
    GestorInmueble.addReserva(reserva10);
    
       */
-/* 
+
    personas.add(cli1);
    personas.add(cli2);
    personas.add(cli3);
@@ -259,7 +259,7 @@ public class Main {
    for (Persona p: GestorInmueble.getPersonas()){
       System.out.println(p);
    }
-*/
+
 
 
    /* Para el frontend

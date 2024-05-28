@@ -62,6 +62,9 @@ public class MenuModificar extends javax.swing.JFrame {
             jMenu2.setText("Gestionar");
             btnReseñaModInm.setText("Modificar inmueble");
         }
+        icono2.setIcon(inmueble.getFotos().get(0));
+        icono3.setIcon(inmueble.getFotos().get(1));
+        icono4.setIcon(inmueble.getFotos().get(2));
     }
     
 
@@ -498,7 +501,7 @@ public class MenuModificar extends javax.swing.JFrame {
         if (!pais.getText().equals("") )   {paisValido = true;}
         if (!comunidad.getText().equals("") )   {comunidadValida = true;}
     if (calleValida && numeroValido && codigoValido && detallesValidos && ciudadValida && paisValido && comunidadValida) {
-        Direccion dir = new Direccion(nombreCalle.getText(),Integer.parseInt(numeroCalle.getText()),detallesCalle.getText(),Integer.parseInt(codigoPostal.getText()),ciudad.getText(),comunidad.getText(),pais.getText());
+        //Direccion dir = new Direccion(nombreCalle.getText(),Integer.parseInt(numeroCalle.getText()),detallesCalle.getText(),Integer.parseInt(codigoPostal.getText()),ciudad.getText(),comunidad.getText(),pais.getText());
          direccionValida = true;   
     }
     if (!huespedesMax.getText().equals("") )   {
@@ -533,8 +536,24 @@ public class MenuModificar extends javax.swing.JFrame {
     if (!fotos.isEmpty() && nombreValido && huespedesValidos && camasValidas && bañosValidos && habitacionesValidas && precioValido && direccionValida){
         String[] serviciosArray = serviciosAdicionales.getText().split(",");
         ArrayList<String> serviciosLista = new ArrayList<String>(Arrays.asList(serviciosArray));
-        Inmueble inmueble = new Inmueble(nombreInmueble.getText(), (Anfitrion) persona, dir,Integer.parseInt(huespedesMax.getText()),Integer.parseInt(habitaciones.getText()),Integer.parseInt(camas.getText()),Integer.parseInt(baños.getText()),tipoInmueble.getSelectedItem().toString(),Double.parseDouble(precioNoche.getText()),serviciosLista,fotos,0);
-        GestorInmueble.addInmueble(inmueble);
+        //Inmueble nuevoInmueble = new Inmueble(nombreInmueble.getText(), (Anfitrion) persona, dir,Integer.parseInt(huespedesMax.getText()),Integer.parseInt(habitaciones.getText()),Integer.parseInt(camas.getText()),Integer.parseInt(baños.getText()),tipoInmueble.getSelectedItem().toString(),Double.parseDouble(precioNoche.getText()),serviciosLista,fotos,0);
+        inmueble.setTitulo(nombreInmueble.getText());
+        inmueble.getDireccion().setCalle(nombreCalle.getText());
+        inmueble.getDireccion().setNumero(Integer.parseInt(numeroCalle.getText()));
+        inmueble.getDireccion().setDetallesDireccion(detallesCalle.getText());
+        inmueble.getDireccion().setCodigoPostal(Integer.parseInt(codigoPostal.getText()));
+        inmueble.getDireccion().setCiudad(ciudad.getText());
+        inmueble.getDireccion().setProvincia(comunidad.getText());
+        inmueble.getDireccion().setPais(pais.getText());
+        inmueble.setHuespedesMax(Integer.parseInt(huespedesMax.getText()));
+        inmueble.setHabitaciones(Integer.parseInt(habitaciones.getText()));
+        inmueble.setCamas(Integer.parseInt(camas.getText()));
+        inmueble.setBaños(Integer.parseInt(baños.getText()));
+        inmueble.setPrecioNoche(Double.parseDouble(precioNoche.getText()));
+        inmueble.setTipoInmueble(tipoInmueble.getSelectedItem().toString());
+        inmueble.setServicios(serviciosLista);
+        inmueble.setFotos(fotos);
+
         MenuPrincipal menu = new MenuPrincipal(this.getLocation(),persona);
         this.dispose();
         }
@@ -625,7 +644,7 @@ JFileChooser fileChooser = new JFileChooser();
     boolean camasValidas= false;
     boolean direccionValida = false;
     Direccion dir;
-    private ArrayList<ImageIcon> fotos;
+    private ArrayList<ImageIcon> fotos = new ArrayList<ImageIcon>();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField baños;
     private javax.swing.JMenuItem botonPerfil;

@@ -214,11 +214,13 @@ public class Inmueble implements Serializable {
      *
      * @param tipoInmueble nuevo tipo de propiedad en forma de TipoInmueble: TipoInmueble.CASA o TipoInmueble.APARTAMENTO
      */
-    public void setTipoInmueble(TipoInmueble tipoInmueble) {
-        if (tipoInmueble != TipoInmueble.CASA && tipoInmueble != TipoInmueble.APARTAMENTO) {
-            System.out.println("El tipo de propiedad no es válido.");
+    public void setTipoInmueble(String tipoInmueble) {
+        if (tipoInmueble.toUpperCase().equals("CASA")) {
+            this.tipoInmueble = TipoInmueble.CASA;
+        } else if (tipoInmueble.toUpperCase().equals("APARTAMENTO")){
+            this.tipoInmueble = TipoInmueble.APARTAMENTO;
         } else {
-        this.tipoInmueble = tipoInmueble;
+            System.out.println("El tipo de inmueble no es válido. Debe ser 'CASA' o 'APARTAMENTO'.");
         }
     }
 
