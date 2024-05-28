@@ -18,7 +18,7 @@ import javax.swing.ImageIcon;
  *
  * @author ALEJANDRO
  */
-public class MostrarInmueble extends javax.swing.JFrame {
+public class MostrarInmuebleAdministrador extends javax.swing.JFrame {
 
     private Persona persona;
     private Inmueble inmueble;
@@ -33,7 +33,7 @@ public class MostrarInmueble extends javax.swing.JFrame {
      * @param persona
      * @param inmueble
      */
-    public MostrarInmueble( Point localizacion, Persona persona, Inmueble inmueble) {
+    public MostrarInmuebleAdministrador( Point localizacion, Inmueble inmueble) {
         this.setLocation(localizacion);
         this.persona = persona;
         this.inmueble = inmueble;
@@ -112,7 +112,6 @@ public class MostrarInmueble extends javax.swing.JFrame {
         etiquetaCamas = new javax.swing.JLabel();
         etiquetaDireccion = new javax.swing.JLabel();
         etiquetaServicios = new javax.swing.JLabel();
-        botonReserva = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         buscarGestionarInmuebles = new javax.swing.JMenuItem();
@@ -120,8 +119,6 @@ public class MostrarInmueble extends javax.swing.JFrame {
         btnReseñaModInm = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         btnReservas = new javax.swing.JMenuItem();
-        jMenu4 = new javax.swing.JMenu();
-        btnReservas1 = new javax.swing.JMenuItem();
 
         jPanelBusqueda.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -266,15 +263,6 @@ public class MostrarInmueble extends javax.swing.JFrame {
         etiquetaServicios.setPreferredSize(new java.awt.Dimension(550, 25));
         getContentPane().add(etiquetaServicios, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 160, -1, -1));
 
-        botonReserva.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        botonReserva.setText("Reservar");
-        botonReserva.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonReservaActionPerformed(evt);
-            }
-        });
-        getContentPane().add(botonReserva, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 310, 230, 40));
-
         jMenuBar1.setMinimumSize(new java.awt.Dimension(70, 73));
         jMenuBar1.setPreferredSize(new java.awt.Dimension(70, 73));
 
@@ -326,34 +314,15 @@ public class MostrarInmueble extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu3);
 
-        jMenu4.setText("Perfil");
-        jMenu4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jMenu4.setMaximumSize(new java.awt.Dimension(120, 32767));
-        jMenu4.setMinimumSize(new java.awt.Dimension(120, 22));
-
-        btnReservas1.setText("modificar datos");
-        btnReservas1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnReservas1ActionPerformed(evt);
-            }
-        });
-        jMenu4.add(btnReservas1);
-
-        jMenuBar1.add(jMenu4);
-
         setJMenuBar(jMenuBar1);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void buscarGestionarInmueblesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarGestionarInmueblesActionPerformed
-        if (persona instanceof ClienteParticular) {
-            //BuscarInmuebles busquedaInm = new BuscarInmuebles(this.getLocation(),persona);
-            this.dispose();
-        } else {
-            CrearInmueble crearInmueble = new CrearInmueble(this.getLocation(),persona);
-            this.dispose();
-        }
+        BuscarInmueblesAdministrador menuAdmin = new BuscarInmueblesAdministrador(this.getLocation());
+        menuAdmin.setVisible(true);
+        this.dispose();  
     }//GEN-LAST:event_buscarGestionarInmueblesActionPerformed
 
     private void btnReseñaModInmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReseñaModInmActionPerformed
@@ -368,8 +337,9 @@ public class MostrarInmueble extends javax.swing.JFrame {
     }//GEN-LAST:event_btnReseñaModInmActionPerformed
 
     private void btnReservasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservasActionPerformed
-        ConsultarReservasCliente consultarReservas = new ConsultarReservasCliente(this.getLocation(),persona);
-        this.dispose();
+        ConsultarReservasAdministrador menuAdmin = new ConsultarReservasAdministrador(this.getLocation());
+        menuAdmin.setVisible(true);
+        this.dispose(); 
     }//GEN-LAST:event_btnReservasActionPerformed
 
     private void btnImg1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImg1ActionPerformed
@@ -384,31 +354,11 @@ public class MostrarInmueble extends javax.swing.JFrame {
         imgPrincipal.setIcon(image3);
     }//GEN-LAST:event_btnImg3ActionPerformed
 
-    private void botonReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonReservaActionPerformed
-            VentanaPago pago = new VentanaPago(this.getLocation(),persona,inmueble);
-            pago.setVisible(true);
-            this.dispose();
-            
-    }//GEN-LAST:event_botonReservaActionPerformed
-
-    private void btnReservas1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservas1ActionPerformed
-    if (persona instanceof Anfitrion) {
-            EditarAnfitrion editaranfitrion = new EditarAnfitrion(this.getLocation(),persona);
-            this.dispose();
-        }
-        else {
-            EditarCliente editarcliente = new EditarCliente(this.getLocation(),persona);
-            this.dispose();
-        }
-    }//GEN-LAST:event_btnReservas1ActionPerformed
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton botonReserva;
     private javax.swing.JButton btnImg1;
     private javax.swing.JButton btnImg2;
     private javax.swing.JButton btnImg3;
     private javax.swing.JMenuItem btnReservas;
-    private javax.swing.JMenuItem btnReservas1;
     private javax.swing.JMenuItem btnReseñaModInm;
     private javax.swing.JMenuItem buscarGestionarInmuebles;
     private javax.swing.JLabel etiquetaBaños;
@@ -430,7 +380,6 @@ public class MostrarInmueble extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanelBusqueda;
     // End of variables declaration//GEN-END:variables

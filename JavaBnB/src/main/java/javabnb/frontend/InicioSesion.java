@@ -6,6 +6,7 @@ package javabnb.frontend;
 
 import java.awt.Image;
 import java.util.ArrayList;
+import javabnb.backend.*;
 
 import javabnb.backend.GestorInmueble;
 import javabnb.backend.Persona;
@@ -118,9 +119,7 @@ public class InicioSesion extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("JavaBnB");
-        setMaximumSize(new java.awt.Dimension(530, 480));
         setMinimumSize(new java.awt.Dimension(530, 480));
-        setPreferredSize(new java.awt.Dimension(530, 480));
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
@@ -155,6 +154,11 @@ public class InicioSesion extends javax.swing.JFrame {
         textoEmail.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 textoEmailFocusGained(evt);
+            }
+        });
+        textoEmail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textoEmailActionPerformed(evt);
             }
         });
         getContentPane().add(textoEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(205, 280, 151, -1));
@@ -197,9 +201,15 @@ public class InicioSesion extends javax.swing.JFrame {
         String email = textoEmail.getText();
         char[] arrayC = textoContraseña.getPassword();
         String contraseña = new String(arrayC);
-        
+        if (email.equals(Administrador.getCorreo())&& Administrador.getClave().equals(contraseña)){
+             MenuAdministrador menuAdmin = new MenuAdministrador(this.getLocation());
+             menuAdmin.setVisible(true);
+             this.dispose();
+            }
+        else{
         boolean mostrar = true;
         for (Persona persona: personas){
+            
             if (persona.getCorreo().equals(email) && persona.getClave().equals(contraseña)){
                 if (persona instanceof ClienteParticular){
                 MenuPrincipal menuPrincipal = new MenuPrincipal( this.getLocation(), persona);
@@ -214,7 +224,7 @@ public class InicioSesion extends javax.swing.JFrame {
         }
         if (mostrar){
             JOptionPane.showMessageDialog(this,"Coreo o ontraseña incorrectos ","Error de inicio sesion",JOptionPane.WARNING_MESSAGE);
-        }
+        }}
     }//GEN-LAST:event_botonInicioSesionActionPerformed
 
     private void crearClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearClienteActionPerformed
@@ -227,6 +237,10 @@ public class InicioSesion extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this,"ESdtas segura dde cerrar","Error de inicio sesion",JOptionPane.WARNING_MESSAGE);
         
     }//GEN-LAST:event_formWindowClosing
+
+    private void textoEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoEmailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textoEmailActionPerformed
 
     /**
      * @param args the command line arguments
