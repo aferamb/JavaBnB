@@ -292,6 +292,11 @@ public class BuscarInmueblesAdministrador extends javax.swing.JFrame {
         jMenu3.setMinimumSize(new java.awt.Dimension(120, 22));
 
         jMenuItem2.setText("Mostrar reservas");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         jMenu3.add(jMenuItem2);
 
         jMenuBar1.add(jMenu3);
@@ -703,7 +708,9 @@ public class BuscarInmueblesAdministrador extends javax.swing.JFrame {
     }//GEN-LAST:event_inmueble4ActionPerformed
 
     private void botonUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonUsuariosActionPerformed
-        // TODO add your handling code here:
+         VerUsuariosAdministrador menuAdmin = new VerUsuariosAdministrador(this.getLocation());
+        menuAdmin.setVisible(true);
+        this.dispose();  
     }//GEN-LAST:event_botonUsuariosActionPerformed
 
     private void botonInmueblesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonInmueblesActionPerformed
@@ -711,6 +718,12 @@ public class BuscarInmueblesAdministrador extends javax.swing.JFrame {
         menuAdmin.setVisible(true);
         this.dispose();         
     }//GEN-LAST:event_botonInmueblesActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        ConsultarReservasAdministrador menuAdmin = new ConsultarReservasAdministrador(this.getLocation());
+        menuAdmin.setVisible(true);
+        this.dispose();  
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
    
    
     // Variables declaration - do not modify//GEN-BEGIN:variables

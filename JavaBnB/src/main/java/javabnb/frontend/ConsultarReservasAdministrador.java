@@ -311,12 +311,16 @@ public class ConsultarReservasAdministrador extends javax.swing.JFrame {
     }//GEN-LAST:event_buscarGestionarInmueblesActionPerformed
 
     private void btnReseñaModInmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReseñaModInmActionPerformed
-
+VerUsuariosAdministrador consultarReservas = new VerUsuariosAdministrador(this.getLocation());
+        consultarReservas.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnReseñaModInmActionPerformed
 
     private void btnReservasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservasActionPerformed
         ConsultarReservasAdministrador consultarReservas = new ConsultarReservasAdministrador(this.getLocation());
+        consultarReservas.setVisible(true);
         this.dispose();
+        
     }//GEN-LAST:event_btnReservasActionPerformed
 
     private void AmpliarInmueble1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AmpliarInmueble1ActionPerformed

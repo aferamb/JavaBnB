@@ -353,7 +353,9 @@ public class MostrarReservaAdministrador extends javax.swing.JFrame {
     }//GEN-LAST:event_buscarGestionarInmueblesActionPerformed
 
     private void btnReseñaModInmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReseñaModInmActionPerformed
- 
+        VerUsuariosAdministrador menuser = new VerUsuariosAdministrador(this.getLocation());
+        menuser.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnReseñaModInmActionPerformed
 
     private void btnReservasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservasActionPerformed

@@ -8,6 +8,7 @@ import java.awt.Point;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+import java.util.ArrayList;
 import javabnb.backend.*;
 import javax.swing.JFrame;
 
@@ -231,10 +232,15 @@ public class CrearAnfitrion extends javax.swing.JFrame {
              String contraseña = new String(contraseñaAnfitrion.getPassword());
              int telefonoA = Integer.parseInt(telefonoAnfitron.getText().replace(" ",""));
             Anfitrion anfitrion = new Anfitrion(DNIAnfitrion.getText(),nombreAnfitrion.getText(),emailAnfitrion.getText(),contraseña,telefonoA);
-            GestorInmueble.addPersona(anfitrion);
+            
+            ArrayList<Persona> personas2 = GestorInmueble.getPersonas();
+            personas2.add(anfitrion);
+            for (Persona p: GestorInmueble.getPersonas()){
+      System.out.println(p);}
             InicioSesion ini = new InicioSesion();
             ini.setLocation(this.getLocation());
             ini.setVisible(true);
+      
             this.dispose();
         }
     

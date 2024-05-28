@@ -69,7 +69,7 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu2">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Rese&#xf1;as"/>
+            <Property name="text" type="java.lang.String" value="Usuarios"/>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[120, 32767]"/>
@@ -79,12 +79,12 @@
             </Property>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="btnRese&#xf1;aModInm">
+            <MenuItem class="javax.swing.JMenuItem" name="ConsultarUsuarios">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Escribir rese&#xf1;a"/>
+                <Property name="text" type="java.lang.String" value="Consultar Usuarios"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRese&#xf1;aModInmActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ConsultarUsuariosActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>

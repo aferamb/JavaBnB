@@ -59,11 +59,11 @@ public class MostrarInmuebleAdministrador extends javax.swing.JFrame {
 
         if (persona instanceof ClienteParticular) {
             jMenu2.setText("Reseñas");
-            btnReseñaModInm.setText("Escribir Reseñas");
+            ConsultarUsuarios.setText("Escribir Reseñas");
         }
         else {
             jMenu2.setText("Gestionar");
-            btnReseñaModInm.setText("Modificar inmueble");
+            ConsultarUsuarios.setText("Modificar inmueble");
         }
         imgPrincipal.setIcon(image1);
         btnImg1.setIcon(image1);
@@ -116,7 +116,7 @@ public class MostrarInmuebleAdministrador extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         buscarGestionarInmuebles = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        btnReseñaModInm = new javax.swing.JMenuItem();
+        ConsultarUsuarios = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         btnReservas = new javax.swing.JMenuItem();
 
@@ -284,18 +284,18 @@ public class MostrarInmuebleAdministrador extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Reseñas");
+        jMenu2.setText("Usuarios");
         jMenu2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jMenu2.setMaximumSize(new java.awt.Dimension(120, 32767));
         jMenu2.setMinimumSize(new java.awt.Dimension(120, 22));
 
-        btnReseñaModInm.setText("Escribir reseña");
-        btnReseñaModInm.addActionListener(new java.awt.event.ActionListener() {
+        ConsultarUsuarios.setText("Consultar Usuarios");
+        ConsultarUsuarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnReseñaModInmActionPerformed(evt);
+                ConsultarUsuariosActionPerformed(evt);
             }
         });
-        jMenu2.add(btnReseñaModInm);
+        jMenu2.add(ConsultarUsuarios);
 
         jMenuBar1.add(jMenu2);
 
@@ -325,16 +325,11 @@ public class MostrarInmuebleAdministrador extends javax.swing.JFrame {
         this.dispose();  
     }//GEN-LAST:event_buscarGestionarInmueblesActionPerformed
 
-    private void btnReseñaModInmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReseñaModInmActionPerformed
-        if (persona instanceof Anfitrion) {
-            ModificarInmueble modInmueble = new ModificarInmueble(this.getLocation(),persona);
-            this.dispose();
-        }
-        else {
-            AñadirReseña añadirReseña = new AñadirReseña(this.getLocation(),persona);
-            this.dispose();
-        }  
-    }//GEN-LAST:event_btnReseñaModInmActionPerformed
+    private void ConsultarUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultarUsuariosActionPerformed
+VerUsuariosAdministrador menuAdmin = new VerUsuariosAdministrador(this.getLocation());
+        menuAdmin.setVisible(true);
+        this.dispose();          
+    }//GEN-LAST:event_ConsultarUsuariosActionPerformed
 
     private void btnReservasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservasActionPerformed
         ConsultarReservasAdministrador menuAdmin = new ConsultarReservasAdministrador(this.getLocation());
@@ -355,11 +350,11 @@ public class MostrarInmuebleAdministrador extends javax.swing.JFrame {
     }//GEN-LAST:event_btnImg3ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem ConsultarUsuarios;
     private javax.swing.JButton btnImg1;
     private javax.swing.JButton btnImg2;
     private javax.swing.JButton btnImg3;
     private javax.swing.JMenuItem btnReservas;
-    private javax.swing.JMenuItem btnReseñaModInm;
     private javax.swing.JMenuItem buscarGestionarInmuebles;
     private javax.swing.JLabel etiquetaBaños;
     private javax.swing.JLabel etiquetaCalificacion;

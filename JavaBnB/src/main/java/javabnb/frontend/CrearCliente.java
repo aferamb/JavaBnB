@@ -375,11 +375,12 @@ public class CrearCliente extends javax.swing.JFrame {
              int telefonoC = Integer.parseInt(telefonoCliente.getText().replace(" ",""));
             TarjetaCredito tarjeta = new TarjetaCredito(titularTarjetaCliente.getText(),Long.parseLong(numeroTarj),fechaConvertida);
             ClienteParticular cliente = new ClienteParticular(DNICliente.getText(),nombreCliente.getText(),emailCliente.getText(),contraseña,telefonoC,tarjeta,esVip);
-            GestorInmueble.addPersona(cliente);
+            
             this.dispose();
             InicioSesion ini = new InicioSesion();
             ini.setLocation(this.getLocation());
             ini.setVisible(true);
+            
         }
     
     }//GEN-LAST:event_botonCrearCuentaActionPerformed

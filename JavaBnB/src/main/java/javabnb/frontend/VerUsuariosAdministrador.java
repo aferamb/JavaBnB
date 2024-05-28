@@ -693,7 +693,9 @@ public class VerUsuariosAdministrador extends javax.swing.JFrame {
     }//GEN-LAST:event_botonSiguienteActionPerformed
 
     private void botonUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonUsuariosActionPerformed
-     
+        VerUsuariosAdministrador users= new VerUsuariosAdministrador(this.getLocation());
+        users.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_botonUsuariosActionPerformed
 
     private void botonInmueblesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonInmueblesActionPerformed
