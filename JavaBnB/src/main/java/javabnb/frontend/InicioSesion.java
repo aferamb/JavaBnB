@@ -188,7 +188,7 @@ public class InicioSesion extends javax.swing.JFrame {
     private void crearAnfitrionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearAnfitrionActionPerformed
         CrearAnfitrion crearAnfitrion = new CrearAnfitrion(this.getLocation());
         crearAnfitrion.setVisible(true); // Mostrar la ventana CrearCliente
-        this.setVisible(false); // Ocultar la ventana InicioSesion        
+        this.dispose(); // Ocultar la ventana InicioSesion        
     }//GEN-LAST:event_crearAnfitrionActionPerformed
 
     private void textoEmailFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_textoEmailFocusGained

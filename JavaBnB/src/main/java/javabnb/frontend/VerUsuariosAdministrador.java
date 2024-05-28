@@ -40,11 +40,13 @@ public class VerUsuariosAdministrador extends javax.swing.JFrame {
         this.setLocation(localizacion);
 
         Persona persona1 = listaUsuarios.get(startIndex);
-        Persona persona2 = listaUsuarios.get(startIndex);
-        Persona persona3 = listaUsuarios.get(startIndex);
-        Persona persona4 = listaUsuarios.get(startIndex);
+        Persona persona2 = listaUsuarios.get(startIndex+1);
+        Persona persona3 = listaUsuarios.get(startIndex+2);
+        Persona persona4 = listaUsuarios.get(startIndex+3);
         
         initComponents();
+        
+        
         this.setVisible(true);
         
         nombre.setText("");
@@ -53,8 +55,7 @@ public class VerUsuariosAdministrador extends javax.swing.JFrame {
         DNI.setText("");
         esVip.setText("");
         tipo4.setText("");
-        if (persona1 instanceof ClienteParticular) {superVip.setText("es Vip");}
-        else {superVip.setText("Superanfitrión");}
+
         
         
         nombre1.setText("");
@@ -63,8 +64,7 @@ public class VerUsuariosAdministrador extends javax.swing.JFrame {
         DNI1.setText("");
         esVip1.setText("");
         tipo1.setText("");
-        if (persona2 instanceof ClienteParticular) {superVip1.setText("es Vip");}
-        else {superVip1.setText("Superanfitrión");}
+
         
         nombre2.setText("");
         correo2.setText("");
@@ -72,8 +72,7 @@ public class VerUsuariosAdministrador extends javax.swing.JFrame {
         DNI2.setText("");
         esVip2.setText("");
         tipo2.setText("");
-        if (persona3 instanceof ClienteParticular) {superVip2.setText("es Vip");}
-        else {superVip2.setText("Superanfitrión");}
+
         
         nombre3.setText("");
         correo3.setText("");
@@ -81,70 +80,69 @@ public class VerUsuariosAdministrador extends javax.swing.JFrame {
         DNI3.setText("");
         esVip3.setText("");
         tipo3.setText("");
-        if (persona4 instanceof ClienteParticular) {superVip3.setText("es Vip");}
-        else {superVip3.setText("Superanfitrión");}
+  
 
     if (startIndex < listaUsuarios.size()) {
-        
+        persona1 = listaUsuarios.get(pagAct*4);
         nombre.setText(persona1.getNombre());
         correo.setText(persona1.getCorreo());
-        telefono.setText(String.valueOf((char) persona1.getTelefono()));
+        telefono.setText(String.valueOf( persona1.getTelefono()));
         DNI.setText(persona1.getDni());
         if (persona1 instanceof ClienteParticular) {
             if(((ClienteParticular)persona1).isVip()) {esVip.setText("Sí");}
-            else {esVip.setText("No");}}
+            if(!((ClienteParticular)persona1).isVip()) {esVip.setText("No");}
         else {esVip.setText("No Disponible");}
         if (persona1 instanceof ClienteParticular) { tipo4.setText("Cliente Particular");}
         else {tipo4.setText("Anfitrión");}
-        
+        }
     }
         
     if (startIndex+1 < listaUsuarios.size()) {
-        
+        persona2 = listaUsuarios.get(pagAct*4+1);
         nombre1.setText(persona2.getNombre());
         correo1.setText(persona2.getCorreo());
-        telefono1.setText(String.valueOf((char) persona2.getTelefono()));
+        telefono1.setText(String.valueOf( persona2.getTelefono()));
         DNI1.setText(persona2.getDni());
         if(persona instanceof ClienteParticular) {
             if(((ClienteParticular)persona2).isVip()) {esVip1.setText("Sí");}
-            else {esVip1.setText("No");}}
+            if(!((ClienteParticular)persona2).isVip()) {esVip1.setText("No");}
         else {esVip1.setText("No Disponible");}
         if (persona2 instanceof ClienteParticular) { tipo1.setText("Cliente Particular");}
         else {tipo1.setText("Anfitrión");}
-        
+        }
     }   
 
     if (startIndex+2 < listaUsuarios.size()) {
-        
+        persona3 = listaUsuarios.get(pagAct*4+2);
         nombre2.setText(persona3.getNombre());
         correo2.setText(persona3.getCorreo());
-        telefono2.setText(String.valueOf((char) persona3.getTelefono()));
+        telefono2.setText(String.valueOf( persona3.getTelefono()));
         DNI2.setText(persona3.getDni());
         if(persona2 instanceof ClienteParticular) {
             if(((ClienteParticular)persona3).isVip()) {esVip2.setText("Sí");}
-            else {esVip2.setText("No");}}
+            if(!((ClienteParticular)persona3).isVip()) {esVip2.setText("No");}
         else {esVip2.setText("No Disponible");}
         if (persona3 instanceof ClienteParticular) { tipo2.setText("Cliente Particular");}
         else {tipo2.setText("Anfitrión");}
-        
+        }  
     }
     
     if (startIndex+3 < listaUsuarios.size()) {
-        
+        persona4 = listaUsuarios.get(pagAct*4+3);
         nombre3.setText(persona4.getNombre());
         correo3.setText(persona4.getCorreo());
-        telefono3.setText(String.valueOf((char) persona4.getTelefono()));
+        telefono3.setText(String.valueOf( persona4.getTelefono()));
         DNI3.setText(persona4.getDni());
         if(persona instanceof ClienteParticular) {
             if(((ClienteParticular)persona4).isVip()) {esVip3.setText("Sí");}
-            else {esVip3.setText("No");}}
+            if(!((ClienteParticular)persona4).isVip()) {esVip3.setText("No");}
         else {esVip3.setText("No Disponible");}
         if (persona4 instanceof ClienteParticular) { tipo3.setText("Cliente Particular");}
         else {tipo3.setText("Anfitrión");}
         
     }
     }
-
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -293,7 +291,7 @@ public class VerUsuariosAdministrador extends javax.swing.JFrame {
         jPanel4.add(tipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 90, 180, -1));
 
         tipo4.setText("jLabel15");
-        jPanel4.add(tipo4, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 90, 50, -1));
+        jPanel4.add(tipo4, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 90, 100, -1));
 
         getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 50, 690, 130));
 
@@ -348,7 +346,7 @@ public class VerUsuariosAdministrador extends javax.swing.JFrame {
         jPanel5.add(esVip1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 50, 180, -1));
 
         tipo1.setText("jLabel6");
-        jPanel5.add(tipo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 90, 50, -1));
+        jPanel5.add(tipo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 90, 120, -1));
 
         superVip1.setText("Es  Vip");
         jPanel5.add(superVip1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 50, -1, -1));
@@ -395,7 +393,7 @@ public class VerUsuariosAdministrador extends javax.swing.JFrame {
         jPanel6.add(esVip2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 50, 180, -1));
 
         tipo2.setText("jLabel6");
-        jPanel6.add(tipo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 90, 50, -1));
+        jPanel6.add(tipo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 90, 120, -1));
 
         superVip2.setText("Es  Vip");
         jPanel6.add(superVip2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 50, -1, -1));
@@ -442,7 +440,7 @@ public class VerUsuariosAdministrador extends javax.swing.JFrame {
         jPanel7.add(esVip3, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 50, 180, -1));
 
         tipo3.setText("jLabel6");
-        jPanel7.add(tipo3, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 90, 50, -1));
+        jPanel7.add(tipo3, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 90, 140, -1));
 
         superVip3.setText("Es  Vip");
         jPanel7.add(superVip3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 50, -1, -1));
@@ -510,25 +508,19 @@ public class VerUsuariosAdministrador extends javax.swing.JFrame {
 
     private void botonAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAtrasActionPerformed
     if (pagAct >0) {pagAct--;}
-        
-        nombre.setText("");
-        correo.setText("");
-        telefono.setText("");
-        DNI.setText("");
-        esVip.setText("");
-        tipo4.setText("");
-        if (persona instanceof ClienteParticular) {superVip.setText("es Vip");}
-        else {superVip.setText("Superanfitrión");}
-        
-        
-        nombre1.setText("");
+        Persona persona1 = listaUsuarios.get(startIndex);
+        Persona persona2 = listaUsuarios.get(startIndex+1);
+        Persona persona3 = listaUsuarios.get(startIndex+2);
+        Persona persona4 = listaUsuarios.get(startIndex+3);
+    
+    
+       nombre1.setText("");
         correo1.setText("");
         telefono1.setText("");
         DNI1.setText("");
         esVip1.setText("");
         tipo1.setText("");
-        if (persona instanceof ClienteParticular) {superVip1.setText("es Vip");}
-        else {superVip1.setText("Superanfitrión");}
+
         
         nombre2.setText("");
         correo2.setText("");
@@ -536,8 +528,7 @@ public class VerUsuariosAdministrador extends javax.swing.JFrame {
         DNI2.setText("");
         esVip2.setText("");
         tipo2.setText("");
-        if (persona instanceof ClienteParticular) {superVip2.setText("es Vip");}
-        else {superVip2.setText("Superanfitrión");}
+
         
         nombre3.setText("");
         correo3.setText("");
@@ -545,95 +536,84 @@ public class VerUsuariosAdministrador extends javax.swing.JFrame {
         DNI3.setText("");
         esVip3.setText("");
         tipo3.setText("");
-        if (persona instanceof ClienteParticular) {superVip3.setText("es Vip");}
-        else {superVip3.setText("Superanfitrión");}
+
 
     if (startIndex < listaUsuarios.size()) {
-        Persona persona1 = listaUsuarios.get(startIndex);
-        
+        persona1 = listaUsuarios.get(pagAct*4);
         nombre.setText(persona1.getNombre());
         correo.setText(persona1.getCorreo());
-        telefono.setText(String.valueOf((char) persona1.getTelefono()));
+        telefono.setText(String.valueOf( persona1.getTelefono()));
         DNI.setText(persona1.getDni());
-        if(persona instanceof ClienteParticular) {
+        if (persona1 instanceof ClienteParticular) {
             if(((ClienteParticular)persona1).isVip()) {esVip.setText("Sí");}
-            else {esVip.setText("No");}}
+            if(!((ClienteParticular)persona1).isVip()) {esVip.setText("No");}
         else {esVip.setText("No Disponible");}
-        if (persona instanceof ClienteParticular) { tipo4.setText("Cliente Particular");}
+        if (persona1 instanceof ClienteParticular) { tipo4.setText("Cliente Particular");}
         else {tipo4.setText("Anfitrión");}
-        
+        } 
     }
         
     if (startIndex+1 < listaUsuarios.size()) {
-        Persona persona2 = listaUsuarios.get(startIndex+1);
-        
+        persona2 = listaUsuarios.get(pagAct*4+1);
         nombre1.setText(persona2.getNombre());
         correo1.setText(persona2.getCorreo());
-        telefono1.setText(String.valueOf((char) persona2.getTelefono()));
+        telefono1.setText(String.valueOf( persona2.getTelefono()));
         DNI1.setText(persona2.getDni());
         if(persona instanceof ClienteParticular) {
             if(((ClienteParticular)persona2).isVip()) {esVip1.setText("Sí");}
-            else {esVip1.setText("No");}}
+            if(!((ClienteParticular)persona2).isVip()) {esVip1.setText("No");}
         else {esVip1.setText("No Disponible");}
         if (persona2 instanceof ClienteParticular) { tipo1.setText("Cliente Particular");}
         else {tipo1.setText("Anfitrión");}
-        
+        }
     }   
 
     if (startIndex+2 < listaUsuarios.size()) {
-        Persona persona3 = listaUsuarios.get(startIndex+2);
-        
+        persona3 = listaUsuarios.get(pagAct*4+2);
         nombre2.setText(persona3.getNombre());
         correo2.setText(persona3.getCorreo());
-        telefono2.setText(String.valueOf((char) persona3.getTelefono()));
+        telefono2.setText(String.valueOf( persona3.getTelefono()));
         DNI2.setText(persona3.getDni());
-        if(persona instanceof ClienteParticular) {
+        if(persona2 instanceof ClienteParticular) {
             if(((ClienteParticular)persona3).isVip()) {esVip2.setText("Sí");}
-            else {esVip2.setText("No");}}
+            if(!((ClienteParticular)persona3).isVip()) {esVip2.setText("No");}
         else {esVip2.setText("No Disponible");}
-        if (persona instanceof ClienteParticular) { tipo2.setText("Cliente Particular");}
+        if (persona3 instanceof ClienteParticular) { tipo2.setText("Cliente Particular");}
         else {tipo2.setText("Anfitrión");}
-        
+        }
     }
     
     if (startIndex+3 < listaUsuarios.size()) {
-        Persona persona1 = listaUsuarios.get(startIndex);
-        
-        nombre3.setText(persona1.getNombre());
-        correo3.setText(persona1.getCorreo());
-        telefono3.setText(String.valueOf((char) persona1.getTelefono()));
-        DNI3.setText(persona1.getDni());
-        if(persona instanceof ClienteParticular) {
-            if(((ClienteParticular)persona1).isVip()) {esVip3.setText("Sí");}
-            else {esVip3.setText("No");}}
+        persona4 = listaUsuarios.get(pagAct*4+3);
+        nombre3.setText(persona4.getNombre());
+        correo3.setText(persona4.getCorreo());
+        telefono3.setText(String.valueOf( persona4.getTelefono()));
+        DNI3.setText(persona4.getDni());
+        if(persona4 instanceof ClienteParticular) {
+            if(((ClienteParticular)persona4).isVip()) {esVip3.setText("Sí");}
+           if(!((ClienteParticular)persona4).isVip()) {esVip3.setText("No");}
         else {esVip3.setText("No Disponible");}
-        if (persona instanceof ClienteParticular) { tipo3.setText("Cliente Particular");}
+        if (persona4 instanceof ClienteParticular) { tipo3.setText("Cliente Particular");}
         else {tipo3.setText("Anfitrión");}
-        
-    }
+        } }    
     }//GEN-LAST:event_botonAtrasActionPerformed
 
     private void botonSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSiguienteActionPerformed
         if (pagAct < numPag){ pagAct++;}
         
-        nombre.setText("");
-        correo.setText("");
-        telefono.setText("");
-        DNI.setText("");
-        esVip.setText("");
-        tipo4.setText("");
-        if (persona instanceof ClienteParticular) {superVip.setText("es Vip");}
-        else {superVip.setText("Superanfitrión");}
-        
-        
-        nombre1.setText("");
+        Persona persona1 = listaUsuarios.get(startIndex);
+        Persona persona2 = listaUsuarios.get(startIndex+1);
+        Persona persona3 = listaUsuarios.get(startIndex+2);
+        Persona persona4 = listaUsuarios.get(startIndex+3);
+    
+    
+       nombre1.setText("");
         correo1.setText("");
         telefono1.setText("");
         DNI1.setText("");
         esVip1.setText("");
         tipo1.setText("");
-        if (persona instanceof ClienteParticular) {superVip1.setText("es Vip");}
-        else {superVip1.setText("Superanfitrión");}
+        
         
         nombre2.setText("");
         correo2.setText("");
@@ -641,8 +621,7 @@ public class VerUsuariosAdministrador extends javax.swing.JFrame {
         DNI2.setText("");
         esVip2.setText("");
         tipo2.setText("");
-        if (persona instanceof ClienteParticular) {superVip2.setText("es Vip");}
-        else {superVip2.setText("Superanfitrión");}
+       
         
         nombre3.setText("");
         correo3.setText("");
@@ -650,77 +629,71 @@ public class VerUsuariosAdministrador extends javax.swing.JFrame {
         DNI3.setText("");
         esVip3.setText("");
         tipo3.setText("");
-        if (persona instanceof ClienteParticular) {superVip3.setText("es Vip");}
-        else {superVip3.setText("Superanfitrión");}
+        
 
     if (startIndex < listaUsuarios.size()) {
-        Persona persona1 = listaUsuarios.get(startIndex);
-        
+        persona1 = listaUsuarios.get(pagAct*4);
         nombre.setText(persona1.getNombre());
         correo.setText(persona1.getCorreo());
-        telefono.setText(String.valueOf((char) persona1.getTelefono()));
+        telefono.setText(String.valueOf( persona1.getTelefono()));
         DNI.setText(persona1.getDni());
-        if(persona instanceof ClienteParticular) {
+        if (persona1 instanceof ClienteParticular) {
             if(((ClienteParticular)persona1).isVip()) {esVip.setText("Sí");}
-            else {esVip.setText("No");}}
+            if(!((ClienteParticular)persona1).isVip()) {esVip.setText("No");}
         else {esVip.setText("No Disponible");}
-        if (persona instanceof ClienteParticular) { tipo4.setText("Cliente Particular");}
-        else {tipo4.setText("Anfitrión");}
-        
+        if (persona1 instanceof ClienteParticular) { tipo4.setText("Cliente Particular");}
+        else {tipo4.setText("Anfitrión");}}
+ 
     }
         
     if (startIndex+1 < listaUsuarios.size()) {
-        Persona persona1 = listaUsuarios.get(startIndex);
-        
-        nombre1.setText(persona1.getNombre());
-        correo1.setText(persona1.getCorreo());
-        telefono1.setText(String.valueOf((char) persona1.getTelefono()));
-        DNI1.setText(persona1.getDni());
-        if(persona instanceof ClienteParticular) {
-            if(((ClienteParticular)persona1).isVip()) {esVip1.setText("Sí");}
-            else {esVip1.setText("No");}}
+        persona2 = listaUsuarios.get(pagAct*4+1);
+        nombre1.setText(persona2.getNombre());
+        correo1.setText(persona2.getCorreo());
+        telefono1.setText(String.valueOf( persona2.getTelefono()));
+        DNI1.setText(persona2.getDni());
+        if(persona2 instanceof ClienteParticular) {
+            if(((ClienteParticular)persona2).isVip()) {esVip1.setText("Sí");}
+            if(!((ClienteParticular)persona2).isVip()) {esVip1.setText("No");}
         else {esVip1.setText("No Disponible");}
-        if (persona1 instanceof ClienteParticular) { tipo1.setText("Cliente Particular");}
+        if (persona2 instanceof ClienteParticular) { tipo1.setText("Cliente Particular");}
         else {tipo1.setText("Anfitrión");}
-        
+        }
     }   
 
     if (startIndex+2 < listaUsuarios.size()) {
-        Persona persona1 = listaUsuarios.get(startIndex);
-        
-        nombre2.setText(persona1.getNombre());
-        correo2.setText(persona1.getCorreo());
-        telefono2.setText(String.valueOf((char) persona1.getTelefono()));
-        DNI2.setText(persona1.getDni());
-        if(persona instanceof ClienteParticular) {
-            if(((ClienteParticular)persona1).isVip()) {esVip2.setText("Sí");}
-            else {esVip2.setText("No");}}
+        persona3 = listaUsuarios.get(pagAct*4+2);
+        nombre2.setText(persona3.getNombre());
+        correo2.setText(persona3.getCorreo());
+        telefono2.setText(String.valueOf( persona3.getTelefono()));
+        DNI2.setText(persona3.getDni());
+        if(persona2 instanceof ClienteParticular) {
+            if(((ClienteParticular)persona3).isVip()) {esVip2.setText("Sí");}
+            if(!((ClienteParticular)persona3).isVip()) {esVip2.setText("No");}
         else {esVip2.setText("No Disponible");}
-        if (persona instanceof ClienteParticular) { tipo2.setText("Cliente Particular");}
+        if (persona3 instanceof ClienteParticular) { tipo2.setText("Cliente Particular");}
         else {tipo2.setText("Anfitrión");}
-        
+        }
     }
     
     if (startIndex+3 < listaUsuarios.size()) {
-        Persona persona1 = listaUsuarios.get(startIndex);
-        
-        nombre3.setText(persona1.getNombre());
-        correo3.setText(persona1.getCorreo());
-        telefono3.setText(String.valueOf((char) persona1.getTelefono()));
-        DNI3.setText(persona1.getDni());
-        if(persona instanceof ClienteParticular) {
-            if(((ClienteParticular)persona1).isVip()) {esVip3.setText("Sí");}
-            else {esVip3.setText("No");}}
+        persona4 = listaUsuarios.get(pagAct*4+3);
+        nombre3.setText(persona4.getNombre());
+        correo3.setText(persona4.getCorreo());
+        telefono3.setText(String.valueOf( persona4.getTelefono()));
+        DNI3.setText(persona4.getDni());
+        if(persona4 instanceof ClienteParticular) {
+            if(((ClienteParticular)persona4).isVip()) {esVip3.setText("Sí");}
+            if(!((ClienteParticular)persona4).isVip()) {esVip3.setText("No");}
         else {esVip3.setText("No Disponible");}
-        if (persona instanceof ClienteParticular) { tipo3.setText("Cliente Particular");}
+        if (persona4 instanceof ClienteParticular) { tipo3.setText("Cliente Particular");}
         else {tipo3.setText("Anfitrión");}
-        
+        } 
     }
-
     }//GEN-LAST:event_botonSiguienteActionPerformed
 
     private void botonUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonUsuariosActionPerformed
-       
+     
     }//GEN-LAST:event_botonUsuariosActionPerformed
 
     private void botonInmueblesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonInmueblesActionPerformed

@@ -673,7 +673,8 @@ public class BuscarInmueblesAdministrador extends javax.swing.JFrame {
             if (botonReseña.isSelected()) {GestorInmueble.getInmueblesPorCalificacion();}
             if (filtroCasa.isSelected()) {GestorInmueble.getInmueblesPorTipo("CASA");}
             if (filtroApartamento.isSelected()) {GestorInmueble.getInmueblesPorTipo("APARTAMENTO");}
-            MostrarInmueble mostrarInmueble = new MostrarInmueble(this.getLocation(),persona,inmueble2);
+           MostrarInmuebleAdministrador mostrarInmueble = new MostrarInmuebleAdministrador (this.getLocation(),inmueble2);
+            this.dispose();
         }
     }//GEN-LAST:event_inmueble2ActionPerformed
 
@@ -684,7 +685,8 @@ public class BuscarInmueblesAdministrador extends javax.swing.JFrame {
             if (botonReseña.isSelected()) {GestorInmueble.getInmueblesPorCalificacion();}
             if (filtroCasa.isSelected()) {GestorInmueble.getInmueblesPorTipo("CASA");}
             if (filtroApartamento.isSelected()) {GestorInmueble.getInmueblesPorTipo("APARTAMENTO");}
-            MostrarInmueble mostrarInmueble = new MostrarInmueble(this.getLocation(),persona,inmueble3);
+            MostrarInmuebleAdministrador mostrarInmueble = new MostrarInmuebleAdministrador (this.getLocation(),inmueble3);
+            this.dispose();
         }
     }//GEN-LAST:event_inmueble3ActionPerformed
 
@@ -695,7 +697,8 @@ public class BuscarInmueblesAdministrador extends javax.swing.JFrame {
             if (botonReseña.isSelected()) {GestorInmueble.getInmueblesPorCalificacion();}
             if (filtroCasa.isSelected()) {GestorInmueble.getInmueblesPorTipo("CASA");}
             if (filtroApartamento.isSelected()) {GestorInmueble.getInmueblesPorTipo("APARTAMENTO");}
-            MostrarInmueble mostrarInmueble = new MostrarInmueble(this.getLocation(),persona,inmueble4);
+            MostrarInmuebleAdministrador mostrarInmueble = new MostrarInmuebleAdministrador (this.getLocation(),inmueble4);
+            this.dispose();
         }
     }//GEN-LAST:event_inmueble4ActionPerformed
 
