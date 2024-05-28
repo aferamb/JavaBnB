@@ -232,10 +232,10 @@ public class CrearAnfitrion extends javax.swing.JFrame {
              int telefonoA = Integer.parseInt(telefonoAnfitron.getText().replace(" ",""));
             Anfitrion anfitrion = new Anfitrion(DNIAnfitrion.getText(),nombreAnfitrion.getText(),emailAnfitrion.getText(),contraseña,telefonoA);
             GestorInmueble.addPersona(anfitrion);
-            this.dispose();
             InicioSesion ini = new InicioSesion();
             ini.setLocation(this.getLocation());
             ini.setVisible(true);
+            this.dispose();
         }
     
     }//GEN-LAST:event_botonCrearCuentaActionPerformed

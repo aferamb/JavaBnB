@@ -98,7 +98,6 @@ public class EditarAnfitrion extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("JavaBnB");
-        setMaximumSize(new java.awt.Dimension(900, 720));
         setMinimumSize(new java.awt.Dimension(900, 720));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());

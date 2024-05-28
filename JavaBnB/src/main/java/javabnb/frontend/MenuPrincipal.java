@@ -197,7 +197,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void btnReservasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservasActionPerformed
         if (persona instanceof Anfitrion){
-        
+        ConsultarReservasAnfitrion consultarReservas = new ConsultarReservasAnfitrion(this.getLocation(),persona);
+        this.dispose();
         }
         else{
         ConsultarReservasCliente consultarReservas = new ConsultarReservasCliente(this.getLocation(),persona);
