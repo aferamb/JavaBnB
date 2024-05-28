@@ -46,6 +46,7 @@ public class VentanaPago extends javax.swing.JFrame {
         Image imagen1 = inmueble.getFotos().get(0).getImage(); // transform it 
         Image newimg1 = imagen1.getScaledInstance(250, 250,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
         this.image1 = new ImageIcon(newimg1);  // transform it back
+        
         initComponents();
         this.setVisible(true);
         if (persona instanceof ClienteParticular) {
@@ -66,6 +67,7 @@ public class VentanaPago extends javax.swing.JFrame {
             btnReseñaModInm.setText("Modificar inmueble");
         }
         imgPrincipal.setIcon(image1);
+        etiquetaTitulo.setText(inmueble.getTitulo());
     }
 
     /**
@@ -312,12 +314,12 @@ public class VentanaPago extends javax.swing.JFrame {
          boolean fechaReservada = false;
         
         DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");  
-        DateTimeFormatter formatogood = DateTimeFormatter.ofPattern("yyyy/mm/dd");  
+        DateTimeFormatter formatogood = DateTimeFormatter.ofPattern("yyyy/MM/dd");  
         LocalDate fechaEntradaConvertida;
         LocalDate fechaSalidaConvertida;
         try {
-            fechaEntradaConvertida = LocalDate.parse(fechaDeEntrada.getText(), formatogood);
-            fechaSalidaConvertida = LocalDate.parse(fechaDeSalida.getText(), formatogood);
+            fechaEntradaConvertida = LocalDate.parse(fechaDeEntrada.getText(), formato);
+            fechaSalidaConvertida = LocalDate.parse(fechaDeSalida.getText(), formato);
             long dias = ChronoUnit.DAYS.between(fechaEntradaConvertida, fechaSalidaConvertida);
             double precio = inmueble.getPrecioNoche() * dias;
             if (cliente.isVip()) {

@@ -73,9 +73,8 @@ public class MostrarReserva extends javax.swing.JFrame {
         etiquetaBaños.setText(String.valueOf(reserva.getInmueble().getBaños()));
         etiquetaCalificacion.setText(String.valueOf(reserva.getInmueble().getCalificacion()));
         etiquetaCamas.setText(String.valueOf(reserva.getInmueble().getCamas()));
-        for (String servicio : reserva.getInmueble().getServicios()) {
-            FechaSalida.setText(FechaSalida.getText() + servicio + ", ");
-        }
+        
+        FechaSalida.setText(FechaSalida.getText());
         etiquetaDireccion.setText(reserva.getInmueble().getDireccion().getCalle() + ", " + reserva.getInmueble().getDireccion().getNumero() + ", " + reserva.getInmueble().getDireccion().getCodigoPostal() + ", " + reserva.getInmueble().getDireccion().getCiudad());
         etiquetaHabitaciones.setText(String.valueOf(reserva.getInmueble().getHabitaciones()));
         etiquetaHuespedes.setText(String.valueOf(reserva.getInmueble().getHuespedesMax()));
