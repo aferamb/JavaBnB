@@ -71,9 +71,8 @@ public class HacerReseña extends javax.swing.JFrame {
         btnImg2.setIcon(image2);
         btnImg3.setIcon(image3);
 
-        for (String servicio : reserva.getInmueble().getServicios()) {
-            FechaSalida.setText(FechaSalida.getText() + servicio + ", ");
-        }
+       
+        FechaSalida.setText(FechaSalida.getText());
         etiquetaDireccion.setText(reserva.getInmueble().getDireccion().getCalle() + ", " + reserva.getInmueble().getDireccion().getNumero() + ", " + reserva.getInmueble().getDireccion().getCodigoPostal() + ", " + reserva.getInmueble().getDireccion().getCiudad());
         etiquetaPrecio.setText(String.valueOf(reserva.getInmueble().getPrecioNoche()));
         etiquetaTitulo.setText(reserva.getInmueble().getTitulo());
@@ -98,7 +97,6 @@ public class HacerReseña extends javax.swing.JFrame {
         btnImg2 = new javax.swing.JButton();
         btnImg3 = new javax.swing.JButton();
         etiquetaPrecio = new javax.swing.JLabel();
-        btnReservar = new javax.swing.JButton();
         etiquetaDireccion = new javax.swing.JLabel();
         FechaSalida = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -199,18 +197,6 @@ public class HacerReseña extends javax.swing.JFrame {
         etiquetaPrecio.setMinimumSize(new java.awt.Dimension(100, 33));
         etiquetaPrecio.setPreferredSize(new java.awt.Dimension(100, 33));
         getContentPane().add(etiquetaPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 40, -1, -1));
-
-        btnReservar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnReservar.setText("Reservar");
-        btnReservar.setMaximumSize(new java.awt.Dimension(100, 33));
-        btnReservar.setMinimumSize(new java.awt.Dimension(100, 33));
-        btnReservar.setPreferredSize(new java.awt.Dimension(100, 33));
-        btnReservar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnReservarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnReservar, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 73, -1, -1));
 
         etiquetaDireccion.setText("Calle, numero, codPostal, Ciudad");
         etiquetaDireccion.setMaximumSize(new java.awt.Dimension(200, 25));
@@ -391,10 +377,6 @@ public class HacerReseña extends javax.swing.JFrame {
         imgPrincipal.setIcon(image3);
     }//GEN-LAST:event_btnImg3ActionPerformed
 
-    private void btnReservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservarActionPerformed
-
-    }//GEN-LAST:event_btnReservarActionPerformed
-
     private void barraCalificacionFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_barraCalificacionFocusLost
         numeroCalific.setText(String.valueOf(barraCalificacion.getValue()));
     }//GEN-LAST:event_barraCalificacionFocusLost
@@ -417,7 +399,6 @@ public class HacerReseña extends javax.swing.JFrame {
     private javax.swing.JButton btnImg1;
     private javax.swing.JButton btnImg2;
     private javax.swing.JButton btnImg3;
-    private javax.swing.JButton btnReservar;
     private javax.swing.JMenuItem btnReservas;
     private javax.swing.JMenuItem btnReseñaModInm;
     private javax.swing.JMenuItem buscarGestionarInmuebles;

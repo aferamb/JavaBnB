@@ -208,6 +208,7 @@ public class InicioSesion extends javax.swing.JFrame {
             }
         else{
         boolean mostrar = true;
+        
         for (Persona persona: personas){
             
             if (persona.getCorreo().equals(email) && persona.getClave().equals(contraseña)){

@@ -9,6 +9,7 @@ package javabnb.frontend;
 import java.awt.Image;
 import java.awt.Point;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
@@ -45,6 +46,7 @@ public class VentanaPago extends javax.swing.JFrame {
         Image imagen1 = inmueble.getFotos().get(0).getImage(); // transform it 
         Image newimg1 = imagen1.getScaledInstance(250, 250,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
         this.image1 = new ImageIcon(newimg1);  // transform it back
+        
         initComponents();
         this.setVisible(true);
         if (persona instanceof ClienteParticular) {
@@ -65,6 +67,7 @@ public class VentanaPago extends javax.swing.JFrame {
             btnReseñaModInm.setText("Modificar inmueble");
         }
         imgPrincipal.setIcon(image1);
+        etiquetaTitulo.setText(inmueble.getTitulo());
     }
 
     /**
@@ -311,6 +314,7 @@ public class VentanaPago extends javax.swing.JFrame {
          boolean fechaReservada = false;
         
         DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");  
+        DateTimeFormatter formatogood = DateTimeFormatter.ofPattern("yyyy/MM/dd");  
         LocalDate fechaEntradaConvertida;
         LocalDate fechaSalidaConvertida;
         try {
@@ -350,7 +354,6 @@ public class VentanaPago extends javax.swing.JFrame {
             String ruta = fileChooser.getSelectedFile().getAbsolutePath();
             try {
                 reserva.generarFactura(ruta);
-                cliente.addReserva(reserva);
             } catch (IOException e) {
                 JOptionPane.showMessageDialog(this,"Error al generar la factura","Error",JOptionPane.ERROR_MESSAGE);
                 e.printStackTrace();

@@ -71,7 +71,6 @@ public class BuscarInmuebles extends javax.swing.JFrame {
         precio1 = new javax.swing.JLabel();
         media1 = new javax.swing.JLabel();
         AmpliarInmueble1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         botonAtras = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         foto2 = new javax.swing.JLabel();
@@ -140,9 +139,6 @@ public class BuscarInmuebles extends javax.swing.JFrame {
         jPanel4.add(AmpliarInmueble1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 80, 130, -1));
 
         getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 50, 690, 130));
-
-        jButton2.setText("jButton2");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 730, 75, -1));
 
         botonAtras.setText("Anterior");
         botonAtras.addActionListener(new java.awt.event.ActionListener() {
@@ -294,6 +290,11 @@ public class BuscarInmuebles extends javax.swing.JFrame {
         jMenu3.setMinimumSize(new java.awt.Dimension(120, 22));
 
         jMenuItem2.setText("Consultar reservas");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         jMenu3.add(jMenuItem2);
 
         jMenuBar1.add(jMenu3);
@@ -363,28 +364,28 @@ public class BuscarInmuebles extends javax.swing.JFrame {
         Image newimg1 = imagen1.getScaledInstance(90, 10,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
         this.imagen1 = new ImageIcon(newimg1);*/
         titulo1.setText(inmueble1.getTitulo());
-        precio1.setText(Double.toString(inmueble1.getPrecioNoche()));
+        precio1.setText(Double.toString(inmueble1.getPrecioNoche()) + "€");
         media1.setText(Double.toString(inmueble1.getCalificacion()));
         foto1.setIcon((Icon) imagen1); // Asegúrate de manejar bien las fotos
     }
     if (startIndex + 1 < listaInmuebles.size()) {
         Inmueble inmueble2 = listaInmuebles.get(startIndex + 1);
         titulo2.setText(inmueble2.getTitulo());
-        precio2.setText(Double.toString(inmueble2.getPrecioNoche()));
+        precio2.setText(Double.toString(inmueble2.getPrecioNoche()) + "€");
         media2.setText(Double.toString(inmueble2.getCalificacion()));
         foto2.setIcon(inmueble2.getFotos().get(0));
     }
     if (startIndex + 2 < listaInmuebles.size()) {
         Inmueble inmueble3 = listaInmuebles.get(startIndex + 2);
         titulo3.setText(inmueble3.getTitulo());
-        precio3.setText(Double.toString(inmueble3.getPrecioNoche()));
+        precio3.setText(Double.toString(inmueble3.getPrecioNoche()) + "€");
         media3.setText(Double.toString(inmueble3.getCalificacion()));
         foto3.setIcon(inmueble3.getFotos().get(0));
     }
     if (startIndex + 3 < listaInmuebles.size()) {
         Inmueble inmueble4 = listaInmuebles.get(startIndex + 3);
         titulo4.setText(inmueble4.getTitulo());
-        precio4.setText(Double.toString(inmueble4.getPrecioNoche()));
+        precio4.setText(Double.toString(inmueble4.getPrecioNoche()) + "€");
         media4.setText(Double.toString(inmueble4.getCalificacion()));
         foto4.setIcon(inmueble4.getFotos().get(0));
     }  
@@ -423,28 +424,28 @@ public class BuscarInmuebles extends javax.swing.JFrame {
         Inmueble inmueble1 = listaInmuebles.get(startIndex);
         Image imagen1 = inmueble1.getFotos().get(0).getImage();
         titulo1.setText(inmueble1.getTitulo());
-        precio1.setText(Double.toString(inmueble1.getPrecioNoche()));
+        precio1.setText(Double.toString(inmueble1.getPrecioNoche()) + "€");
         media1.setText(Double.toString(inmueble1.getCalificacion()));
         foto1.setIcon(inmueble1.getFotos().get(0)); // Asegúrate de manejar bien las fotos
     }
     if (startIndex + 1 < listaInmuebles.size()) {
         Inmueble inmueble2 = listaInmuebles.get(startIndex + 1);
         titulo2.setText(inmueble2.getTitulo());
-        precio2.setText(Double.toString(inmueble2.getPrecioNoche()));
+        precio2.setText(Double.toString(inmueble2.getPrecioNoche()) + "€");
         media2.setText(Double.toString(inmueble2.getCalificacion()));
         foto2.setIcon(inmueble2.getFotos().get(0));
     }
     if (startIndex + 2 < listaInmuebles.size()) {
         Inmueble inmueble3 = listaInmuebles.get(startIndex + 2);
         titulo3.setText(inmueble3.getTitulo());
-        precio3.setText(Double.toString(inmueble3.getPrecioNoche()));
+        precio3.setText(Double.toString(inmueble3.getPrecioNoche()) + "€");
         media3.setText(Double.toString(inmueble3.getCalificacion()));
         foto3.setIcon(inmueble3.getFotos().get(0));
     }
     if (startIndex + 3 < listaInmuebles.size()) {
         Inmueble inmueble4 = listaInmuebles.get(startIndex + 3);
         titulo4.setText(inmueble4.getTitulo());
-        precio4.setText(Double.toString(inmueble4.getPrecioNoche()));
+        precio4.setText(Double.toString(inmueble4.getPrecioNoche()) + "€");
         media4.setText(Double.toString(inmueble4.getCalificacion()));
         foto4.setIcon(inmueble4.getFotos().get(0));
     }
@@ -478,28 +479,28 @@ public class BuscarInmuebles extends javax.swing.JFrame {
         Image imagen1 = inmueble1.getFotos().get(0).getImage();
         
         titulo1.setText(inmueble1.getTitulo());
-        precio1.setText(Double.toString(inmueble1.getPrecioNoche()));
+        precio1.setText(Double.toString(inmueble1.getPrecioNoche()) + "€");
         media1.setText(Double.toString(inmueble1.getCalificacion()));
         foto1.setIcon(inmueble1.getFotos().get(0)); // Asegúrate de manejar bien las fotos
     }
     if (startIndex + 1 < listaInmuebles.size()) {
         Inmueble inmueble2 = listaInmuebles.get(startIndex + 1);
         titulo2.setText(inmueble2.getTitulo());
-        precio2.setText(Double.toString(inmueble2.getPrecioNoche()));
+        precio2.setText(Double.toString(inmueble2.getPrecioNoche()) + "€");
         media2.setText(Double.toString(inmueble2.getCalificacion()));
         foto2.setIcon(inmueble2.getFotos().get(0));
     }
     if (startIndex + 2 < listaInmuebles.size()) {
         Inmueble inmueble3 = listaInmuebles.get(startIndex + 2);
         titulo3.setText(inmueble3.getTitulo());
-        precio3.setText(Double.toString(inmueble3.getPrecioNoche()));
+        precio3.setText(Double.toString(inmueble3.getPrecioNoche()) + "€");
         media3.setText(Double.toString(inmueble3.getCalificacion()));
         foto3.setIcon(inmueble3.getFotos().get(0));
     }
     if (startIndex + 3 < listaInmuebles.size()) {
         Inmueble inmueble4 = listaInmuebles.get(startIndex + 3);
         titulo4.setText(inmueble4.getTitulo());
-        precio4.setText(Double.toString(inmueble4.getPrecioNoche()));
+        precio4.setText(Double.toString(inmueble4.getPrecioNoche()) + "€");
         media4.setText(Double.toString(inmueble4.getCalificacion()));
         foto4.setIcon(inmueble4.getFotos().get(0));
     }
@@ -535,28 +536,28 @@ public class BuscarInmuebles extends javax.swing.JFrame {
         Inmueble inmueble1 = listaInmuebles.get(pagAct*4);
         Image imagen1 = inmueble1.getFotos().get(0).getImage();
         titulo1.setText(inmueble1.getTitulo());
-        precio1.setText(Double.toString(inmueble1.getPrecioNoche()));
+        precio1.setText(Double.toString(inmueble1.getPrecioNoche()) + "€");
         media1.setText(Double.toString(inmueble1.getCalificacion()));
         foto1.setIcon(inmueble1.getFotos().get(0)); // Asegúrate de manejar bien las fotos
     }
     if (startIndex + 1 < listaInmuebles.size()) {
         Inmueble inmueble2 = listaInmuebles.get(pagAct*4 + 1);
         titulo2.setText(inmueble2.getTitulo());
-        precio2.setText(Double.toString(inmueble2.getPrecioNoche()));
+        precio2.setText(Double.toString(inmueble2.getPrecioNoche()) + "€");
         media2.setText(Double.toString(inmueble2.getCalificacion()));
         foto2.setIcon(inmueble2.getFotos().get(0));
     }
     if (startIndex + 2 < listaInmuebles.size()) {
         Inmueble inmueble3 = listaInmuebles.get(pagAct*4 + 2);
         titulo3.setText(inmueble3.getTitulo());
-        precio3.setText(Double.toString(inmueble3.getPrecioNoche()));
+        precio3.setText(Double.toString(inmueble3.getPrecioNoche()) + "€");
         media3.setText(Double.toString(inmueble3.getCalificacion()));
         foto3.setIcon(inmueble3.getFotos().get(0));
     }
     if (startIndex + 3 < listaInmuebles.size()) {
         Inmueble inmueble4 = listaInmuebles.get(pagAct*4 + 3);
         titulo4.setText(inmueble4.getTitulo());
-        precio4.setText(Double.toString(inmueble4.getPrecioNoche()));
+        precio4.setText(Double.toString(inmueble4.getPrecioNoche()) + "€");
         media4.setText(Double.toString(inmueble4.getCalificacion()));
         foto4.setIcon(inmueble4.getFotos().get(0));
     }    
@@ -572,6 +573,7 @@ public class BuscarInmuebles extends javax.swing.JFrame {
             if (filtroCasa.isSelected()) {GestorInmueble.getInmueblesPorTipo("CASA");}
             if (filtroApartamento.isSelected()) {GestorInmueble.getInmueblesPorTipo("APARTAMENTO");}
             MostrarInmueble mostrarInmueble = new MostrarInmueble(this.getLocation(),persona,inmueble1);
+            this.dispose();
          }
     }//GEN-LAST:event_AmpliarInmueble1ActionPerformed
 
@@ -606,28 +608,28 @@ public class BuscarInmuebles extends javax.swing.JFrame {
         Inmueble inmueble1 = listaInmuebles.get(startIndex);
         Image imagen1 = inmueble1.getFotos().get(0).getImage();
         titulo1.setText(inmueble1.getTitulo());
-            precio1.setText(Double.toString(inmueble1.getPrecioNoche()));
+            precio1.setText(Double.toString(inmueble1.getPrecioNoche()) + "€");
         media1.setText(Double.toString(inmueble1.getCalificacion()));
         foto1.setIcon(inmueble1.getFotos().get(0)); // Asegúrate de manejar bien las fotos
     }
     if (startIndex + 1 < listaInmuebles.size()) {
         Inmueble inmueble2 = listaInmuebles.get(startIndex + 1);
         titulo2.setText(inmueble2.getTitulo());
-        precio2.setText(Double.toString(inmueble2.getPrecioNoche()));
+        precio2.setText(Double.toString(inmueble2.getPrecioNoche()) + "€");
         media2.setText(Double.toString(inmueble2.getCalificacion()));
         foto2.setIcon(inmueble2.getFotos().get(0));
     }
     if (startIndex + 2 < listaInmuebles.size()) {
         Inmueble inmueble3 = listaInmuebles.get(startIndex + 2);
         titulo3.setText(inmueble3.getTitulo());
-       precio3.setText(Double.toString(inmueble3.getPrecioNoche()));
+       precio3.setText(Double.toString(inmueble3.getPrecioNoche()) + "€");
         media3.setText(Double.toString(inmueble3.getCalificacion()));
         foto3.setIcon(inmueble3.getFotos().get(0));
     }
     if (startIndex + 3 < listaInmuebles.size()) {
         Inmueble inmueble4 = listaInmuebles.get(startIndex + 3);
         titulo4.setText(inmueble4.getTitulo());
-        precio4.setText(Double.toString(inmueble4.getPrecioNoche()));
+        precio4.setText(Double.toString(inmueble4.getPrecioNoche()) + "€");
         media4.setText(Double.toString(inmueble4.getCalificacion()));
         foto4.setIcon(inmueble4.getFotos().get(0));
     }
@@ -665,28 +667,28 @@ public class BuscarInmuebles extends javax.swing.JFrame {
         Inmueble inmueble1 = listaInmuebles.get(startIndex);
         Image imagen1 = inmueble1.getFotos().get(0).getImage();
         titulo1.setText(inmueble1.getTitulo());
-        precio1.setText(Double.toString(inmueble1.getPrecioNoche()));
+        precio1.setText(Double.toString(inmueble1.getPrecioNoche()) + "€");
         media1.setText(Double.toString(inmueble1.getCalificacion()));
         foto1.setIcon(inmueble1.getFotos().get(0)); // Asegúrate de manejar bien las fotos
     }
     if (startIndex + 1 < listaInmuebles.size()) {
         Inmueble inmueble2 = listaInmuebles.get(startIndex + 1);
         titulo2.setText(inmueble2.getTitulo());
-        precio2.setText(Double.toString(inmueble2.getPrecioNoche()));
+        precio2.setText(Double.toString(inmueble2.getPrecioNoche()) + "€");
         media2.setText(Double.toString(inmueble2.getCalificacion()));
         foto2.setIcon(inmueble2.getFotos().get(0));
     }
     if (startIndex + 2 < listaInmuebles.size()) {
         Inmueble inmueble3 = listaInmuebles.get(startIndex + 2);
         titulo3.setText(inmueble3.getTitulo());
-        precio3.setText(Double.toString(inmueble3.getPrecioNoche()));
+        precio3.setText(Double.toString(inmueble3.getPrecioNoche()) + "€");
         media3.setText(Double.toString(inmueble3.getCalificacion()));
         foto3.setIcon(inmueble3.getFotos().get(0));
     }
     if (startIndex + 3 < listaInmuebles.size()) {
         Inmueble inmueble4 = listaInmuebles.get(startIndex + 3);
         titulo4.setText(inmueble4.getTitulo());
-        precio4.setText(Double.toString(inmueble4.getPrecioNoche()));
+        precio4.setText(Double.toString(inmueble4.getPrecioNoche()) + "€");
         media4.setText(Double.toString(inmueble4.getCalificacion()));
         foto4.setIcon(inmueble4.getFotos().get(0));
     }  
@@ -701,6 +703,8 @@ public class BuscarInmuebles extends javax.swing.JFrame {
             if (filtroCasa.isSelected()) {GestorInmueble.getInmueblesPorTipo("CASA");}
             if (filtroApartamento.isSelected()) {GestorInmueble.getInmueblesPorTipo("APARTAMENTO");}
             MostrarInmueble mostrarInmueble = new MostrarInmueble(this.getLocation(),persona,inmueble2);
+            this.dispose();
+            
         }
     }//GEN-LAST:event_inmueble2ActionPerformed
 
@@ -712,6 +716,7 @@ public class BuscarInmuebles extends javax.swing.JFrame {
             if (filtroCasa.isSelected()) {GestorInmueble.getInmueblesPorTipo("CASA");}
             if (filtroApartamento.isSelected()) {GestorInmueble.getInmueblesPorTipo("APARTAMENTO");}
             MostrarInmueble mostrarInmueble = new MostrarInmueble(this.getLocation(),persona,inmueble3);
+            this.dispose();
         }
     }//GEN-LAST:event_inmueble3ActionPerformed
 
@@ -723,16 +728,40 @@ public class BuscarInmuebles extends javax.swing.JFrame {
             if (filtroCasa.isSelected()) {GestorInmueble.getInmueblesPorTipo("CASA");}
             if (filtroApartamento.isSelected()) {GestorInmueble.getInmueblesPorTipo("APARTAMENTO");}
             MostrarInmueble mostrarInmueble = new MostrarInmueble(this.getLocation(),persona,inmueble4);
+            this.dispose();
         }
     }//GEN-LAST:event_inmueble4ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        // TODO add your handling code here:
+        if (persona instanceof ClienteParticular) {
+            BuscarInmuebles busquedaInm = new BuscarInmuebles(this.getLocation(),persona);
+            this.dispose();
+        } else {
+            CrearInmueble crearInmueble = new CrearInmueble(this.getLocation(),persona);
+            this.dispose();
+        }
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-        // TODO add your handling code here:
+        if (persona instanceof Anfitrion) {
+            ModificarInmueble modInmueble = new ModificarInmueble(this.getLocation(),persona);
+            this.dispose();
+        }
+        else {
+            AñadirReseña añadirReseña = new AñadirReseña(this.getLocation(),persona);
+            this.dispose();
+        }  
     }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        if (persona instanceof Anfitrion){
+        ConsultarReservasAnfitrion consultarReservas = new ConsultarReservasAnfitrion(this.getLocation(),persona);
+        this.dispose();
+        }
+        else{
+        ConsultarReservasCliente consultarReservas = new ConsultarReservasCliente(this.getLocation(),persona);
+        this.dispose();}
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
    
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -757,7 +786,6 @@ public class BuscarInmuebles extends javax.swing.JFrame {
     private javax.swing.JButton inmueble3;
     private javax.swing.JButton inmueble4;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;

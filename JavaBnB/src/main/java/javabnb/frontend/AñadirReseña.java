@@ -361,7 +361,7 @@ public class AñadirReseña extends javax.swing.JFrame {
 
     private void buscarGestionarInmueblesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarGestionarInmueblesActionPerformed
         if (persona instanceof ClienteParticular) {
-            //BuscarInmuebles busquedaInm = new BuscarInmuebles(this.getLocation(),persona);
+            BuscarInmuebles busquedaInm = new BuscarInmuebles(this.getLocation(),persona);
             this.dispose();
         } else {
             CrearInmueble crearInmueble = new CrearInmueble(this.getLocation(),persona);
